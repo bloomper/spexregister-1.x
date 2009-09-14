@@ -4,6 +4,10 @@
 
 Denna applikation är ett webbaserat register för Chalmersspexets räkning.
 
+== Ändringar/tillägg
+
+- SQLite
+
 == Miljö
 
 - Apache 2.2.4
