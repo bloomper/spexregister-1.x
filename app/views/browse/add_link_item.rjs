@@ -1,7 +1,0 @@
-@options = { :action => 'view_link_item', :link_item_id => @link_item.id, :parent_action => params[:parent_action] }
-@add_options = @options.merge(:action => 'add_link_item', :link_item_id => params[:link_item_id])
-
-page.insert_html :bottom, 'spexareItemLinksTBody', :partial => 'link_item', :locals => { :hidden => true, :parent_action => params[:parent_action], :spexare_item_id => params[:spexare_item_id] }
-page.remove element_row_id(@add_options)
-page.show element_row_id(@options)
-page << "Spexregister.stripe('spexareItemLinksTable');"

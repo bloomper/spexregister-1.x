@@ -1,9 +1,0 @@
-<% @page_title = 'Skapa spex...' %>
-
-<%= render :partial => 'shared/error' %>
-<%= render :partial => 'shared/message' %>
-<%= render :partial => 'shared/validation_errors' %>
-
-<% form_for :spex_item, :url => { :action => 'create' }, :html => { :multipart => true } do |form| %>
-  <%= render :partial => 'form', :locals => { :action => 'new', :form => form } %>
-<% end %>

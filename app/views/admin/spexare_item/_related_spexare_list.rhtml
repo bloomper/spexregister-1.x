@@ -1,5 +1,0 @@
-<ul class="spexareItemDialogRelatedSpexareItems">
-  <% @spexare_items.each do |spexare_item| %>
-    <li class="spexareItemDialogRelatedSpexareItem"><%= h(spexare_item.first_name) %>&nbsp;<%= "&quot;#{spexare_item.nick_name}&quot;&nbsp;" unless spexare_item.nick_name.nil? || spexare_item.nick_name.empty? %><%= h(spexare_item.last_name) %></li>
-  <% end %>
-</ul>

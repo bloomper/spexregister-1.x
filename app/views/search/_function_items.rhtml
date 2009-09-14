@@ -1,6 +1,0 @@
-<% if !disabled %>
-  <%= select_tag('function_item[id]', options_for_select([['', '-1']] + get_function_names_by_category(function_category_item_id)), { :tabindex => 5 }) %>
-<% else %>
-  <select id="function_item[id]" name="function_item[id]" disabled="true">
-  </select>
-<% end %>

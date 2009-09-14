@@ -1,9 +1,0 @@
-<% if !disabled %>
-  <%= select_tag('dummy_link_item[spex_item][id]', options_for_select(get_spex_titles_by_category(spex_category_item_id), @link_item.nil? ? nil : @link_item.spex_item.id), {:onchange => "Form.Element.setValue('link_item[spex_item][id]', Form.Element.getValue('dummy_link_item[spex_item][id]'));"}) %>
-  <script type="text/javascript">
-    Form.Element.setValue("dummy_link_item[spex_item][id]", Form.Element.getValue("link_item[spex_item][id]"));
-  </script>
-<% else %>
-  <select id="dummy_link_item[spex_item][id]" name="dummy_link_item[spex_item][id]" disabled="true">
-  </select>
-<% end %>

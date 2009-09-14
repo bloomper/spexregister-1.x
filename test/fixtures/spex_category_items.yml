@@ -1,8 +1,0 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-test_category_1:
-  id: 1
-  category_name: 'Test Category 1'
-test_category_2:
-  id: 2
-  category_name: 'Test Category 2'
-

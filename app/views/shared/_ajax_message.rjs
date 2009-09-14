@@ -1,3 +1,0 @@
-page.replace_html 'messagePane', content_tag('ul', content_tag('li', message))
-page.show 'messagePane'
-page.visual_effect :highlight, 'messagePane', { :startcolor => "'#7e93aa'", :endcolor => "'#39597d'" }

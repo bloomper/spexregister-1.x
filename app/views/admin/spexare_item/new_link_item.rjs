@@ -1,6 +1,0 @@
-@options = { :action => 'add_link_item', :action_desc => 'Lägg till', :link_item_id => generate_temporary_id, :spexare_item_id => params[:spexare_item_id], :parent_action => params[:parent_action] }
-
-page.insert_html :top, 'spexareItemLinksTBody', :partial => 'new_edit_link_item', :locals => { :action => 'add' }
-page.hide 'emptyMessage'
-page.show element_row_id(@options)
-page.visual_effect :highlight, element_cell_id(@options), { :startcolor => "'#7e93aa'", :endcolor => "'#39597d'" }

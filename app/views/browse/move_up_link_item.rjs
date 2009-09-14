@@ -1,4 +1,0 @@
-@options = { :action => 'view_link_item', :link_item_id => params[:link_item_id] }
-
-page << "new TableRowMover.MoveUp('#{element_row_id(@options)}');"
-page << "Spexregister.stripe('spexareItemLinksTable');"

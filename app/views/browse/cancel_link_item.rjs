@@ -1,9 +1,0 @@
-@options = { :action => params[:referring_action], :link_item_id => params[:link_item_id] }
-
-page.remove element_row_id(@options)
-if @options[:action] == 'update_link_item'
-  page.show element_row_id(@options.merge(:action => 'view_link_item'))
-elsif @options[:action] == 'add_link_item'
-  page << "Spexregister.displayMessageIfEmpty('spexareItemLinksTBody','emptyMessage');"
-end
-
