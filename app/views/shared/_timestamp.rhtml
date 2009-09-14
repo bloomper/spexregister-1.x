@@ -1,0 +1,18 @@
+<% if !item.nil? %>
+  <tr>
+    <td class="normalLabelCell">
+      Skapad
+    </td>
+    <td class="normalFieldCell">
+      <%= h(item[:created_at].to_formatted_s(:long_format)) %>
+    </td>
+  </tr>
+  <tr>
+    <td class="normalLabelCell">
+      Senast uppdaterad
+    </td>
+    <td class="normalFieldCell">
+      <%= h(item[:updated_at].to_formatted_s(:long_format)) %>
+    </td>
+  </tr>
+<% end %>

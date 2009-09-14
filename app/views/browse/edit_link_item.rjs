@@ -1,0 +1,9 @@
+@options = { :action => 'update_link_item', :action_desc => 'Ändra', :link_item_id => params[:link_item_id] }
+@view_options = @options.merge(:action => 'view_link_item')
+
+page.hide element_row_id(@view_options)
+page.insert_html :bottom, 'spexareItemLinksTBody', :partial => 'new_edit_link_item', :locals => { :action => 'update' }
+page << "new TableRow.MoveAfter('#{element_row_id(@view_options)}', '#{element_row_id(@options)}');"  
+page.show element_row_id(@options)
+page.visual_effect :highlight, element_cell_id(@options), { :startcolor => "'#7e93aa'", :endcolor => "'#39597d'" }
+

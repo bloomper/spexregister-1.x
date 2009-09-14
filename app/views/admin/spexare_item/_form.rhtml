@@ -1,0 +1,295 @@
+<div id="spexareItemDialog">
+  <table>
+    <tr>
+      <td width="25%" class="normalLabelCell">
+        <label for="spexare_item_first_name">Förnamn</label>
+      </td>
+      <td width="30%" class="normalFieldCell">
+        <%= form.text_field :first_name, :tabindex => 1, :maxlength => 30 %>
+      </td>
+      <td width="5%">
+        &nbsp;
+      </td>
+      <td width="30%" class="normalLabelCell">
+        <label for="spexare_item_chalmers_student">Chalmerist</label>
+      </td>
+      <td width="10%" class="leftAligned">
+        <%= form.check_box :chalmers_student, :tabindex => 17 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item_last_name">Efternamn</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_field :last_name, :tabindex => 2, :maxlength => 40 %>
+      </td>
+      <td>
+        &nbsp;
+      </td>
+      <td class="normalLabelCell">
+        <label for="spexare_item_graduation">Examen</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_field :graduation, :tabindex => 18, :maxlength => 5 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item_nick_name">Smeknamn</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_field :nick_name, :tabindex => 3, :maxlength => 30 %>
+      </td>
+      <td>
+        &nbsp;
+      </td>
+      <td class="normalLabelCell">
+        <label for="spexare_item_fgv_member">Medlem i FGV</label>
+      </td>
+      <td class="leftAligned">
+        <%= form.check_box :fgv_member, :tabindex => 19 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item_street_address">Gatuadress</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_field :street_address, :tabindex => 4, :maxlength => 75 %>
+      </td>
+      <td>
+        &nbsp;
+      </td>
+      <td class="normalLabelCell">
+        <label for="spexare_item_alumni_member">Medlem i CING</label>
+      </td>
+      <td class="leftAligned">
+        <%= form.check_box :alumni_member, :tabindex => 20 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item_postal_code">Postnummer</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_field :postal_code, :tabindex => 5, :maxlength => 30 %>
+      </td>
+      <td>
+        &nbsp;
+      </td>
+      <td class="normalLabelCell">
+        <label for="spexare_item_publish_approval">Tillåter webbpublicering</label>
+      </td>
+      <td class="leftAligned">
+        <%= form.check_box :publish_approval, :tabindex => 21 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item_postal_address">Postadress</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_field :postal_code, :tabindex => 6, :maxlength => 40 %>
+      </td>
+      <td>
+        &nbsp;
+      </td>
+      <td class="normalLabelCell">
+        <label for="spexare_item_want_circulars">Vill ha utskick</label>
+      </td>
+      <td class="leftAligned">
+        <%= form.check_box :want_circulars, :tabindex => 22 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item_country">Land</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_field :country, :tabindex => 7, :maxlength => 30 %>
+      </td>
+      <td>
+        &nbsp;
+      </td>
+      <td class="normalLabelCell">
+        <label for="spexare_item_uncertain_address">Osäker adress</label>
+      </td>
+      <td class="leftAligned">
+        <%= form.check_box :uncertain_address, :tabindex => 23 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item_phone_home">Telefon (hem)</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_field :phone_home, :tabindex => 8, :maxlength => 25 %>
+      </td>
+      <td>
+        &nbsp;
+      </td>
+      <td class="normalLabelCell">
+        <label for="spexare_item_deceased">Avliden</label>
+      </td>
+      <td class="leftAligned">
+        <%= form.check_box :deceased, :tabindex => 24 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item_phone_work">Telefon (arbete)</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_field :phone_work, :tabindex => 9, :maxlength => 25 %>
+      </td>
+      <td colspan="3">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item_phone_mobile">Telefon (mobil)</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_field :phone_mobile, :tabindex => 10, :maxlength => 25 %>
+      </td>
+      <td colspan="3">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item_phone_other">Telefon (annat)</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_field :phone_other, :tabindex => 11, :maxlength => 25 %>
+      </td>
+      <td colspan="3">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item_email_address">Emailadress</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_field :email_address, :tabindex => 12, :maxlength => 50 %>
+      </td>
+      <td colspan="3">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item_birth_date">Födelsedatum</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.hidden_field :birth_date %>
+        <% if action == 'edit' %>
+          <a id="_spexare_item_birth_date_link" href="#" onclick="DatePicker.toggleDatePicker('spexare_item_birth_date')"><%= @spexare_item.birth_date %></a>
+        <% else %>
+          <a id="_spexare_item_birth_date_link" href="#" onclick="DatePicker.toggleDatePicker('spexare_item_birth_date')"><img valign="bottom" src="/images/date.png"/></a>
+        <% end %>
+        <div id="_spexare_item_birth_date_calendar" class="date_picker" style="display:none">
+        </div>
+      </td>
+      <td colspan="3">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item_social_security">Personnummer</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_field :email_address, :tabindex => 13, :maxlength => 4 %>
+      </td>
+      <td colspan="3">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <% if !@spexare_item.spexare_picture_item.nil? && FileTest.exists?(@spexare_item.spexare_picture_item.full_filename) && SpexarePictureItem.image?(@spexare_item.spexare_picture_item.content_type) %>
+        <td rowspan="2" class="normalLabelCell">
+          <label for="spexare_picture_item">Bild</label>
+        </td>
+      <% else %>
+        <td class="normalLabelCell">
+          <label for="spexare_picture_item">Bild</label>
+        </td>
+      <% end %>
+      <td class="normalFieldCell">
+        <% fields_for :spexare_picture_item do |spexare_picture_item| %>
+          <%= spexare_picture_item.file_field :uploaded_data, :tabindex => 14 %>
+        <% end %>
+        <%= hidden_field_tag('picture_removed') %>
+      </td>
+      <td colspan="3">
+        &nbsp;
+      </td>
+    </tr>
+    <% if !@spexare_item.spexare_picture_item.nil? && FileTest.exists?(@spexare_item.spexare_picture_item.full_filename) && SpexarePictureItem.image?(@spexare_item.spexare_picture_item.content_type) %>
+      <tr>
+        <td class="centerAligned">
+          <a id="pictureThumbnail" href="<%= @spexare_item.spexare_picture_item.public_filename %>" rel="lightbox"><%= image_tag(@spexare_item.spexare_picture_item.public_filename('thumb')) %></a>
+          <input id="pictureThumbnailButton" type="button" value="Ta bort" class="button" onclick="new Effect.Fade('pictureThumbnail');new Effect.Fade('pictureThumbnailButton');$('picture_removed').value=true;"/>
+        </td>
+        <td colspan="3">
+          &nbsp;
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item_related_spexare">Gift/sambo med</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_field :related_spexare_item_full_name, :tabindex => 15, :autocomplete => 'off' %>
+        <div id="auto_complete_for_spexare_item_related_spexare_item_full_name" class="auto_complete"></div>
+        <%= auto_complete_field 'spexare_item_related_spexare_item_full_name', { :url => { :action => 'auto_complete_for_spexare_item_related_spexare_item_full_name' }, :update => 'auto_complete_for_spexare_item_related_spexare_item_full_name', :with => "'spexare_item_related_spexare_item_full_name=' + $('spexare_item_related_spexare_item_full_name').value + '&spexare_item_id=" + @spexare_item.id.to_s + "'" } %>
+      </td>
+      <td colspan="3">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item_comment">Kommentar</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_area :comment, :tabindex => 16 %>
+      </td>
+      <td colspan="3">
+        &nbsp;
+      </td>
+    </tr>
+    <% if action == 'edit' %>
+      <%= render :partial => '/shared/timestamp', :locals => { :item => @spexare_item } %>
+      <tr>
+        <td colspan="5" class="rightAligned">
+          <%= submit_tag('Ändra', :tabindex => 27, :class => 'button') %>
+          <input type="button" value="Tillbaka" class="button" tabindex="28" onclick="javascript:history.go(-1);"/>
+          <input type="reset" value="Återställ" class="button" onclick="new Effect.Appear('pictureThumbnail');new Effect.Appear('pictureThumbnailButton');$('remove_picture').value=false;" tabindex="29"/>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan="5">
+        <%= render :partial => 'link_items', :locals => { :parent_action => action } %>
+      </td>
+    </tr>
+    <% if action == 'new' %>
+      <tr>
+        <td colspan="5" class="rightAligned">
+          <%= submit_tag('Skapa', :tabindex => 27, :class => 'button') %>
+          <input type="reset" value="Återställ" class="button" tabindex="28"/>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+<script>$("spexare_item_first_name").focus();</script>
+
+</div>
+

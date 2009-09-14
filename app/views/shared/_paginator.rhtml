@@ -1,0 +1,23 @@
+<% if collection.page_count != collection.first_page %>
+  <div id="paginationPane">
+    <% if collection.previous_page? %>
+      <%= link_to(image_tag('fastrewind.png', {:alt => 'Första sidan', :title => 'Första sidan', :border => 0}), { :page => collection.first_page, :hits_per_page => params[:hits_per_page] }) %>
+      <%= link_to(image_tag('rewind.png', {:alt => 'Föregående sida', :title => 'Föregående sida', :border => 0}), { :page => collection.previous_page, :hits_per_page => params[:hits_per_page] }) %>
+    <% end %>
+    <% last_page = 0 %>
+    <% windowed_pagination_links(collection, :window_size => get_configuration_item(ConfigurationItem::PAGINATOR_WINDOW_SIZE).to_i, :link_to_current_page => true, :always_show_anchors => true) do |n| %>
+      <% if collection.page == n %>
+        <%= n %>
+      <% else %>
+        <%= '...' if last_page+1 < n %>
+        <%= link_to(n, :id => params[:id], :page => n, :hits_per_page => params[:hits_per_page]) %>
+      <% end %>
+      <% last_page = n %>
+    <% end %>
+    <% if collection.next_page? %>
+      <%= link_to(image_tag('forward.png', {:alt => 'Nästa sida', :title => 'Nästa sida', :border => 0}), { :page => collection.next_page, :hits_per_page => params[:hits_per_page] }) %>
+      <%= link_to(image_tag('fastforward.png', {:alt => 'Sista sidan', :title => 'Sista sidan', :border => 0}), { :page => collection.last_page, :hits_per_page => params[:hits_per_page] }) %>
+    <% end %>
+  </div>
+<% end %>
+

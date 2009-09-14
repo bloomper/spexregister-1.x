@@ -1,0 +1,53 @@
+<% @page_title = "Logga in..." %>
+
+<noscript>
+  <div id="fatalErrorPane">
+    <ul>
+      <li>
+        Du måste ha JavaScript påslaget för att kunna använda Chalmersspexets adressregister fullt ut.
+      </li>
+    </ul>
+  </div>
+</noscript>
+
+<%= render :partial => 'shared/error' %>
+<%= render :partial => 'shared/message' %>
+
+<% form_tag({:action => 'login'}, {:id => 'loginForm'}) do %>
+  <div id="loginDialog">
+    <table>
+      <tr>
+        <td width="40%" class="normalLabelCell">
+          <label for="user_name">Användarnamn</label>
+        </td>
+        <td width="60%" class="normalFieldCell">
+          <%= text_field_tag('user_name', params[:user_name], :tabindex => 1) %>
+        </td>
+      </tr>
+      <tr>
+        <td class="normalLabelCell">
+          <label for="user_password">Lösenord</label>
+        </td>
+        <td class="normalFieldCell">
+          <%= password_field_tag('user_password', nil, :tabindex => 2) %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="smallTextRightAligned">
+          Har du inget konto? Klicka <%= link_to_remote '&raquo;här&laquo;', :url => { :action => 'show_signup' }, :tabindex => 3 %>!
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="rightAligned">
+          <%= submit_tag('Logga in', :tabindex => 4, :class => 'button') %>
+          <input type="reset" value="Återställ" class="button" tabindex="5"/>
+        </td>
+      </tr>
+    </table>
+  </div>
+<% end %>
+
+<script>$("user_name").focus();</script>
+
+<div id="signupDialog" style="display:none">
+</div>

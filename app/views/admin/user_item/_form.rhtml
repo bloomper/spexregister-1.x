@@ -1,0 +1,85 @@
+<div id="userItemDialog">
+  <table>
+    <tr>
+      <td width="50%" class="normalLabelCell">
+        <label for="user_item_name">Användarnamn</label>
+      </td>
+      <td width="50%" class="normalFieldCell">
+        <%= form.text_field :user_name, :tabindex => 1, :maxlength => 20 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <% if action == 'edit' %>
+          <label for="user_item_user_password">Lösenord (tomt = ingen ändring)</label>
+        <% else %>
+          <label for="user_item_user_password">Lösenord</label>
+        <% end %>
+      </td>
+      <td class="normalFieldCell">
+        <%= password_field_tag 'user_item[user_password]', '', :id => 'user_item_user_password', :tabindex => 2, :maxlength => 40 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="user_item_user_password_confirmation">Lösenord (igen)</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.password_field :user_password_confirmation, :tabindex => 3, :maxlength => 40 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="user_item_temporary_password">Tillfälligt lösenord</label>
+      </td>
+      <td class="leftAligned">
+        <%= form.check_box :temporary_password, :tabindex => 4 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="user_item_disabled">Inaktiv</label>
+      </td>
+      <td class="leftAligned">
+        <%= form.check_box :disabled, :tabindex => 5 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="user_item_role_item_id">Roll</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.select :role_item_id, get_roles, :tabindex => 6 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spexare_item">Spexare</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= text_field_with_auto_complete :user_item, :spexare_item_full_name, { :autocomplete => 'off', :tabindex => 7 }, :skip_style => true %>
+      </td>
+    </tr>
+    <% if action == 'edit' %>
+      <%= render :partial => '/shared/timestamp', :locals => { :item => @user_item } %>
+      <tr>
+        <td colspan="2" class="rightAligned">
+          <%= submit_tag('Ändra', :tabindex => 8, :class => 'button') %>
+          <input type="button" value="Tillbaka" class="button" tabindex="9" onclick="javascript:history.go(-1);"/>
+          <input type="reset" value="Återställ" class="button" tabindex="10"/>
+        </td>
+      </tr>
+    <% else %>
+      <tr>
+        <td colspan="2" class="rightAligned">
+          <%= submit_tag('Skapa', :tabindex => 8, :class => 'button') %>
+          <input type="reset" value="Återställ" class="button" tabindex="9"/>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+<script>$("user_item_user_name").focus();</script>
+
+</div>
+

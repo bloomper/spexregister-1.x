@@ -1,0 +1,17 @@
+<div id="exportPane">
+  <table>
+    <tr>
+      <td class="rightAligned" width="77%">
+        Exportera:
+      </td>
+      <td class="rightAligned" width="23%">
+        <%= link_to_remote image_tag('export_pdf.png', {:alt => 'PDF', :title => 'PDF', :border => 0}), { :url => { :controller => '/export', :action => :initiate_export, :type => 'pdf', :source => source } } %>
+        <%= link_to_remote image_tag('export_excel.png', {:alt => 'MS Excel', :title => 'MS Excel', :border => 0}), { :url => { :controller => '/export', :action => :initiate_export, :type => 'xls', :source => source } } %>
+        <%= link_to_remote image_tag('export_csv.png', {:alt => 'CSV', :title => 'CSV', :border => 0}), { :url => { :controller => '/export', :action => :initiate_export, :type => 'csv', :source => source } } %>
+        <%= link_to_remote image_tag('export_word.png', {:alt => 'MS Word', :title => 'MS Word', :border => 0}), { :url => { :controller => '/export', :action => :initiate_export, :type => 'rtf', :source => source } } %>
+        <%= link_to_remote image_tag('export_xml.png', {:alt => 'XML', :title => 'XML', :border => 0}), { :url => { :controller => '/export', :action => :initiate_export, :type => 'xml', :source => source } } %>
+        <%= link_to_remote image_tag('export_email.png', {:alt => 'Email', :title => 'Email', :border => 0}), { :url => { :controller => '/export', :action => :initiate_export, :type => 'email', :source => source } } %>
+      </td>
+    </tr>
+  </table>
+</div>

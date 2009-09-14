@@ -1,0 +1,129 @@
+<% @page_title = 'Enkel sökning...' %>
+
+<%= render :partial => 'shared/error' %>
+<%= render :partial => 'shared/message' %>
+
+<% user_item = get_user_from_session %>
+
+<% form_tag :action => 'simple_search' do %>
+  <div id="simpleSearchDialog">
+    <table>
+      <tr>
+        <td width="20%" class="normalLabelCell">
+          <label for="spex_category_item[id]">Spexkategori</label>
+        </td>
+        <td width="25%" class="normalFieldCell">
+          <%= select_tag('spex_category_item[id]', options_for_select([['', '-1']] + get_spex_categories), { :tabindex => 1 }) %>
+          <%= observe_field('spex_category_item[id]', :update => 'spex_year_list', :url => { :action => :find_spex_years_by_category }, :with => "'spex_category_item_id='+value") %>
+          <%= observe_field('spex_category_item[id]', :update => 'spex_title_list', :url => { :action => :find_spex_titles_by_category }, :with => "'spex_category_item_id='+value") %>
+        </td>
+        <td width="5%">
+          &nbsp;
+        </td>
+        <td width="25%" class="normalLabelCell">
+          <label for="last_name">Efternamn</label>
+        </td>
+        <td width="25%" class="normalFieldCell">
+          <%= text_field_tag('last_name', nil, :tabindex => 6) %>
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="normalLabelCell">
+          <label for="spex_item[id]">År</label>
+        </td>
+        <td width="25%" class="normalFieldCell">
+          <div id="spex_year_list">
+            <%= render :partial => 'spex_items_years', :locals => { :disabled => true } %>
+          </div>
+        </td>
+        <td width="5%">
+          &nbsp;
+        </td>
+        <td width="25%" class="normalLabelCell">
+          <label for="first_name">Förnamn</label>
+        </td>
+        <td width="25%" class="normalFieldCell">
+          <%= text_field_tag('first_name', nil, :tabindex => 7) %>
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="normalLabelCell">
+          <label for="dummy_spex_item[id]">Titel</label>
+        </td>
+        <td width="25%" class="normalFieldCell">
+          <div id="spex_title_list">
+            <%= render :partial => 'spex_items_titles', :locals => { :disabled => true } %>
+          </div>
+        </td>
+        <td width="5%">
+          &nbsp;
+        </td>
+        <td width="25%" class="normalLabelCell">
+          <label for="nick_name">Smeknamn</label>
+        </td>
+        <td width="25%" class="normalFieldCell">
+          <%= text_field_tag('nick_name', nil, :tabindex => 8) %>
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="normalLabelCell">
+          <label for="function_category_item[id]">Funktionskategori</label>
+        </td>
+        <td width="25%" class="normalFieldCell">
+          <%= select_tag('function_category_item[id]', options_for_select([['', '-1']] + get_function_categories), { :tabindex => 4 }) %>
+          <%= observe_field('function_category_item[id]', :update => 'function_list', :url => { :action => :find_functions_by_category }, :with => "'function_category_item_id='+value") %>
+        </td>
+        <td width="5%">
+          &nbsp;
+        </td>
+        <td width="25%" class="normalLabelCell">
+          <label for="include_deceased">Inkludera avlidna</label>
+        </td>
+        <td width="25%" class="leftAligned">
+          <%= check_box_tag('include_deceased', :tabindex => 9) %>
+        </td>
+      </tr>
+      <tr>
+        <td width="20%" class="normalLabelCell">
+          <label for="function_item[id]">Funktion</label>
+        </td>
+        <td width="25%" class="normalFieldCell">
+          <div id="function_list">
+            <%= render :partial => 'function_items', :locals => { :disabled => true } %>
+          </div>
+        </td>
+        <td width="5%">
+          &nbsp;
+        </td>
+        <td width="25%" class="normalLabelCell">
+          <label for="include_no_circulars">Inkludera ej utskick</label>
+        </td>
+        <td width="25%" class="leftAligned">
+          <%= check_box_tag('include_no_circulars', :tabindex => 10) %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="smallText">
+          I fälten 'Efternamn', 'Förnamn' och 'Smeknamn' så kan % användas som ett wildcard (både i början och slutet av sökordet)
+        </td>
+        <% if user_item.is_in_role?(RoleItem::ADMIN) %>
+          <td width="25%" class="normalLabelCell">
+            <label for="include_not_published">Inkludera ej publicerade</label>
+          </td>
+          <td width="25%" class="leftAligned">
+            <%= check_box_tag('include_not_published', :tabindex => 11) %>
+          </td>
+        <% else %>
+          <td>
+          </td>
+        <% end %>
+      </tr>
+      <tr>
+        <td colspan="5" class="rightAligned">
+          <%= submit_tag('Sök', :tabindex => 12, :class => 'button') %>
+          <input type="reset" value="Återställ" class="button" tabindex="13"/>
+        </td>
+      </tr>
+    </table>
+  </div>
+<% end %>

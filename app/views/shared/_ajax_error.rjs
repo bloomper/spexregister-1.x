@@ -1,0 +1,3 @@
+page.replace_html 'errorPane', content_tag('ul', content_tag('li', error))
+page.show 'errorPane'
+page.visual_effect :highlight, 'errorPane', { :startcolor => "'#7e93aa'", :endcolor => "'#39597d'" }

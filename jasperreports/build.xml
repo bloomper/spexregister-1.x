@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<!-- ======================================================================= -->
+<!-- XMLJasperReportsInterface building directives                           -->
+<!-- ======================================================================= -->
+
+<project name="XMLJasperReportsInterface" default="compile-reports" basedir=".">
+
+	<property file="build.properties"/>
+	<property name="name" value="XMLJasperReportsInterface - Ant build file"/>
+	<property name="version" value="1.0"/>
+
+	<property name="src.dir" value="${basedir}/src"/>
+	<property name="lib.dir" value="${basedir}/lib"/>
+	<property name="bin.dir" value="${basedir}/bin"/>
+	<property name="reports.src.dir" value="${basedir}/reports"/>
+	<property name="reports.compiled.dir" value="${basedir}/../reports"/>
+	<property name="reports.temp.dir" value="${basedir}/reports_temp"/>
+
+	<path id="ant.path">
+		<pathelement location="${ant.lib}/ant.jar"/>
+	</path>
+
+	<path id="base.path">
+		<pathelement path="${bin.dir}"/>
+		<fileset dir="${lib.dir}" includes="**/*.jar"/>
+		<path refid="ant.path"/>
+	</path>
+
+	<target name="init" depends="">
+		<echo message="${name} ${version}"/>
+		<echo message="java.home = ${java.home}"/>
+		<echo message="ant.lib = ${ant.lib}"/>
+		<echo message="java.class.path = ${java.class.path}"/>
+		<echo message=""/>
+		
+		<taskdef
+			name="jrc"
+			classname="net.sf.jasperreports.ant.JRAntCompileTask"
+			classpathref="base.path"
+		/>
+	</target>
+
+	<!-- =================================================================== -->
+	<!-- Cleans up the current build                                         -->
+	<!-- =================================================================== -->
+
+	<target name="clean" depends="">
+		<delete dir="${bin.dir}"/>
+	</target>
+
+	<!-- =================================================================== -->
+	<!-- Convert to LF                                                       -->
+	<!-- =================================================================== -->
+
+	<target name="fixcrlf" depends="init">
+		<fixcrlf srcdir="${src.dir}" eol="unix" includes="**/*.*"/>
+	</target>
+
+	<!-- =================================================================== -->
+	<!-- Compiles the JasperReports files                                    -->
+	<!-- =================================================================== -->
+
+	<target name="compile-reports" depends="fixcrlf">
+		<mkdir dir="${reports.temp.dir}"/>
+		<jrc
+			srcdir="${reports.src.dir}"
+			destdir="${reports.compiled.dir}"
+			tempdir="${reports.temp.dir}">
+			<classpath refid="base.path"/>
+		</jrc>
+		<delete dir="${reports.temp.dir}"/>
+	</target>
+
+	<!--  ================================================================== --> 
+	<!--  Compiles the source code                                           --> 
+	<!--  ================================================================== --> 
+
+	<target name="compile" depends="fixcrlf">
+		<mkdir dir="${bin.dir}"/> 
+		<javac
+			destdir="${bin.dir}"
+			debug="${java.debug}"
+			deprecation="${java.deprecation}"
+			optimize="${java.optimize}"
+			classpathref="base.path"
+		>
+			<src path="${src.dir}"/>
+		</javac>
+	</target>
+
+</project>

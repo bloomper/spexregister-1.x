@@ -1,0 +1,33 @@
+<%
+if @news_items.size > 0
+  @page_title = 'Senaste nyheterna...'
+end
+%>
+
+<%= render :partial => 'shared/error' %>
+<%= render :partial => 'shared/message' %>
+
+<% if !@news_items.empty? %>
+  <div id="newsItemListDialog">
+    <table>
+      <% @news_items.each do |news_item| %>
+        <tr class="<%= cycle('even', 'odd') %>">
+          <td width="15%">
+            <%= h(news_item.publication_date) %>
+          </td>
+          <td width="75%">
+            <%= h(news_item.subject) %>
+          </td>
+          <td width="10%" class="centerAligned">
+            <%= link_to_remote image_tag('show.png', {:alt => 'Visa', :title => 'Visa', :border => 0}), :url => { :action => 'show_news_item', :id => news_item.id } %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <%= render :partial => '/shared/paginator', :locals => { :collection => @news_items } %>
+  </div>
+
+  <div id="latestNewsDialog" style="display:none">
+  </div>
+<% end %>

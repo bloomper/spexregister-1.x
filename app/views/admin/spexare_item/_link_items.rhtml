@@ -1,0 +1,38 @@
+<div id="spexareItemLinks">
+  <div id="spexareItemLinksHeader">
+    <h2>Spex och funktioner...</h2>
+    <div class="actions">
+      <%= link_to_remote image_tag('add.png', {:alt => 'Lägg till', :title => 'Lägg till', :border => 0}), { :url => { :action => 'new_link_item', :spexare_item_id => @spexare_item.id, :parent_action => parent_action } } unless parent_action == 'show' %>
+    </div>
+  </div>
+  <table id="spexareItemLinksTable">
+    <thead>
+      <tr>
+        <th width="10%">
+          År
+        </th>
+        <th width="25%">
+          Titel
+        </th>
+        <th width="50%">
+          Funktion(er)
+        </th>
+        <th width="15%">
+          Åtgärd
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="emptyMessage" <%= " style=\"display:none;\" " unless @spexare_item.link_items.empty? %> class="empty_message">
+        <td class="centerAligned" colspan="4">
+          Det finns inget inmatat.
+        </td>
+      </tr>
+    </tbody>
+    <tbody id="spexareItemLinksTBody">
+      <% if !@spexare_item.link_items.empty? %>
+        <%= render :partial => 'link_item', :collection => @spexare_item.link_items, :locals => { :hidden => false, :parent_action => parent_action } %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

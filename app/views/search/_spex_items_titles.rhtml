@@ -1,0 +1,9 @@
+<% if !disabled %>
+  <%= select_tag('dummy_spex_item[id]', options_for_select([['', '-1']] + get_spex_titles_by_category(spex_category_item_id)), { :onchange => "Form.Element.setValue('spex_item[id]', Form.Element.getValue('dummy_spex_item[id]'));", :tabindex => 3 }) %>
+  <script type="text/javascript">
+    Form.Element.setValue("dummy_spex_item[id]", Form.Element.getValue("spex_item[id]"));
+  </script>
+<% else %>
+  <select id="dummy_spex_item[id]" name="dummy_spex_item[id]" disabled="true">
+  </select>
+<% end %>

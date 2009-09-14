@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <td class="largeTextCenterAligned">
+      Vid problem...
+    </td>
+  </tr>
+  <tr>
+    <td class="normalText">
+      Om du har något problem av något slag med registret,
+      skicka ett mail till <i><%= mail_to h(get_configuration_item(ConfigurationItem::ADMIN_MAIL_ADDRESS)) %></i>
+      i vilket du beskriver problemet så noggrannt som möjligt.
+      Detta kan inkludera detaljerad information om tex vad du
+      gjorde för att framkalla ett visst uppträdande och eventuella
+      felmeddelanden som visats.
+    </td>
+  </tr>
+  <tr>
+    <td class="rightAligned">
+      <input type="button" value="Stäng" class="button" onclick="<%= remote_function :url => { :action => 'in_case_of_problems_close' } %>"/>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,7 @@
+if params[:type] != 'email' 
+  page.replace_html 'exportDialog', :partial => 'export', :locals => { :source => params[:source], :type => params[:type] }
+  page.visual_effect :appear, 'exportDialog'
+else
+  page.replace_html 'mailExportDialog', :partial => 'mailexport', :locals => { :source => params[:source] }
+  page.visual_effect :appear, 'mailExportDialog', :beforeStart => "function() { Spexregister.initRichTextEditor('mail_body') }"
+end

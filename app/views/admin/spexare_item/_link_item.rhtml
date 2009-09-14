@@ -1,0 +1,47 @@
+<% @options = {:controller => '/admin/spexare_item', :action => 'view_link_item', :link_item_id => link_item.id, :parent_action => parent_action} %>
+<% @options.merge :spexare_item_id => @spexare_item.id if parent_action == 'edit' %>
+<% @options.merge :spexare_item_id => spexare_item_id if parent_action == 'new' %>
+
+<tr id="<%= element_row_id(@options) %>" <%= "style=\"display: none;\"" if hidden %> class="<%= cycle('even', 'odd') %>">
+  <td class="centerAligned">
+    <%= h(link_item.spex_item.year) %>
+    <%= hidden_field_tag('link_item[spex_item][id][]', link_item.spex_item.id) if parent_action == 'new' %>
+  </td>
+  <td class="leftAligned">
+    <%= h("#{link_item.spex_item.title} (#{link_item.spex_item.spex_category_item.category_name})") %>
+  </td>
+  <td class="leftAligned">
+    <% function_item_ids = '' if parent_action == 'new' %>
+    <% ensemble_role = '' if parent_action == 'new' %>
+    <% ensemble_vocal = '' if parent_action == 'new' %>
+    <% link_item.function_items.size.times do |pos| %>
+      <%= h(link_item.function_items[pos].name + ' (' + link_item.function_items[pos].function_category_item.category_name + ')') %>
+      <% if link_item.function_items[pos].function_category_item.has_actor? %>
+        [Roll: <%= link_item.actor_item.nil? || link_item.actor_item.role.nil? || link_item.actor_item.role.empty? ? 'Okänt' : h(link_item.actor_item.role) %>,
+        Stämma: <%= ActorItem.get_vocal_description(link_item.actor_item.vocal) unless link_item.actor_item.nil? %>]
+        <% ensemble_role = link_item.actor_item.role if parent_action == 'new' %>
+        <% ensemble_vocal = link_item.actor_item.vocal if parent_action == 'new' %>
+      <% end %>
+      <% function_item_ids << link_item.function_items[pos].id.to_s if parent_action == 'new' %>
+      <% function_item_ids << ',' unless pos == link_item.function_items.size - 1 || parent_action != 'new' %>
+      <br/>
+    <% end %>
+    <%= hidden_field_tag('link_item[function_item][id][]', function_item_ids) if parent_action == 'new' %>
+    <%= hidden_field_tag('link_item[actor_item][role][]', ensemble_role) if parent_action == 'new' %>
+    <%= hidden_field_tag('link_item[actor_item][vocal][]', ensemble_vocal) if parent_action == 'new' %>
+  </td>
+  <td class="centerAligned">
+    <% if parent_action != 'show' %>
+      <% if !link_item.new_record? %>
+        <% edit_options = @options.merge(:action => 'edit_link_item') %>
+        <%= link_to_remote image_tag('edit.png', {:alt => 'Ändra', :title => 'Ändra', :border => 0}), { :url => edit_options} %>
+      <% end %>
+      <% destroy_options = @options.merge(:action => 'destroy_link_item') %>
+      <%= link_to_remote image_tag('destroy.png', {:alt => 'Radera', :title => 'Radera', :border => 0}), { :url => destroy_options, :confirm => 'Är du säker?', :method => :post } %>
+      <% move_up_options = @options.merge(:action => 'move_up_link_item') %>
+      <%= link_to_remote image_tag('up.png', {:alt => 'Upp', :title => 'Upp', :border => 0}), { :url => move_up_options, :method => :post } %>
+      <% move_down_options = @options.merge(:action => 'move_down_link_item') %>
+      <%= link_to_remote image_tag('down.png', {:alt => 'Ner', :title => 'Ner', :border => 0}), { :url => move_down_options, :method => :post } %>
+    <% end %>
+  </td>
+</tr>

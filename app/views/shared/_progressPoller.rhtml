@@ -1,0 +1,1 @@
+<%= periodically_call_remote(:url => {:action => 'update_progress_indicator'}, :frequency => 0.8, :condition => 'Element.visible("progressIndicator") == true' ) %>

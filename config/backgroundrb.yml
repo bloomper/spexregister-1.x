@@ -1,0 +1,4 @@
+--- 
+:rails_env: production
+:host: localhost
+:port: 2000

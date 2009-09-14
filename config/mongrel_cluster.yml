@@ -1,0 +1,7 @@
+--- 
+cwd: /home/users/register/current
+port: "8000"
+environment: production
+address: 127.0.0.1
+pid_file: /var/run/mongrel.pid
+servers: 3

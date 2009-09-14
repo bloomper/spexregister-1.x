@@ -1,0 +1,24 @@
+xml.instruct!
+xml.SpexareItems do
+  related_cache = []
+  user_item = get_user_from_session
+  @spexare_items.each do |spexare_item|
+    do_print_uncertain = true unless spexare_item.uncertain_address && !@include_uncertain_addresses
+    if @include_only_one_in_a_relation
+      if !spexare_item.related_spexare_items.nil? && spexare_item.related_spexare_items.size > 0
+        if !related_cache.include?(spexare_item.id)
+          do_print_related = true
+          related_cache << spexare_item.related_spexare_items[0].id
+        end
+      end
+    else
+      do_print_related = true
+    end
+    if do_print_uncertain && (do_print_related || spexare_item.related_spexare_items.nil? || spexare_item.related_spexare_items.size == 0)
+      xml.SpexareItem do
+        xml.FirstName(spexare_item.first_name)
+        xml.LastName(spexare_item.last_name)
+      end
+    end
+  end
+end

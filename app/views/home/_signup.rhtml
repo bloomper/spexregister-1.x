@@ -1,0 +1,47 @@
+<% form_remote_tag(:url => url_for(:action => 'signup'), :success => "new Effect.Fade('signupDialog');", :failure => "new Effect.Fade('signupDialog');", :complete => "Form.enable('loginForm');") do %>
+  <table>
+    <tr>
+      <td width="40%" class="normalLabelCell">
+        <label for="new_account_name">Namn</label>
+      </td>
+      <td width="60%" class="normalFieldCell">
+        <%= text_field_tag('new_account_name', nil, :tabindex => 6) %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="new_account_email_address">Emailadress</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= text_field_tag('new_account_email_address', nil, :tabindex => 7) %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="new_account_user_name">Önskat användarnamn</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= text_field_tag('new_account_user_name', nil, :tabindex => 8) %>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="normalLabelCell">
+        <label for="new_account_description">Spexen du var med och vilka poster</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= text_area_tag('new_account_description', nil, :tabindex => 9) %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="normalText">
+        Allt detta för att säkerställa att ingen obehörig skall komma åt registret. Du får ett mail så fort kontot är skapat och färdigt att använda. Du får då ett tillfälligt lösenord som du måste byta första gången du loggar in.
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="rightAligned">
+        <%= submit_tag('Skicka', :tabindex => 10, :class => 'button') %>
+        <input type="button" value="Stäng" class="button" onclick="<%= remote_function :url => { :action => 'hide_signup' } %>" tabindex="11"/>
+      </td>
+    </tr>
+  </table>
+<% end %>

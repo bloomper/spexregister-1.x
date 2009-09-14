@@ -1,0 +1,39 @@
+<% @page_title = 'Visa nyheter...' %>
+
+<%= render :partial => 'shared/error' %>
+<%= render :partial => 'shared/message' %>
+
+<div id="newsItemListDialog">
+  <% if !@news_items.empty? %>
+    <table>
+      <%= sort_header_tag('publication_date', { :caption => 'Publiceringsdag', :title => 'Sortera efter publiceringsdatum', :width => '30%' }, { :filter_options_filter => @filter_options.filter, :hits_per_page => params[:hits_per_page] }) %>
+      <%= sort_header_tag('subject', { :caption => 'Ämne', :title => 'Sortera efter ämne', :width => '40%' }, { :filter_options_filter => @filter_options.filter, :hits_per_page => params[:hits_per_page] }) %>
+      <th colspan="3" width="30%">
+        Åtgärd
+      </th>
+
+      <% @news_items.each do |news_item| %>
+        <tr class="<%= cycle('even', 'odd') %>">
+          <td>
+            <%= h(news_item.publication_date) %>
+          </td>
+          <td>
+            <%= h(news_item.subject) %>
+          </td>
+          <%= render :partial => '/shared/actions', :locals => { :item => news_item, :controller => 'news_item', :show_edit => true, :show_destroy => true  } %>
+        </tr>
+      <% end %>
+    </table>
+
+    <%= render :partial => '/shared/filter', :locals => { :collection => @news_items, :action => 'list', :show_keyword_filter => true } %>
+    <%= render :partial => '/shared/paginator', :locals => { :collection => @news_items } %>
+  <% else %>
+    <table>
+      <tr>
+        <td class="centerAligned">
+          Det finns inga nyheter.
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

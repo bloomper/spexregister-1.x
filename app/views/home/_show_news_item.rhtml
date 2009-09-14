@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <td class="largeTextCenterAligned">
+      <%= h(@news_item.publication_date) %>
+    </td>
+  </tr>
+  <tr>
+    <td class="largeTextCenterAligned">
+      <%= h(@news_item.subject) %>
+    </td>
+  </tr>
+  <tr>
+    <td class="normalText">
+      <%= simple_format(@news_item.body) %>
+    </td>
+  </tr>
+  <tr>
+    <td class="rightAligned">
+      <input type="button" value="Stäng" class="button" onclick="new Effect.Fade('latestNewsDialog');new Effect.Appear('newsItemListDialog');"/>
+    </td>
+  </tr>
+</table>

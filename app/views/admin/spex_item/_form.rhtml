@@ -1,0 +1,74 @@
+<div id="spexItemDialog">
+  <table>
+    <tr>
+      <td width="50%" class="normalLabelCell">
+        <label for="spex_item_year">År</label>
+      </td>
+      <td width="50%" class="normalFieldCell">
+        <%= form.text_field :year, :tabindex => 1, :size => 4, :maxlength => 4 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spex_item_title">Titel</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.text_field :title, :tabindex => 2, :maxlength => 50 %>
+      </td>
+    </tr>
+    <tr>
+      <% if !@spex_item.spex_poster_item.nil? && FileTest.exists?(@spex_item.spex_poster_item.full_filename) && SpexPosterItem.image?(@spex_item.spex_poster_item.content_type) %>
+        <td rowspan="2" class="normalLabelCell">
+          <label for="spex_poster_item">Poster</label>
+        </td>
+      <% else %>
+        <td class="normalLabelCell">
+          <label for="spex_poster_item">Poster</label>
+        </td>
+      <% end %>
+      <td class="normalFieldCell">
+        <% fields_for :spex_poster_item do |spex_poster_item| %>
+          <%= spex_poster_item.file_field :uploaded_data, :tabindex => 3 %>
+        <% end %>
+        <%= hidden_field_tag('poster_removed') %>
+      </td>
+    </tr>
+    <% if !@spex_item.spex_poster_item.nil? && FileTest.exists?(@spex_item.spex_poster_item.full_filename) && SpexPosterItem.image?(@spex_item.spex_poster_item.content_type) %>
+      <tr>
+        <td class="centerAligned">
+          <a id="posterThumbnail" href="<%= @spex_item.spex_poster_item.public_filename %>" rel="lightbox"><%= image_tag(@spex_item.spex_poster_item.public_filename('thumb')) %></a>
+          <input id="posterThumbnailButton" type="button" value="Ta bort" class="button" onclick="new Effect.Fade('posterThumbnail');new Effect.Fade('posterThumbnailButton');$('poster_removed').value=true;"/>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="spex_item_spex_category_item_id">Kategori</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.select :spex_category_item_id, get_spex_categories, :tabindex => 5 %>
+      </td>
+    </tr>
+    <% if action == 'edit' %>
+      <%= render :partial => '/shared/timestamp', :locals => { :item => @spex_item } %>
+      <tr>
+        <td colspan="2" class="rightAligned">
+          <%= submit_tag('Ändra', :tabindex => 6, :class => 'button') %>
+          <input type="button" value="Tillbaka" class="button" tabindex="7" onclick="javascript:history.go(-1);"/>
+          <input type="reset" value="Återställ" class="button" onclick="new Effect.Appear('posterThumbnail');new Effect.Appear('posterThumbnailButton');$('remove_poster').value=false;" tabindex="8"/>
+        </td>
+      </tr>
+    <% else %>
+      <tr>
+        <td colspan="2" class="rightAligned">
+          <%= submit_tag('Skapa', :tabindex => 6, :class => 'button') %>
+          <input type="reset" value="Återställ" class="button" tabindex="7"/>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+<script>$("spex_item_year").focus();</script>
+
+</div>
+

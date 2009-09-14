@@ -1,0 +1,42 @@
+<table>
+  <tr>
+    <td class="largeTextCenterAligned">
+      Chalmersspexets Adressregister <%= h(get_configuration_item(ConfigurationItem::APP_VERSION)) %>
+    </td>
+  </tr>
+  <tr>
+    <td class="largeTextCenterAligned">
+      &copy; Chalmersspexet 2007
+    </td>
+  </tr>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td class="normalTextCenterAligned">
+      Gjort av: Colgate, Faxe och Patrik Lampa
+    </td>
+  </tr>
+  <tr>
+    <td class="normalTextCenterAligned">
+      Byggd med hjälp av:
+    </td>
+  </tr>
+  <tr>
+    <td class="centerAligned">
+      <a href="http://www.rubyonrails.org" target="_blank"><img src="/images/rails.png"/></a>
+    </td>
+  </tr>
+  <tr>
+    <td class="normalTextCenterAligned">
+      Vid frågor, skicka mail till <i><%= mail_to h(get_configuration_item(ConfigurationItem::ADMIN_MAIL_ADDRESS)) %></i>.
+    </td>
+  </tr>
+  <tr>
+    <td class="rightAligned">
+      <input type="button" value="Stäng" class="button" onclick="<%= remote_function :url => { :action => 'about_close' } %>"/>
+    </td>
+  </tr>
+</table>

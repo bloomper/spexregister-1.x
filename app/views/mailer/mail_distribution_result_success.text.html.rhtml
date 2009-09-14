@@ -1,0 +1,16 @@
+<p>Hejsan!</p>
+
+<p>
+Distributionen av ditt meddelande (ämne: <%= @subject %>) är nu klar. Det skickades till följande personer:
+</p>
+
+<ul>
+  <% @recipients.split(',').each do |recipient| %>
+    <li><%= recipient %></li>
+  <% end -%>
+</ul>
+
+<p>
+Mvh
+Spexregistret
+</p>

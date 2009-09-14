@@ -1,0 +1,18 @@
+<% if flash[:message] %>
+  <div id="messagePane">
+    <script type="text/javascript">
+    // <![CDATA[
+      new Effect.Highlight("messagePane", {endcolor: '#39597d', startcolor: '#7e93aa'});
+    // ]]>
+    </script>
+
+    <ul>
+      <li>
+        <%= flash[:message] %>
+      </li>
+    </ul>
+  </div>
+<% else %>
+  <div id="messagePane" style="display:none">
+  </div>
+<% end %>

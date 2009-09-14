@@ -1,0 +1,19 @@
+<% if !@item.nil? %>
+  <% unless @item.errors.empty? %>
+    <div id="validationErrorsPane">
+      <script type="text/javascript">
+      // <![CDATA[
+        new Effect.Highlight("validationErrorsPane", {endcolor: '#39597d', startcolor: '#7e93aa'});
+      // ]]>
+      </script>
+
+      <ul>
+        <% @item.errors.each_full do |message| %>
+          <li>
+            <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>

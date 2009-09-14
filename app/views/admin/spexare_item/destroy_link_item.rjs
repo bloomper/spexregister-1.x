@@ -1,0 +1,5 @@
+@options = { :action => 'view_link_item', :link_item_id => params[:link_item_id] }
+
+page.remove element_row_id(@options)
+page << "Spexregister.displayMessageIfEmpty('spexareItemLinksTBody','emptyMessage');"
+page << "Spexregister.stripe('spexareItemLinksTable');"

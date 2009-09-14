@@ -1,0 +1,41 @@
+<div id="functionItemDialog">
+  <table>
+    <tr>
+      <td width="50%" class="normalLabelCell">
+        <label for="function_item_name">Namn</label>
+      </td>
+      <td width="50%" class="normalFieldCell">
+        <%= form.text_field :name, :tabindex => 1, :maxlength => 50 %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        <label for="function_item_function_category_item_id">Kategori</label>
+      </td>
+      <td class="normalFieldCell">
+        <%= form.select :function_category_item_id, get_function_categories, :tabindex => 2 %>
+      </td>
+    </tr>
+    <% if action == 'edit' %>
+      <%= render :partial => '/shared/timestamp', :locals => { :item => @function_item } %>
+      <tr>
+        <td colspan="2" class="rightAligned">
+          <%= submit_tag('Ändra', :tabindex => 3, :class => 'button') %>
+          <input type="button" value="Tillbaka" class="button" tabindex="4" onclick="javascript:history.go(-1);"/>
+          <input type="reset" value="Återställ" class="button" tabindex="5"/>
+        </td>
+      </tr>
+    <% else %>
+      <tr>
+        <td colspan="2" class="rightAligned">
+          <%= submit_tag('Skapa', :tabindex => 3, :class => 'button') %>
+          <input type="reset" value="Återställ" class="button" tabindex="4"/>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+<script>$("function_item_name").focus();</script>
+
+</div>
+

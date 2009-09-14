@@ -1,0 +1,53 @@
+<% @page_title = 'Visa användare...' %>
+
+<div id="userItemDialog">
+  <table>
+    <tr>
+      <td class="normalLabelCell">
+        Användarnamn
+      </td>
+      <td class="normalFieldCell">
+        <%= h(@user_item.user_name) %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        Tillfälligt lösenord
+      </td>
+      <td class="leftAligned">
+        <%= check_box('user_item', 'temporary_password', :disabled => true) %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        Inaktiv
+      </td>
+      <td class="leftAligned">
+        <%= check_box('user_item', 'disabled', :disabled => true) %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        Roll
+      </td>
+      <td class="normalFieldCell">
+        <%= h(@user_item.role_item.description) %>
+      </td>
+    </tr>
+    <tr>
+      <td class="normalLabelCell">
+        Spexare
+      </td>
+      <td class="normalFieldCell">
+        <%= h(@user_item.spexare_item.full_name) unless @user_item.spexare_item.nil? %>
+      </td>
+    </tr>
+    <%= render :partial => '/shared/timestamp', :locals => { :item => @user_item } %>
+    <tr>
+      <td colspan="2" class="rightAligned">
+        <input type="button" value="Tillbaka" class="button" tabindex="1" onclick="javascript:history.go(-1);"/>
+      </td>
+    </tr>
+  </table>
+</div>
+

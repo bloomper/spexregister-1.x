@@ -1,0 +1,39 @@
+<% form_tag :action => 'perform_export', :type => type, :source => source do %>
+  <table>
+    <tr>
+      <td width="50%" class="normalLabelCell">
+        Välj typ
+      </td>
+      <td width="50%" class="normalFieldCell">
+        <%= select_tag('template', options_for_select(@options, nil)) %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="normalLabelCell">
+        Inkludera...
+      </td>
+    </tr>
+    <tr>
+      <td width="50%" class="normalLabelCell">
+        ...osäkra adresser
+      </td>
+      <td width="50%" class="leftAligned">
+        <%= check_box_tag('include_uncertain_addresses') %>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%" class="normalLabelCell">
+        ...endast den ena parten i en relation
+      </td>
+      <td width="50%" class="leftAligned">
+        <%= check_box_tag('include_only_one_in_a_relation') %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="rightAligned">
+        <%= submit_tag('Exportera', :class => "button", :onclick => "new Effect.Fade('exportDialog');") %>
+        <input type="button" value="Stäng" class="button" onclick="new Effect.Fade('exportDialog');"/>
+      </td>
+    </tr>
+  </table>
+<% end %>

@@ -1,0 +1,485 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: spexregister 0.0.1\n"
+"POT-Creation-Date: 2007-01-12 23:36+0100\n"
+"PO-Revision-Date: 2006-07-27 22:39+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: app/models/spexare_item.rb:-
+msgid "spexare item"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Last name"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|First name"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Nick name"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Street address"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Postal code"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Postal address"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Country"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Phone home"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Phone work"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Phone mobile"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Phone other"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Email address"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Birth date"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Social security"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Chalmers student"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Graduation"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Comment"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Deceased"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Publish approval"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Want circulars"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Fgv member"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Alumni member"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Uncertain address"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|User item"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Spexare picture item"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Created at"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Updated at"
+msgstr ""
+
+#: app/models/spexare_item.rb:-
+msgid "SpexareItem|Lock version"
+msgstr ""
+
+#: app/models/spexare_item.rb:208 app/models/spexare_item.rb:209
+#: app/models/role_item.rb:5 app/models/role_item.rb:7
+#: app/models/function_category_item.rb:6 app/models/spex_category_item.rb:6
+#: app/models/news_item.rb:4 app/models/news_item.rb:5
+#: app/models/user_item.rb:84 app/models/user_item.rb:85
+#: app/models/spex_item.rb:41 app/models/spex_item.rb:42
+#: app/models/spex_item.rb:43 app/models/function_item.rb:26
+#: app/models/function_item.rb:27
+msgid "Du måste ange '%{fn}'."
+msgstr ""
+
+#: app/models/spexare_item.rb:210
+msgid "'%{fn}' måste innehålla fyra siffror."
+msgstr ""
+
+#: app/models/role_item.rb:-
+msgid "role item"
+msgstr ""
+
+#: app/models/role_item.rb:-
+msgid "RoleItem|Name"
+msgstr ""
+
+#: app/models/role_item.rb:-
+msgid "RoleItem|Description"
+msgstr ""
+
+#: app/models/role_item.rb:-
+msgid "RoleItem|Created at"
+msgstr ""
+
+#: app/models/role_item.rb:-
+msgid "RoleItem|Updated at"
+msgstr ""
+
+#: app/models/role_item.rb:-
+msgid "RoleItem|Lock version"
+msgstr ""
+
+#: app/models/role_item.rb:6 app/models/function_category_item.rb:7
+#: app/models/spex_category_item.rb:7 app/models/user_item.rb:79
+msgid "Angivet '%{fn}' existerar redan."
+msgstr ""
+
+#: app/models/role_item.rb:8
+msgid "Angiven '%{fn}' existerar redan."
+msgstr ""
+
+#: app/models/function_category_item.rb:-
+msgid "function category item"
+msgstr ""
+
+#: app/models/function_category_item.rb:-
+msgid "FunctionCategoryItem|Category name"
+msgstr ""
+
+#: app/models/configuration_item.rb:-
+msgid "configuration item"
+msgstr ""
+
+#: app/models/configuration_item.rb:-
+msgid "ConfigurationItem|Name"
+msgstr ""
+
+#: app/models/configuration_item.rb:-
+msgid "ConfigurationItem|Value"
+msgstr ""
+
+#: app/models/actor_item.rb:-
+msgid "actor item"
+msgstr ""
+
+#: app/models/actor_item.rb:-
+msgid "ActorItem|Role"
+msgstr ""
+
+#: app/models/actor_item.rb:-
+msgid "ActorItem|Vocal"
+msgstr ""
+
+#: app/models/actor_item.rb:-
+msgid "ActorItem|Link item"
+msgstr ""
+
+#: app/models/actor_item.rb:-
+msgid "ActorItem|Created at"
+msgstr ""
+
+#: app/models/actor_item.rb:-
+msgid "ActorItem|Updated at"
+msgstr ""
+
+#: app/models/actor_item.rb:-
+msgid "ActorItem|Lock version"
+msgstr ""
+
+#: app/models/spex_category_item.rb:-
+msgid "spex category item"
+msgstr ""
+
+#: app/models/spex_category_item.rb:-
+msgid "SpexCategoryItem|Category name"
+msgstr ""
+
+#: app/models/news_item.rb:-
+msgid "news item"
+msgstr ""
+
+#: app/models/news_item.rb:-
+msgid "NewsItem|Publication date"
+msgstr ""
+
+#: app/models/news_item.rb:-
+msgid "NewsItem|Subject"
+msgstr ""
+
+#: app/models/news_item.rb:-
+msgid "NewsItem|Body"
+msgstr ""
+
+#: app/models/news_item.rb:-
+msgid "NewsItem|Created at"
+msgstr ""
+
+#: app/models/news_item.rb:-
+msgid "NewsItem|Updated at"
+msgstr ""
+
+#: app/models/news_item.rb:-
+msgid "NewsItem|Lock version"
+msgstr ""
+
+#: app/models/user_item.rb:-
+msgid "user item"
+msgstr ""
+
+#: app/models/user_item.rb:-
+msgid "UserItem|User name"
+msgstr ""
+
+#: app/models/user_item.rb:-
+msgid "UserItem|User password"
+msgstr ""
+
+#: app/models/user_item.rb:-
+msgid "UserItem|User password confirmation"
+msgstr ""
+
+#: app/models/user_item.rb:-
+msgid "UserItem|Temporary password"
+msgstr ""
+
+#: app/models/user_item.rb:-
+msgid "UserItem|Disabled"
+msgstr ""
+
+#: app/models/user_item.rb:-
+msgid "UserItem|Role item"
+msgstr ""
+
+#: app/models/user_item.rb:-
+msgid "UserItem|Spexare item"
+msgstr ""
+
+#: app/models/user_item.rb:-
+msgid "UserItem|Created at"
+msgstr ""
+
+#: app/models/user_item.rb:-
+msgid "UserItem|Updated at"
+msgstr ""
+
+#: app/models/user_item.rb:-
+msgid "UserItem|Lock version"
+msgstr ""
+
+#: app/models/user_item.rb:80
+msgid "Angivna '%{fn}' och '%{fn} (igen)' är inte lika."
+msgstr ""
+
+#: app/models/user_item.rb:81
+msgid "Angivet '%{fn}' får inte vara kortare än 3 tecken."
+msgstr ""
+
+#: app/models/user_item.rb:82
+msgid "Angivet '%{fn}' får inte vara kortare än 5 tecken."
+msgstr ""
+
+#: app/models/user_item.rb:83
+msgid "Du måste ange en giltlig '%{fn}'."
+msgstr ""
+
+#: app/models/spex_item.rb:-
+msgid "spex item"
+msgstr ""
+
+#: app/models/spex_item.rb:-
+msgid "SpexItem|Year"
+msgstr ""
+
+#: app/models/spex_item.rb:-
+msgid "SpexItem|Title"
+msgstr ""
+
+#: app/models/spex_item.rb:-
+msgid "SpexItem|Spex category item"
+msgstr ""
+
+#: app/models/spex_item.rb:-
+msgid "SpexItem|Spex poster item"
+msgstr ""
+
+#: app/models/spex_item.rb:-
+msgid "SpexItem|Created at"
+msgstr ""
+
+#: app/models/spex_item.rb:-
+msgid "SpexItem|Updated at"
+msgstr ""
+
+#: app/models/spex_item.rb:-
+msgid "SpexItem|Lock version"
+msgstr ""
+
+#: app/models/spex_item.rb:44
+msgid "'%{fn}' måste vara ett giltligt årtal."
+msgstr ""
+
+#: app/models/spex_poster_item.rb:-
+msgid "spex poster item"
+msgstr ""
+
+#: app/models/spex_poster_item.rb:-
+msgid "SpexPosterItem|Spex item"
+msgstr ""
+
+#: app/models/spex_poster_item.rb:-
+msgid "SpexPosterItem|Content type"
+msgstr ""
+
+#: app/models/spex_poster_item.rb:-
+msgid "SpexPosterItem|Filename"
+msgstr ""
+
+#: app/models/spex_poster_item.rb:-
+msgid "SpexPosterItem|Size"
+msgstr ""
+
+#: app/models/spex_poster_item.rb:-
+msgid "SpexPosterItem|Parent"
+msgstr ""
+
+#: app/models/spex_poster_item.rb:-
+msgid "SpexPosterItem|Thumbnail"
+msgstr ""
+
+#: app/models/spex_poster_item.rb:-
+msgid "SpexPosterItem|Width"
+msgstr ""
+
+#: app/models/spex_poster_item.rb:-
+msgid "SpexPosterItem|Height"
+msgstr ""
+
+#: app/models/function_item.rb:-
+msgid "function item"
+msgstr ""
+
+#: app/models/function_item.rb:-
+msgid "FunctionItem|Name"
+msgstr ""
+
+#: app/models/function_item.rb:-
+msgid "FunctionItem|Function category item"
+msgstr ""
+
+#: app/models/function_item.rb:-
+msgid "FunctionItem|Created at"
+msgstr ""
+
+#: app/models/function_item.rb:-
+msgid "FunctionItem|Updated at"
+msgstr ""
+
+#: app/models/function_item.rb:-
+msgid "FunctionItem|Lock version"
+msgstr ""
+
+#: app/models/link_item.rb:-
+msgid "link item"
+msgstr ""
+
+#: app/models/link_item.rb:-
+msgid "LinkItem|Spexare item"
+msgstr ""
+
+#: app/models/link_item.rb:-
+msgid "LinkItem|Spex item"
+msgstr ""
+
+#: app/models/link_item.rb:-
+msgid "LinkItem|Position"
+msgstr ""
+
+#: app/models/link_item.rb:-
+msgid "LinkItem|Created at"
+msgstr ""
+
+#: app/models/link_item.rb:-
+msgid "LinkItem|Updated at"
+msgstr ""
+
+#: app/models/link_item.rb:-
+msgid "LinkItem|Lock version"
+msgstr ""
+
+#: app/models/spexare_picture_item.rb:-
+msgid "spexare picture item"
+msgstr ""
+
+#: app/models/spexare_picture_item.rb:-
+msgid "SpexarePictureItem|Spexare item"
+msgstr ""
+
+#: app/models/spexare_picture_item.rb:-
+msgid "SpexarePictureItem|Content type"
+msgstr ""
+
+#: app/models/spexare_picture_item.rb:-
+msgid "SpexarePictureItem|Filename"
+msgstr ""
+
+#: app/models/spexare_picture_item.rb:-
+msgid "SpexarePictureItem|Size"
+msgstr ""
+
+#: app/models/spexare_picture_item.rb:-
+msgid "SpexarePictureItem|Parent"
+msgstr ""
+
+#: app/models/spexare_picture_item.rb:-
+msgid "SpexarePictureItem|Thumbnail"
+msgstr ""
+
+#: app/models/spexare_picture_item.rb:-
+msgid "SpexarePictureItem|Width"
+msgstr ""
+
+#: app/models/spexare_picture_item.rb:-
+msgid "SpexarePictureItem|Height"
+msgstr ""

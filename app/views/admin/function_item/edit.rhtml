@@ -1,0 +1,9 @@
+<% @page_title = 'Ändra funktion...' %>
+
+<%= render :partial => 'shared/error' %>
+<%= render :partial => 'shared/message' %>
+<%= render :partial => 'shared/validation_errors' %>
+
+<% form_for :function_item, :url => { :action => 'update', :id => @function_item } do |form| %>
+  <%= render :partial => 'form', :locals => { :action => 'edit', :form => form } %>
+<% end %>

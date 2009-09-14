@@ -1,0 +1,5 @@
+<tr id="<%= element_row_id(@options) %>" style="display:none;">
+  <td id="<%= element_cell_id(@options) %>" colspan="4" class="<%= @options[:action] %>">
+    <%= render :partial => 'link_item_form', :locals => { :action => action } %>
+  </td>
+</tr>

@@ -1,0 +1,47 @@
+<%= link_to_remote image_tag('up.png', {:alt => 'Stäng', :border => 0, :align => 'top'}), { :url => { :controller => 'search', :action => 'advanced_search_help_how', :operation => 'close' } } %>
+<table>
+  <tr>
+    <td>
+      Enklaste formen är termsökning, dvs ett eller flera enkla ord, som skrivs i en följd (tex jacobsson colgate). För att då få en träff så måste
+      samtliga ord finnas i ett eller flera fält hos en spexare.
+      <hr/>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Man kan också omge söktermen med citationstecken, tex "Alfred Nobel", för att hela termen måste överensstämma för att få en träff.
+      <hr/>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Genom att använda | så kan man ange alternativ, tex "Lionardo|Leonardo da Vinci". &lt;&gt; kan användas för att ange en sk 'placeholder' för ord
+      som man inte bryr sig om, tex "Lionardo|Leonardo &lt;&gt; Vinci".  
+      <hr/>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      För att söka på specifika fält så anger man fältnamnet före sökordet, tex efternamn:jacobsson.
+      <hr/>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      För att kombinera olika sökuttryck så använder man + och -, tex +efternamn:jacobsson -förnamn:anders. ! kan även användas istället för -. Om man
+      vill så kan man även använda de boolska uttrycken AND, &&, OR och ||.  
+      <hr/>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Följande tecken måste föregås av ett \ om de skall ingå i själva söktermen:<br/> :, (, ), [, ], {, }, !, +, ", ~, ^, -, |, <, >, =, *, ?, \ 
+      <hr/>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Mer information kan hittas <a href="http://ferret.davebalmain.com/api/classes/Ferret/QueryParser.html">&raquo;här&laquo;</a>. 
+    </td>
+  </tr>
+</table>

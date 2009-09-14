@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%= Locale.get %>" lang="<%= Locale.get %>">
+  <head>
+    <title>Chalmersspexets Adressregister</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=<%= Locale.charset %>" />
+    <%= stylesheet_link_tag 'Base', 'Menu', 'lightbox', 'date-picker', :media => 'all' %>
+    <%= javascript_include_tiny_mce_if_used %>
+    <%= tiny_mce if using_tiny_mce? %>
+    <%= javascript_include_tag 'prototype', 'effects', 'lightbox', 'datepicker', 'controls', 'prototype_utils', 'application' %>
+    <!--[if lte IE 6]>
+      <style type="text/css">
+        @import "/stylesheets/Menu4IE.css";
+      </style>
+      <script type="text/javascript" src="/javascripts/ADxMenu.js"></script>
+    <![endif]-->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  </head>
+  
+  <body>
+    <div id="mainContainer">
+      <div id="headerContainer">
+        &nbsp;
+        <div id="headerTitle">
+          Chalmersspexets Adressregister
+        </div>
+        <div id="headerVersion">
+          Version <%= h(get_configuration_item(ConfigurationItem::APP_VERSION)) %>
+        </div>
+        <!-- menuContainer moved to the very bottom to solve IE's inability to handle z-index correctly -->
+        <div id="headerLoggedInAs">
+          Inloggad som:
+          <% if session_exists? %>
+            <%= h(get_user_from_session.user_name) %>
+          <% else %>
+            Ej inloggad
+          <% end %>
+        </div>
+        <div id="loadingIndicator" style="display:none;">
+          <%= image_tag('indicator.gif', { :alt => 'Timglas', :title => 'Timglas', :border => 0}) %>
+        </div>
+      </div>
+      <div id="titleContainer">
+        <% if @page_title %>
+          <%= h(@page_title) %>
+        <% end %>
+      </div>
+      <div id="progressIndicator" <%= 'style="display:none;"' unless show_progress_indicator? %>>
+      </div>
+      <div id="bodyContainer">
+        <%= yield :layout %>
+      </div>
+      <% if session_exists? %>
+        <div id="aboutDialog" style="display:none"></div>
+        <div id="problemDialog" style="display:none"></div>
+        <% periodically_call_remote :url => { :action => :session_expiry}, :update => 'sessionExpiry' %>
+        <div id="sessionExpiry" style="display:none"></div>
+        <div id="progressPoller" style="display:none">
+          <%= render :partial => 'shared/progressPoller' if show_progress_indicator? %>
+        </div>
+      <% end %>
+      <div id="menuContainer">
+        <% if session_exists? && !get_user_from_session.temporary_password? %>
+          <% if get_user_from_session.is_in_role?(RoleItem::ADMIN) %>
+            <div id="headerAdminMenu">
+              <%= render :partial => '/shared/menu' %>
+            </div>
+          <% elsif get_user_from_session.is_in_role?(RoleItem::USER) %>
+            <div id="headerUserMenu">
+              <%= render :partial => '/shared/menu' %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </body>
+
+</html>

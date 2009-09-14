@@ -1,0 +1,39 @@
+<% @page_title = 'Visa användare...' %>
+
+<%= render :partial => 'shared/error' %>
+<%= render :partial => 'shared/message' %>
+
+<div id="userItemListDialog">
+  <% if !@user_items.empty? %>
+    <table>
+      <%= sort_header_tag('user_name', { :caption => 'Användarnamn', :title => 'Sortera efter användarnamn', :width => '50%' }, { :filter_options_filter => @filter_options.filter, :hits_per_page => params[:hits_per_page] }) %>
+      <%= sort_header_tag('description', { :caption => 'Roll', :title => 'Sortera efter roll', :association => 'role_items', :width => '20%' }, { :filter_options_filter => @filter_options.filter, :hits_per_page => params[:hits_per_page] }) %>
+      <th colspan="3" width="30%">
+        Åtgärd
+      </th>
+
+      <% @user_items.each do |user_item| %>
+        <tr class="<%= cycle('even', 'odd') %>">
+          <td>
+            <%= h(user_item.user_name) %>
+          </td>
+          <td>
+            <%= h(user_item.role_item.description) %>
+          </td>
+          <%= render :partial => '/shared/actions', :locals => { :item => user_item, :controller => 'user_item', :show_edit => true, :show_destroy => true  } %>
+        </tr>
+      <% end %>
+    </table>
+
+    <%= render :partial => '/shared/filter', :locals => { :collection => @user_items, :action => 'list', :show_keyword_filter => true } %>
+    <%= render :partial => '/shared/paginator', :locals => { :collection => @user_items } %>
+  <% else %>
+    <table>
+      <tr>
+        <td class="centerAligned">
+          Det finns inga användare.
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

@@ -1,0 +1,9 @@
+<% @page_title = 'Ändra spex...' %>
+
+<%= render :partial => 'shared/error' %>
+<%= render :partial => 'shared/message' %>
+<%= render :partial => 'shared/validation_errors' %>
+
+<% form_for :spex_item, :url => { :action => 'update', :id => @spex_item }, :html => { :multipart => true } do |form| %>
+  <%= render :partial => 'form', :locals => { :action => 'edit', :form => form } %>
+<% end %>
