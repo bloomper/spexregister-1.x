@@ -1,0 +1,19 @@
+TODO
+----
+
+Short-term
+----------
+
+Medium-term
+-----------
+
+- Update documentation
+
+Long-term
+---------
+
+Problems
+--------
+
+Goodies
+-------
