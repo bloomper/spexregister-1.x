@@ -40,8 +40,8 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   config.i18n.default_locale = :sv
 
-  ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(
-    :long_format => '%Y-%m-%d %H:%M:%S'
-  )
-
 end
+
+ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(
+  :long_format => '%Y-%m-%d %H:%M:%S'
+)
