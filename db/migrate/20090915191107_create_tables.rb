@@ -12,9 +12,9 @@ class CreateTables < ActiveRecord::Migration
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
+      t.foreign_key :function_category_item_id, :function_category_items, :id
     end
     add_index :function_items, :name
-    execute 'ALTER TABLE function_items ADD CONSTRAINT fk_function_items_function_category_items FOREIGN KEY (function_category_item_id) REFERENCES function_category_items(id)'
 
     create_table :spex_category_items, :force => true do |t|
       t.column :category_name, :string, :null => false
@@ -28,10 +28,10 @@ class CreateTables < ActiveRecord::Migration
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
+      t.foreign_key :spex_category_item_id, :spex_category_items, :id
     end
     add_index :spex_items, :year
     add_index :spex_items, :title
-    execute 'ALTER TABLE spex_items ADD CONSTRAINT fk_spex_items_spex_category_items FOREIGN KEY (spex_category_item_id) REFERENCES spex_category_items(id)'
 
     create_table :spex_poster_items, :force => true do |t|
       t.column :spex_item_id, :integer
@@ -42,9 +42,9 @@ class CreateTables < ActiveRecord::Migration
       t.column :thumbnail, :string
       t.column :width, :integer
       t.column :height, :integer
+      t.foreign_key :spex_item_id, :spex_items, :id
     end
     add_index :spex_poster_items, :spex_item_id
-    execute 'ALTER TABLE spex_poster_items ADD CONSTRAINT fk_spex_poster_items_spex_items FOREIGN KEY (spex_item_id) REFERENCES spex_items(id)'
 
     create_table :news_items, :force => true do |t|
       t.column :publication_date, :string, :limit => 10, :null => false
@@ -75,9 +75,9 @@ class CreateTables < ActiveRecord::Migration
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
+      t.foreign_key :role_item_id, :role_items, :id
     end
     add_index :user_items, :user_name, :unique => true
-    execute 'ALTER TABLE user_items ADD CONSTRAINT fk_user_items_role_items FOREIGN KEY (role_item_id) REFERENCES role_items(id)'
 
     create_table :spexare_items, :force => true do |t|
       t.column :last_name, :string, :limit => 40, :null => false
@@ -107,18 +107,18 @@ class CreateTables < ActiveRecord::Migration
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
+      t.foreign_key :user_item_id, :user_items, :id
     end
     add_index :spexare_items, :last_name
     add_index :spexare_items, :first_name
     add_index :spexare_items, :user_item_id, :unique => true
-    execute 'ALTER TABLE spexare_items ADD CONSTRAINT fk_spexare_items_users_items FOREIGN KEY (user_item_id) REFERENCES user_items(id)'
 
     create_table :related_spexare_items, :id => false, :force => true do |t|
       t.column :spexare_item_id, :integer
       t.column :related_spexare_item_id, :integer
+      t.foreign_key :spexare_item_id, :spexare_items, :id
+      t.foreign_key :related_spexare_item_id, :spexare_items, :id
     end
-    execute 'ALTER TABLE related_spexare_items ADD CONSTRAINT fk_related_spexare_item1 FOREIGN KEY (spexare_item_id) REFERENCES spexare_items(id)'
-    execute 'ALTER TABLE related_spexare_items ADD CONSTRAINT fk_related_spexare_item2 FOREIGN KEY (related_spexare_item_id) REFERENCES spexare_items(id)'
 
     create_table :spexare_picture_items, :force => true do |t|
       t.column :spexare_item_id, :integer
@@ -129,9 +129,9 @@ class CreateTables < ActiveRecord::Migration
       t.column :thumbnail, :string
       t.column :width, :integer
       t.column :height, :integer
+      t.foreign_key :spexare_item_id, :spexare_items, :id
     end
     add_index :spexare_picture_items, :spexare_item_id
-    execute 'ALTER TABLE spexare_picture_items ADD CONSTRAINT fk_spexare_picture_items_spexare_items FOREIGN KEY (spexare_item_id) REFERENCES spexare_items(id)'
 
     create_table :link_items, :force => true do |t|
       t.column :spexare_item_id, :integer, :null => false
@@ -140,17 +140,16 @@ class CreateTables < ActiveRecord::Migration
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
+      t.foreign_key :spexare_item_id, :spexare_items, :id
+      t.foreign_key :spex_item_id, :spex_items, :id
     end
-    execute 'ALTER TABLE link_items ADD CONSTRAINT fk_link_items_spexare_items FOREIGN KEY (spexare_item_id) REFERENCES spexare_items(id)'
-    execute 'ALTER TABLE link_items ADD CONSTRAINT fk_link_items_spex_items FOREIGN KEY (spex_item_id) REFERENCES spex_items(id)'
 
     create_table :function_items_link_items, :id => false, :force => true do |t|
       t.column :function_item_id, :integer, :null => false
       t.column :link_item_id, :integer, :null => false
+      t.foreign_key :function_item_id, :function_items, :id
+      t.foreign_key :link_item_id, :link_items, :id
     end
-    execute 'ALTER TABLE function_items_link_items ADD CONSTRAINT PRIMARY KEY (function_item_id, link_item_id)'
-    execute 'ALTER TABLE function_items_link_items ADD CONSTRAINT fk_function_items FOREIGN KEY (function_item_id) REFERENCES function_items(id)'
-    execute 'ALTER TABLE function_items_link_items ADD CONSTRAINT fk_link_items FOREIGN KEY (link_item_id) REFERENCES link_items(id)'
 
     create_table :actor_items, :force => true do |t|
       t.column :role, :string, :limit => 50
@@ -159,9 +158,9 @@ class CreateTables < ActiveRecord::Migration
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
+      t.foreign_key :link_item_id, :link_items, :id
     end
     add_index :actor_items, :link_item_id
-    execute 'ALTER TABLE actor_items ADD CONSTRAINT fk_actor_items_link_items FOREIGN KEY (link_item_id) REFERENCES link_items(id)'
   end
 
   def self.down

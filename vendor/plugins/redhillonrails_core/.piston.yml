@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 912ae4404a48dd26a3fe62247d29930cd9681a86
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/harukizaemon/redhillonrails_core.git
