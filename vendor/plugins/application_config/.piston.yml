@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  piston:remote-revision: 22
+  piston:uuid: fa8f047a-7d4f-0410-a4eb-6fd3088e1436
+lock: false
+repository_class: Piston::Svn::Repository
+repository_url: http://application-config.googlecode.com/svn/tags/application-config

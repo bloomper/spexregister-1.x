@@ -1,0 +1,12 @@
+development: &defaults
+  app_version: 0.0.4
+  admin_mail_address: register@chalmersspexet.com
+  default_listing_page_size: 10
+  related_spexare_dropdown_list_size: 12
+  spexare_dropdown_list_size: 15
+  paginator_window_size: 5
+  export_page_size: 25
+test:
+  <<: *defaults
+production:
+  <<: *defaults
