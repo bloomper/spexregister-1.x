@@ -39,7 +39,7 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # Override to load from a nested structure, i.e. config/locales/**/*.rb,yml
   config.i18n.load_path += Dir[File.join(RAILS_ROOT, 'config', 'locales', '**', '*.{rb,yml}')]
-  config.i18n.default_locale = :sv-SE
+  config.i18n.default_locale = 'sv-SE'
 
 end
 
