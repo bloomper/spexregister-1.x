@@ -11,49 +11,49 @@
 
 ActiveRecord::Schema.define(:version => 20090915191107) do
 
-  create_table "actor_items", :force => true do |t|
+  create_table "actors", :force => true do |t|
     t.string   "role",         :limit => 50
     t.string   "vocal",        :limit => 2
-    t.integer  "link_item_id",                              :null => false
+    t.integer  "link_id",                                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "lock_version",               :default => 0
   end
 
-  add_index "actor_items", ["link_item_id"], :name => "index_actor_items_on_link_item_id"
+  add_index "actors", ["link_id"], :name => "index_actors_on_link_id"
 
-  create_table "function_category_items", :force => true do |t|
+  create_table "function_categories", :force => true do |t|
     t.string  "category_name",                    :null => false
     t.boolean "has_actor",     :default => false
   end
 
-  add_index "function_category_items", ["category_name"], :name => "index_function_category_items_on_category_name", :unique => true
+  add_index "function_categories", ["category_name"], :name => "index_function_categories_on_category_name", :unique => true
 
-  create_table "function_items", :force => true do |t|
-    t.string   "name",                      :limit => 50,                :null => false
-    t.integer  "function_category_item_id",                              :null => false
+  create_table "functions", :force => true do |t|
+    t.string   "name",                 :limit => 50,                :null => false
+    t.integer  "function_category_id",                              :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "lock_version",                            :default => 0
+    t.integer  "lock_version",                       :default => 0
   end
 
-  add_index "function_items", ["name"], :name => "index_function_items_on_name"
+  add_index "functions", ["name"], :name => "index_functions_on_name"
 
-  create_table "function_items_link_items", :id => false, :force => true do |t|
-    t.integer "function_item_id", :null => false
-    t.integer "link_item_id",     :null => false
+  create_table "functions_links", :id => false, :force => true do |t|
+    t.integer "function_id", :null => false
+    t.integer "link_id",     :null => false
   end
 
-  create_table "link_items", :force => true do |t|
-    t.integer  "spexare_item_id",                :null => false
-    t.integer  "spex_item_id",                   :null => false
+  create_table "links", :force => true do |t|
+    t.integer  "spexare_id",                  :null => false
+    t.integer  "spex_id",                     :null => false
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "lock_version",    :default => 0
+    t.integer  "lock_version", :default => 0
   end
 
-  create_table "news_items", :force => true do |t|
+  create_table "news", :force => true do |t|
     t.string   "publication_date", :limit => 10,                :null => false
     t.string   "subject",          :limit => 85,                :null => false
     t.text     "body",                                          :null => false
@@ -62,14 +62,14 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.integer  "lock_version",                   :default => 0
   end
 
-  add_index "news_items", ["publication_date"], :name => "index_news_items_on_publication_date"
+  add_index "news", ["publication_date"], :name => "index_news_on_publication_date"
 
-  create_table "related_spexare_items", :id => false, :force => true do |t|
-    t.integer "spexare_item_id"
-    t.integer "related_spexare_item_id"
+  create_table "related_spexare", :id => false, :force => true do |t|
+    t.integer "spexare_id"
+    t.integer "related_spexare_id"
   end
 
-  create_table "role_items", :force => true do |t|
+  create_table "roles", :force => true do |t|
     t.string   "name",         :limit => 20,                :null => false
     t.string   "description",  :limit => 40,                :null => false
     t.datetime "created_at"
@@ -77,29 +77,29 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.integer  "lock_version",               :default => 0
   end
 
-  add_index "role_items", ["description"], :name => "index_role_items_on_description", :unique => true
-  add_index "role_items", ["name"], :name => "index_role_items_on_name", :unique => true
+  add_index "roles", ["description"], :name => "index_roles_on_description", :unique => true
+  add_index "roles", ["name"], :name => "index_roles_on_name", :unique => true
 
-  create_table "spex_category_items", :force => true do |t|
+  create_table "spex", :force => true do |t|
+    t.string   "year",             :limit => 4,                 :null => false
+    t.string   "title",            :limit => 50,                :null => false
+    t.integer  "spex_category_id",                              :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",                   :default => 0
+  end
+
+  add_index "spex", ["title"], :name => "index_spex_on_title"
+  add_index "spex", ["year"], :name => "index_spex_on_year"
+
+  create_table "spex_categories", :force => true do |t|
     t.string "category_name", :null => false
   end
 
-  add_index "spex_category_items", ["category_name"], :name => "index_spex_category_items_on_category_name", :unique => true
+  add_index "spex_categories", ["category_name"], :name => "index_spex_categories_on_category_name", :unique => true
 
-  create_table "spex_items", :force => true do |t|
-    t.string   "year",                  :limit => 4,                 :null => false
-    t.string   "title",                 :limit => 50,                :null => false
-    t.integer  "spex_category_item_id",                              :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "lock_version",                        :default => 0
-  end
-
-  add_index "spex_items", ["title"], :name => "index_spex_items_on_title"
-  add_index "spex_items", ["year"], :name => "index_spex_items_on_year"
-
-  create_table "spex_poster_items", :force => true do |t|
-    t.integer "spex_item_id"
+  create_table "spex_posters", :force => true do |t|
+    t.integer "spex_id"
     t.string  "content_type"
     t.string  "filename"
     t.integer "size"
@@ -109,9 +109,9 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.integer "height"
   end
 
-  add_index "spex_poster_items", ["spex_item_id"], :name => "index_spex_poster_items_on_spex_item_id"
+  add_index "spex_posters", ["spex_id"], :name => "index_spex_posters_on_spex_id"
 
-  create_table "spexare_items", :force => true do |t|
+  create_table "spexare", :force => true do |t|
     t.string   "last_name",         :limit => 40,                    :null => false
     t.string   "first_name",        :limit => 30,                    :null => false
     t.string   "nick_name",         :limit => 30
@@ -135,18 +135,18 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.boolean  "fgv_member",                      :default => false
     t.boolean  "alumni_member",                   :default => false
     t.boolean  "uncertain_address",               :default => false
-    t.integer  "user_item_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "lock_version",                    :default => 0
   end
 
-  add_index "spexare_items", ["user_item_id"], :name => "index_spexare_items_on_user_item_id", :unique => true
-  add_index "spexare_items", ["first_name"], :name => "index_spexare_items_on_first_name"
-  add_index "spexare_items", ["last_name"], :name => "index_spexare_items_on_last_name"
+  add_index "spexare", ["user_id"], :name => "index_spexare_on_user_id", :unique => true
+  add_index "spexare", ["first_name"], :name => "index_spexare_on_first_name"
+  add_index "spexare", ["last_name"], :name => "index_spexare_on_last_name"
 
-  create_table "spexare_picture_items", :force => true do |t|
-    t.integer "spexare_item_id"
+  create_table "spexare_pictures", :force => true do |t|
+    t.integer "spexare_id"
     t.string  "content_type"
     t.string  "filename"
     t.integer "size"
@@ -156,19 +156,19 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.integer "height"
   end
 
-  add_index "spexare_picture_items", ["spexare_item_id"], :name => "index_spexare_picture_items_on_spexare_item_id"
+  add_index "spexare_pictures", ["spexare_id"], :name => "index_spexare_pictures_on_spexare_id"
 
-  create_table "user_items", :force => true do |t|
+  create_table "users", :force => true do |t|
     t.string   "user_name",          :limit => 20,                    :null => false
     t.string   "user_password",      :limit => 40,                    :null => false
     t.boolean  "temporary_password",               :default => false
     t.boolean  "disabled",                         :default => false
-    t.integer  "role_item_id",                                        :null => false
+    t.integer  "role_id",                                             :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "lock_version",                     :default => 0
   end
 
-  add_index "user_items", ["user_name"], :name => "index_user_items_on_user_name", :unique => true
+  add_index "users", ["user_name"], :name => "index_users_on_user_name", :unique => true
 
 end

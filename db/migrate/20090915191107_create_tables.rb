@@ -1,40 +1,40 @@
 class CreateTables < ActiveRecord::Migration
   def self.up
-    create_table :function_category_items, :force => true do |t|
+    create_table :function_categories, :force => true do |t|
       t.column :category_name, :string, :null => false
       t.column :has_actor, :boolean, :default => false
     end
-    add_index :function_category_items, :category_name, :unique => true
+    add_index :function_categories, :category_name, :unique => true
 
-    create_table :function_items, :force => true do |t|
+    create_table :functions, :force => true do |t|
       t.column :name, :string, :limit => 50, :null => false
-      t.column :function_category_item_id, :integer, :null => false
+      t.column :function_category_id, :integer, :null => false
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
-      t.foreign_key :function_category_item_id, :function_category_items, :id
+      t.foreign_key :function_category_id, :function_categories, :id
     end
-    add_index :function_items, :name
+    add_index :functions, :name
 
-    create_table :spex_category_items, :force => true do |t|
+    create_table :spex_categories, :force => true do |t|
       t.column :category_name, :string, :null => false
     end
-    add_index :spex_category_items, :category_name, :unique => true
+    add_index :spex_categories, :category_name, :unique => true
 
-    create_table :spex_items, :force => true do |t|
+    create_table :spex, :force => true do |t|
       t.column :year, :string, :limit => 4, :null => false
       t.column :title, :string, :limit => 50, :null => false
-      t.column :spex_category_item_id, :integer, :null => false
+      t.column :spex_category_id, :integer, :null => false
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
-      t.foreign_key :spex_category_item_id, :spex_category_items, :id
+      t.foreign_key :spex_category_id, :spex_categories, :id
     end
-    add_index :spex_items, :year
-    add_index :spex_items, :title
+    add_index :spex, :year
+    add_index :spex, :title
 
-    create_table :spex_poster_items, :force => true do |t|
-      t.column :spex_item_id, :integer
+    create_table :spex_posters, :force => true do |t|
+      t.column :spex_id, :integer
       t.column :content_type, :string
       t.column :filename, :string
       t.column :size, :integer
@@ -42,11 +42,11 @@ class CreateTables < ActiveRecord::Migration
       t.column :thumbnail, :string
       t.column :width, :integer
       t.column :height, :integer
-      t.foreign_key :spex_item_id, :spex_items, :id
+      t.foreign_key :spex_id, :spex, :id
     end
-    add_index :spex_poster_items, :spex_item_id
+    add_index :spex_posters, :spex_id
 
-    create_table :news_items, :force => true do |t|
+    create_table :news, :force => true do |t|
       t.column :publication_date, :string, :limit => 10, :null => false
       t.column :subject, :string, :limit => 85, :null => false
       t.column :body, :text, :null => false
@@ -54,32 +54,32 @@ class CreateTables < ActiveRecord::Migration
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
     end
-    add_index :news_items, :publication_date
+    add_index :news, :publication_date
 
-    create_table :role_items, :force => true do |t|
+    create_table :roles, :force => true do |t|
       t.column :name, :string, :limit => 20, :null => false
       t.column :description, :string, :limit => 40, :null => false
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
     end
-    add_index :role_items, :name, :unique => true
-    add_index :role_items, :description, :unique => true
+    add_index :roles, :name, :unique => true
+    add_index :roles, :description, :unique => true
 
-    create_table :user_items, :force => true do |t|
+    create_table :users, :force => true do |t|
       t.column :user_name, :string, :limit => 20, :null => false
       t.column :user_password, :string, :limit => 40, :null => false
       t.column :temporary_password, :boolean, :default => false
       t.column :disabled, :boolean, :default => false
-      t.column :role_item_id, :integer, :null => false
+      t.column :role_id, :integer, :null => false
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
-      t.foreign_key :role_item_id, :role_items, :id
+      t.foreign_key :role_id, :roles, :id
     end
-    add_index :user_items, :user_name, :unique => true
+    add_index :users, :user_name, :unique => true
 
-    create_table :spexare_items, :force => true do |t|
+    create_table :spexare, :force => true do |t|
       t.column :last_name, :string, :limit => 40, :null => false
       t.column :first_name, :string, :limit => 30, :null => false
       t.column :nick_name, :string, :limit => 30
@@ -103,25 +103,25 @@ class CreateTables < ActiveRecord::Migration
       t.column :fgv_member, :boolean, :default => false
       t.column :alumni_member, :boolean, :default => false
       t.column :uncertain_address, :boolean, :default => false
-      t.column :user_item_id, :integer
+      t.column :user_id, :integer
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
-      t.foreign_key :user_item_id, :user_items, :id
+      t.foreign_key :user_id, :users, :id
     end
-    add_index :spexare_items, :last_name
-    add_index :spexare_items, :first_name
-    add_index :spexare_items, :user_item_id, :unique => true
+    add_index :spexare, :last_name
+    add_index :spexare, :first_name
+    add_index :spexare, :user_id, :unique => true
 
-    create_table :related_spexare_items, :id => false, :force => true do |t|
-      t.column :spexare_item_id, :integer
-      t.column :related_spexare_item_id, :integer
-      t.foreign_key :spexare_item_id, :spexare_items, :id
-      t.foreign_key :related_spexare_item_id, :spexare_items, :id
+    create_table :related_spexare, :id => false, :force => true do |t|
+      t.column :spexare_id, :integer
+      t.column :related_spexare_id, :integer
+      t.foreign_key :spexare_id, :spexare, :id
+      t.foreign_key :related_spexare_id, :spexare, :id
     end
 
-    create_table :spexare_picture_items, :force => true do |t|
-      t.column :spexare_item_id, :integer
+    create_table :spexare_pictures, :force => true do |t|
+      t.column :spexare_id, :integer
       t.column :content_type, :string
       t.column :filename, :string
       t.column :size, :integer
@@ -129,54 +129,54 @@ class CreateTables < ActiveRecord::Migration
       t.column :thumbnail, :string
       t.column :width, :integer
       t.column :height, :integer
-      t.foreign_key :spexare_item_id, :spexare_items, :id
+      t.foreign_key :spexare_id, :spexare, :id
     end
-    add_index :spexare_picture_items, :spexare_item_id
+    add_index :spexare_pictures, :spexare_id
 
-    create_table :link_items, :force => true do |t|
-      t.column :spexare_item_id, :integer, :null => false
-      t.column :spex_item_id, :integer, :null => false
+    create_table :links, :force => true do |t|
+      t.column :spexare_id, :integer, :null => false
+      t.column :spex_id, :integer, :null => false
       t.column :position, :integer
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
-      t.foreign_key :spexare_item_id, :spexare_items, :id
-      t.foreign_key :spex_item_id, :spex_items, :id
+      t.foreign_key :spexare_id, :spexare, :id
+      t.foreign_key :spex_id, :spex, :id
     end
 
-    create_table :function_items_link_items, :id => false, :force => true do |t|
-      t.column :function_item_id, :integer, :null => false
-      t.column :link_item_id, :integer, :null => false
-      t.foreign_key :function_item_id, :function_items, :id
-      t.foreign_key :link_item_id, :link_items, :id
+    create_table :functions_links, :id => false, :force => true do |t|
+      t.column :function_id, :integer, :null => false
+      t.column :link_id, :integer, :null => false
+      t.foreign_key :function_id, :functions, :id
+      t.foreign_key :link_id, :links, :id
     end
 
-    create_table :actor_items, :force => true do |t|
+    create_table :actors, :force => true do |t|
       t.column :role, :string, :limit => 50
       t.column :vocal, :string, :limit => 2
-      t.column :link_item_id, :integer, :null => false
+      t.column :link_id, :integer, :null => false
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
-      t.foreign_key :link_item_id, :link_items, :id
+      t.foreign_key :link_id, :links, :id
     end
-    add_index :actor_items, :link_item_id
+    add_index :actors, :link_id
   end
 
   def self.down
-    drop_table :actor_items
-    drop_table :function_items_link_items
-    drop_table :link_items
-    drop_table :spexare_picture_items
-    drop_table :related_spexare_items
-    drop_table :spexare_items
-    drop_table :user_items
-    drop_table :role_items
-    drop_table :news_items
-    drop_table :spex_poster_items
-    drop_table :spex_items
-    drop_table :spex_category_items
-    drop_table :function_items
-    drop_table :function_category_items
+    drop_table :actors
+    drop_table :functions_links
+    drop_table :links
+    drop_table :spexare_pictures
+    drop_table :related_spexare
+    drop_table :spexare
+    drop_table :users
+    drop_table :roles
+    drop_table :news
+    drop_table :spex_posters
+    drop_table :spex
+    drop_table :spex_categories
+    drop_table :functions
+    drop_table :function_categories
   end
 end
