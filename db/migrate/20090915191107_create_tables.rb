@@ -1,10 +1,10 @@
 class CreateTables < ActiveRecord::Migration
   def self.up
     create_table :function_categories, :force => true do |t|
-      t.column :category_name, :string, :null => false
+      t.column :name, :string, :null => false
       t.column :has_actor, :boolean, :default => false
     end
-    add_index :function_categories, :category_name, :unique => true
+    add_index :function_categories, :name, :unique => true
 
     create_table :functions, :force => true do |t|
       t.column :name, :string, :limit => 50, :null => false
@@ -17,9 +17,9 @@ class CreateTables < ActiveRecord::Migration
     add_index :functions, :name
 
     create_table :spex_categories, :force => true do |t|
-      t.column :category_name, :string, :null => false
+      t.column :name, :string, :null => false
     end
-    add_index :spex_categories, :category_name, :unique => true
+    add_index :spex_categories, :name, :unique => true
 
     create_table :spex, :force => true do |t|
       t.column :year, :string, :limit => 4, :null => false
@@ -68,7 +68,7 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :users, :force => true do |t|
       t.column :user_name, :string, :limit => 20, :null => false
-      t.column :user_password, :string, :limit => 40, :null => false
+      t.column :password, :string, :limit => 40, :null => false
       t.column :temporary_password, :boolean, :default => false
       t.column :disabled, :boolean, :default => false
       t.column :role_id, :integer, :null => false

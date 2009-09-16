@@ -47,7 +47,7 @@ ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(
   :long_format => '%Y-%m-%d %H:%M:%S'
 )
 
-Inflector.inflections do |inflect|
+ActiveSupport::Inflector.inflections do |inflect|
 	inflect.uncountable "spex"
 	inflect.uncountable "spexare"
 	inflect.uncountable "news"

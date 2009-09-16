@@ -11,19 +11,19 @@ Role.create :name => Role::ADMIN, :description => 'Administratör'
 Role.create :name => Role::USER, :description => 'Användare'
 
 # Users
-User.create :user_name => 'admin', :user_password => 'admin99', :user_password_confirmation => 'admin99', :role => Role.find_by_name(Role::ADMIN)
-User.create :user_name => 'user', :user_password => 'user99', :user_password_confirmation => 'user99', :role => Role.find_by_name(Role::USER)
+User.create :user_name => 'admin', :password => 'admin99', :password_confirmation => 'admin99', :role => Role.find_by_name(Role::ADMIN)
+User.create :user_name => 'user', :password => 'user99', :password_confirmation => 'user99', :role => Role.find_by_name(Role::USER)
 
 # Function categories
-FunctionCategory.create :category_name => 'Kommitté'
-FunctionCategory.create :category_name => 'Orkester'
-FunctionCategory.create :category_name => 'Ensemble', :has_actor => true
-FunctionCategory.create :category_name => 'Bandet'
-FunctionCategory.create :category_name => 'Annat'
+FunctionCategory.create :name => 'Kommitté'
+FunctionCategory.create :name => 'Orkester'
+FunctionCategory.create :name => 'Ensemble', :has_actor => true
+FunctionCategory.create :name => 'Bandet'
+FunctionCategory.create :name => 'Annat'
 
 # Spex categories
-SpexCategory.create :category_name => 'Bob'
-SpexCategory.create :category_name => 'Vera'
+SpexCategory.create :name => 'Bob'
+SpexCategory.create :name => 'Vera'
 
 # Functions
 Function.create :name => 'Affisch', :function_category => FunctionCategory.find_by_category_name('Annat')

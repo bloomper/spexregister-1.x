@@ -4,6 +4,16 @@ TODO
 Short-term
 ----------
 
+- Security
+  - http://agilewebdevelopment.com/plugins/restful_authentication
+    - http://ruby.about.com/od/rubyonrails/ss/railsblog3_2.htm
+  - http://agilewebdevelopment.com/plugins/restful_acl
+  - http://agilewebdevelopment.com/plugins/declarative_authorization
+- Session
+  - Do not use CookieStore
+- Session expiry
+  - http://agilewebdevelopment.com/plugins/session_lifetime
+
 Medium-term
 -----------
 

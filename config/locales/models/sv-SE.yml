@@ -1,0 +1,71 @@
+"sv-SE":
+  activerecord:
+       
+    # Translate model names. Used in Model.human_name().
+    models:
+      actor: "Ensemblist"
+      function: "Funktion"
+      function_category: "Funktionskategori"
+      link: "Länk"
+      news: "Nyhet"
+      role: "Roll"
+      spex: "Spex"
+      spex_category: "Spexkategori"
+      spex_poster: "Spexaffisch"
+      spexare: "Spexare"
+      spexare_picture: "Bild"
+      user: "Användare"
+      
+    # Translate model attribute names. Used in Model.human_attribute_name(attribute).
+    attributes:
+      actor:
+        role: "Roll"
+        vocal: "Stämma"
+      function:
+        name: "Namn"
+      function_category:
+        name: "Namn"
+      news:
+        publication_date: "Publiceringsdatum"
+        subject: "Ämne"
+        body: "Text"
+      role:
+        name: "Namn"
+        description: "Beskrivning"
+      spex:
+        year: "År"
+        title: "Titel"
+        spexare_poster: "Affisch"
+      spex_category:
+        name: "Namn"
+      spexare:
+        last_name: "Efternamn"
+        first_name: "Förnamn"
+        nick_name: "Smeknamn"
+        street_address: "Gatuadress"
+        postal_code: "Postnummer"
+        postal_address: "Postadress"
+        country: "Land"
+        phone_home: "Telefonnummer (hem)"
+        phone_work: "Telefonnummer (arbete)"
+        phone_mobile: "Telefonnummer (mobil)"
+        phone_other: "Telefonnummer (annat)"
+        email_address: "Emailadress"
+        birth_date: "Födelsedatum"
+        social_security: "Personnummer"
+        chalmers_student: "Chalmerist?"
+        graduation: "Examen"
+        comment: "Kommentar"
+        deceased: "Avliden?"
+        publish_approval: "Tillåter publicering?"
+        want_circulars: "Vill ha utskick?"
+        fgv_member: "Medlem i FGV?"
+        alumni_member: "Medlem i CING?"
+        uncertain_address: "Osäker adress?"
+        spexare_picture: "Bild"
+      user:
+        user_name: "Användarnamn"
+        password: "Lösenord"
+        password_confirmation: "Lösenord (igen)"
+        temporary_password: "Tillfälligt lösenord"
+        disabled: "Inaktiverad"

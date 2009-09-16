@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
   add_index "actors", ["link_id"], :name => "index_actors_on_link_id"
 
   create_table "function_categories", :force => true do |t|
-    t.string  "category_name",                    :null => false
-    t.boolean "has_actor",     :default => false
+    t.string  "name",                         :null => false
+    t.boolean "has_actor", :default => false
   end
 
-  add_index "function_categories", ["category_name"], :name => "index_function_categories_on_category_name", :unique => true
+  add_index "function_categories", ["name"], :name => "index_function_categories_on_name", :unique => true
 
   create_table "functions", :force => true do |t|
     t.string   "name",                 :limit => 50,                :null => false
@@ -93,10 +93,10 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
   add_index "spex", ["year"], :name => "index_spex_on_year"
 
   create_table "spex_categories", :force => true do |t|
-    t.string "category_name", :null => false
+    t.string "name", :null => false
   end
 
-  add_index "spex_categories", ["category_name"], :name => "index_spex_categories_on_category_name", :unique => true
+  add_index "spex_categories", ["name"], :name => "index_spex_categories_on_name", :unique => true
 
   create_table "spex_posters", :force => true do |t|
     t.integer "spex_id"
@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
 
   create_table "users", :force => true do |t|
     t.string   "user_name",          :limit => 20,                    :null => false
-    t.string   "user_password",      :limit => 40,                    :null => false
+    t.string   "password",           :limit => 40,                    :null => false
     t.boolean  "temporary_password",               :default => false
     t.boolean  "disabled",                         :default => false
     t.integer  "role_id",                                             :null => false
