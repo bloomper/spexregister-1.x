@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 22d94223ab96f08cf2d7a875f7fc49df7ca0c777
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/gsmendoza/belongs_to_enum.git
