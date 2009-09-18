@@ -3,5 +3,5 @@ class Link < ActiveRecord::Base
   has_one :actor, :dependent => :destroy
   belongs_to :spex
   has_and_belongs_to_many :functions
-
+  
 end

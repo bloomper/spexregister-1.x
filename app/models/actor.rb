@@ -1,11 +1,14 @@
 class Actor < ActiveRecord::Base
-  VOCAL_TYPES = [
-    ['Okänt', 'NA'],
-    ['B1', 'B1'],
-    ['B2', 'B2'],
-    ['T1', 'T1'],
-    ['T2', 'T2']
-  ]
-  belongs_to :link
+  belongs_to :link_item
+  belongs_to_enum :vocal,
+  { 1 => {:name => :unknown, :title => I18n.t('actor.vocal.unknown') },
+    2 => {:name => :b1, :title => I18n.t('actor.vocal.b1')},
+    3 => {:name => :b2, :title => I18n.t('actor.vocal.b2')},
+    4 => {:name => :t1, :title => I18n.t('actor.vocal.t1')},
+    5 => {:name => :t2, :title => I18n.t('actor.vocal.t2')}
+  }
+  
+  protected
+  validates_inclusion_of_enum :vocal_id, { :message => :"inclusion", :allow_blank => true }
   
 end

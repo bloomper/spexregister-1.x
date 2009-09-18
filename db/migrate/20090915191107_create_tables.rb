@@ -35,13 +35,10 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :spex_posters, :force => true do |t|
       t.column :spex_id, :integer
-      t.column :content_type, :string
-      t.column :filename, :string
-      t.column :size, :integer
-      t.column :parent_id,  :integer
-      t.column :thumbnail, :string
-      t.column :width, :integer
-      t.column :height, :integer
+      t.column :poster_file_name, :string
+      t.column :poster_content_type, :string
+      t.column :poster_file_size, :integer
+      t.column :poster_updated_at,:datetime
       t.foreign_key :spex_id, :spex, :id
     end
     add_index :spex_posters, :spex_id
@@ -122,13 +119,10 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :spexare_pictures, :force => true do |t|
       t.column :spexare_id, :integer
-      t.column :content_type, :string
-      t.column :filename, :string
-      t.column :size, :integer
-      t.column :parent_id,  :integer
-      t.column :thumbnail, :string
-      t.column :width, :integer
-      t.column :height, :integer
+      t.column :picture_file_name, :string
+      t.column :picture_content_type, :string
+      t.column :picture_file_size, :integer
+      t.column :picture_updated_at,:datetime
       t.foreign_key :spexare_id, :spexare, :id
     end
     add_index :spexare_pictures, :spexare_id
@@ -153,7 +147,7 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :actors, :force => true do |t|
       t.column :role, :string, :limit => 50
-      t.column :vocal, :string, :limit => 2
+      t.column :vocal, :integer
       t.column :link_id, :integer, :null => false
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp

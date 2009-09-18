@@ -13,7 +13,7 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
 
   create_table "actors", :force => true do |t|
     t.string   "role",         :limit => 50
-    t.string   "vocal",        :limit => 2
+    t.integer  "vocal"
     t.integer  "link_id",                                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.integer  "lock_version",               :default => 0
   end
 
-  add_index "roles", ["description"], :name => "index_roles_on_description", :unique => true
   add_index "roles", ["name"], :name => "index_roles_on_name", :unique => true
+  add_index "roles", ["description"], :name => "index_roles_on_description", :unique => true
 
   create_table "spex", :force => true do |t|
     t.string   "year",             :limit => 4,                 :null => false
@@ -89,8 +89,8 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.integer  "lock_version",                   :default => 0
   end
 
-  add_index "spex", ["title"], :name => "index_spex_on_title"
   add_index "spex", ["year"], :name => "index_spex_on_year"
+  add_index "spex", ["title"], :name => "index_spex_on_title"
 
   create_table "spex_categories", :force => true do |t|
     t.string "name", :null => false
@@ -141,9 +141,9 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.integer  "lock_version",                    :default => 0
   end
 
-  add_index "spexare", ["user_id"], :name => "index_spexare_on_user_id", :unique => true
-  add_index "spexare", ["first_name"], :name => "index_spexare_on_first_name"
   add_index "spexare", ["last_name"], :name => "index_spexare_on_last_name"
+  add_index "spexare", ["first_name"], :name => "index_spexare_on_first_name"
+  add_index "spexare", ["user_id"], :name => "index_spexare_on_user_id", :unique => true
 
   create_table "spexare_pictures", :force => true do |t|
     t.integer "spexare_id"

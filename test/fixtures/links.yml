@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+test_link_1:
+  id: 1
+  spex_id: 1
+  spexare_id: 1
+test_link_2:
+  id: 2
+  spex_id: 1
+  spexare_id: 2
+

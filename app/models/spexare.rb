@@ -4,5 +4,5 @@ class Spexare < ActiveRecord::Base
   attr_protected :related_spexare
   has_one :spexare_picture, :dependent => :destroy
   belongs_to :user
-
+  
 end
