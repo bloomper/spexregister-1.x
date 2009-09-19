@@ -147,7 +147,7 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :actors, :force => true do |t|
       t.column :role, :string, :limit => 50
-      t.column :vocal, :integer
+      t.column :vocal_id, :integer
       t.column :link_id, :integer, :null => false
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp

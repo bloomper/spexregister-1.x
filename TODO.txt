@@ -4,6 +4,12 @@ TODO
 Short-term
 ----------
 
+- Use enum for Role::ADMIN and Role::User?
+
+- Make all unit tests run
+  - Walk thru fixtures, they seem to be improved in 2.0
+    - http://www.ryandaigle.com/articles/2007/10/26/what-s-new-in-edge-rails-fixtures-just-got-a-whole-lot-easier
+
 - Security
   - http://agilewebdevelopment.com/plugins/restful_authentication
     - http://ruby.about.com/od/rubyonrails/ss/railsblog3_2.htm

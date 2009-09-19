@@ -9,6 +9,6 @@ class Actor < ActiveRecord::Base
   }
   
   protected
-  validates_inclusion_of_enum :vocal_id, { :message => :"inclusion", :allow_blank => true }
+  validates_inclusion_of_enum :vocal, { :message => :"inclusion", :allow_blank => true }
   
 end

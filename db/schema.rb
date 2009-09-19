@@ -13,7 +13,7 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
 
   create_table "actors", :force => true do |t|
     t.string   "role",         :limit => 50
-    t.integer  "vocal"
+    t.integer  "vocal_id"
     t.integer  "link_id",                                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.integer  "lock_version",               :default => 0
   end
 
-  add_index "roles", ["name"], :name => "index_roles_on_name", :unique => true
   add_index "roles", ["description"], :name => "index_roles_on_description", :unique => true
+  add_index "roles", ["name"], :name => "index_roles_on_name", :unique => true
 
   create_table "spex", :force => true do |t|
     t.string   "year",             :limit => 4,                 :null => false
@@ -89,8 +89,8 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.integer  "lock_version",                   :default => 0
   end
 
-  add_index "spex", ["year"], :name => "index_spex_on_year"
   add_index "spex", ["title"], :name => "index_spex_on_title"
+  add_index "spex", ["year"], :name => "index_spex_on_year"
 
   create_table "spex_categories", :force => true do |t|
     t.string "name", :null => false
@@ -99,14 +99,11 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
   add_index "spex_categories", ["name"], :name => "index_spex_categories_on_name", :unique => true
 
   create_table "spex_posters", :force => true do |t|
-    t.integer "spex_id"
-    t.string  "content_type"
-    t.string  "filename"
-    t.integer "size"
-    t.integer "parent_id"
-    t.string  "thumbnail"
-    t.integer "width"
-    t.integer "height"
+    t.integer  "spex_id"
+    t.string   "poster_file_name"
+    t.string   "poster_content_type"
+    t.integer  "poster_file_size"
+    t.datetime "poster_updated_at"
   end
 
   add_index "spex_posters", ["spex_id"], :name => "index_spex_posters_on_spex_id"
@@ -141,19 +138,16 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.integer  "lock_version",                    :default => 0
   end
 
-  add_index "spexare", ["last_name"], :name => "index_spexare_on_last_name"
-  add_index "spexare", ["first_name"], :name => "index_spexare_on_first_name"
   add_index "spexare", ["user_id"], :name => "index_spexare_on_user_id", :unique => true
+  add_index "spexare", ["first_name"], :name => "index_spexare_on_first_name"
+  add_index "spexare", ["last_name"], :name => "index_spexare_on_last_name"
 
   create_table "spexare_pictures", :force => true do |t|
-    t.integer "spexare_id"
-    t.string  "content_type"
-    t.string  "filename"
-    t.integer "size"
-    t.integer "parent_id"
-    t.string  "thumbnail"
-    t.integer "width"
-    t.integer "height"
+    t.integer  "spexare_id"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   add_index "spexare_pictures", ["spexare_id"], :name => "index_spexare_pictures_on_spexare_id"
