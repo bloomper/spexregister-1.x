@@ -6,17 +6,13 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
 
-# Roles
-Role.create :name => Role::ADMIN, :description => 'Administratör'
-Role.create :name => Role::USER, :description => 'Användare'
-
 # Users
 # Must do it this way since role is attr_protected (security measure)
 user = User.new :user_name => 'admin', :password => 'admin99', :password_confirmation => 'admin99'
-user.role = Role.find_by_name(Role::ADMIN)
+user.role = :admin
 user.save
 user = User.new :user_name => 'user', :password => 'user99', :password_confirmation => 'user99'
-user.role = Role.find_by_name(Role::USER)
+user.role = :user
 user.save
 
 # Function categories

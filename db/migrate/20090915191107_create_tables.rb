@@ -53,16 +53,6 @@ class CreateTables < ActiveRecord::Migration
     end
     add_index :news, :publication_date
 
-    create_table :roles, :force => true do |t|
-      t.column :name, :string, :limit => 20, :null => false
-      t.column :description, :string, :limit => 40, :null => false
-      t.column :created_at, :timestamp
-      t.column :updated_at, :timestamp
-      t.column :lock_version, :integer, :default => 0
-    end
-    add_index :roles, :name, :unique => true
-    add_index :roles, :description, :unique => true
-
     create_table :users, :force => true do |t|
       t.column :user_name, :string, :limit => 20, :null => false
       t.column :password, :string, :limit => 40, :null => false

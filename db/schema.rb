@@ -69,17 +69,6 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.integer "related_spexare_id"
   end
 
-  create_table "roles", :force => true do |t|
-    t.string   "name",         :limit => 20,                :null => false
-    t.string   "description",  :limit => 40,                :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "lock_version",               :default => 0
-  end
-
-  add_index "roles", ["description"], :name => "index_roles_on_description", :unique => true
-  add_index "roles", ["name"], :name => "index_roles_on_name", :unique => true
-
   create_table "spex", :force => true do |t|
     t.string   "year",             :limit => 4,                 :null => false
     t.string   "title",            :limit => 50,                :null => false
