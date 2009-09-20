@@ -19,7 +19,7 @@
     attributes:
       actor:
         role: "Roll"
-        vocal: "Stämma"
+        vocal_id: "Stämma"
       function:
         name: "Namn"
       function_category:
@@ -65,3 +65,4 @@
         password_confirmation: "Lösenord (igen)"
         temporary_password: "Tillfälligt lösenord"
         disabled: "Inaktiverad"
+        role_id: "Roll"

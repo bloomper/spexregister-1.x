@@ -1,18 +1,22 @@
 require 'test_helper'
 
 class ActorTest < ActiveSupport::TestCase
-  #fixtures :actor_items
-
-  def test_validation_on_create
-    actor = Actor.new(:role => nil, :vocal => nil)
-    assert !actor.valid?, actor_item.errors.full_messages
-#    assert actor_item.errors.invalid?(:vocal), actor_item.errors.full_messages 
-#    assert_equal "'Stämma' måste vara ett av följande värden: 'B1', 'B2', 'T1', 'T2' eller 'Okänt'.", actor_item.errors.on(:vocal) 
-#    actor_item.vocal = ActorItem::VOCAL_TYPES[1][1]
-#    assert actor_item.valid?, actor_item.errors.full_messages
-#    actor_item.role = 'TestRole'
-#    assert actor_item.valid?, actor_item.errors.full_messages
-#    actor_item.vocal = 'Test'
-#    assert !actor_item.valid?, actor_item.errors.full_messages
+  fixtures :actors, :links
+  
+  def test_ok
+    actor = Actor.create(:role => 'Role', :vocal => :unknown, :link => links(:link_1))
+    assert actor.valid?, actor.errors.full_messages.join("\n") 
   end
+  
+  def test_ok_with_no_values
+    actor = Actor.create(:role => nil, :vocal => nil, :link => links(:link_1))
+    assert actor.valid?, actor.errors.full_messages.join("\n") 
+  end
+
+  def test_should_not_save_actor_with_invalid_vocal
+    actor = Actor.create(:role => 'Role', :vocal_id => 99, :link => links(:link_1))
+    assert(!actor.valid?, "Should not save entry unless vocal has been set to a legal value")
+    assert(actor.errors.invalid?(:vocal_id), "Expected an error for invalid vocal")
+  end
+  
 end

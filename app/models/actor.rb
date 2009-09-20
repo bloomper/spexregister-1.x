@@ -1,5 +1,5 @@
 class Actor < ActiveRecord::Base
-  belongs_to :link_item
+  belongs_to :link
   belongs_to_enum :vocal,
   { 1 => {:name => :unknown, :title => I18n.t('actor.vocal.unknown') },
     2 => {:name => :b1, :title => I18n.t('actor.vocal.b1')},
@@ -9,6 +9,6 @@ class Actor < ActiveRecord::Base
   }
   
   protected
-  validates_inclusion_of_enum :vocal, { :message => :"inclusion", :allow_blank => true }
+  validates_inclusion_of_enum :vocal_id, { :message => :inclusion, :allow_blank => true }
   
 end
