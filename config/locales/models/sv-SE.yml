@@ -8,7 +8,6 @@
       function_category: "Funktionskategori"
       link: "Länk"
       news: "Nyhet"
-      role: "Roll"
       spex: "Spex"
       spex_category: "Spexkategori"
       spex_poster: "Spexaffisch"
@@ -29,9 +28,6 @@
         publication_date: "Publiceringsdatum"
         subject: "Ämne"
         body: "Text"
-      role:
-        name: "Namn"
-        description: "Beskrivning"
       spex:
         year: "År"
         title: "Titel"
