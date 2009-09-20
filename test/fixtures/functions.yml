@@ -1,14 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-test_function_1:
-  id: 1
-  name: 'Test Function 1'
-  function_category_id: '1'
+function:
+  name: 'Function'
+  function_category: function_category
   created_at: '2099-01-01 00:00:00'
   updated_at: '2099-01-01 00:00:00'
-test_function_2:
-  id: 2
-  name: 'Test Item 2'
-  function_category_id: '2'
+function_with_actor:
+  name: 'Function With Actor'
+  function_category: function_category_with_actor
   created_at: '2099-01-01 00:00:00'
   updated_at: '2099-01-01 00:00:00'
-

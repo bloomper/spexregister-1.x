@@ -1,16 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-test_spex_1:
-  id: 1
+spex_1:
   year: '1098'
-  title: 'Test Spex 1'
-  spex_category_id: '1'
+  title: 'Spex 1'
+  spex_category: spex_category
   created_at: '2099-01-01 00:00:00'
   updated_at: '2099-01-01 00:00:00'
-test_spex_2:
-  id: 2
+spex_2:
   year: '1099'
   title: 'Test Spex 2'
-  spex_category_id: '1'
+  spex_category: spex_category
   created_at: '2099-01-01 00:00:00'
   updated_at: '2099-01-01 00:00:00'
-  
