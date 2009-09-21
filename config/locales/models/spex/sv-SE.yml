@@ -1,2 +1,4 @@
 "sv-SE":
   spex:
+    year:
+      invalid: "är inte ett giltlig årtal"

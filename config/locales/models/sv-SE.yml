@@ -10,9 +10,7 @@
       news: "Nyhet"
       spex: "Spex"
       spex_category: "Spexkategori"
-      spex_poster: "Spexaffisch"
       spexare: "Spexare"
-      spexare_picture: "Bild"
       user: "Användare"
       
     # Translate model attribute names. Used in Model.human_attribute_name(attribute).
@@ -31,7 +29,7 @@
       spex:
         year: "År"
         title: "Titel"
-        spexare_poster: "Affisch"
+        poster: "Affisch"
       spex_category:
         name: "Namn"
       spexare:
@@ -58,7 +56,7 @@
         fgv_member: "Medlem i FGV?"
         alumni_member: "Medlem i CING?"
         uncertain_address: "Osäker adress?"
-        spexare_picture: "Bild"
+        picture: "Bild"
       user:
         user_name: "Användarnamn"
         password: "Lösenord"

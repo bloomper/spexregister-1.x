@@ -25,6 +25,10 @@ class CreateTables < ActiveRecord::Migration
       t.column :year, :string, :limit => 4, :null => false
       t.column :title, :string, :limit => 50, :null => false
       t.column :spex_category_id, :integer, :null => false
+      t.column :poster_file_name, :string
+      t.column :poster_content_type, :string
+      t.column :poster_file_size, :integer
+      t.column :poster_updated_at,:datetime
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
@@ -32,16 +36,6 @@ class CreateTables < ActiveRecord::Migration
     end
     add_index :spex, :year
     add_index :spex, :title
-
-    create_table :spex_posters, :force => true do |t|
-      t.column :spex_id, :integer
-      t.column :poster_file_name, :string
-      t.column :poster_content_type, :string
-      t.column :poster_file_size, :integer
-      t.column :poster_updated_at,:datetime
-      t.foreign_key :spex_id, :spex, :id
-    end
-    add_index :spex_posters, :spex_id
 
     create_table :news, :force => true do |t|
       t.column :publication_date, :string, :limit => 10, :null => false
@@ -91,6 +85,10 @@ class CreateTables < ActiveRecord::Migration
       t.column :alumni_member, :boolean, :default => false
       t.column :uncertain_address, :boolean, :default => false
       t.column :user_id, :integer
+      t.column :picture_file_name, :string
+      t.column :picture_content_type, :string
+      t.column :picture_file_size, :integer
+      t.column :picture_updated_at,:datetime
       t.column :created_at, :timestamp
       t.column :updated_at, :timestamp
       t.column :lock_version, :integer, :default => 0
@@ -106,16 +104,6 @@ class CreateTables < ActiveRecord::Migration
       t.foreign_key :spexare_id, :spexare, :id
       t.foreign_key :related_spexare_id, :spexare, :id
     end
-
-    create_table :spexare_pictures, :force => true do |t|
-      t.column :spexare_id, :integer
-      t.column :picture_file_name, :string
-      t.column :picture_content_type, :string
-      t.column :picture_file_size, :integer
-      t.column :picture_updated_at,:datetime
-      t.foreign_key :spexare_id, :spexare, :id
-    end
-    add_index :spexare_pictures, :spexare_id
 
     create_table :links, :force => true do |t|
       t.column :spexare_id, :integer, :null => false
