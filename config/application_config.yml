@@ -11,6 +11,8 @@ development: &defaults
   allowed_file_types: image/jpg,image/jpeg,image/pjpeg,image/gif,image/png,image/x-png
   poster_thumbnail_size: 50x70
   picture_thumbnail_size: 50x70
+  # In minutes
+  session_length: 60 
 test:
   <<: *defaults
 production:

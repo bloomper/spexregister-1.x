@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 387b186478e5ee8650c5c0e8ba6948b0acda42c3
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/DefV/session_lifetime.git
