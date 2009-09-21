@@ -4,17 +4,20 @@ TODO
 Short-term
 ----------
 
+- Cannot upload correct files during test
+  - http://epirsch.blogspot.com/2008/01/fixing-attachmentfu-on-windows-like.html
+  - http://thewebfellas.com/blog/2008/11/2/goodbye-attachment_fu-hello-paperclip
+  - http://blog.jonathanhinson.com/
+
 - Make all unit tests run
+  - User
+  - Spexare
 
 - Security
   - http://agilewebdevelopment.com/plugins/restful_authentication
     - http://ruby.about.com/od/rubyonrails/ss/railsblog3_2.htm
   - http://agilewebdevelopment.com/plugins/restful_acl
   - http://agilewebdevelopment.com/plugins/declarative_authorization
-- Session
-  - Do not use CookieStore
-- Session expiry
-  - http://agilewebdevelopment.com/plugins/session_lifetime
 
 Medium-term
 -----------
