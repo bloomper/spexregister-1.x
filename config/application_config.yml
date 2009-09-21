@@ -6,6 +6,9 @@ development: &defaults
   spexare_dropdown_list_size: 15
   paginator_window_size: 5
   export_page_size: 25
+  # In Kb
+  max_upload_size: 150
+  allowed_file_types: image/jpg image/jpeg image/pjpeg image/gif image/png image/x-png
 test:
   <<: *defaults
 production:
