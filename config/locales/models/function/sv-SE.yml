@@ -1,2 +1,3 @@
 "sv-SE":
   function:
+    invalid_combination: "Kombinationen av namn och kategori används redan"

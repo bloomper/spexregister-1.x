@@ -8,7 +8,9 @@ development: &defaults
   export_page_size: 25
   # In Kb
   max_upload_size: 150
-  allowed_file_types: image/jpg image/jpeg image/pjpeg image/gif image/png image/x-png
+  allowed_file_types: image/jpg,image/jpeg,image/pjpeg,image/gif,image/png,image/x-png
+  poster_thumbnail_size: 50x70
+  picture_thumbnail_size: 50x70
 test:
   <<: *defaults
 production:

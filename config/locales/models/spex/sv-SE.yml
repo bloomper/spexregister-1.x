@@ -1,4 +1,4 @@
 "sv-SE":
   spex:
-    year:
-      invalid: "är inte ett giltlig årtal"
+    invalid_combination: "Kombinationen av Ã¥r, titel och kategori anvÃ¤nds redan"
+    combination_already_exists: "Det finns redan ett spex med angivna titeln och kategorin"
