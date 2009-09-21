@@ -9,15 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090915191107) do
+ActiveRecord::Schema.define(:version => 20090921205709) do
 
   create_table "actors", :force => true do |t|
     t.string   "role",         :limit => 50
     t.integer  "vocal_id"
     t.integer  "link_id",                                   :null => false
+    t.integer  "lock_version",               :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "lock_version",               :default => 0
   end
 
   add_index "actors", ["link_id"], :name => "index_actors_on_link_id"
@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
   create_table "functions", :force => true do |t|
     t.string   "name",                 :limit => 50,                :null => false
     t.integer  "function_category_id",                              :null => false
+    t.integer  "lock_version",                       :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "lock_version",                       :default => 0
   end
 
   add_index "functions", ["name"], :name => "index_functions_on_name"
@@ -48,18 +48,18 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.integer  "spexare_id",                  :null => false
     t.integer  "spex_id",                     :null => false
     t.integer  "position"
+    t.integer  "lock_version", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "lock_version", :default => 0
   end
 
   create_table "news", :force => true do |t|
     t.string   "publication_date", :limit => 10,                :null => false
     t.string   "subject",          :limit => 85,                :null => false
     t.text     "body",                                          :null => false
+    t.integer  "lock_version",                   :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "lock_version",                   :default => 0
   end
 
   add_index "news", ["publication_date"], :name => "index_news_on_publication_date"
@@ -69,6 +69,16 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.integer "related_spexare_id"
   end
 
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+
   create_table "spex", :force => true do |t|
     t.string   "year",                :limit => 4,                 :null => false
     t.string   "title",               :limit => 50,                :null => false
@@ -77,9 +87,9 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.string   "poster_content_type"
     t.integer  "poster_file_size"
     t.datetime "poster_updated_at"
+    t.integer  "lock_version",                      :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "lock_version",                      :default => 0
   end
 
   add_index "spex", ["title"], :name => "index_spex_on_title"
@@ -120,9 +130,9 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "lock_version",                       :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "lock_version",                       :default => 0
   end
 
   add_index "spexare", ["user_id"], :name => "index_spexare_on_user_id", :unique => true
@@ -135,9 +145,9 @@ ActiveRecord::Schema.define(:version => 20090915191107) do
     t.boolean  "temporary_password",               :default => false
     t.boolean  "disabled",                         :default => false
     t.integer  "role_id",                                             :null => false
+    t.integer  "lock_version",                     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "lock_version",                     :default => 0
   end
 
   add_index "users", ["user_name"], :name => "index_users_on_user_name", :unique => true
