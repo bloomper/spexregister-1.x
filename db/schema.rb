@@ -102,35 +102,35 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
   add_index "spex_categories", ["name"], :name => "index_spex_categories_on_name", :unique => true
 
   create_table "spexare", :force => true do |t|
-    t.string   "last_name",            :limit => 40,                    :null => false
-    t.string   "first_name",           :limit => 30,                    :null => false
-    t.string   "nick_name",            :limit => 30
-    t.string   "street_address",       :limit => 75
-    t.string   "postal_code",          :limit => 30
-    t.string   "postal_address",       :limit => 40
-    t.string   "country",              :limit => 30
-    t.string   "phone_home",           :limit => 25
-    t.string   "phone_work",           :limit => 25
-    t.string   "phone_mobile",         :limit => 25
-    t.string   "phone_other",          :limit => 25
-    t.string   "email_address",        :limit => 50
-    t.string   "birth_date",           :limit => 10
-    t.string   "social_security",      :limit => 4
-    t.boolean  "chalmers_student",                   :default => true
-    t.string   "graduation",           :limit => 5
+    t.string   "last_name",              :limit => 40,                    :null => false
+    t.string   "first_name",             :limit => 30,                    :null => false
+    t.string   "nick_name",              :limit => 30
+    t.string   "street_address",         :limit => 75
+    t.string   "postal_code",            :limit => 30
+    t.string   "postal_address",         :limit => 40
+    t.string   "country",                :limit => 30
+    t.string   "phone_home",             :limit => 25
+    t.string   "phone_work",             :limit => 25
+    t.string   "phone_mobile",           :limit => 25
+    t.string   "phone_other",            :limit => 25
+    t.string   "email_address",          :limit => 50
+    t.string   "birth_date",             :limit => 10
+    t.string   "social_security_number", :limit => 4
+    t.boolean  "chalmers_student",                     :default => true
+    t.string   "graduation",             :limit => 5
     t.string   "comment"
-    t.boolean  "deceased",                           :default => false
-    t.boolean  "publish_approval",                   :default => true
-    t.boolean  "want_circulars",                     :default => true
-    t.boolean  "fgv_member",                         :default => false
-    t.boolean  "alumni_member",                      :default => false
-    t.boolean  "uncertain_address",                  :default => false
+    t.boolean  "deceased",                             :default => false
+    t.boolean  "publish_approval",                     :default => true
+    t.boolean  "want_circulars",                       :default => true
+    t.boolean  "fgv_member",                           :default => false
+    t.boolean  "alumni_member",                        :default => false
+    t.boolean  "uncertain_address",                    :default => false
     t.integer  "user_id"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.integer  "lock_version",                       :default => 0
+    t.integer  "lock_version",                         :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
