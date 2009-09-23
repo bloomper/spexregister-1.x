@@ -193,3 +193,26 @@
       words_connector: ", "
       two_words_connector: " och "
       last_word_connector: " och "
+
+# Authlogic specific translations
+  authlogic:
+    error_messages:
+      login_blank: "måste anges"
+      login_not_found: "är ogiltigt"
+      login_invalid: "måste bara bestå av bokstäver, siffror, mellanslag och .-_@"
+      consecutive_failed_logins_limit_exceeded: "Gränsen för antalet misslyckade inloggingar i följd har överskridits, kontot har inaktiverats"
+      email_invalid: "är ogiltigt"
+      password_blank: "måste anges"
+      password_invalid: "är ogiltigt"
+      not_active: "Ditt konto är inte aktivt"
+      not_confirmed: "Ditt konto är inte verifierat"
+      not_approved: "Ditt konto är inte godkänt"
+      no_authentication_details: "Du angav inte någon inloggningsinformation"
+    models:
+      user_session: "Användarsession"
+    attributes:
+      user_session:
+        login: "användarnamn"
+        email: "email"
+        password: "lösenord"
+        remember_me: "kom ihåg mig"

@@ -45,16 +45,24 @@ class CreateTables < ActiveRecord::Migration
     add_index :news, :publication_date
 
     create_table :users, :force => true do |t|
-      t.string :user_name, :limit => 20, :null => false
-      t.string :password, :limit => 40, :null => false
-      t.boolean :temporary_password, :default => false
-      t.boolean :disabled, :default => false
+      t.string :username, :null => false
+      t.string :crypted_password, :null => false
+      t.string :password_salt, :null => false
+      t.string :persistence_token, :null => false
+      t.string :perishable_token, :null => false
+      t.integer :login_count, :null => false, :default => 0
+      t.integer :failed_login_count, :null => false, :default => 0
+      t.datetime :last_request_at
+      t.datetime :current_login_at
+      t.datetime :last_login_at
+      t.string :current_login_ip
+      t.string :last_login_ip
       t.integer :role_id, :null => false
       t.integer :lock_version, :default => 0
       t.timestamps
       t.foreign_key :role_id, :roles, :id
     end
-    add_index :users, :user_name, :unique => true
+    add_index :users, :username, :unique => true
 
     create_table :spexare, :force => true do |t|
       t.string :last_name, :limit => 40, :null => false

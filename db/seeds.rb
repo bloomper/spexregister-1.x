@@ -8,10 +8,10 @@
 
 # Users
 # Must do it this way since role is attr_protected (security measure)
-user = User.new :user_name => 'admin', :password => 'admin99', :password_confirmation => 'admin99'
+user = User.new :username => 'admin', :password => 'admin99', :password_confirmation => 'admin99'
 user.role = :admin
 user.save
-user = User.new :user_name => 'user', :password => 'user99', :password_confirmation => 'user99'
+user = User.new :username => 'user', :password => 'user99', :password_confirmation => 'user99'
 user.role = :user
 user.save
 

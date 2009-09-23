@@ -2,3 +2,5 @@
   views:
     base:
       session_expiry: "Du har loggats ut automatiskt pga inaktivitet."
+      login_successful: "Du har loggats in"
+      logout_successful: "Du har loggats ut"

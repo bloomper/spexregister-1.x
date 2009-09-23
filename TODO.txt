@@ -15,6 +15,7 @@ Short-term
     - How to best solve related_spexare?
 
 - Security
+  - http://github.com/binarylogic/authlogic_example
 
 - Full text search
 

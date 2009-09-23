@@ -140,16 +140,24 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
   add_index "spexare", ["last_name"], :name => "index_spexare_on_last_name"
 
   create_table "users", :force => true do |t|
-    t.string   "user_name",          :limit => 20,                    :null => false
-    t.string   "password",           :limit => 40,                    :null => false
-    t.boolean  "temporary_password",               :default => false
-    t.boolean  "disabled",                         :default => false
-    t.integer  "role_id",                                             :null => false
-    t.integer  "lock_version",                     :default => 0
+    t.string   "username",                          :null => false
+    t.string   "crypted_password",                  :null => false
+    t.string   "password_salt",                     :null => false
+    t.string   "persistence_token",                 :null => false
+    t.string   "perishable_token",                  :null => false
+    t.integer  "login_count",        :default => 0, :null => false
+    t.integer  "failed_login_count", :default => 0, :null => false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
+    t.integer  "role_id",                           :null => false
+    t.integer  "lock_version",       :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["user_name"], :name => "index_users_on_user_name", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end
