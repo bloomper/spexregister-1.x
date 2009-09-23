@@ -1,4 +1,5 @@
 require 'test_helper'
+include ActionController::TestProcess
 
 class SpexTest < ActiveSupport::TestCase
   fixtures :spex, :spex_categories
