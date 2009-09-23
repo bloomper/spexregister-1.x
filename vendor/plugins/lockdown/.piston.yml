@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 48fc0fc1efc8b7c193884599d4fb50fa8bbe8d72
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/stonean/lockdown.git

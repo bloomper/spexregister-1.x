@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 003bd21bdde1e65efec7b47d7e38e954d97e6aa4
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/binarylogic/authlogic.git
