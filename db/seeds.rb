@@ -7,13 +7,9 @@
 #   Major.create(:name => 'Daley', :city => cities.first)
 
 # Users
-# Must do it this way since role is attr_protected (security measure)
-user = User.new :username => 'admin', :password => 'admin99', :password_confirmation => 'admin99'
-user.role = :admin
-user.save
-user = User.new :username => 'user', :password => 'user99', :password_confirmation => 'user99'
-user.role = :user
-user.save
+User.create :username => 'admin', :password => 'admin99', :password_confirmation => 'admin99'
+Lockdown::System.make_user_administrator(User.find_by_username('admin'))
+User.create :username => 'user', :password => 'user99', :password_confirmation => 'user99'
 
 # Function categories
 FunctionCategory.create :name => 'Kommitté'

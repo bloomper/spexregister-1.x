@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => [:show, :edit, :update]
   
   def new
     @user = User.new
@@ -10,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Account registered!"
+      add_lockdown_session_values
       redirect_back_or_default account_url
     else
       render :action => :new
@@ -32,6 +31,15 @@ class UsersController < ApplicationController
     else
       render :action => :edit
     end
+  end
+  
+  def destroy
+    if current_user_is_admin?
+      user = User.find(params[:id])
+      user.destroy
+      flash[:notice] = "User #{user.username} deleted!"
+    end
+    redirect_to root_path
   end
   
 end

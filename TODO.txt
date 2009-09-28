@@ -15,7 +15,14 @@ Short-term
     - How to best solve related_spexare?
 
 - Security
-  - http://github.com/binarylogic/authlogic_example
+  - Authlogic
+    - http://github.com/binarylogic/authlogic_example
+    - http://www.binarylogic.com/2008/11/16/tutorial-reset-passwords-with-authlogic/
+  - Lockdown
+    - http://github.com/stonean/rails-cornerstone
+    - http://stonean.com/page/lockdown-with-authlogic
+    - http://stonean.com/page/lockdown-model-restriction-use-cases
+    - Possible to translate the name of a user group?
 
 - Full text search
 

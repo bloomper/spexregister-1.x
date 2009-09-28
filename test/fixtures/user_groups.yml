@@ -1,0 +1,5 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+admin_user_group:
+  name: 'Administrator'
+user_user_group:
+  name: 'User'

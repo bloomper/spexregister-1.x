@@ -3,12 +3,13 @@ class User < ActiveRecord::Base
     c.logged_in_timeout = property(:session_length).minutes.to_i
   end
   has_one :spexare, :dependent => :nullify
-  belongs_to_enum :role,
-  { 1 => {:name => :admin, :title => I18n.t('user.role.admin') },
-    2 => {:name => :user, :title => I18n.t('user.role.user')}
-  }
+  has_and_belongs_to_many :user_groups
   attr_protected :role
   
-  protected
-  validates_inclusion_of_enum :role, { :message => :"inclusion", :allow_blank => false }
+  def deliver_password_reset_instructions!
+    reset_perishable_token!
+    # TODO: Implement me
+    #Notifier.deliver_password_reset_instructions(self)
+  end
+  
 end

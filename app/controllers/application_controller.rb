@@ -3,7 +3,8 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :logged_in?, :current_user_is_admin?
+
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
   # Scrub sensitive parameters from log
@@ -20,7 +21,12 @@ class ApplicationController < ActionController::Base
   def default_url_options(options={})
     { :locale => I18n.locale }
   end
-  
+
+  def clear_authlogic_session
+    sess = current_user_session
+    sess.destroy if sess
+  end
+
   private
   def current_user_session
     return @current_user_session if defined?(@current_user_session)

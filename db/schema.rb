@@ -64,6 +64,19 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
 
   add_index "news", ["publication_date"], :name => "index_news_on_publication_date"
 
+  create_table "permissions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "permissions", ["name"], :name => "index_permissions_on_name", :unique => true
+
+  create_table "permissions_user_groups", :id => false, :force => true do |t|
+    t.integer "permission_id"
+    t.integer "user_group_id"
+  end
+
   create_table "related_spexare", :id => false, :force => true do |t|
     t.integer "spexare_id"
     t.integer "related_spexare_id"
@@ -76,8 +89,8 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
     t.datetime "updated_at"
   end
 
-  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "spex", :force => true do |t|
     t.string   "year",                :limit => 4,                 :null => false
@@ -92,8 +105,8 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
     t.datetime "updated_at"
   end
 
-  add_index "spex", ["title"], :name => "index_spex_on_title"
   add_index "spex", ["year"], :name => "index_spex_on_year"
+  add_index "spex", ["title"], :name => "index_spex_on_title"
 
   create_table "spex_categories", :force => true do |t|
     t.string "name", :null => false
@@ -135,9 +148,22 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
     t.datetime "updated_at"
   end
 
-  add_index "spexare", ["user_id"], :name => "index_spexare_on_user_id", :unique => true
-  add_index "spexare", ["first_name"], :name => "index_spexare_on_first_name"
   add_index "spexare", ["last_name"], :name => "index_spexare_on_last_name"
+  add_index "spexare", ["first_name"], :name => "index_spexare_on_first_name"
+  add_index "spexare", ["user_id"], :name => "index_spexare_on_user_id", :unique => true
+
+  create_table "user_groups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_groups", ["name"], :name => "index_user_groups_on_name", :unique => true
+
+  create_table "user_groups_users", :id => false, :force => true do |t|
+    t.integer "user_group_id"
+    t.integer "user_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username",                          :null => false
@@ -152,7 +178,6 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.integer  "role_id",                           :null => false
     t.integer  "lock_version",       :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"

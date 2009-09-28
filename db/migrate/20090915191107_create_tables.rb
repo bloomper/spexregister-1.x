@@ -3,6 +3,8 @@ class CreateTables < ActiveRecord::Migration
     create_table :function_categories, :force => true do |t|
       t.string :name, :null => false
       t.boolean :has_actor, :default => false
+      t.string :created_by
+      t.string :updated_by
     end
     add_index :function_categories, :name, :unique => true
 
@@ -10,6 +12,8 @@ class CreateTables < ActiveRecord::Migration
       t.string :name, :limit => 50, :null => false
       t.integer :function_category_id, :null => false
       t.integer :lock_version, :default => 0
+      t.string :created_by
+      t.string :updated_by
       t.timestamps
       t.foreign_key :function_category_id, :function_categories, :id
     end
@@ -17,6 +21,8 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :spex_categories, :force => true do |t|
       t.string :name, :null => false
+      t.string :created_by
+      t.string :updated_by
     end
     add_index :spex_categories, :name, :unique => true
 
@@ -29,6 +35,8 @@ class CreateTables < ActiveRecord::Migration
       t.integer :poster_file_size
       t.datetime :poster_updated_at
       t.integer :lock_version, :default => 0
+      t.string :created_by
+      t.string :updated_by
       t.timestamps
       t.foreign_key :spex_category_id, :spex_categories, :id
     end
@@ -40,6 +48,8 @@ class CreateTables < ActiveRecord::Migration
       t.string :subject, :limit => 85, :null => false
       t.text :body, :null => false
       t.integer :lock_version, :default => 0
+      t.string :created_by
+      t.string :updated_by
       t.timestamps
     end
     add_index :news, :publication_date
@@ -57,12 +67,38 @@ class CreateTables < ActiveRecord::Migration
       t.datetime :last_login_at
       t.string :current_login_ip
       t.string :last_login_ip
-      t.integer :role_id, :null => false
       t.integer :lock_version, :default => 0
+      t.string :created_by
+      t.string :updated_by
       t.timestamps
-      t.foreign_key :role_id, :roles, :id
     end
     add_index :users, :username, :unique => true
+
+    create_table :user_groups, :force => true do |t|
+      t.string :name
+      t.timestamps
+    end
+    add_index :user_groups, :name, :unique => true
+
+    create_table :user_groups_users, :force => true, :id => false do |t|
+      t.integer :user_group_id
+      t.integer :user_id
+      t.foreign_key :user_group_id, :user_groups, :id
+      t.foreign_key :user_id, :users, :id
+    end
+
+    create_table :permissions, :force => true do |t|
+      t.string :name
+      t.timestamps
+    end
+    add_index :permissions, :name, :unique => true
+
+		create_table :permissions_user_groups, :id => false do |t|
+      t.integer :permission_id
+      t.integer :user_group_id
+      t.foreign_key :permission_id, :permissions, :id
+      t.foreign_key :user_group_id, :user_groups, :id
+    end
 
     create_table :spexare, :force => true do |t|
       t.string :last_name, :limit => 40, :null => false
@@ -94,6 +130,8 @@ class CreateTables < ActiveRecord::Migration
       t.integer :picture_file_size
       t.datetime :picture_updated_at
       t.integer :lock_version, :default => 0
+      t.string :created_by
+      t.string :updated_by
       t.timestamps
       t.foreign_key :user_id, :users, :id
     end
@@ -113,6 +151,8 @@ class CreateTables < ActiveRecord::Migration
       t.integer :spex_id, :null => false
       t.integer :position
       t.integer :lock_version, :default => 0
+      t.string :created_by
+      t.string :updated_by
       t.timestamps
       t.foreign_key :spexare_id, :spexare, :id
       t.foreign_key :spex_id, :spex, :id
@@ -130,6 +170,8 @@ class CreateTables < ActiveRecord::Migration
       t.integer :vocal_id
       t.integer :link_id, :null => false
       t.integer :lock_version, :default => 0
+      t.string :created_by
+      t.string :updated_by
       t.timestamps
       t.foreign_key :link_id, :links, :id
     end
@@ -142,6 +184,10 @@ class CreateTables < ActiveRecord::Migration
     drop_table :links
     drop_table :related_spexare
     drop_table :spexare
+    drop_table :permissions_user_groups
+    drop_table :permissions
+    drop_table :user_groups_users
+    drop_table :user_groups
     drop_table :users
     drop_table :news
     drop_table :spex
