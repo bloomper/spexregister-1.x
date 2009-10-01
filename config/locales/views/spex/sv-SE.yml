@@ -1,0 +1,6 @@
+"sv-SE":
+  views:
+    spex:
+      successful_save: "Spexet har skapats"
+      successful_update: "Spexet har uppdaterats"
+      successful_destroy: "Spexet har raderats"

@@ -101,6 +101,9 @@ Lockdown::System.configure do
   #
   # Define your permissions here:
 
+set_permission(:login).with_controller(:user_sessions)
+set_permission(:spex_management).with_controller(:spex).except_methods(:show, :index)
+
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Built-in user groups
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -115,6 +118,8 @@ Lockdown::System.configure do
   #
   # Define the built-in user groups here:
 
+set_public_access :login
+
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Define user groups
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -127,5 +132,9 @@ Lockdown::System.configure do
   #
   # 
   # Define your user groups here:
+
+set_user_group(:administrator, :spex_management)
+
+options[:session_timeout_method] = :clear_authlogic_session
 
 end 

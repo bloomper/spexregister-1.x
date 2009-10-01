@@ -14,15 +14,22 @@ Short-term
   - Spexare
     - How to best solve related_spexare?
 
+- Sorting
+  - http://javathehutt.blogspot.com/2009/06/mo-simple-sortable-tables-in-rails.html
+
+- Filtering?
+
 - Security
   - Authlogic
     - http://github.com/binarylogic/authlogic_example
     - http://www.binarylogic.com/2008/11/16/tutorial-reset-passwords-with-authlogic/
+    - Testing controllers
+      - http://groups.google.com/group/authlogic/browse_thread/thread/ebfb695082c7663e
   - Lockdown
     - http://github.com/stonean/rails-cornerstone
     - http://stonean.com/page/lockdown-with-authlogic
     - http://stonean.com/page/lockdown-model-restriction-use-cases
-    - Possible to translate the name of a user group?
+    - Session timeout conflict with Authlogic?
 
 - Full text search
 
