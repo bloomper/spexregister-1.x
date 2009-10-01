@@ -1,10 +1,9 @@
 require 'test_helper'
 
 class UserSessionTest < ActiveSupport::TestCase
-  fixtures :users
   setup :activate_authlogic
   
-  def test_ok
+  test "should be ok" do
     user = users(:user)
     assert_nil controller.session["user_credentials"]
     assert UserSession.create(user)
