@@ -1,7 +1,7 @@
 require 'test_helper'
-include ActionController::TestProcess
 
 class SpexTest < ActiveSupport::TestCase
+  include ActionController::TestProcess
   
   test "should be ok" do
     spex = Spex.create(:year => '2099', :title => Time.now, :spex_category => spex_categories(:spex_category))
@@ -9,19 +9,19 @@ class SpexTest < ActiveSupport::TestCase
   end
   
   test "should be ok with jpg poster" do
-    poster = fixture_file_upload('files/jpgFile.jpg', 'image/jpeg')
+    poster = fixture_file_upload('files/jpgFile.jpg', 'image/jpeg', :binary)
     spex = Spex.create(:year => '2099', :title => Time.now, :spex_category => spex_categories(:spex_category), :poster => poster)
     assert spex.valid?, spex.errors.full_messages.join("\n") 
   end
   
   test "should be ok with gif poster" do
-    poster = fixture_file_upload('files/gifFile.gif', 'image/gif')
+    poster = fixture_file_upload('files/gifFile.gif', 'image/gif', :binary)
     spex = Spex.create(:year => '2099', :title => Time.now, :spex_category => spex_categories(:spex_category), :poster => poster)
     assert spex.valid?, spex.errors.full_messages.join("\n") 
   end
   
   test "should be ok with png poster" do
-    poster = fixture_file_upload('files/pngFile.png', 'image/png')
+    poster = fixture_file_upload('files/pngFile.png', 'image/png', :binary)
     spex = Spex.create(:year => '2099', :title => Time.now, :spex_category => spex_categories(:spex_category), :poster => poster)
     assert spex.valid?, spex.errors.full_messages.join("\n") 
   end
@@ -51,14 +51,14 @@ class SpexTest < ActiveSupport::TestCase
   end
   
   test "should not save spex with too large poster" do
-    poster = fixture_file_upload('files/largeFile.jpg', 'image/jpg')
+    poster = fixture_file_upload('files/largeFile.jpg', 'image/jpg', :binary)
     spex = Spex.new(:year => '2099', :title => Time.now, :spex_category => spex_categories(:spex_category), :poster => poster)
     assert(!spex.valid?, "Should not save entry if an invalid poster has been set")
     assert(spex.errors.invalid?(:poster), "Expected an error for invalid poster")
   end
   
   test "should not save spex with invalid poster" do
-    poster = fixture_file_upload('files/invalidFileType.txt', 'text/plain')
+    poster = fixture_file_upload('files/invalidFileType.txt', 'text/plain', :binary)
     spex = Spex.new(:year => '2099', :title => Time.now, :spex_category => spex_categories(:spex_category), :poster => poster)
     assert(!spex.valid?, "Should not save entry if an invalid poster has been set")
     assert(spex.errors.invalid?(:poster), "Expected an error for invalid poster")

@@ -4,11 +4,6 @@ TODO
 Short-term
 ----------
 
-- Cannot upload files correctly during test
-  - http://epirsch.blogspot.com/2008/01/fixing-attachmentfu-on-windows-like.html
-  - http://thewebfellas.com/blog/2008/11/2/goodbye-attachment_fu-hello-paperclip
-  - http://blog.jonathanhinson.com/
-
 - Make all unit tests run
   - User
   - Spexare
@@ -30,6 +25,7 @@ Short-term
     - http://stonean.com/page/lockdown-with-authlogic
     - http://stonean.com/page/lockdown-model-restriction-use-cases
     - Session timeout conflict with Authlogic?
+      - http://stonean.lighthouseapp.com/projects/33317/tickets/17
 
 - Full text search
 
