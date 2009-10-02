@@ -20,7 +20,6 @@ class Spexare < ActiveRecord::Base
   
   protected
   def validate_related_spexare(related_spexare)
-    puts "IN validate_related_spexare"
     # Note that it is required to use exceptions here as validation errors are not caught for associations 
     if related_spexare.size == 1
       raise I18n.t('spexare.only_one_relation_at_a_time')
@@ -31,16 +30,13 @@ class Spexare < ActiveRecord::Base
   end
   
   def add_related_spexare_on_other_side(related_spexare)
-    puts "IN add_related_spexare_on_other_side"
     related_spexare.related_spexare << self unless related_spexare.related_spexare.include?(self)
   end
   
   def validate_associated_records_for_related_spexare
-    puts "IN validate_associated_records_for_related_spexare"
     # No implementation is needed but the method is required to exist
   end
   
-  validate :validate_uniqueness_on_create
   validates_presence_of :last_name
   validates_presence_of :first_name
   validates_format_of :social_security_number, :with => /^\d{4}$/, :if => Proc.new { |s| !s.social_security_number.blank? }
