@@ -44,7 +44,9 @@ module Lockdown
       end
 
       if File.exists?(Lockdown.init_file)
-        puts "=> Requiring Lockdown rules engine: #{Lockdown.init_file} \n"
+        if $rails_rake_task
+          puts "=> Requiring Lockdown rules engine: #{Lockdown.init_file} \n"
+        end
         require Lockdown.init_file
       else
         puts "=> Note:: Lockdown couldn't find init file: #{Lockdown.init_file}\n"
@@ -71,7 +73,9 @@ module Lockdown
   end # mixin_resource?
 end # Lockdown
 
-puts "=> Mixing in Lockdown version: #{Lockdown.version} \n"
+if $rails_rake_task
+  puts "=> Mixing in Lockdown version: #{Lockdown.version} \n"
+end
 Lockdown.mixin
 
 

@@ -7,6 +7,8 @@ module Lockdown
       user ||= current_user
 
       if user
+        # TODO: This should not be needed
+        session = request.session
         session[:access_rights] = Lockdown::System.access_rights_for_user(user)
         session[:current_user_id] = user.id
       end
