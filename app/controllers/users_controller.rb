@@ -7,9 +7,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "Account registered!"
+      # TODO Fix me!
+      flash[:message] = "Account registered!"
       add_lockdown_session_values
-      redirect_back_or_default account_url
+      redirect_to account_url
     else
       render :action => :new
     end
@@ -26,7 +27,8 @@ class UsersController < ApplicationController
   def update
     @user = @current_user
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Account updated!"
+      # TODO Fix me!
+      flash[:message] = "Account updated!"
       redirect_to account_url
     else
       render :action => :edit
@@ -37,7 +39,8 @@ class UsersController < ApplicationController
     if current_user_is_admin?
       user = User.find(params[:id])
       user.destroy
-      flash[:notice] = "User #{user.username} deleted!"
+      # TODO Fix me!
+      flash[:message] = "User #{user.username} deleted!"
     end
     redirect_to root_path
   end
