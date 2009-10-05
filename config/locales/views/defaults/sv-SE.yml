@@ -5,8 +5,6 @@
       session_expiry: "Du har loggats ut automatiskt pga inaktivitet"
       login_successful: "Du har loggats in"
       logout_successful: "Du har loggats ut"
-      must_be_logged_in: "Du måste vara inloggad för att kunna se denna sida"
-      must_be_logged_out: "Du måste vara utloggad för att kunna se denna sida"
       action: "Åtgärd"
       created_at: "Skapad"
       updated_at: "Uppdaterad"
