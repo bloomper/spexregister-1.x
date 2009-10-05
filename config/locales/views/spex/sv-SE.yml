@@ -4,3 +4,5 @@
       successful_save: "Spexet har skapats"
       successful_update: "Spexet har uppdaterats"
       successful_destroy: "Spexet har raderats"
+      no_spex_exist: "Det finns inga spex"
+      no_poster_exists: "Saknas"
