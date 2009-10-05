@@ -133,7 +133,7 @@ set_public_access :login
   # 
   # Define your user groups here:
 
-set_user_group(:administrator, :spex_management)
+set_user_group(:administrators, :spex_management)
 
 options[:session_timeout_method] = :clear_authlogic_session
 
