@@ -73,6 +73,7 @@ class CreateTables < ActiveRecord::Migration
       t.timestamps
     end
     add_index :users, :username, :unique => true
+    add_index :users, :perishable_token
 
     create_table :user_groups, :force => true do |t|
       t.string :name
