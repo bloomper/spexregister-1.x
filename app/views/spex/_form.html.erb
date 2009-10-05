@@ -1,0 +1,57 @@
+<div id="spexDialog">
+  <table>
+    <tr>
+      <td>
+        <label for="spex_year"><%= t 'activerecord.attributes.spex.year' %></label>
+      </td>
+      <td>
+        <%= form.text_field :year, :tabindex => 1, :size => 4, :maxlength => 4 %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="spex_title"><%= t 'activerecord.attributes.spex.title' %></label>
+      </td>
+      <td>
+        <%= form.text_field :title, :tabindex => 2, :maxlength => 50 %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="spex_poster"><%= t 'activerecord.attributes.spex.poster' %></label>
+      </td>
+      <td>
+        <%= form.file_field :poster, :tabindex => 3 %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="spex_spex_category_id"><%= t 'activerecord.models.spex_category' %></label>
+      </td>
+      <td>
+        <%= form.select :spex_category_id, get_spex_categories, :tabindex => 4 %>
+      </td>
+    </tr>
+    <% if action == 'edit' %>
+      <%= render :partial => '/shared/entity_details', :locals => { :entity => @spex } %>
+      <tr>
+        <td>
+          <%= submit_tag('Ändra', :tabindex => 5, :class => 'button') %>
+          <input type="button" value="Tillbaka" class="button" tabindex="7" onclick="javascript:history.go(-1);"/>
+          <input type="reset" value="Återställ" class="button" onclick="new Effect.Appear('posterThumbnail');new Effect.Appear('posterThumbnailButton');$('remove_poster').value=false;" tabindex="8"/>
+        </td>
+      </tr>
+    <% else %>
+      <tr>
+        <td>
+          <%= submit_tag('Skapa', :tabindex => 5, :class => 'button') %>
+          <input type="reset" value="Återställ" tabindex="7"/>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+<script>$("spex_year").focus();</script>
+
+</div>
+

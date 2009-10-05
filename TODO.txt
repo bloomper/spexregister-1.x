@@ -11,6 +11,7 @@ Short-term
 
 - Sorting
   - http://javathehutt.blogspot.com/2009/06/mo-simple-sortable-tables-in-rails.html
+  - http://github.com/dlabare/sortable_columns
 
 - Filtering?
 
@@ -21,6 +22,9 @@ Short-term
     - Testing controllers
       - http://groups.google.com/group/authlogic/browse_thread/thread/ebfb695082c7663e
   - Lockdown
+    - Why is session null?
+    - http://blog.js.hu/2009/07/24/add-authlogic-and-lockdown-to-your-rails-app/
+    - http://github.com/stonean/lockdown-rails-test/blob/master/spec/lockdown_test_helper.rb
     - http://github.com/stonean/rails-cornerstone
     - http://stonean.com/page/lockdown-with-authlogic
     - http://stonean.com/page/lockdown-model-restriction-use-cases
@@ -33,6 +37,8 @@ Medium-term
 -----------
 
 - Update documentation
+- When integrating Capistrano, use this
+  - http://synthesis.sbecker.net/pages/asset_packager
 
 Long-term
 ---------

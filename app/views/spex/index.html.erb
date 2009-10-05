@@ -1,0 +1,34 @@
+<%= render :partial => 'shared/error' %>
+<%= render :partial => 'shared/message' %>
+
+<div id="spexListDialog">
+  <% if !@spex.empty? %>
+    <table>
+      <th><%= t 'activerecord.attributes.spex.title' %></th>
+      <th><%= t 'activerecord.attributes.spex.year' %></th>
+      <th><%= t 'activerecord.attributes.spex_category.name' %></th>
+
+      <% @spex.each do |spex| %>
+        <tr class="<%= cycle('even', 'odd') %>">
+          <td>
+            <%= h spex.year %>
+          </td>
+          <td>
+            <%= h spex.title %>
+          </td>
+          <td>
+            <%= h spex.spex_category.name %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <table>
+      <tr>
+        <td>
+          <%= t 'views.spex.no_spex_exist' %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

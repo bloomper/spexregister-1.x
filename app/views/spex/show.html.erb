@@ -1,0 +1,41 @@
+<div id="spexDialog">
+  <table>
+    <tr>
+      <td>
+        <%= t 'activerecord.attributes.spex.year' %>
+      </td>
+      <td>
+        <%= h @spex.year %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t 'activerecord.attributes.spex.title' %>
+      </td>
+      <td>
+        <%= h @spex.title %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t 'activerecord.attributes.spex.poster' %>
+      </td>
+      <td>
+        <% if @spex.poster? %>
+          <%= image_tag @spex.poster.url(:thumb) %>
+        <% else %>
+          &lt;<%= t 'views.spex.no_poster_exists' %>&gt;
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t 'activerecord.attributes.spex_category.name' %>
+      </td>
+      <td>
+        <%= h @spex.spex_category.name %>
+      </td>
+    </tr>
+    <%= render :partial => '/shared/entity_details', :locals => { :entity => @spex } %>
+  </table>
+</div>

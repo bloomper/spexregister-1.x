@@ -1,0 +1,18 @@
+<% if flash[:error] %>
+  <div id="errorPane">
+    <script type="text/javascript">
+    // <![CDATA[
+      new Effect.Highlight("errorPane", {endcolor: '#39597d', startcolor: '#7e93aa'});
+    // ]]>
+    </script>
+
+    <ul>
+      <li>
+        <%= flash[:error] %>
+      </li>
+    </ul>
+  </div>
+<% else %>
+  <div id="errorPane" style="display:none">
+  </div>
+<% end %>

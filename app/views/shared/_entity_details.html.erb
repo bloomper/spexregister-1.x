@@ -1,0 +1,34 @@
+<% if !entity.nil? %>
+  <tr>
+    <td>
+      <%= t 'views.base.created_at' %>
+    </td>
+    <td>
+      <%= h entity[:created_at].to_formatted_s(:long_format) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= t 'views.base.created_by' %>
+    </td>
+    <td>
+      <%= h entity[:created_by] %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= t 'views.base.updated_at' %>
+    </td>
+    <td>
+      <%= h entity[:updated_at].to_formatted_s(:long_format) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= t 'views.base.updated_by' %>
+    </td>
+    <td>
+      <%= h entity[:updated_by] %>
+    </td>
+  </tr>
+<% end %>

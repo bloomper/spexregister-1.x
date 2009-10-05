@@ -36,8 +36,11 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  def create_user_session(user)
+    activate_authlogic
+    @current_user_session = UserSession.create(user)
+    controller.send :add_lockdown_session_values, user
+  end
 end
 
-class ActionController::TestCase
-  setup :activate_authlogic
-end
