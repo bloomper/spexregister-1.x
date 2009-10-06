@@ -1,0 +1,7 @@
+"sv-SE":
+  views:
+    function:
+      successful_save: "Funktionen har skapats"
+      successful_update: "Funktionen har uppdaterats"
+      successful_destroy: "Funktionen har raderats"
+      no_functions_exist: "Det finns inga funktioner"

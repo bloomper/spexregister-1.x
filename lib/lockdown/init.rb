@@ -103,6 +103,7 @@ Lockdown::System.configure do
 
 set_permission(:login).with_controller(:user_sessions)
 set_permission(:spex_management).with_controller(:spex).except_methods(:show, :index)
+set_permission(:function_management).with_controller(:functions).except_methods(:show, :index)
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Built-in user groups
@@ -133,7 +134,7 @@ set_public_access :login
   # 
   # Define your user groups here:
 
-set_user_group(:administrators, :spex_management)
+set_user_group(:administrators, :spex_management, :function_management)
 
 # Use Authlogic's session timeout mechanism instead
 options[:session_timeout] = 7776000
