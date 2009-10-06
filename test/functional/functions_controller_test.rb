@@ -35,7 +35,7 @@ class FunctionsControllerTest < ActionController::TestCase
   end
   
   test "should update function" do
-    put :update, :id => functions(:function).id, :spex => { :name => Time.now }
+    put :update, :id => functions(:function).id, :function => { :name => Time.now }
     assert_redirected_to function_path(assigns(:function))
   end
   
