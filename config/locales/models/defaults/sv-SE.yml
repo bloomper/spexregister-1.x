@@ -58,9 +58,5 @@
         uncertain_address: "Osäker adress?"
         picture: "Bild"
       user:
-        user_name: "Användarnamn"
-        password: "Lösenord"
-        password_confirmation: "Lösenord (igen)"
-        temporary_password: "Tillfälligt lösenord"
-        disabled: "Inaktiverad"
-        role_id: "Roll"
+        username: "Användarnamn"
+        user_groups: "Roll"

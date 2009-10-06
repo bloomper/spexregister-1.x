@@ -4,10 +4,13 @@ TODO
 Short-term
 ----------
 
-- Make all unit tests run
-  - User
+- Unit tests
   - Spexare
     - How to best solve related_spexare?
+
+- Controllers
+  - User
+  - Spexare
 
 - Sorting
   - http://javathehutt.blogspot.com/2009/06/mo-simple-sortable-tables-in-rails.html
@@ -29,6 +32,8 @@ Medium-term
 
 Long-term
 ---------
+
+- Be able to see history of FGV membership (CING as well?)
 
 Problems
 --------

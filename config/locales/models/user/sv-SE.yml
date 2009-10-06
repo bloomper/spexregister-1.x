@@ -1,2 +1,3 @@
 "sv-SE":
   user:
+    cannot_delete_all_users: "Kan inte radera samtliga användare, minst en måste existera"
