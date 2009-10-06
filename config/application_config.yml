@@ -11,8 +11,10 @@ development: &defaults
   allowed_file_types: image/jpg,image/jpeg,image/pjpeg,image/gif,image/png,image/x-png
   poster_thumbnail_size: 50x70>
   picture_thumbnail_size: 50x70>
-  # In minutes
-  session_length: 60 
+  logged_in_timeout: <%= 60.minutes.to_i %> 
+  remember_me_for: <%= 3.months.to_i %>
+  consecutive_failed_logins_limit: 5
+  failed_login_ban_for: <%= 2.hours.to_i %>
 test:
   <<: *defaults
 production:
