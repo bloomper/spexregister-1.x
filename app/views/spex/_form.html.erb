@@ -36,7 +36,7 @@
       <%= render :partial => '/shared/entity_details', :locals => { :entity => @spex } %>
       <tr>
         <td>
-          <%= submit_tag("<%= t 'views.base.action_edit' %>", :tabindex => 5, :class => 'button') %>
+          <%= submit_tag(t 'views.base.action_edit', :tabindex => 5, :class => 'button') %>
           <input type="button" value="<%= t 'views.base.action_back' %>" class="button" tabindex="6" onclick="javascript:history.go(-1);"/>
           <input type="reset" value="<%= t 'views.base.action_reset' %>" class="button" tabindex="7"/>
         </td>
@@ -44,7 +44,7 @@
     <% else %>
       <tr>
         <td>
-          <%= submit_tag("<%= t 'views.base.action_create' %>", :tabindex => 5, :class => 'button') %>
+          <%= submit_tag(t 'views.base.action_create', :tabindex => 5, :class => 'button') %>
           <input type="reset" value="<%= t 'views.base.action_reset' %>" tabindex="6"/>
         </td>
       </tr>
