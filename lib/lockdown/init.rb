@@ -135,6 +135,8 @@ set_public_access :login
 
 set_user_group(:administrators, :spex_management)
 
+# Use Authlogic's session timeout mechanism instead
+options[:session_timeout] = 7776000
 options[:session_timeout_method] = :clear_authlogic_session
 
 end 
