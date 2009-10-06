@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :spex
   map.resources :functions
+  map.resources :news
   map.resources :users
   map.resource :user_session
 

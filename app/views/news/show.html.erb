@@ -1,0 +1,29 @@
+<div id="newsDialog">
+  <table>
+    <tr>
+      <td>
+        <%= t 'activerecord.attributes.news.publication_date' %>
+      </td>
+      <td>
+        <%= h @news.publication_date %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t 'activerecord.attributes.news.subject' %>
+      </td>
+      <td>
+        <%= h @news.subject %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t 'activerecord.attributes.news.body' %>
+      </td>
+      <td>
+        <%= simple_format @news.body %>
+      </td>
+    </tr>
+    <%= render :partial => '/shared/entity_details', :locals => { :entity => @news } %>
+  </table>
+</div>

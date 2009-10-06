@@ -1,0 +1,7 @@
+"sv-SE":
+  views:
+    news:
+      successful_save: "Nyheten har skapats"
+      successful_update: "Nyheten har uppdaterats"
+      successful_destroy: "Nyheten har raderats"
+      no_news_exist: "Det finns inga nyheter"
