@@ -140,11 +140,11 @@ class CreateTables < ActiveRecord::Migration
     add_index :spexare, :first_name
     add_index :spexare, :user_id, :unique => true
 
-    create_table :related_spexare, :id => false, :force => true do |t|
-      t.integer :spexare_id
-      t.integer :related_spexare_id
+    create_table :cohabitants, :id => false, :force => true do |t|
+      t.integer :spexare_id, :null => false
+      t.integer :spexare_id_cohabitant, :null => false
       t.foreign_key :spexare_id, :spexare, :id
-      t.foreign_key :related_spexare_id, :spexare, :id
+      t.foreign_key :spexare_id_cohabitant, :spexare, :id
     end
 
     create_table :links, :force => true do |t|
@@ -183,7 +183,7 @@ class CreateTables < ActiveRecord::Migration
     drop_table :actors
     drop_table :functions_links
     drop_table :links
-    drop_table :related_spexare
+    drop_table :cohabitants
     drop_table :spexare
     drop_table :permissions_user_groups
     drop_table :permissions

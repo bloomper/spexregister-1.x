@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
 
   add_index "actors", ["link_id"], :name => "index_actors_on_link_id"
 
+  create_table "cohabitants", :id => false, :force => true do |t|
+    t.integer "spexare_id",            :null => false
+    t.integer "spexare_id_cohabitant", :null => false
+  end
+
   create_table "function_categories", :force => true do |t|
     t.string  "name",                          :null => false
     t.boolean "has_actor",  :default => false
@@ -85,11 +90,6 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
   create_table "permissions_user_groups", :id => false, :force => true do |t|
     t.integer "permission_id"
     t.integer "user_group_id"
-  end
-
-  create_table "related_spexare", :id => false, :force => true do |t|
-    t.integer "spexare_id"
-    t.integer "related_spexare_id"
   end
 
   create_table "sessions", :force => true do |t|
