@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 0121dfa0a398a26a5abbca47f625c1f695e1cbae
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/pluginaweek/validates_as_email_address.git

@@ -7,6 +7,7 @@ class Spexare < ActiveRecord::Base
   has_attached_file :picture, :styles => { :thumb => ApplicationConfig.picture_thumbnail_size }
   attr_protected :related_spexare, :picture_file_name, :picture_content_type, :picture_file_size
   attr_encrypted :social_security_number, :key => 'A8AD3BC66E66FC6C255312D70FFA547E1CE8FB8A4382BE961DFFBED0DD45B340', :encode => true
+  validates_as_email_address :email_address
 
   def add_related_spexare(related_spexare)
     self.related_spexare << related_spexare
