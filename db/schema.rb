@@ -25,15 +25,19 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
   add_index "actors", ["link_id"], :name => "index_actors_on_link_id"
 
   create_table "cohabitants", :id => false, :force => true do |t|
-    t.integer "spexare_id",            :null => false
-    t.integer "spexare_id_cohabitant", :null => false
+    t.integer  "spexare_id",            :null => false
+    t.integer  "spexare_id_cohabitant", :null => false
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "function_categories", :force => true do |t|
-    t.string  "name",                          :null => false
-    t.boolean "has_actor",  :default => false
-    t.string  "created_by"
-    t.string  "updated_by"
+    t.string   "name",                          :null => false
+    t.boolean  "has_actor",  :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "function_categories", ["name"], :name => "index_function_categories_on_name", :unique => true
@@ -65,6 +69,19 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "memberships", :force => true do |t|
+    t.string   "year",         :limit => 4,                :null => false
+    t.integer  "kind_id",                                  :null => false
+    t.integer  "spexare_id",                               :null => false
+    t.integer  "lock_version",              :default => 0
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "memberships", ["spexare_id"], :name => "index_memberships_on_spexare_id"
 
   create_table "news", :force => true do |t|
     t.string   "publication_date", :limit => 10,                :null => false
@@ -121,21 +138,21 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
   add_index "spex", ["year"], :name => "index_spex_on_year"
 
   create_table "spex_categories", :force => true do |t|
-    t.string "name",       :null => false
-    t.string "created_by"
-    t.string "updated_by"
+    t.string   "name",       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "spex_categories", ["name"], :name => "index_spex_categories_on_name", :unique => true
 
   create_table "spexare", :force => true do |t|
-    t.string   "last_name",                        :limit => 40,                    :null => false
-    t.string   "first_name",                       :limit => 30,                    :null => false
+    t.string   "last_name",                        :limit => 40,                     :null => false
+    t.string   "first_name",                       :limit => 30,                     :null => false
     t.string   "nick_name",                        :limit => 30
     t.string   "street_address",                   :limit => 75
     t.string   "postal_code",                      :limit => 30
     t.string   "postal_address",                   :limit => 40
-    t.string   "country",                          :limit => 30
+    t.string   "country",                          :limit => 100
     t.string   "phone_home",                       :limit => 25
     t.string   "phone_work",                       :limit => 25
     t.string   "phone_mobile",                     :limit => 25
@@ -143,21 +160,19 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
     t.string   "email_address",                    :limit => 50
     t.string   "birth_date",                       :limit => 10
     t.string   "encrypted_social_security_number"
-    t.boolean  "chalmers_student",                               :default => true
+    t.boolean  "chalmers_student",                                :default => true
     t.string   "graduation",                       :limit => 5
     t.string   "comment"
-    t.boolean  "deceased",                                       :default => false
-    t.boolean  "publish_approval",                               :default => true
-    t.boolean  "want_circulars",                                 :default => true
-    t.boolean  "fgv_member",                                     :default => false
-    t.boolean  "alumni_member",                                  :default => false
-    t.boolean  "uncertain_address",                              :default => false
+    t.boolean  "deceased",                                        :default => false
+    t.boolean  "publish_approval",                                :default => true
+    t.boolean  "want_circulars",                                  :default => true
+    t.boolean  "uncertain_address",                               :default => false
     t.integer  "user_id"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.integer  "lock_version",                                   :default => 0
+    t.integer  "lock_version",                                    :default => 0
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"

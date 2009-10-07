@@ -6,7 +6,12 @@ Short-term
 
 - Unit tests
   - Spexare
-    - How to best solve related_spexare?
+    - Indexing
+      - http://blog.zmok.net/articles/2006/10/18/full-text-search-in-ruby-on-rails-3-ferret
+      - http://www.pluitsolutions.com/2007/07/30/acts-as-ferret-drbserver-win32-service/
+      - http://blog.endpoint.com/2008/08/acts-as-xapian-it-just-works.html
+      - http://locomotivation.squeejee.com/post/109284085/mulling-over-our-ruby-on-rails-full-text-search-options
+      - http://railsdog.com/blog/2008/10/using-paginating_find-with-acts_as_xapian/
 
 - Controllers
   - User
@@ -17,6 +22,7 @@ Short-term
   - http://github.com/dlabare/sortable_columns
 
 - Filtering?
+  - http://agilewebdevelopment.com/plugins/acts_as_filter
 
 - Lockdown
   - http://stonean.lighthouseapp.com/projects/33317/tickets/30-error-in-functional-test
@@ -32,8 +38,6 @@ Medium-term
 
 Long-term
 ---------
-
-- Be able to see history of FGV membership (CING as well?)
 
 Problems
 --------

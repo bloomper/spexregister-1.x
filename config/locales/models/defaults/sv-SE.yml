@@ -7,6 +7,7 @@
       function: "Funktion"
       function_category: "Funktionskategori"
       link: "Länk"
+      membership: "Medlemsskap"
       news: "Nyhet"
       spex: "Spex"
       spex_category: "Spexkategori"
@@ -22,6 +23,8 @@
         name: "Namn"
       function_category:
         name: "Namn"
+      membership:
+        type_id: "Typ"
       news:
         publication_date: "Publiceringsdatum"
         subject: "Ämne"

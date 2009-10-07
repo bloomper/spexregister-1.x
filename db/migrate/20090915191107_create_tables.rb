@@ -3,8 +3,7 @@ class CreateTables < ActiveRecord::Migration
     create_table :function_categories, :force => true do |t|
       t.string :name, :null => false
       t.boolean :has_actor, :default => false
-      t.string :created_by
-      t.string :updated_by
+      t.timestamps
     end
     add_index :function_categories, :name, :unique => true
 
@@ -21,8 +20,7 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :spex_categories, :force => true do |t|
       t.string :name, :null => false
-      t.string :created_by
-      t.string :updated_by
+      t.timestamps
     end
     add_index :spex_categories, :name, :unique => true
 
@@ -108,7 +106,7 @@ class CreateTables < ActiveRecord::Migration
       t.string :street_address, :limit => 75
       t.string :postal_code, :limit => 30
       t.string :postal_address, :limit => 40
-      t.string :country, :limit => 30
+      t.string :country, :limit => 100
       t.string :phone_home, :limit => 25
       t.string :phone_work, :limit => 25
       t.string :phone_mobile, :limit => 25
@@ -122,8 +120,6 @@ class CreateTables < ActiveRecord::Migration
       t.boolean :deceased, :default => false
       t.boolean :publish_approval, :default => true
       t.boolean :want_circulars, :default => true
-      t.boolean :fgv_member, :default => false
-      t.boolean :alumni_member, :default => false
       t.boolean :uncertain_address, :default => false
       t.integer :user_id
       t.string :picture_file_name
@@ -145,7 +141,22 @@ class CreateTables < ActiveRecord::Migration
       t.integer :spexare_id_cohabitant, :null => false
       t.foreign_key :spexare_id, :spexare, :id
       t.foreign_key :spexare_id_cohabitant, :spexare, :id
+      t.string :created_by
+      t.string :updated_by
+      t.timestamps
     end
+
+    create_table :memberships, :force => true do |t|
+      t.string :year, :limit => 4, :null => false
+      t.integer :kind_id, :null => false
+      t.integer :spexare_id, :null => false
+      t.integer :lock_version, :default => 0
+      t.string :created_by
+      t.string :updated_by
+      t.timestamps
+      t.foreign_key :spexare_id, :spexare, :id
+    end
+    add_index :memberships, :spexare_id
 
     create_table :links, :force => true do |t|
       t.integer :spexare_id, :null => false
