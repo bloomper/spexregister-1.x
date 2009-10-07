@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: ca5ccd1821a5059bb69afe1ad8ba5b03710f34e5
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/karmi/localized_country_select.git
