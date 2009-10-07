@@ -115,7 +115,7 @@ class CreateTables < ActiveRecord::Migration
       t.string :phone_other, :limit => 25
       t.string :email_address, :limit => 50
       t.string :birth_date, :limit => 10
-      t.string :social_security_number, :limit => 4
+      t.string :encrypted_social_security_number
       t.boolean :chalmers_student, :default => true
       t.string :graduation, :limit => 5
       t.string :comment

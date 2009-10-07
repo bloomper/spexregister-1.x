@@ -7,6 +7,8 @@ Denna applikation är ett webbaserat register för Chalmersspexets räkning.
 == Ändringar/tillägg
 
 - SQLite
+- shuber-encryptor (http://github.com/shuber/encryptor)
+- shuber-eigenclass (http://github.com/shuber/eigenclass)
 
 == Miljö
 
