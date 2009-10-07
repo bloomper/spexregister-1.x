@@ -63,39 +63,4 @@ class SpexareTest < ActiveSupport::TestCase
     assert(spexare.errors.invalid?(:picture), "Expected an error for invalid picture")
   end
 
-  test "should not save spexare with invalid related spexare" do
-    spexare_1 = spexare(:spexare_1)
-    spexare_2 = spexare(:spexare_2)
-    begin
-      spexare_3 = Spexare.new(:last_name => Time.now, :first_name => Time.now)
-      spexare_3.add_related_spexare(spexare_1)
-    rescue Exception
-      puts $!.to_s
-    end
-  end
-
-#  def test_related_spexare
-#    spexare_item_1 = SpexareItem.new(:last_name => 'TestLastName1', :first_name => 'TestFirstName1')
-#    spexare_item_2 = SpexareItem.new(:last_name => 'TestLastName2', :first_name => 'TestFirstName2')
-#    spexare_item_1.add_related_spexare(spexare_item_2)
-#    assert spexare_item_1.valid?, spexare_item_1.errors.full_messages
-#    assert_equal 1, spexare_item_1.related_spexare_items.size
-#    assert spexare_item_1.has_related_spexare?
-#    spexare_item_3 = SpexareItem.new(:last_name => 'TestLastName3', :first_name => 'TestFirstName3')
-#    begin
-#      spexare_item_1.add_related_spexare(spexare_item_3)
-#    rescue Exception
-#      assert_equal 'Det går bara att ha en relation åt gången med en annan spexare.', $!.to_s
-#    end
-#    assert_equal 1, spexare_item_1.related_spexare_items.size
-#    begin
-#      spexare_item_3.add_related_spexare(spexare_item_1)
-#    rescue Exception
-#      assert_equal "Den angivna spexaren i 'Gift/sambo med' har redan en relation (kan endast ha en åt gången).", $!.to_s
-#    end
-#    spexare_item_1.remove_related_spexare
-#    assert_equal 0, spexare_item_1.related_spexare_items.size
-#    assert_equal 0, spexare_item_2.related_spexare_items.size
-#  end
-
 end
