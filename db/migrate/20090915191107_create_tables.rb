@@ -195,6 +195,7 @@ class CreateTables < ActiveRecord::Migration
     drop_table :functions_links
     drop_table :links
     drop_table :cohabitants
+    drop_table :memberships
     drop_table :spexare
     drop_table :permissions_user_groups
     drop_table :permissions
