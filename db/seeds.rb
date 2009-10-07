@@ -7,9 +7,10 @@
 #   Major.create(:name => 'Daley', :city => cities.first)
 
 # Users
-User.create :username => 'admin', :password => 'admin99', :password_confirmation => 'admin99'
-Lockdown::System.make_user_administrator(User.find_by_username('admin'))
-User.create :username => 'user', :password => 'user99', :password_confirmation => 'user99'
+user = User.new :username => 'admin', :password => 'admin99', :password_confirmation => 'admin99', :user_groups => [ UserGroup.find_by_name('Administrators') ]
+user.save(false)
+user = User.new :username => 'user', :password => 'user99', :password_confirmation => 'user99', :user_groups => [ UserGroup.find_by_name('Users') ]
+user.save(false)
 
 # Function categories
 FunctionCategory.create :name => 'Kommitté'

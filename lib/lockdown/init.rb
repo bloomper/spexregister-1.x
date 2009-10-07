@@ -136,6 +136,7 @@ set_public_access :login
   # Define your user groups here:
 
 set_user_group(:administrators, :spex_management, :function_management, :news_management)
+set_user_group(:users)
 
 # Use Authlogic's session timeout mechanism instead
 options[:session_timeout] = 7776000
