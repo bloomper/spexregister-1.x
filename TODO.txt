@@ -51,6 +51,9 @@ Short-term
     - Range search: Yes
     - Other:
 
+- Reporting
+  - http://github.com/gunark/jasperserver-client
+
 Medium-term
 -----------
 
