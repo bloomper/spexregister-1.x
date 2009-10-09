@@ -10,6 +10,7 @@ Denna applikation är ett webbaserat register för Chalmersspexets räkning.
 - shuber-encryptor (http://github.com/shuber/encryptor)
 - shuber-eigenclass (http://github.com/shuber/eigenclass)
 - hypricot (http://github.com/whymirror/hpricot) (development only)
+- xml-simple
 
 == Miljö
 
