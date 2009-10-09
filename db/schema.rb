@@ -11,18 +11,29 @@
 
 ActiveRecord::Schema.define(:version => 20090921205709) do
 
-  create_table "actors", :force => true do |t|
-    t.string   "role",         :limit => 50
-    t.integer  "vocal_id"
-    t.integer  "link_id",                                   :null => false
-    t.integer  "lock_version",               :default => 0
+  create_table "achievements", :force => true do |t|
+    t.integer  "spexare_id",                  :null => false
+    t.integer  "spex_id",                     :null => false
+    t.integer  "position"
+    t.integer  "lock_version", :default => 0
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "actors", ["link_id"], :name => "index_actors_on_link_id"
+  create_table "actors", :force => true do |t|
+    t.string   "role",           :limit => 50
+    t.integer  "vocal_id"
+    t.integer  "achievement_id",                              :null => false
+    t.integer  "lock_version",                 :default => 0
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "actors", ["achievement_id"], :name => "index_actors_on_achievement_id"
 
   create_table "cohabitants", :id => false, :force => true do |t|
     t.integer  "spexare_id",            :null => false
@@ -54,20 +65,9 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
 
   add_index "functions", ["name"], :name => "index_functions_on_name"
 
-  create_table "functions_links", :id => false, :force => true do |t|
-    t.integer "function_id", :null => false
-    t.integer "link_id",     :null => false
-  end
-
-  create_table "links", :force => true do |t|
-    t.integer  "spexare_id",                  :null => false
-    t.integer  "spex_id",                     :null => false
-    t.integer  "position"
-    t.integer  "lock_version", :default => 0
-    t.string   "created_by"
-    t.string   "updated_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "functions_achievements", :id => false, :force => true do |t|
+    t.integer "function_id",    :null => false
+    t.integer "achievement_id", :null => false
   end
 
   create_table "memberships", :force => true do |t|

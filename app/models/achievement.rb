@@ -1,4 +1,4 @@
-class Link < ActiveRecord::Base
+class Achievement < ActiveRecord::Base
   belongs_to :spexare
   has_one :actor, :dependent => :destroy
   belongs_to :spex
