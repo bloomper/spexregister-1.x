@@ -1,5 +1,4 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-achievement_1:
+cohabitant:
   spexare: spexare_1
-achievement_2:
-  spexare: spexare_2
+  spexare_cohabitant: spexare_2 

@@ -4,7 +4,7 @@ class Spexare < ActiveRecord::Base
   has_many :achievements, :order => :position, :dependent => :destroy
   has_many :fgv_memberships, :class_name => 'Membership', :order => :year, :dependent => :destroy
   has_many :cing_memberships, :class_name => 'Membership', :order => :year, :dependent => :destroy
-  acts_as_network :cohabitants, :join_table => :cohabitants, :foreign_key => 'spexare_id', :association_foreign_key => 'spexare_id_cohabitant'
+  acts_as_network :cohabitants, :through => :cohabitants
   belongs_to :user
   has_attached_file :picture, :styles => { :thumb => ApplicationConfig.picture_thumbnail_size }
   attr_protected :picture_file_name, :picture_content_type, :picture_file_size

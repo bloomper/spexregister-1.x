@@ -13,7 +13,6 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
 
   create_table "achievements", :force => true do |t|
     t.integer  "spexare_id",                  :null => false
-    t.integer  "spex_id",                     :null => false
     t.integer  "position"
     t.integer  "lock_version", :default => 0
     t.string   "created_by"
@@ -23,17 +22,17 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
   end
 
   create_table "actors", :force => true do |t|
-    t.string   "role",           :limit => 50
+    t.string   "role",                    :limit => 50
     t.integer  "vocal_id"
-    t.integer  "achievement_id",                              :null => false
-    t.integer  "lock_version",                 :default => 0
+    t.integer  "function_achievement_id",                              :null => false
+    t.integer  "lock_version",                          :default => 0
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "actors", ["achievement_id"], :name => "index_actors_on_achievement_id"
+  add_index "actors", ["function_achievement_id"], :name => "index_actors_on_function_achievement_id"
 
   create_table "cohabitants", :id => false, :force => true do |t|
     t.integer  "spexare_id",            :null => false
@@ -42,6 +41,11 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "function_achievements", :force => true do |t|
+    t.integer "function_id",    :null => false
+    t.integer "achievement_id", :null => false
   end
 
   create_table "function_categories", :force => true do |t|
@@ -64,11 +68,6 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
   end
 
   add_index "functions", ["name"], :name => "index_functions_on_name"
-
-  create_table "functions_achievements", :id => false, :force => true do |t|
-    t.integer "function_id",    :null => false
-    t.integer "achievement_id", :null => false
-  end
 
   create_table "memberships", :force => true do |t|
     t.string   "year",         :limit => 4,                :null => false
@@ -136,6 +135,11 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
 
   add_index "spex", ["title"], :name => "index_spex_on_title"
   add_index "spex", ["year"], :name => "index_spex_on_year"
+
+  create_table "spex_achievements", :force => true do |t|
+    t.integer "spex_id",        :null => false
+    t.integer "achievement_id", :null => false
+  end
 
   create_table "spex_categories", :force => true do |t|
     t.string   "name",       :null => false

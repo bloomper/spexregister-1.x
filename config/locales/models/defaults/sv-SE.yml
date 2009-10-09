@@ -3,22 +3,30 @@
        
     # Translate model names. Used in Model.human_name().
     models:
-      actor: "Ensemblist"
-      function: "Funktion"
-      function_category: "Funktionskategori"
       achievement: "Prestation"
+      actor: "Ensemblist"
+      cohabitant: "Gift/sambo"
+      function: "Funktion"
+      function_achievement: "Funktionsprestation"
+      function_category: "Funktionskategori"
       membership: "Medlemsskap"
       news: "Nyhet"
+      permission: "Rättighet"
       spex: "Spex"
+      spex_achievement: "Spexprestation"
       spex_category: "Spexkategori"
       spexare: "Spexare"
       user: "Användare"
+      user_session: "Användarsession"
       
     # Translate model attribute names. Used in Model.human_attribute_name(attribute).
     attributes:
       actor:
         role: "Roll"
         vocal_id: "Stämma"
+      cohabitant:
+        spexare: "Spexare"
+        spexare_cohabitant: "Spexare"
       function:
         name: "Namn"
       function_category:

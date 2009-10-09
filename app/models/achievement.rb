@@ -1,8 +1,7 @@
 class Achievement < ActiveRecord::Base
   belongs_to :spexare
-  has_one :actor, :dependent => :destroy
-  belongs_to :spex
-  has_and_belongs_to_many :functions
+  has_one :spex, :through => :spex_achievement
+  has_many :functions, :through => :function_achievement
   acts_as_list :scope => :spexare_id
 
 end

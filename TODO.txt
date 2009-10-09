@@ -12,6 +12,9 @@ Short-term
   - User
   - Spexare
 
+- Possible problem
+  - When deleting spexare -> achievement -> function_achievement/spex_achievement, is function/spex also deleted?
+
 - Sorting
   - http://javathehutt.blogspot.com/2009/06/mo-simple-sortable-tables-in-rails.html
   - http://github.com/dlabare/sortable_columns

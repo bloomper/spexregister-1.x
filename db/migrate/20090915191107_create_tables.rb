@@ -160,17 +160,22 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :achievements, :force => true do |t|
       t.integer :spexare_id, :null => false
-      t.integer :spex_id, :null => false
       t.integer :position
       t.integer :lock_version, :default => 0
       t.string :created_by
       t.string :updated_by
       t.timestamps
       t.foreign_key :spexare_id, :spexare, :id
-      t.foreign_key :spex_id, :spex, :id
     end
 
-    create_table :functions_achievements, :id => false, :force => true do |t|
+    create_table :spex_achievements, :force => true do |t|
+      t.integer :spex_id, :null => false
+      t.integer :achievement_id, :null => false
+      t.foreign_key :spex_id, :spex, :id
+      t.foreign_key :achievement_id, :achievements, :id
+    end
+
+    create_table :function_achievements, :force => true do |t|
       t.integer :function_id, :null => false
       t.integer :achievement_id, :null => false
       t.foreign_key :function_id, :functions, :id
@@ -180,19 +185,20 @@ class CreateTables < ActiveRecord::Migration
     create_table :actors, :force => true do |t|
       t.string :role, :limit => 50
       t.integer :vocal_id
-      t.integer :achievement_id, :null => false
+      t.integer :function_achievement_id, :null => false
       t.integer :lock_version, :default => 0
       t.string :created_by
       t.string :updated_by
       t.timestamps
-      t.foreign_key :achievement_id, :achievements, :id
+      t.foreign_key :function_achievement_id, :function_achievements, :id
     end
-    add_index :actors, :achievement_id
+    add_index :actors, :function_achievement_id
   end
 
   def self.down
     drop_table :actors
-    drop_table :functions_achievements
+    drop_table :function_achievements
+    drop_table :spex_achievements
     drop_table :achievements
     drop_table :cohabitants
     drop_table :memberships

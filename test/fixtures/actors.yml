@@ -1,2 +1,5 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
+actor:
+  role: 'TestRole'
+  vocal_id: 2
+  function_achievement: function_achievement_2

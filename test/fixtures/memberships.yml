@@ -1,5 +1,5 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-achievement_1:
+membership:
+  year: '2098'
+  kind_id: 1
   spexare: spexare_1
-achievement_2:
-  spexare: spexare_2
