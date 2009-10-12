@@ -1,4 +1,5 @@
 class FunctionAchievementsController < ApplicationController
+  verify :xhr => true
 
   def index
   end

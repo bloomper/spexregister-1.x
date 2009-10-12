@@ -1,4 +1,5 @@
 class ActorsController < ApplicationController
+  verify :xhr => true
 
   def index
   end

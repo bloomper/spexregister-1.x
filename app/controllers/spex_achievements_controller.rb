@@ -1,4 +1,5 @@
 class SpexAchievementsController < ApplicationController
+  verify :xhr => true
 
   def index
   end
