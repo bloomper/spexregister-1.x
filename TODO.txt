@@ -12,6 +12,17 @@ Short-term
   - User
   - Spexare
 
+- Login page
+
+- Home page
+  - View news
+
+- Menu
+
+- Logout
+
+- Pagination
+
 - Sorting
   - http://javathehutt.blogspot.com/2009/06/mo-simple-sortable-tables-in-rails.html
   - http://github.com/dlabare/sortable_columns
@@ -19,10 +30,23 @@ Short-term
 - Filtering?
   - http://agilewebdevelopment.com/plugins/acts_as_filter
 
-- Lockdown
-  - http://stonean.lighthouseapp.com/projects/33317/tickets/30-error-in-functional-test
+- Simple search
+
+- Change my password
+
+- Change my profile
+
+- Help
+  - About
+  - At problems
+
+- Signup
+
+- Export
 
 - Full text search
+
+- Require SSL?
 
 - Reporting
   - http://github.com/gunark/jasperserver-client
@@ -34,6 +58,7 @@ Medium-term
   - Kind of tricky since the relationship with a spexare must be with the year(s)
 
 - Update documentation
+
 - When integrating Capistrano, use this
   - http://synthesis.sbecker.net/pages/asset_packager
 
@@ -42,6 +67,9 @@ Long-term
 
 Problems
 --------
+
+- Lockdown
+  - http://stonean.lighthouseapp.com/projects/33317/tickets/30-error-in-functional-test
 
 Goodies
 -------

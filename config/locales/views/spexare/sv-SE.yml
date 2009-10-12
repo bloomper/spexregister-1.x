@@ -1,0 +1,7 @@
+"sv-SE":
+  views:
+    spexare:
+      successful_save: "Spexaren har skapats"
+      successful_update: "Spexaren har uppdaterats"
+      successful_destroy: "Spexaren har raderats"
+      no_spexare_exist: "Det finns inga spexare"
