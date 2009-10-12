@@ -12,9 +12,6 @@ Short-term
   - User
   - Spexare
 
-- Possible problem
-  - When deleting spexare -> achievement -> function_achievement/spex_achievement, is function/spex also deleted?
-
 - Sorting
   - http://javathehutt.blogspot.com/2009/06/mo-simple-sortable-tables-in-rails.html
   - http://github.com/dlabare/sortable_columns
@@ -26,39 +23,15 @@ Short-term
   - http://stonean.lighthouseapp.com/projects/33317/tickets/30-error-in-functional-test
 
 - Full text search
-  - Ferret + acts_as_ferret
-    - Windows: Yes
-    - Range search:
-    - Other:
-    - http://www.ruby-forum.com/topic/86741
-    - http://www.pluitsolutions.com/2007/07/30/acts-as-ferret-drbserver-win32-service/
-  - Xapian + acts_as_xapian
-    - Windows:
-    - Range search:
-    - Other: acts_as_xapian has no maintainer at the moment
-  - Sphinx + Thinking Sphinx
-    - Windows: Yes
-    - Range search: Yes
-    - Other:
-  - acts_as_indexed
-    - Windows: Yes
-    - Range search: No
-    - Other: Only one model
-  - --> Solr + acts_as_solr
-    - Windows: Yes
-    - Range search: Probably
-    - Other: Requires Java
-    - svn:externals to search project for schema etc?
-  - search_do + Hyper Estraier
-    - Windows: Yes
-    - Range search: Yes
-    - Other:
 
 - Reporting
   - http://github.com/gunark/jasperserver-client
 
 Medium-term
 -----------
+
+- Better modeling of revivals
+  - Kind of tricky since the relationship with a spexare must be with the year(s)
 
 - Update documentation
 - When integrating Capistrano, use this
