@@ -27,6 +27,7 @@ class CreateTables < ActiveRecord::Migration
     create_table :spex, :force => true do |t|
       t.string :year, :limit => 4, :null => false
       t.string :title, :limit => 50, :null => false
+      t.boolean :is_revival, :default => false
       t.integer :spex_category_id, :null => false
       t.string :poster_file_name
       t.string :poster_content_type

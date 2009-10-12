@@ -40,6 +40,7 @@
       spex:
         year: "År"
         title: "Titel"
+        is_revival: "Nyuppsättning?"
         poster: "Affisch"
       spex_category:
         name: "Namn"

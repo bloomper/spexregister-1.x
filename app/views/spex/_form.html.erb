@@ -18,10 +18,18 @@
     </tr>
     <tr>
       <td>
+        <label for="spex_is_revival"><%= t 'activerecord.attributes.spex.is_revival' %></label>
+      </td>
+      <td>
+        <%= form.check_box :is_revival, :tabindex => 3 %>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <label for="spex_poster"><%= t 'activerecord.attributes.spex.poster' %></label>
       </td>
       <td>
-        <%= form.file_field :poster, :tabindex => 3 %>
+        <%= form.file_field :poster, :tabindex => 4 %>
       </td>
     </tr>
     <tr>
@@ -29,23 +37,23 @@
         <label for="spex_spex_category_id"><%= t 'activerecord.models.spex_category' %></label>
       </td>
       <td>
-        <%= form.select :spex_category_id, get_spex_categories, :tabindex => 4 %>
+        <%= form.select :spex_category_id, get_spex_categories, :tabindex => 5 %>
       </td>
     </tr>
     <% if action == 'edit' %>
       <%= render :partial => '/shared/entity_details', :locals => { :entity => @spex } %>
       <tr>
         <td>
-          <%= submit_tag(t 'views.base.action_edit', :tabindex => 5, :class => 'button') %>
-          <input type="button" value="<%= t 'views.base.action_back' %>" class="button" tabindex="6" onclick="javascript:history.go(-1);"/>
-          <input type="reset" value="<%= t 'views.base.action_reset' %>" class="button" tabindex="7"/>
+          <%= submit_tag(t 'views.base.action_edit', :tabindex => 6, :class => 'button') %>
+          <input type="button" value="<%= t 'views.base.action_back' %>" class="button" tabindex="7" onclick="javascript:history.go(-1);"/>
+          <input type="reset" value="<%= t 'views.base.action_reset' %>" class="button" tabindex="8"/>
         </td>
       </tr>
     <% else %>
       <tr>
         <td>
-          <%= submit_tag(t 'views.base.action_create', :tabindex => 5, :class => 'button') %>
-          <input type="reset" value="<%= t 'views.base.action_reset' %>" tabindex="6"/>
+          <%= submit_tag(t 'views.base.action_create', :tabindex => 6, :class => 'button') %>
+          <input type="reset" value="<%= t 'views.base.action_reset' %>" tabindex="7"/>
         </td>
       </tr>
     <% end %>

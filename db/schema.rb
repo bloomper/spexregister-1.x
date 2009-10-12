@@ -119,9 +119,10 @@ ActiveRecord::Schema.define(:version => 20090921205709) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
 
   create_table "spex", :force => true do |t|
-    t.string   "year",                :limit => 4,                 :null => false
-    t.string   "title",               :limit => 50,                :null => false
-    t.integer  "spex_category_id",                                 :null => false
+    t.string   "year",                :limit => 4,                     :null => false
+    t.string   "title",               :limit => 50,                    :null => false
+    t.boolean  "is_revival",                        :default => false
+    t.integer  "spex_category_id",                                     :null => false
     t.string   "poster_file_name"
     t.string   "poster_content_type"
     t.integer  "poster_file_size"

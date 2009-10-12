@@ -2,12 +2,14 @@
 spex_1:
   year: '1098'
   title: 'Spex 1'
+  is_revival: false
   spex_category: spex_category
   created_at: '2099-01-01 00:00:00'
   updated_at: '2099-01-01 00:00:00'
 spex_2:
   year: '1099'
   title: 'Test Spex 2'
+  is_revival: false
   spex_category: spex_category
   created_at: '2099-01-01 00:00:00'
   updated_at: '2099-01-01 00:00:00'

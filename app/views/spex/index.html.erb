@@ -6,6 +6,7 @@
     <table>
       <th><%= t 'activerecord.attributes.spex.year' %></th>
       <th><%= t 'activerecord.attributes.spex.title' %></th>
+      <th><%= t 'activerecord.attributes.spex.is_revival' %></th>
       <th><%= t 'activerecord.attributes.spex_category.name' %></th>
 
       <% @spex.each do |spex| %>
@@ -15,6 +16,9 @@
           </td>
           <td>
             <%= h spex.title %>
+          </td>
+          <td>
+            <%= check_box_tag 'is_revival', spex.is_revival, spex.is_revival, :disabled => true %>
           </td>
           <td>
             <%= h spex.spex_category.name %>
