@@ -9,17 +9,17 @@ class Spexare < ActiveRecord::Base
   has_attached_file :picture, :styles => { :thumb => ApplicationConfig.picture_thumbnail_size }
   attr_protected :picture_file_name, :picture_content_type, :picture_file_size
   attr_encrypted :social_security_number, :key => 'A8AD3BC66E66FC6C255312D70FFA547E1CE8FB8A4382BE961DFFBED0DD45B340', :encode => true
-  
+
+  protected
   def editable_by
     user_group = UserGroup.find_by_name('Administrators')
     if !self.user.nil?
-      user_group.user_ids |= [self.user.user_id]
+      user_group.user_ids |= [self.user.id]
     else
       user_group.user_ids
     end
   end
 
-  protected
   validates_presence_of :last_name
   validates_presence_of :first_name
   validates_format_of :social_security_number, :with => /^\d{4}$/, :if => Proc.new { |s| !s.social_security_number.blank? }

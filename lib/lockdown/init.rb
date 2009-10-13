@@ -102,13 +102,17 @@ Lockdown::System.configure do
   # Define your permissions here:
 
 set_permission(:login).with_controller(:user_sessions)
-set_permission(:spex_management).with_controller(:spex)
-set_permission(:function_management).with_controller(:functions)
+set_permission(:spex_management).with_controller(:spex).and_controller(:spex_categories).and_controller(:posters)
+set_permission(:spex_consumption).with_controller(:spex).and_controller(:spex_categories).and_controller(:posters).only_methods(:show, :index)
+set_permission(:function_management).with_controller(:functions).and_controller(:function_categories)
+set_permission(:function_management).with_controller(:functions).and_controller(:function_categories).only_methods(:show, :index)
 set_permission(:news_management).with_controller(:news).except_methods(:show, :index)
 set_permission(:news_consumption).with_controller(:news).only_methods(:show, :index)
-set_permission(:spexare_management).with_controller(:spexare).and_controller(:achievements).and_controller(:spex_achievements).and_controller(:function_achievements).and_controller(:actors).except_methods(:show, :index)
-set_permission(:spexare_management_owner).with_controller(:spexare).and_controller(:achievements).and_controller(:spex_achievements).and_controller(:function_achievements).and_controller(:actors).except_methods(:show, :index).to_model(:spexare).where(:editor_ids).includes(:current_user_id)
-set_permission(:spexare_consumption).with_controller(:spexare).and_controller(:achievements).and_controller(:spex_achievements).and_controller(:function_achievements).and_controller(:actors).only_methods(:show, :index)
+set_permission(:user_management).with_controller(:users).and_controller(:user_groups).and_controller(:permissions).and_controller(:spexare)
+set_permission(:user_management_owner).with_controller(:users).and_controller(:user_groups).and_controller(:permissions).and_controller(:spexare).to_model(:user).where(:editable_by).includes(:current_user_id)
+set_permission(:spexare_management).with_controller(:spexare).and_controller(:pictures).and_controller(:cohabitants).and_controller(:memberships).and_controller(:achievements).and_controller(:spex_achievements).and_controller(:function_achievements).and_controller(:actors).and_controller(:users).except_methods(:show, :index)
+set_permission(:spexare_management_owner).with_controller(:spexare).and_controller(:pictures).and_controller(:cohabitants).and_controller(:memberships).and_controller(:achievements).and_controller(:spex_achievements).and_controller(:function_achievements).and_controller(:actors).and_controller(:users).except_methods(:show, :index).to_model(:spexare).where(:editable_by).includes(:current_user_id)
+set_permission(:spexare_consumption).with_controller(:spexare).and_controller(:pictures).and_controller(:cohabitants).and_controller(:memberships).and_controller(:achievements).and_controller(:spex_achievements).and_controller(:function_achievements).and_controller(:actors).only_methods(:show, :index)
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Built-in user groups
@@ -139,8 +143,8 @@ set_public_access :login
   # 
   # Define your user groups here:
 
-set_user_group(:administrators, :spexare_management, :spex_management, :function_management, :news_management)
-set_user_group(:users, :spexare_management_owner, :spexare_consumption, :news_consumption)
+set_user_group(:administrators, :spexare_management, :user_management, :spex_management, :function_management, :news_management)
+set_user_group(:users, :spexare_management_owner, :spexare_consumption, :user_management_owner, :news_consumption, :spex_consumption, :function_consumption)
 
 # Use Authlogic's session timeout mechanism instead
 options[:session_timeout] = 7776000

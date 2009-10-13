@@ -1,5 +1,5 @@
-class AchievementsController < ApplicationController
-  before_filter(:get_spexare)
+class PostersController < ApplicationController
+  before_filter(:get_spex)
   
   def index
   end
@@ -23,8 +23,8 @@ class AchievementsController < ApplicationController
   end
   
   private
-  def get_spexare
-    @spexare = Spexare.find(params[:spexare_id])
+  def get_spex
+    @spex = Spex.find(params[:spex_id])
   end
-  
+
 end

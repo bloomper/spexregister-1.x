@@ -4,6 +4,19 @@ TODO
 Short-term
 ----------
 
+- Use HAML?
+  - http://haml-lang.com/
+- Use Sass?
+  - http://sass-lang.com/
+- Use friendly_id?
+  - http://agilewebdevelopment.com/plugins/friendly_id
+
+- Add following routes?
+  - Spex
+    - Poster
+  - Spexare
+    - Picture
+
 - Unit tests
   - Spexare
     - Indexing & search

@@ -1,5 +1,5 @@
 class ActorsController < ApplicationController
-  verify :xhr => true
+  before_filter(:get_function_achievement)
 
   def index
   end
@@ -20,6 +20,11 @@ class ActorsController < ApplicationController
   end
   
   def destroy
+  end
+  
+  private
+  def get_function_achievement
+    @function_achievement = FunctionAchievement.find(params[:function_achievement_id])
   end
   
 end

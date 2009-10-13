@@ -1,0 +1,2 @@
+module FunctionCategoriesHelper
+end

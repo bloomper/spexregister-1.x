@@ -1,5 +1,5 @@
 class FunctionAchievementsController < ApplicationController
-  verify :xhr => true
+  before_filter(:get_achievement)
 
   def index
   end
@@ -20,6 +20,11 @@ class FunctionAchievementsController < ApplicationController
   end
   
   def destroy
+  end
+
+  private
+  def get_achievement
+    @achievement = Achievement.find(params[:achievement_id])
   end
   
 end

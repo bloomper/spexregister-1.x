@@ -1,4 +1,4 @@
-class AchievementsController < ApplicationController
+class CohabitantsController < ApplicationController
   before_filter(:get_spexare)
   
   def index

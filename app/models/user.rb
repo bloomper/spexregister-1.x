@@ -5,6 +5,16 @@ class User < ActiveRecord::Base
   has_one :spexare, :dependent => :nullify
   has_and_belongs_to_many :user_groups
   
+  protected
+  def editable_by
+    user_group = UserGroup.find_by_name('Administrators')
+    if !self.user.nil?
+      user_group.user_ids |= [self.id]
+    else
+      user_group.user_ids
+    end
+  end
+  
   def after_destroy
     if User.count.zero?
       raise I18n.t('user.cannot_delete_all_users')
