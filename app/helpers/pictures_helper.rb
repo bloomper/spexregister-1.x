@@ -1,2 +1,2 @@
-module PostersHelper
+module PicturesHelper
 end
