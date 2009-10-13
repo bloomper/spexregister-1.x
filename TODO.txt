@@ -4,16 +4,15 @@ TODO
 Short-term
 ----------
 
-- Use HAML?
+- Use HAML
   - http://haml-lang.com/
-- Use Sass?
+
+- Use Sass/Compass/Blueprint
   - http://sass-lang.com/
-- Use friendly_id?
-  - http://agilewebdevelopment.com/plugins/friendly_id
 
 - Unit tests
   - Spexare
-    - Indexing & search
+    - Indexing & full text search
 
 - Controllers
   - User
@@ -61,13 +60,13 @@ Short-term
 Medium-term
 -----------
 
+- Use friendly_id?
+  - http://agilewebdevelopment.com/plugins/friendly_id
+
 - Better modeling of revivals
   - Kind of tricky since the relationship with a spexare must be with the year(s)
 
 - Update documentation
-
-- When integrating Capistrano, use this
-  - http://synthesis.sbecker.net/pages/asset_packager
 
 Long-term
 ---------
