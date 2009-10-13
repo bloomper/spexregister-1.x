@@ -213,7 +213,10 @@ Spex.create :year => '1994', :title => 'Lasse-Maja', :is_revival => true, :spex_
 Spex.create :year => '1995', :title => 'Dr Livingstone', :is_revival => true, :spex_category => bob_spex_category
 Spex.create :year => '1996', :title => 'Victoria', :is_revival => true, :spex_category => bob_spex_category
 Spex.create :year => '1997', :title => 'Tutankhamon', :is_revival => true, :spex_category => bob_spex_category
-Spex.create :year => '1998', :title => '50-års jubileum', :is_revival => true, :spex_category => bob_spex_category
+Spex.create :year => '1998', :title => 'Henrik VIII', :is_revival => true, :spex_category => bob_spex_category
+Spex.create :year => '1998', :title => 'Klondike', :is_revival => true, :spex_category => bob_spex_category
+Spex.create :year => '1998', :title => 'George Washington', :is_revival => true, :spex_category => bob_spex_category
+Spex.create :year => '1998', :title => 'Ludwig van Beethoven', :is_revival => true, :spex_category => bob_spex_category
 Spex.create :year => '1999', :title => 'John Ericsson', :is_revival => true, :spex_category => bob_spex_category
 Spex.create :year => '2000', :title => 'Bojan', :is_revival => true, :spex_category => bob_spex_category
 Spex.create :year => '2001', :title => 'Ludvig XIV', :is_revival => true, :spex_category => bob_spex_category
