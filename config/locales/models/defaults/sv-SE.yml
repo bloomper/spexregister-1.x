@@ -71,4 +71,11 @@
         picture: "Bild"
       user:
         username: "Användarnamn"
-        user_groups: "Roll"
+        user_groups: "Roller"
+        login_count: "Antal inloggningar"
+        failed_login_count: "Antal misslyckade inloggningar"
+        last_request_at: "Senaste begäran"
+        current_login_at: "Nuvarande inloggning"
+        last_login_at: "Senaste inloggning"
+        current_login_ip: "Nuvarande inloggning (IP adress)"
+        last_login_ip: "Senaste inloggning (IP adress)"

@@ -1,0 +1,7 @@
+"sv-SE":
+  views:
+    user:
+      successful_save: "Användaren har skapats"
+      successful_update: "Användaren har uppdaterats"
+      successful_destroy: "Användaren har raderats"
+      no_users_exist: "Det finns inga användare"
