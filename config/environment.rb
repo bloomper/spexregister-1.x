@@ -22,10 +22,10 @@ Rails::Initializer.run do |config|
   config.gem "mysql", :version => '2.8.1'
   config.gem "piston", :version => '2.0.6'
   config.gem "rcov", :version => '0.8.1.2.0'
-  config.gem "shuber-encryptor", :version => '1.0.1', :source => "http://gems.github.com/"
-  config.gem "shuber-eigenclass", :version => '1.0.1', :source => "http://gems.github.com/"
+  config.gem "shuber-encryptor", :lib => 'encryptor', :version => '1.0.1', :source => "http://gems.github.com/"
+  config.gem "shuber-eigenclass", :lib => 'eigenclass', :version => '1.0.1', :source => "http://gems.github.com/"
   config.gem "sqlite3-ruby", :lib => "sqlite3", :version => '1.2.5'
-  config.gem "xml-simple", :version => '1.0.12'
+  config.gem "xml-simple", :lib => 'xmlsimple', :version => '1.0.12'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
