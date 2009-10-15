@@ -4,6 +4,7 @@ javascripts:
   - jquery
   - jquery-ui
   - jquery.suggest
+  - jquery.validate
   - jrails
   - jrails.autocomplete
   - spexregister
