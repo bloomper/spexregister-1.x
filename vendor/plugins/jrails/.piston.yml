@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: ea8b56b446f3e55236c25b04eb6c9a10c9a189e6
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/aaronchi/jrails.git

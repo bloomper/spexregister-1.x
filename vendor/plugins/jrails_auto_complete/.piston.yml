@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 8262506385b9bdd06d7e5be9bce7cca74e6796b5
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/evilmarty/jrails_auto_complete.git
