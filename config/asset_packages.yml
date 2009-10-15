@@ -1,11 +1,16 @@
 --- 
 javascripts: 
 - base: 
-  - prototype
-  - effects
-  - dragdrop
-  - controls
-  - application
+  - jquery
+  - jquery-ui
+  - jquery.suggest
+  - jrails
+  - jrails.autocomplete
+  - spexregister
 stylesheets: 
-- base: 
-  - application
+- screen: 
+  - compiled/screen
+- ie:
+  - compiled/ie
+- print:
+  - compiled/print
