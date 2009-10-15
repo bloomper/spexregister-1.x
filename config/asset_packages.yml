@@ -1,16 +1,20 @@
 --- 
-javascripts: 
-- base: 
+javascripts:
+- base:
   - jquery
   - jquery-ui
   - jquery.suggest
   - jquery.validate
+  - jquery.alerts
+  - jquery.lightbox
   - jrails
   - jrails.autocomplete
   - spexregister
-stylesheets: 
-- screen: 
+stylesheets:
+- screen:
   - compiled/screen
+  - jquery.alerts
+  - jquery.lightbox
 - ie:
   - compiled/ie
 - print:
