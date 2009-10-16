@@ -1,0 +1,5 @@
+= content_for :sub_menu do
+  %ul
+    = tab :simple_search, :route => :search, :translation_key => 'views.search.simple_search'
+    = tab :advanced_search, :route => :search, :translation_key => 'views.search.advanced_search', :css_class => 'last'
+    

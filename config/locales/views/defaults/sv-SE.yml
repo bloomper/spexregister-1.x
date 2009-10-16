@@ -2,6 +2,10 @@
   views:
     base:
       title: "Chalmersspexets Adressregister"
+      logged_in_as: "Inloggad som:"
+      logout: "Logga ut"
+      loading: "Laddar..."
+      footer: "&copy; 2009 Chalmersspexet"
       session_expiry: "Du har loggats ut automatiskt pga inaktivitet"
       login_successful: "Du har loggats in"
       logout_successful: "Du har loggats ut"

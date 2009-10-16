@@ -1,0 +1,23 @@
+!!! XML
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "#{I18n.locale}", :lang => "#{I18n.locale}"}
+  %head
+    %meta{"http-equiv" => "Content-Type", :content => "application/xhtml+xml;charset=UTF-8"}
+    %title
+      = t 'views.base.title'
+    = stylesheet_link_merged :screen, :media => "screen, projection"
+    /[if lt IE 8]
+      = stylesheet_link_merged :ie, :media => "screen, projection"
+    = stylesheet_link_merged :print, :media => "print"
+    %link{:rel => "icon", :href => "favicon.ico", :type => "image/x-icon"}
+    %link{:rel => "shortcut icon", :href => "favicon.ico", :type => "image/x-icon"}
+  %body
+    .container
+      = render :partial => '/shared/header'
+      = render :partial => '/shared/menu'
+      //= render :partial => '/shared/flashes'
+      #content
+        = yield
+      = render :partial => '/shared/footer'
+  = javascript_include_merged :base
+  

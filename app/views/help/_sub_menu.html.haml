@@ -1,0 +1,6 @@
+= content_for :sub_menu do
+  %ul
+    = tab :help, :match_path => 'help'
+    = tab :in_case_of_problems, :route => :help, :translation_key => 'views.help.in_case_of_problems'
+    = tab :about, :route => :help, :translation_key => 'views.help.about', :css_class => 'last'
+    

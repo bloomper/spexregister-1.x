@@ -1,0 +1,6 @@
+"sv-SE":
+  views:
+    home:
+      title: "Hem"
+      change_profile: "Ändra profil"
+      change_password: "Ändra lösenord"

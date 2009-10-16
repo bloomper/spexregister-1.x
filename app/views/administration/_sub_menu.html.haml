@@ -1,0 +1,8 @@
+= content_for :sub_menu do
+  %ul
+    = tab :users, :route => :administration, :translation_key => 'views.administration.users'
+    = tab :functions, :route => :administration, :translation_key => 'views.administration.functions'
+    = tab :news, :route => :administration, :translation_key => 'views.administration.news'
+    = tab :spex, :route => :administration, :translation_key => 'views.administration.spex'
+    = tab :spexare, :route => :search, :translation_key => 'views.administration.spexare', :css_class => 'last'
+    

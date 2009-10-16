@@ -1,0 +1,45 @@
+body
+  :background-color = !background_color
+  :margin-top 10px
+  div.left
+    +leftie
+  div.right
+    +rightie
+  a
+    :text-decoration none
+
+.container
+  +container
+
+#header
+  h1.logo
+    :color = !header_text_color
+
+  ul#login-details
+    +horizontal-list(4px)
+    :float right
+
+#progress
+  :display none
+  :background = !progress_background_color url(/images/tab_back.png) repeat-x scroll left top
+  :color = !progress_text_color
+  :font-size 170%
+  :height 25px
+  :left 33%
+  :padding 10px 0 15px
+  :position absolute
+  :text-align center
+  :width 33%
+  :font-weight bold
+  :-moz-border-radius-bottomleft 15px
+  :-moz-border-radius-bottomright 15px
+
+#progress img
+  :vertical-align middle
+  :padding-right 10px
+
+#content
+  +column(31)
+  
+#footer
+  +column(31)

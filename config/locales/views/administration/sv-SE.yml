@@ -1,0 +1,9 @@
+"sv-SE":
+  views:
+    administration:
+      title: "Administration"
+      users: "Användare"
+      functions: "Funktioner"
+      news: "Nyheter"
+      spex: "Spex"
+      spexare: "Spexare"

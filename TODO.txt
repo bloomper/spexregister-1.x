@@ -4,11 +4,20 @@ TODO
 Short-term
 ----------
 
-- Use HAML
-  - http://haml-lang.com/
+- Menu
+- Login page
+- Logout
+- Content div, side bar etc
+- Flash div
+- Home page
+  - View news
+- Help
+  - About
+  - At problems
+- Change my password
+- Signup
 
-- Use Sass/Compass/Blueprint
-  - http://sass-lang.com/
+- Convert existing ERB to HAML and SASS
 
 - Unit tests
   - Spexare
@@ -17,15 +26,6 @@ Short-term
 - Controllers
   - User
   - Spexare
-
-- Login page
-
-- Home page
-  - View news
-
-- Menu
-
-- Logout
 
 - Pagination
 
@@ -36,17 +36,9 @@ Short-term
 - Filtering?
   - http://agilewebdevelopment.com/plugins/acts_as_filter
 
-- Simple search
-
-- Change my password
-
 - Change my profile
 
-- Help
-  - About
-  - At problems
-
-- Signup
+- Simple search
 
 - Export
 
@@ -79,3 +71,5 @@ Problems
 
 Goodies
 -------
+
+- http://jetpackweb.com/blog/2009/10/14/high-quality-ruby-on-rails-example-applications/

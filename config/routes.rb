@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
   
+  # Restful routes
   map.resources :spex do |spex|
     spex.resource :spex_category, :only => [:index, :show]
     spex.resource :poster
@@ -25,9 +26,15 @@ ActionController::Routing::Routes.draw do |map|
       end
     end
   end 
-  
   map.resource :user_session
   
+  # UI routes
+  map.home '/home', :controller => 'home', :action => 'index'
+  map.search '/search', :controller => 'search', :action => 'index'
+  map.administration '/administration', :controller => 'administration', :action => 'index'
+  map.help '/help', :controller => 'help', :action => 'index'
+  
+  # Other routes
   map.login '/login', :controller => 'user_sessions', :action => 'new'
   map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
   

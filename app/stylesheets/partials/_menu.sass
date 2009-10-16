@@ -1,0 +1,60 @@
+#menu
+  +column(31)
+  :background #154e8c url(/images/tab_back.png) top left repeat-x
+  :border-top 1px solid #4B83E2
+  :border-right 1px solid #34599B
+  :border-bottom 1px solid #41A6F0 
+  ul
+    :margin-bottom -1px
+    li
+      &.selected
+        :background #0095da url(/images/tab_selected_back.png) top left repeat-x
+        :border-bottom 1px solid #0095DA
+        :border-left 1px solid #41A6F0
+        :border-top 1px solid #41A6F0
+        :border-right 1px solid #4986BF
+        :height 40px
+        :margin-top -2px
+      &:first-child
+        :border-left 1px solid #34599B
+
+#menu,
+#sub-menu
+  ul
+    :padding 0
+    :margin 0
+    li
+      :float left
+      :margin-right 1em
+      :list-style none
+      :margin-right 0
+      :margin-bottom -1px
+      a
+        :display block
+        :padding 10px 20px
+        :color #fff
+        :text-decoration none
+        :outline none
+      selected
+        :background-color #0095da 
+
+#sub-menu
+  +column(31)
+  :background #0095da
+  :border-left 1px solid #41A6F0
+  :border-right 1px solid #4986BF
+  ul
+    li
+      a
+        :padding 3px 7px
+        :margin 10px 5px
+        :color #154e8c
+        :background none
+      &.selected
+        a
+          :background #154e8c
+          :color #9BC3FC
+          :-moz-border-radius 3px
+          :-webkit-border-radius 3px
+
+        
