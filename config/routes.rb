@@ -33,6 +33,8 @@ ActionController::Routing::Routes.draw do |map|
   map.search '/search', :controller => 'search', :action => 'index'
   map.administration '/administration', :controller => 'administration', :action => 'index'
   map.help '/help', :controller => 'help', :action => 'index'
+  map.help_in_case_of_problems '/help/in_case_of_problems', :controller => 'help', :action => 'in_case_of_problems'
+  map.help_about '/help/about', :controller => 'help', :action => 'about'
   
   # Other routes
   map.login '/login', :controller => 'user_sessions', :action => 'new'

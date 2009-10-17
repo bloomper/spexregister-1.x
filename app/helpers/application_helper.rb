@@ -14,9 +14,12 @@ module ApplicationHelper
 
     return("") if link.nil? || link.blank?
 
+    c1 = ActionController::Routing::Routes.recognize_path(destination_url)
+    logger.debug c1.to_s
+    
     css_classes = []
     selected = if options[:match_path]
-      request.request_uri.starts_with?("/#{options[:match_path]}")
+      request.request_uri.eql?(options[:match_path])
     else
       args.include?(controller.controller_name.to_sym)
     end

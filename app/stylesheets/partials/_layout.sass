@@ -40,6 +40,18 @@ body
 
 #content
   +column(31)
-  
+  :padding 1em
+  :background = !content_background_color
+  :color = !content_color
+  :min-height 500px
+  a
+    :color #3C7DFB
+    &:active,
+    &:visited
+      :color #3C7DFB
+  p
+    :margin-right 1em
+
 #footer
   +column(31)
+  :position relative

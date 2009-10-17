@@ -1,0 +1,23 @@
+= render :partial => 'sub_menu'
+
+%h1 Om registret
+
+%h2 Version
+  
+%p
+  = h ApplicationConfig.app_version
+
+%h2 Gjort av
+  
+%p Colgate, Faxe och Patrik Lampa
+
+%h2 Byggd med hjälp av
+  
+%p
+  %a{:href => "http://www.rubyonrails.org", :target => "_blank"}
+    %img{:src => "/images/rails.png"}
+  %a{:href => "http://www.ruby-lang.org", :target => "_blank"}
+    %img{:src => "/images/ruby.png"}
+  %a{:href => "http://java.sun.com", :target => "_blank"}
+    %img{:src => "/images/java.png"}
+  

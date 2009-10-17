@@ -4,16 +4,15 @@ TODO
 Short-term
 ----------
 
-- Menu
+- Better way to detect match path, use routing
+- Always have to include sub-menu?
+
 - Login page
 - Logout
 - Content div, side bar etc
 - Flash div
 - Home page
   - View news
-- Help
-  - About
-  - At problems
 - Change my password
 - Signup
 
@@ -59,6 +58,8 @@ Medium-term
   - Kind of tricky since the relationship with a spexare must be with the year(s)
 
 - Update documentation
+
+- Help page
 
 Long-term
 ---------
