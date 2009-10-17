@@ -1,5 +1,6 @@
 development: &defaults
   app_version: 0.0.4
+  site_url: www.chalmersspexet.se/register
   admin_mail_address: register@chalmersspexet.com
   default_listing_page_size: 10
   related_spexare_dropdown_list_size: 12

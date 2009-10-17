@@ -71,6 +71,8 @@
         picture: "Bild"
       user:
         username: "Användarnamn"
+        password: "Lösenord"
+        password_confirmation: "Lösenord (igen)"
         user_groups: "Roller"
         login_count: "Antal inloggningar"
         failed_login_count: "Antal misslyckade inloggningar"

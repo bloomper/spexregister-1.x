@@ -6,6 +6,11 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :user_groups
   
   protected
+  def deliver_password_reset_instructions!
+    reset_perishable_token!
+    UserMailer.deliver_password_reset_instructions(self)
+  end
+
   def editable_by
     user_group = UserGroup.find_by_name('Administrators')
     if !self.user.nil?

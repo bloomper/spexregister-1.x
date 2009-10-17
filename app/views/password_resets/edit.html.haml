@@ -1,0 +1,14 @@
+#resetmypassword
+  %h1
+    = t 'views.password_reset.reset_my_password'
+  - form_for @user, :url => password_reset_path, :method => :put do |f|
+    %p
+      = f.label :password, t('activerecord.attributes.user.password')
+      %br>
+      = f.password_field :password, :class => 'title'
+    %p
+      = f.label :password_confirmation, t('activerecord.attributes.user.password_confirmation')
+      %br>
+      = f.password_field :password_confirmation, :class => 'title'
+    %p
+      = f.submit t('views.password_reset.update_my_password'), :class => 'button primary'

@@ -9,8 +9,9 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:message] = I18n.t('views.base.login_successful')
-      redirect_back_or_default root_path
+      redirect_back_or_default home_path
     else
+      flash[:error] = I18n.t('views.base.login_unsuccessful')
       render :action => :new
     end
   end
@@ -19,7 +20,7 @@ class UserSessionsController < ApplicationController
     current_user_session.destroy
     reset_lockdown_session
     flash[:message] = I18n.t('views.base.logout_successful')
-    redirect_back_or_default root_path
+    redirect_back_or_default login_path
   end
   
   private

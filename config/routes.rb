@@ -1,5 +1,18 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
+
+  # Login routes
+  map.login '/login', :controller => 'user_sessions', :action => 'new'
+  map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
+
+  # UI routes
+  map.home '/home', :controller => 'home', :action => 'index'
+  map.signup '/signup', :controller => 'users', :action => 'new'
+  map.search '/search', :controller => 'search', :action => 'index'
+  map.administration '/administration', :controller => 'administration', :action => 'index'
+  map.help '/help', :controller => 'help', :action => 'index'
+  map.help_in_case_of_problems '/help/in_case_of_problems', :controller => 'help', :action => 'in_case_of_problems'
+  map.help_about '/help/about', :controller => 'help', :action => 'about'
   
   # Restful routes
   map.resources :spex do |spex|
@@ -27,21 +40,10 @@ ActionController::Routing::Routes.draw do |map|
     end
   end 
   map.resource :user_session
-  
-  # UI routes
-  map.home '/home', :controller => 'home', :action => 'index'
-  map.search '/search', :controller => 'search', :action => 'index'
-  map.administration '/administration', :controller => 'administration', :action => 'index'
-  map.help '/help', :controller => 'help', :action => 'index'
-  map.help_in_case_of_problems '/help/in_case_of_problems', :controller => 'help', :action => 'in_case_of_problems'
-  map.help_about '/help/about', :controller => 'help', :action => 'about'
-  
-  # Other routes
-  map.login '/login', :controller => 'user_sessions', :action => 'new'
-  map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
-  
-  map.root :controller => "user_sessions", :action => "new"
-  
+  map.resources :password_resets
+
+  map.root :controller => 'home', :action => 'index'
+
   # See how all your routes lay out with "rake routes"
   
 end

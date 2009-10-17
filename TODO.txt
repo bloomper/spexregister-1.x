@@ -4,10 +4,11 @@ TODO
 Short-term
 ----------
 
-- Better way to detect match path, use routing
-- Always have to include sub-menu?
+- Immediate problems
+  - Lockdown does not allow signup and reset my password
 
 - Login page
+  - Authlogic's error messages?
 - Logout
 - Content div, side bar etc
 - Flash div
@@ -15,6 +16,8 @@ Short-term
   - View news
 - Change my password
 - Signup
+  - User state for approval
+- Reset my password
 
 - Convert existing ERB to HAML and SASS
 

@@ -1,3 +1,8 @@
 "sv-SE":
   views:
     user_session:
+      title: "Logga in"
+      remember_me: "Kom ihåg mig"
+      login: "Logga in"
+      create_new_account: "Skapa nytt konto"
+      forgot_my_password: "Glömt mitt lösenord"

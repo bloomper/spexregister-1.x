@@ -8,6 +8,7 @@
       footer: "&copy; 2009 Chalmersspexet"
       session_expiry: "Du har loggats ut automatiskt pga inaktivitet"
       login_successful: "Du har loggats in"
+      login_unsuccessful: "Ogiltligt användarnamn och/eller lösenord"
       logout_successful: "Du har loggats ut"
       created_at: "Skapad"
       updated_at: "Uppdaterad"
@@ -18,3 +19,4 @@
       action_edit: "Ändra"
       action_reset: "Återställ"
       action_back: "Tillbaka"
+      password_reset_instructions: "Återställning av lösenord"
