@@ -48,5 +48,4 @@ Rails::Initializer.run do |config|
   config.i18n.default_locale = 'sv-SE'
 
   config.active_record.colorize_logging = false 
-
 end
