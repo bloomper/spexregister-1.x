@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   protected
   def deliver_password_reset_instructions!
     reset_perishable_token!
-    UserMailer.deliver_password_reset_instructions(self)
+    UserMailer.deliver_password_reset_instructions(self.spexare.email_address)
   end
 
   def editable_by

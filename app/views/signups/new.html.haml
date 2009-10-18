@@ -1,0 +1,32 @@
+#signup
+  %h1
+    = t 'views.signup.title'
+  %p
+    = t 'views.signup.instructions'
+  - form_tag signups_path do
+    %p
+      = label_tag :full_name, t('views.signup.full_name')
+      %br>
+      = text_field_tag :full_name, nil, :class => 'title'
+    %p
+      = label_tag :username, t('activerecord.attributes.user.username')
+      %br>
+      = text_field_tag :username, nil, :class => 'title'
+    %p
+      = label_tag :email_address, t('activerecord.attributes.spexare.email_address')
+      %br>
+      = text_field_tag :email_address, nil, :class => 'title'
+    %p
+      = label_tag :password, t('activerecord.attributes.user.password')
+      %br>
+      = password_field_tag :password, nil, :class => 'title'
+    %p
+      = label_tag :password_confirmation, t('activerecord.attributes.user.password_confirmation')
+      %br>
+      = password_field_tag :password_confirmation, nil, :class => 'title'
+    %p
+      = label_tag :description, t('views.signup.description')
+      %br>
+      = text_area_tag :description, nil, :class => 'title'
+    %p
+      = submit_tag t('views.signup.create_my_account'), :class => 'button primary'

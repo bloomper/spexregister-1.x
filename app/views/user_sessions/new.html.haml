@@ -9,7 +9,7 @@
     %p
       = f.label :password, t('activerecord.attributes.user.password')
       %br>
-      = f.text_field :password, :class => 'title'
+      = f.password_field :password, :class => 'title'
     %p
       %label
         = f.check_box :remember_me
@@ -17,7 +17,7 @@
     %p
       = f.submit t('views.user_session.login'), :class => 'button primary'
   %p
-    = link_to t('views.user_session.create_new_account'), signup_path
+    = link_to t('views.user_session.create_new_account'), new_signup_path
     |
     = link_to t('views.user_session.forgot_my_password'), new_password_reset_path
   

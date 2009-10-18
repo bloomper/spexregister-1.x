@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # UI routes
   map.home '/home', :controller => 'home', :action => 'index'
-  map.signup '/signup', :controller => 'users', :action => 'new'
+  map.signup '/signup', :controller => 'signup', :action => 'new'
   map.search '/search', :controller => 'search', :action => 'index'
   map.administration '/administration', :controller => 'administration', :action => 'index'
   map.help '/help', :controller => 'help', :action => 'index'
@@ -41,6 +41,7 @@ ActionController::Routing::Routes.draw do |map|
   end 
   map.resource :user_session
   map.resources :password_resets
+  map.resources :signups, :only => [:new, :create]
 
   map.root :controller => 'home', :action => 'index'
 

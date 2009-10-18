@@ -4,9 +4,10 @@ TODO
 Short-term
 ----------
 
-- Immediate problems
-  - Lockdown does not allow signup and reset my password
-
+- Signup
+  - Send mail (including extra information)
+  - User state for approval
+    - Check at login
 - Login page
   - Authlogic's error messages?
 - Logout
@@ -15,9 +16,6 @@ Short-term
 - Home page
   - View news
 - Change my password
-- Signup
-  - User state for approval
-- Reset my password
 
 - Convert existing ERB to HAML and SASS
 
