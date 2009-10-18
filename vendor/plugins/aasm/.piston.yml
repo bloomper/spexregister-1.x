@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: dfc2874972daf601f3eeb4cd2bff589290cc2521
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/rubyist/aasm.git
