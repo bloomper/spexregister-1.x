@@ -15,8 +15,8 @@
     .container
       = render :partial => '/shared/header'
       = render :partial => '/shared/menu'
-      //= render :partial => '/shared/flashes'
       #content
+        = render :partial => '/shared/flashes'
         = yield
       = render :partial => '/shared/footer'
   = javascript_include_merged :base

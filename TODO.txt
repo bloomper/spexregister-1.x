@@ -4,18 +4,18 @@ TODO
 Short-term
 ----------
 
-- Signup
-  - Send mail (including extra information)
-  - User state for approval
-    - Check at login
+- Form errors
+  - Skin properly
+- Flash errors
+  - Skin properly
 - Login page
   - Authlogic's error messages?
 - Logout
 - Content div, side bar etc
-- Flash div
 - Home page
   - View news
 - Change my password
+- Get rid of annoying SASS errors (deprecation)
 
 - Convert existing ERB to HAML and SASS
 

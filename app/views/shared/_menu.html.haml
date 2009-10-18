@@ -1,8 +1,9 @@
-#menu
-  %ul
-    = tab :home
-    = tab :search
-    = tab :administration
-    = tab :help
-#sub-menu
-  = yield :sub_menu
+- if current_user
+  #menu
+    %ul
+      = tab :home
+      = tab :search
+      = tab :administration
+      = tab :help
+  #sub-menu
+    = yield :sub_menu

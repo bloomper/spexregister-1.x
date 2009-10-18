@@ -7,7 +7,7 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "should be ok" do
-    user = User.create(:username => "test", :password => @password, :password_confirmation => @password, :user_groups => [ user_groups(:admins_user_group) ], :spexare => spexare(:spexare_1))
+    user = User.create(:username => "test@test.com", :password => @password, :password_confirmation => @password, :user_groups => [ user_groups(:admins_user_group) ], :spexare => spexare(:spexare_1))
     assert user.valid?, user.errors.full_messages.join("\n") 
   end
   
@@ -18,21 +18,15 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "should not save user with no password" do
-    user = User.new(:username => "test", :password => nil, :password_confirmation => nil, :user_groups => [ user_groups(:admins_user_group) ], :spexare => spexare(:spexare_1))
+    user = User.new(:username => "test@test.com", :password => nil, :password_confirmation => nil, :user_groups => [ user_groups(:admins_user_group) ], :spexare => spexare(:spexare_1))
     assert(!user.valid?, "Should not save entry unless password has been set")
     assert(user.errors.invalid?(:password), "Expected an error for missing password")
   end
   
   test "should not save user with no user groups" do
-    user = User.new(:username => "test", :password => @password, :password_confirmation => @password, :user_groups => [], :spexare => spexare(:spexare_1))
+    user = User.new(:username => "test@test.com", :password => @password, :password_confirmation => @password, :user_groups => [], :spexare => spexare(:spexare_1))
     assert(!user.valid?, "Should not save entry unless user groups have been set")
     assert(user.errors.invalid?(:user_groups), "Expected an error for missing user groups")
-  end
-  
-  test "should not save user with no spexare" do
-    user = User.new(:username => "test", :password => @password, :password_confirmation => @password, :user_groups => [ user_groups(:admins_user_group) ], :spexare => nil)
-    assert(!user.valid?, "Should not save entry unless spexare has been set")
-    assert(user.errors.invalid?(:spexare), "Expected an error for missing spexare")
   end
   
   test "should not save user with invalid username" do
@@ -43,14 +37,18 @@ class UserTest < ActiveSupport::TestCase
     user = User.new(:username => "%¤&¤%", :password => @password, :password_confirmation => @password, :user_groups => [ user_groups(:admins_user_group) ], :spexare => spexare(:spexare_1))
     assert(!user.valid?, "Should not save entry if an invalid username has been set")
     assert(user.errors.invalid?(:username), "Expected an error for invalid username")
+
+    user = User.new(:username => "@missingsomestuff", :password => @password, :password_confirmation => @password, :user_groups => [ user_groups(:admins_user_group) ], :spexare => spexare(:spexare_1))
+    assert(!user.valid?, "Should not save entry if an invalid username has been set")
+    assert(user.errors.invalid?(:username), "Expected an error for invalid username")
   end
   
   test "should not save user with invalid password" do
-    user = User.new(:username => "test", :password => "1", :password_confirmation => "1", :user_groups => [ user_groups(:admins_user_group) ], :spexare => spexare(:spexare_1))
+    user = User.new(:username => "test@test.com", :password => "1", :password_confirmation => "1", :user_groups => [ user_groups(:admins_user_group) ], :spexare => spexare(:spexare_1))
     assert(!user.valid?, "Should not save entry if an invalid password has been set")
     assert(user.errors.invalid?(:password), "Expected an error for invalid password")
     
-    user = User.new(:username => "test", :password => @password, :password_confirmation => "1", :user_groups => [ user_groups(:admins_user_group) ], :spexare => spexare(:spexare_1))
+    user = User.new(:username => "test@test.com", :password => @password, :password_confirmation => "1", :user_groups => [ user_groups(:admins_user_group) ], :spexare => spexare(:spexare_1))
     assert(!user.valid?, "Should not save entry if an invalid password has been set")
     assert(user.errors.invalid?(:password), "Expected an error for invalid password")
   end

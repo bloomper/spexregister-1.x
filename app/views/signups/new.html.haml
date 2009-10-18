@@ -1,6 +1,7 @@
 #signup
   %h1
     = t 'views.signup.title'
+  = error_messages_for :user, :header_message => nil
   %p
     = t 'views.signup.instructions'
   - form_tag signups_path do
@@ -12,10 +13,6 @@
       = label_tag :username, t('activerecord.attributes.user.username')
       %br>
       = text_field_tag :username, nil, :class => 'title'
-    %p
-      = label_tag :email_address, t('activerecord.attributes.spexare.email_address')
-      %br>
-      = text_field_tag :email_address, nil, :class => 'title'
     %p
       = label_tag :password, t('activerecord.attributes.user.password')
       %br>

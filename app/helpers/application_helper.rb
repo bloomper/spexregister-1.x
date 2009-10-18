@@ -11,11 +11,8 @@ module ApplicationHelper
     options[:translation_key] ||= "views.#{options[:label]}.title"
     label = t(options[:translation_key])
     link = link_to(label, destination_url)
-
+    
     return("") if link.nil? || link.blank?
-
-    c1 = ActionController::Routing::Routes.recognize_path(destination_url)
-    logger.debug c1.to_s
     
     css_classes = []
     selected = if options[:match_path]
