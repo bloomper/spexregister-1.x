@@ -11,6 +11,8 @@ class UserSessionsController < ApplicationController
       flash[:message] = I18n.t('views.base.login_successful')
       redirect_to home_path
     else
+      # Do not use the Authlogic errors (too detailed)
+      @user_session.errors.clear
       flash[:error] = I18n.t('views.base.login_unsuccessful')
       render :action => :new
     end
