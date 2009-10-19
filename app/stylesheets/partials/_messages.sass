@@ -2,7 +2,7 @@
   :font-size 130%
   :font-weight bold
   :padding .4em 0 .4em 38px
-  :margin-bottom 1em
+  :margin 0 2em 1em 0
   :border 1px solid #c00
   :border-left none
   :border-right none
@@ -12,18 +12,16 @@
     :color #c00
     :border-color #c00
   &.warning
-    :background #FDE4E4 url(/images/warning.png) 10px center no-repeat
-    :color #c00
-    :border-color #c00
+    :background #F9F9D9 url(/images/warning.png) 10px center no-repeat
+    :color #FFFF00
+    :border-color #FFFF00
   &.message
     :background #E7F8D7 url(/images/message.png) 10px center no-repeat
     :color #59A151
     :border-color #59A151
 
-.formError,
 .errorExplanation
-  :font-size 1.3em
-  :margin-bottom 1em
+  :margin 0 2em 1em 0
   :padding 0.8em
   +round_corners
   +message_box(#F4B4B4, #000, #000)
@@ -31,10 +29,7 @@
     :margin 0px
   ul
     :margin-bottom 0px
-  h2
-    :font-weight bold
-    :font-size 1.0em
-    :margin 0px
+    +pretty-bullets(/images/error_bullet.png, 16px, 16px)
 
 .fieldWithErrors
   :clear none
