@@ -1,7 +1,9 @@
 "sv-SE":
   views:
     function:
+      title: "Funktioner"
       successful_save: "Funktionen har skapats"
       successful_update: "Funktionen har uppdaterats"
       successful_destroy: "Funktionen har raderats"
       no_functions_exist: "Det finns inga funktioner"
+      new_function: "Ny funktion"

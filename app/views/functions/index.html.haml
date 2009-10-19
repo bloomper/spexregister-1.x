@@ -1,0 +1,56 @@
+= render :partial => 'administration/sub_menu'
+
+.toolbar
+  %ul.actions
+    %li
+      = button_link_to_remote t('views.function.new_function'), { :url => new_function_url, :method => :get, :update => "new-function" }, :icon => 'add'
+
+%h1
+  = t('views.function.title')
+
+= image_tag "/images/spinner.gif", :style => "display:none", :id => 'busy_indicator'
+
+#new-function
+
+%table.index
+  %tr
+    %th= t('activerecord.attributes.function.name')
+    %th= t('activerecord.models.function_category')
+    %th= t('views.base.action')
+    - @functions.each do |function|
+      %tr{:id => dom_id(function), :class => cycle('even', 'odd')}
+        %td= function.name
+        %td= function.function_category.name
+        %td.actions
+          = link_to_edit_action edit_function_url(function)
+          &nbsp;
+          = link_to_delete_action dom_id(function), function_url(function)
+
+= will_paginate (:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+          
+= content_for :sidebar do 
+  - form_for @search do |f|
+    .box
+      %h3= t('views.base.search')
+      %p
+      <p>
+        <label><%= t("name") %></label><br />
+        <%= f.text_field :name_contains, :size => 15 %>
+      </p>
+
+      <p>
+        <label><%= t("sku") %></label><br />
+        <%= f.text_field :variants_sku_contains, :size => 15 %>
+      </p>
+      <p>
+        <label><%= t("show_deleted") %></label><br />
+        <%= f.check_box :deleted_at_not_null, {}, "1", "" %>
+      </p>
+      <p class="form-buttons">
+        <%= button t("search") %>
+      </p>
+    </div>
+  <% end %>
+
+<% end %>
+   

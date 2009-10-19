@@ -1,7 +1,7 @@
 class FunctionsController < ApplicationController
 
   def index
-    @functions = Function.find(:all)
+    @functions = Function.paginate :page => params[:page], :per_page => ApplicationConfig.entities_per_page 
 
     respond_to do |format|
       format.html

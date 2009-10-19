@@ -4,18 +4,19 @@ TODO
 Short-term
 ----------
 
-- Form errors
-  - Skin properly
-- Flash errors
-  - Skin properly
-- Login page
-  - Authlogic's error messages?
-- Logout
+- Immediate problems
+  - Delete does not seem to work
+  - i18n JS does not seem to load properly
+  - Get rid of annoying SASS errors (deprecation)
+
+- Use http://github.com/giraffesoft/resource_controller?
 - Content div, side bar etc
+  - Pagination
+  - Ordering
+  - Search (for entities)
 - Home page
   - View news
 - Change my password
-- Get rid of annoying SASS errors (deprecation)
 
 - Convert existing ERB to HAML and SASS
 
