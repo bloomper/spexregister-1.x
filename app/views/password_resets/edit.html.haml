@@ -1,6 +1,5 @@
-#resetmypassword
-  %h1
-    = t 'views.password_reset.reset_my_password'
+#reset-my-password
+  %h1= t 'views.password_reset.reset_my_password'
   - form_for @user, :url => password_reset_path, :method => :put do |f|
     %p
       = f.label :password, t('activerecord.attributes.user.password')

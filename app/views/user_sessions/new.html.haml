@@ -1,6 +1,5 @@
 #login
-  %h1
-    = t 'views.user_session.title'
+  %h1= t 'views.user_session.title'
   - form_for @user_session, :url => user_session_path do |f|
     %p
       = f.label :username, t('activerecord.attributes.user.username')

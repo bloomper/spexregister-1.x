@@ -3,8 +3,7 @@
 %html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "#{I18n.locale}", :lang => "#{I18n.locale}"}
   %head
     %meta{"http-equiv" => "Content-Type", :content => "application/xhtml+xml;charset=UTF-8"}
-    %title
-      = t 'views.base.title'
+    %title= t 'views.base.title'
     = stylesheet_link_merged :screen, :media => "screen, projection"
     /[if lt IE 8]
       = stylesheet_link_merged :ie, :media => "screen, projection"
