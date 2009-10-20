@@ -1,0 +1,30 @@
+"sv-SE":
+  flash:
+    functions:
+      create:
+        notice: "Funktionen har skapats"
+        error: "Funktionen kunde inte skapas"
+      update:
+        notice: "Funktionen har uppdaterats"
+        error: "Funktionen kunde inte uppdateras"
+      destroy:
+        notice: "Funktionen har raderats"
+        error: "Funktionen kunde inte raderas"
+    password_resets:
+      create:
+        notice: "Instruktioner för återställning av lösenord har skickats"
+        error: "Användaren kunde inte hittas"
+      update:
+        notice: "Lösenordet har uppdaterats"
+        error: "Lösenordet kunde inte uppdateras"
+      token_not_found: "Ditt konto kunde inte hittas"
+    signups:
+      create:
+        notice: "Kontot har skapats"
+    user_sessions:
+      create:
+        notice: "Du har loggats in"
+        error: "Ogiltligt användarnamn och/eller lösenord"
+      destroy:
+        notice: "Du har loggats ut"
+

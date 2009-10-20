@@ -5,7 +5,3 @@
       instructions: "Fyll i nedanstående så kommer instruktioner skickas till dig."
       reset_my_password: "Återställ mitt lösenord"
       update_my_password: "Uppdatera mitt lösenord"
-      password_reset_instructions_have_been_mailed: "Instruktioner för återställning av lösenord har skickats"
-      no_user_found: "Användaren kunde inte hittas"
-      password_updated: "Lösenordet har uppdaterats"
-      password_reset_token_not_found: "Ditt konto kunde inte hittas"

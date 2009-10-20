@@ -8,12 +8,12 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      flash[:notice] = I18n.t('views.base.login_successful')
+      flash[:notice] = I18n.t('flash.user_sessions.create.notice')
       redirect_to home_path
     else
       # Do not use the Authlogic errors (too detailed)
       @user_session.errors.clear
-      flash[:error] = I18n.t('views.base.login_unsuccessful')
+      flash[:error] = I18n.t('flash.user_sessions.create.error')
       render :action => :new
     end
   end
@@ -21,7 +21,7 @@ class UserSessionsController < ApplicationController
   def destroy
     current_user_session.destroy
     reset_lockdown_session
-    flash[:notice] = I18n.t('views.base.logout_successful')
+    flash[:notice] = I18n.t('flash.user_sessions.destroy.notice')
     redirect_to login_path
   end
   

@@ -81,3 +81,6 @@
         last_login_at: "Senaste inloggning"
         current_login_ip: "Nuvarande inloggning (IP adress)"
         last_login_ip: "Senaste inloggning (IP adress)"
+      other:
+        full_name: "Fullständigt namn"
+        description: "Beskrivning"

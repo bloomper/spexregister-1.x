@@ -11,10 +11,10 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by_username(params[:username])
     if @user
       @user.deliver_password_reset_instructions!
-      flash[:notice] = I18n.t("views.password_reset.password_reset_instructions_have_been_mailed")
+      flash[:notice] = I18n.t("flash.password_resets.create.notice")
       redirect_to root_path
     else
-      flash[:error] = I18n.t("views.password_reset.no_user_found")
+      flash[:error] = I18n.t("flash.password_resets.create.error")
       render :action => :new
     end
   end
@@ -23,9 +23,10 @@ class PasswordResetsController < ApplicationController
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
     if @user.save
-      flash[:notice] = I18n.t("views.password_reset.password_updated")
+      flash[:notice] = I18n.t("flash.password_resets.update.notice")
       redirect_to home_path
     else
+      flash[:notice] = I18n.t("flash.password_resets.update.error")
       render :action => :edit
     end
   end
@@ -34,7 +35,7 @@ class PasswordResetsController < ApplicationController
   def load_user_using_perishable_token
     @user = User.find_using_perishable_token(params[:id])
     unless @user
-      flash[:error] = I18n.t("views.password_reset.password_reset_token_not_found")
+      flash[:error] = I18n.t("flash.password_resets.token_not_found")
       redirect_to root_path
     end
   end      

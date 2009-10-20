@@ -1,0 +1,10 @@
+"sv-SE":
+  mailers:
+    subject_prefix: "Chalmersspexets Adressregister:"
+    user:
+      password_reset_instructions: "Lösenord återställt"
+      account_created_instructions: "Konto skapat"
+      account_approved_instructions: "Konto godkänt"
+      account_rejected_instructions: "Konto ej godkänt"
+    admin:
+      new_account_instructions: "Nytt konto"

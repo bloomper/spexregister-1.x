@@ -6,7 +6,7 @@
     = t 'views.signup.instructions'
   - form_tag signups_path do
     %p
-      = label_tag :full_name, t('views.signup.full_name')
+      = label_tag :full_name, t('activerecord.attributes.other.full_name')
       %br>
       = text_field_tag :full_name, nil, :class => 'title'
     %p
@@ -22,7 +22,7 @@
       %br>
       = password_field_tag :password_confirmation, nil, :class => 'title'
     %p
-      = label_tag :description, t('views.signup.description')
+      = label_tag :description, t('activerecord.attributes.other.description') + ' ' + t('views.signup.description_note') 
       %br>
       = text_area_tag :description, nil, :class => 'title'
     %p
