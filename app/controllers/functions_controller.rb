@@ -9,7 +9,6 @@ class FunctionsController < ApplicationController
   
   def collection
     base_scope = end_of_association_chain
-    logger.debug params[:search]
     @search = base_scope.search(params[:search])
     @search.order ||= "ascend_by_name"
     

@@ -15,10 +15,13 @@ Short-term
     - The div is floating
 - Home page
   - View news
-    - RSS type?
+    - RSS type? Popup?
 - Change my password
 
+- Convert all REST controllers to inherited_resources
 - Convert existing ERB to HAML and SASS
+
+- Remove empty helpers
 
 - Unit tests
   - Spexare
@@ -28,27 +31,17 @@ Short-term
   - User
   - Spexare
 
-- Pagination
-
-- Sorting
-  - http://javathehutt.blogspot.com/2009/06/mo-simple-sortable-tables-in-rails.html
-  - http://github.com/dlabare/sortable_columns
-
-- Filtering?
-  - http://agilewebdevelopment.com/plugins/acts_as_filter
-
 - Change my profile
 
 - Simple search
 
 - Export
-
-- Full text search
-
-- Require SSL?
-
 - Reporting
   - http://github.com/gunark/jasperserver-client
+
+- Advanced search
+
+- Require SSL?
 
 Medium-term
 -----------
