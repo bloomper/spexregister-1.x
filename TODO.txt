@@ -59,6 +59,9 @@ Medium-term
 - Better modeling of revivals
   - Kind of tricky since the relationship with a spexare must be with the year(s)
 
+- Add cron job for asynchronous mail processing
+  "script/runner 'MailQueue.process' -e production"
+
 - Update documentation
 
 - Help page

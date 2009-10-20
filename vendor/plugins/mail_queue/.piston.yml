@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  piston:remote-revision: 4
+  piston:uuid: f5337be7-4141-0410-ad62-d1aed872c079
+lock: false
+repository_class: Piston::Svn::Repository
+repository_url: http://mail-queue.googlecode.com/svn/mail_queue
