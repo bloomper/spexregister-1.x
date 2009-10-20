@@ -1,0 +1,17 @@
+= render :partial => 'administration/sub_menu'
+
+= render :partial => '/functions/function_tabs', :locals => {:current_tab => 'function_category_tab'}
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.function_category.name'
+  %tr
+    %td= @function_category.name
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.function_category.has_actor'
+  %tr
+    %td= translate_boolean @function_category.has_actor
+
+= render :partial => '/shared/entity_details', :locals => {:entity => @function_category}

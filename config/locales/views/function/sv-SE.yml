@@ -1,6 +1,8 @@
 "sv-SE":
   views:
     function:
-      title: "Funktioner"
+      index_title: "Funktioner"
+      show_title: "Funktion '{{name}}'"
+      description_tab_title: "Beskrivning"
       no_functions_exist: "Det finns inga funktioner"
       new_function: "Ny funktion"

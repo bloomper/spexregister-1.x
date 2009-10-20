@@ -1,7 +1,12 @@
-- if !entity.nil?
+%table.index
+  %tr
+    %th{:colspan => 2}= t 'views.base.internal_details'
+  %tr
+    %td= t 'views.base.id'
+    %td= h entity[:id]
   %tr
     %td= t 'views.base.created_at'
-	%td= h entity[:created_at].to_formatted_s(:long_format)
+    %td= h entity[:created_at].to_formatted_s(:long_format)
   %tr
     %td= t 'views.base.created_by'
     %td= h entity[:created_by]
@@ -9,5 +14,5 @@
     %td= t 'views.base.updated_at'
     %td= h entity[:updated_at].to_formatted_s(:long_format)
   %tr
-    %td= t 'views.base.:updated_by'
-    %td= h entity[::updated_by]
+    %td= t 'views.base.updated_by'
+    %td= h entity[:updated_by]

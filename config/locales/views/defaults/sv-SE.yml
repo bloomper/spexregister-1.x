@@ -6,6 +6,8 @@
       logout: "Logga ut"
       loading: "Laddar..."
       footer: "&copy; 2009 Chalmersspexet"
+      internal_details: "Internt"
+      id: "Id"
       created_at: "Skapad"
       updated_at: "Uppdaterad"
       created_by: "Skapad av"
@@ -19,3 +21,6 @@
       next: "Nästa"
       previous: "Föregående"
       search: "Sök"
+      # yes/no must be quoted as they are reserved keywords in YAML
+      "yes": "Ja"
+      "no": "Nej"

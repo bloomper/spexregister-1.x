@@ -64,11 +64,11 @@ module ApplicationHelper
   end
 
   def link_to_view_action(resource)
-    link_to_with_icon('view', t("views.base.view_action"), resource_url(resource))
+    link_to_with_icon('view', t('views.base.view_action'), resource_url(resource))
   end
 
   def link_to_edit_action(resource)
-    link_to_with_icon('edit', t("views.base.edit_action"), edit_resource_url(resource))
+    link_to_with_icon('edit', t('views.base.edit_action'), edit_resource_url(resource))
   end
 
   def link_to_delete_action(resource, options = {})
@@ -78,7 +78,7 @@ module ApplicationHelper
     options.reverse_merge! :caption => t('views.base.are_you_sure')
     options.reverse_merge! :title => t('views.base.confirm_delete')
 
-    link_to_function icon_tag("delete") + ' ' + t("views.base.delete_action"), "jConfirm('#{options[:caption]}', '#{options[:title]}', function(r) { 
+    link_to_function icon_tag('delete') + ' ' + t('views.base.delete_action'), "jConfirm('#{options[:caption]}', '#{options[:title]}', function(r) { 
       if(r){ 
         $.ajax({
           type: 'POST',
@@ -88,6 +88,10 @@ module ApplicationHelper
         });
       }
     });"
+  end
+
+  def translate_boolean(value)
+    value ? t('views.base.yes') : t('views.base.no')
   end
 
 end

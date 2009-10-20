@@ -1,0 +1,11 @@
+= render :partial => 'administration/sub_menu'
+
+= render :partial => 'function_tabs', :locals => {:current_tab => 'function_tab'}
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.function.name'
+  %tr
+    %td= @function.name
+
+= render :partial => '/shared/entity_details', :locals => {:entity => @function}

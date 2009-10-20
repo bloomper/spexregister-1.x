@@ -5,8 +5,7 @@
     %li
       = button_link_to_remote t('views.function.new_function'), { :url => new_resource_url, :method => :get, :update => 'new-function' }, :icon => 'add'
 
-%h1
-  = t('views.function.title')
+%h1= t 'views.function.index_title'
 
 = image_tag '/images/spinner.gif', :style => 'display:none', :id => 'busy-indicator'
 
@@ -20,7 +19,7 @@
     %tr
       %th= order @search, :by => :name, :as => t('activerecord.attributes.function.name')
       %th= order @search, :by => :function_category_name, :as => t('activerecord.models.function_category')
-      %th= t 'views.base.action'
+      %th.action-column= t 'views.base.action'
       - @functions.each do |function|
         %tr{:id => dom_id(function), :class => cycle('even', 'odd')}
           %td= function.name
