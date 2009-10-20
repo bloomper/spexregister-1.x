@@ -9,10 +9,11 @@ Short-term
   - i18n JS does not seem to load properly
   - Get rid of annoying SASS errors (deprecation)
 
-- Content div, side bar etc
-  - Search (for entities)
-    - Button is not correct
-    - The div is floating
+- Function
+  - Create
+  - Update
+  - Delete
+
 - Home page
   - View news
     - RSS type? Popup?
@@ -20,8 +21,6 @@ Short-term
 
 - Convert all REST controllers to inherited_resources
 - Convert existing ERB to HAML and SASS
-
-- Remove empty helpers
 
 - Unit tests
   - Spexare

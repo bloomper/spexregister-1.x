@@ -63,6 +63,10 @@ module ApplicationHelper
     link_to(icon_tag(icon_name) + ' ' + text, url, options)
   end
 
+  def link_to_view_action(resource)
+    link_to_with_icon('view', t("views.base.view_action"), resource_url(resource))
+  end
+
   def link_to_edit_action(resource)
     link_to_with_icon('edit', t("views.base.edit_action"), edit_resource_url(resource))
   end

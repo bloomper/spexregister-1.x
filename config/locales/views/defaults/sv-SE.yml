@@ -11,6 +11,7 @@
       created_by: "Skapad av"
       updated_by: "Uppdaterad av"
       action: "Åtgärd"
+      view_action: "Visa"
       edit_action: "Ändra"
       delete_action: "Radera"
       are_you_sure: "Är du säker?"

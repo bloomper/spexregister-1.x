@@ -26,8 +26,8 @@
           %td= function.name
           %td= function.function_category.name
           %td.actions
+            = link_to_view_action function
             = link_to_edit_action function
-            &nbsp;
             = link_to_delete_action function
 
 = will_paginate (:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
