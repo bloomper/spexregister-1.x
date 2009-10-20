@@ -1,2 +1,0 @@
-module SpexAchievementsHelper
-end
