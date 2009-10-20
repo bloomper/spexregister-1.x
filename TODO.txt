@@ -9,7 +9,6 @@ Short-term
   - i18n JS does not seem to load properly
   - Get rid of annoying SASS errors (deprecation)
 
-- Use http://github.com/giraffesoft/resource_controller?
 - Content div, side bar etc
   - Pagination
   - Ordering

@@ -11,7 +11,7 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by_username(params[:username])
     if @user
       @user.deliver_password_reset_instructions!
-      flash[:message] = I18n.t("views.password_reset.password_reset_instructions_have_been_mailed")
+      flash[:notice] = I18n.t("views.password_reset.password_reset_instructions_have_been_mailed")
       redirect_to root_path
     else
       flash[:error] = I18n.t("views.password_reset.no_user_found")
@@ -23,7 +23,7 @@ class PasswordResetsController < ApplicationController
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
     if @user.save
-      flash[:message] = I18n.t("views.password_reset.password_updated")
+      flash[:notice] = I18n.t("views.password_reset.password_updated")
       redirect_to home_path
     else
       render :action => :edit

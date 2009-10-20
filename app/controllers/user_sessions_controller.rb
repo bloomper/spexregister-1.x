@@ -8,7 +8,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      flash[:message] = I18n.t('views.base.login_successful')
+      flash[:notice] = I18n.t('views.base.login_successful')
       redirect_to home_path
     else
       # Do not use the Authlogic errors (too detailed)
@@ -21,7 +21,7 @@ class UserSessionsController < ApplicationController
   def destroy
     current_user_session.destroy
     reset_lockdown_session
-    flash[:message] = I18n.t('views.base.logout_successful')
+    flash[:notice] = I18n.t('views.base.logout_successful')
     redirect_to login_path
   end
   
