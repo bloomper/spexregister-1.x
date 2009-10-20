@@ -1,6 +1,7 @@
 // English
-$(function() {
-   $('a[@rel*=lightbox]').lightBox({
+jQuery(function() {
+	 /*
+   jQuery('a[@rel*=lightbox]').lightBox({
       imageLoading:     '/images/jquery.lightbox/lightbox-ico-loading.gif',
       imageBtnPrev:     '/images/jquery.lightbox/lightbox-btn-prev_en.gif',
       imageBtnNext:     '/images/jquery.lightbox/lightbox-btn-next_en.gif',
@@ -12,6 +13,7 @@ $(function() {
       keyToPrev:        'p',
       keyToNext:        'n'
    });
-   $.alerts.okButton = '&nbsp;OK&nbsp;';
-   $.alerts.cancelButton = '&nbsp;Cancel&nbsp;';
+   */
+   jQuery.alerts.okButton = '&nbsp;OK&nbsp;';
+   jQuery.alerts.cancelButton = '&nbsp;Cancel&nbsp;';
 });

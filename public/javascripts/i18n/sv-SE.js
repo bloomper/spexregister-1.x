@@ -1,6 +1,7 @@
 // Swedish
-$(function() {
-   $('a[@rel*=lightbox]').lightBox({
+jQuery(function() {
+	 /*
+   jQuery('a[@rel*=lightbox]').lightBox({
       imageLoading:     '/images/jquery.lightbox/lightbox-ico-loading.gif',
       imageBtnPrev:     '/images/jquery.lightbox/lightbox-btn-prev_sv.gif',
       imageBtnNext:     '/images/jquery.lightbox/lightbox-btn-next_sv.gif',
@@ -12,6 +13,7 @@ $(function() {
       keyToPrev:        'f',
       keyToNext:        'n'
    });
-   $.alerts.okButton = '&nbsp;OK&nbsp;';
-   $.alerts.cancelButton = '&nbsp;Avbryt&nbsp;';
+   */
+   jQuery.alerts.okButton = '&nbsp;OK&nbsp;';
+   jQuery.alerts.cancelButton = '&nbsp;Avbryt&nbsp;';
 });

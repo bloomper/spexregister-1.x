@@ -5,8 +5,8 @@ Short-term
 ----------
 
 - Immediate problems
-  - Delete does not seem to work
-  - i18n JS does not seem to load properly
+  - lightbox i18n settings are not loaded correctly
+  - administration tab does not work properly
   - Get rid of annoying SASS errors (deprecation)
 
 - Function

@@ -19,7 +19,7 @@ body
     +horizontal-list(4px)
     :float right
 
-#progress
+#progress-indicator
   :display none
   :background = !progress_background_color url(/images/tab_back.png) repeat-x scroll left top
   :color = !progress_text_color
@@ -31,12 +31,11 @@ body
   :text-align center
   :width 33%
   :font-weight bold
-  :-moz-border-radius-bottomleft 15px
-  :-moz-border-radius-bottomright 15px
-
-#progress img
-  :vertical-align middle
-  :padding-right 10px
+  :-moz-border-radius 15px
+  :-webkit-border-radius 15px
+  img
+    :vertical-align middle
+    :padding-right 10px
 
 #content
   +column(31)
@@ -72,7 +71,6 @@ body
 .toolbar
   :float right
   :margin-bottom 1em
-  :margin-right 2em
   ul
     &.actions
       :margin 0

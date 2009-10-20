@@ -42,8 +42,8 @@ module ApplicationHelper
   end
   
   def link_to_remote(name, options = {}, html_options = {})
-    options[:before] ||= "$(this).parent().hide(); $('#busy-indicator').show();"
-    options[:complete] ||= "$('#busy-indicator').hide()"
+    options[:before] ||= "jQuery(this).parent().hide(); jQuery('#busy-indicator').show();"
+    options[:complete] ||= "jQuery('#busy-indicator').hide()"
     link_to_function(name, remote_function(options), html_options || options.delete(:html))
   end
   
@@ -80,11 +80,11 @@ module ApplicationHelper
 
     link_to_function icon_tag('delete') + ' ' + t('views.base.delete_action'), "jConfirm('#{options[:caption]}', '#{options[:title]}', function(r) { 
       if(r){ 
-        $.ajax({
+        jQuery.ajax({
           type: 'POST',
           url: '#{options[:url]}',
           data: ({_method: 'delete', authenticity_token: AUTH_TOKEN}),
-          success: function(r){ $('##{dom_id resource}').fadeOut('hide'); } 
+          success: function(r){ jQuery('##{dom_id resource}').fadeOut('hide'); } 
         });
       }
     });"
