@@ -14,9 +14,12 @@
     .container
       = render :partial => '/shared/header'
       = render :partial => '/shared/menu'
-      #content
+      #content{:class => ("with-sidebar" unless @content_for_sidebar.blank?)}
         = render :partial => '/shared/flashes'
         = yield
+        - unless @content_for_sidebar.blank?
+          #sidebar
+            = yield :sidebar
       = render :partial => '/shared/footer'
   = javascript_include_merged :base
   = javascript_include_tag "i18n/#{I18n.locale}.js"

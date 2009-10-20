@@ -42,13 +42,17 @@ module ApplicationHelper
   end
   
   def link_to_remote(name, options = {}, html_options = {})
-    options[:before] ||= "$(this).parent().hide(); $('#busy_indicator').show();"
-    options[:complete] ||= "$('#busy_indicator').hide()"
+    options[:before] ||= "$(this).parent().hide(); $('#busy-indicator').show();"
+    options[:complete] ||= "$('#busy-indicator').hide()"
     link_to_function(name, remote_function(options), html_options || options.delete(:html))
   end
   
   def html_options_for_button_link(html_options)
     options = {:class => 'button'}.update(html_options)
+  end
+
+  def button(text, icon = nil, button_type = 'submit')
+    content_tag('button', content_tag('span', text), :type => button_type)
   end
 
   def icon_tag(icon_name)
@@ -59,14 +63,14 @@ module ApplicationHelper
     link_to(icon_tag(icon_name) + ' ' + text, url, options)
   end
 
-  def link_to_edit_action(url)
-    link_to_with_icon('edit', t("views.base.edit_action"), url)
+  def link_to_edit_action(resource)
+    link_to_with_icon('edit', t("views.base.edit_action"), edit_resource_url(resource))
   end
 
-  def link_to_delete_action(id, url, options = {})
+  def link_to_delete_action(resource, options = {})
     options.assert_valid_keys(:url, :caption, :title)
 
-    options.reverse_merge! :url => url unless options.key? :url
+    options.reverse_merge! :url => resource_url(resource) unless options.key? :url
     options.reverse_merge! :caption => t('views.base.are_you_sure')
     options.reverse_merge! :title => t('views.base.confirm_delete')
 
@@ -76,7 +80,7 @@ module ApplicationHelper
           type: 'POST',
           url: '#{options[:url]}',
           data: ({_method: 'delete', authenticity_token: AUTH_TOKEN}),
-          success: function(r){ $('##{id}').fadeOut('hide'); } 
+          success: function(r){ $('##{dom_id resource}').fadeOut('hide'); } 
         });
       }
     });"

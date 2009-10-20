@@ -10,11 +10,12 @@ Short-term
   - Get rid of annoying SASS errors (deprecation)
 
 - Content div, side bar etc
-  - Pagination
-  - Ordering
   - Search (for entities)
+    - Button is not correct
+    - The div is floating
 - Home page
   - View news
+    - RSS type?
 - Change my password
 
 - Convert existing ERB to HAML and SASS
