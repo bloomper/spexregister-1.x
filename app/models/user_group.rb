@@ -16,17 +16,17 @@ class UserGroup < ActiveRecord::Base
 end
 
 # Override in order to achieve I18N
-module DeLynnBerry
-  module Dropdown
-    def to_options_for_select_with_i18n(text = :name, value = :id, include_blank = false)
-      items = self.collect { |x| [I18n.t("user_group.name.#{x.send(text.to_sym).downcase}"), x.send(value.to_sym)] }
-
-      if include_blank
-        items.insert(0, include_blank.kind_of?(String) ? [include_blank, ""] : ["", ""])
-      end
-
-      items
-    end
-    alias :to_dropdown :to_options_for_select_with_i18n
-  end
-end
+#module DeLynnBerry
+#  module Dropdown
+#    def to_options_for_select_with_i18n(text = :name, value = :id, include_blank = false)
+#      items = self.collect { |x| [I18n.t("user_group.name.#{x.send(text.to_sym).downcase}"), x.send(value.to_sym)] }
+#
+#      if include_blank
+#        items.insert(0, include_blank.kind_of?(String) ? [include_blank, ""] : ["", ""])
+#      end
+#
+#      items
+#    end
+#    alias :to_dropdown :to_options_for_select_with_i18n
+#  end
+#end
