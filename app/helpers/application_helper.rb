@@ -16,7 +16,7 @@ module ApplicationHelper
     
     css_classes = []
     selected = if options[:match_path]
-      request.request_uri.eql?(options[:match_path])
+      request.request_uri.starts_with?(options[:match_path])
     else
       args.include?(controller.controller_name.to_sym)
     end
@@ -91,6 +91,14 @@ module ApplicationHelper
 
   def translate_boolean(value)
     value ? t('views.base.yes') : t('views.base.no')
+  end
+
+  def field_container(model, method, options = {}, &block)
+    unless error_message_on(model, method).blank?
+      css_class = 'withError' 
+    end
+    html = content_tag('p', capture(&block), :class => css_class)
+    concat(html)
   end
 
 end

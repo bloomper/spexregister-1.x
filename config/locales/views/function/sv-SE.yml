@@ -5,4 +5,4 @@
       show_title: "Funktion '{{name}}'"
       description_tab_title: "Beskrivning"
       no_functions_exist: "Det finns inga funktioner"
-      new_function: "Ny funktion"
+      new_function: "Skapa funktion"

@@ -1,3 +1,71 @@
+label
+  :font-weight bold
+  
+fieldset
+  :padding 1em
+  :margin 0 0 1em 0
+  :border 1px solid #ccc
+  :-moz-border-radius 10px
+  :-webkit-border-radius 10px
+  h1 
+    :font-size 1.75em
+  table
+    &.index
+      th
+        &:first-child
+          :-moz-border-radius-topleft 5px
+          :-webkit-border-top-left-radius 5px
+        &:last-child
+          :-moz-border-radius-topright 5px
+          :-webkit-border-top-right-radius 5px
+
+legend
+  :font-weight bold
+  :font-size 1.2em
+  :margin 0
+
+textarea,
+select
+  :margin 0.25em 0
+  :border 1px solid #bbb
+  &:focus
+    :border 1px solid #666
+
+input
+  :margin 0.25em 0
+  :border 1px solid #bbb
+  &.text,
+  &.title
+    :margin 0.25em 0
+    :border 1px solid #bbb
+    :padding 5px
+    &:focus
+      :border 1px solid #666
+  &.title
+    :font-size 1.5em
+
+textarea
+  :height 250px
+  :padding 5px
+
+.required
+  :color #f00
+  :font-weight bold
+  :font-size 1.2em
+
+.fullwidth
+  :width 98%
+
+.withError
+  :background-color #FDE4E4
+  :background-image url(/images/red_stripes.png)
+
+.formError
+  :color #c00
+  :font-weight bold
+  :display block
+
 .form-buttons
   :margin-top 1em
   :clear both
+  

@@ -29,6 +29,7 @@
         spexare_cohabitant: "Spexare"
       function:
         name: "Namn"
+        function_category: "Kategori"
       function_category:
         name: "Namn"
         has_actor: "Ensemblistrelation"
@@ -43,6 +44,7 @@
         title: "Titel"
         is_revival: "Nyuppsättning?"
         poster: "Affisch"
+        spex_category: "Kategori"
       spex_category:
         name: "Namn"
       spexare:

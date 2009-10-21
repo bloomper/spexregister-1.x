@@ -6,18 +6,24 @@ Short-term
 
 - Immediate problems
   - lightbox i18n settings are not loaded correctly
-  - administration tab does not work properly
   - Get rid of annoying SASS errors (deprecation)
+  - Flash messages seem to stay around a bit too long (Flash.now?)
+  - When creating an entity with errors, the layout is screwed up
+  - Matching in navigation menu
+  - How to locally override acts_as_dropdown in UserGroup? Use something else?
+  - Extract new/edit resource links into partials
 
 - Function
-  - Create
   - Update
+    - If changing name to '' -> weird title
+    - Category
   - Delete
 
 - Home page
   - View news
     - RSS type? Popup?
 - Change my password
+- Change my profile
 
 - Convert all REST controllers to inherited_resources
 - Convert existing ERB to HAML and SASS
@@ -29,8 +35,6 @@ Short-term
 - Controllers
   - User
   - Spexare
-
-- Change my profile
 
 - Simple search
 

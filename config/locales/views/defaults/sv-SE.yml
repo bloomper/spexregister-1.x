@@ -13,9 +13,11 @@
       created_by: "Skapad av"
       updated_by: "Uppdaterad av"
       action: "Åtgärd"
+      create_action: "Skapa"
       view_action: "Visa"
       edit_action: "Ändra"
       delete_action: "Radera"
+      cancel_action: "Avbryt"
       are_you_sure: "Är du säker?"
       confirm_delete: "Bekräfta radering"
       next: "Nästa"
@@ -24,3 +26,5 @@
       # yes/no must be quoted as they are reserved keywords in YAML
       "yes": "Ja"
       "no": "Nej"
+      or: "eller"
+      mandatory_attribute: "*"

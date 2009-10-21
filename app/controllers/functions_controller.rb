@@ -2,6 +2,12 @@ class FunctionsController < ApplicationController
   inherit_resources
   respond_to :html
   
+  def new
+    new! do |format|
+      format.html { render :action => :new, :layout => false }
+    end
+  end
+  
   protected
   def resource
     @function ||= end_of_association_chain.find_by_id(params[:id])
