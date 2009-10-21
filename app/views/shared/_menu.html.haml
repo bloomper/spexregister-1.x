@@ -1,9 +1,9 @@
 - if current_user
   #menu
     %ul
-      = tab :home
-      = tab :search
-      = tab :administration
-      = tab :help
+      = tab :home, :change_profile, :change_password
+      = tab :search, :simple_search, :advanced_search
+      = tab :administration, :users, :functions, :news_index, :spex_index, :spexare_index
+      = tab :help, :in_case_of_problems, :about
   #sub-menu
     = yield :sub_menu

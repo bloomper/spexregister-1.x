@@ -7,8 +7,12 @@ ActionController::Routing::Routes.draw do |map|
 
   # UI routes
   map.home '/home', :controller => 'home', :action => 'index'
+  map.home_change_profile '/home/change_profile', :controller => 'home', :action => 'change_profile'
+  map.home_change_password '/home/change_password', :controller => 'home', :action => 'change_password'
   map.signup '/signup', :controller => 'signup', :action => 'new'
   map.search '/search', :controller => 'search', :action => 'index'
+  map.search_simple_search '/search/simple_search', :controller => 'search', :action => 'simple_search'
+  map.search_advanced_search '/search/advanced_search', :controller => 'search', :action => 'advanced_search'
   map.administration '/administration', :controller => 'administration', :action => 'index'
   map.help '/help', :controller => 'help', :action => 'index'
   map.help_in_case_of_problems '/help/in_case_of_problems', :controller => 'help', :action => 'in_case_of_problems'

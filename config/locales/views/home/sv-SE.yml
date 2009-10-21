@@ -2,5 +2,6 @@
   views:
     home:
       title: "Hem"
+      news: "Nyheter"
       change_profile: "Ändra profil"
       change_password: "Ändra lösenord"

@@ -1,8 +1,8 @@
 = content_for :sub_menu do
   %ul
-    = tab :users, :translation_key => 'views.administration.users'
-    = tab :functions, :translation_key => 'views.administration.functions'
-    = tab :news_index, :translation_key => 'views.administration.news'
-    = tab :spex_index, :translation_key => 'views.administration.spex'
-    = tab :spexare_index, :translation_key => 'views.administration.spexare', :css_class => 'last'
+    = tab :users, :match_path => '/users', :translation_key => 'views.administration.users'
+    = tab :functions, :match_path => '/functions', :translation_key => 'views.administration.functions'
+    = tab :news_index, :match_path => '/news', :translation_key => 'views.administration.news'
+    = tab :spex_index, :match_path => '/spex', :translation_key => 'views.administration.spex'
+    = tab :spexare_index, :match_path => '/spexare', :translation_key => 'views.administration.spexare', :css_class => 'last'
     
