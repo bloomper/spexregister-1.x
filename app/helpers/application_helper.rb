@@ -42,8 +42,7 @@ module ApplicationHelper
   end
   
   def link_to_remote(name, options = {}, html_options = {})
-    options[:before] ||= "jQuery(this).parent().hide(); jQuery('#busy-indicator').show();"
-    options[:complete] ||= "jQuery('#busy-indicator').hide()"
+    options[:before] ||= "jQuery(this).parent().hide();"
     link_to_function(name, remote_function(options), html_options || options.delete(:html))
   end
   
