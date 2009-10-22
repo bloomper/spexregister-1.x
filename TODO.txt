@@ -16,7 +16,7 @@ Short-term
 - Function
   - Update
     - If changing name to '' -> weird title
-    - Category
+    - Category tab
   - Delete
 
 - Home page
@@ -28,13 +28,7 @@ Short-term
 - Convert all REST controllers to inherited_resources
 - Convert existing ERB to HAML and SASS
 
-- Unit tests
-  - Spexare
-    - Indexing & full text search
-
-- Controllers
-  - User
-  - Spexare
+- Controller tests
 
 - Simple search
 

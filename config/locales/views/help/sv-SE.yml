@@ -2,5 +2,6 @@
   views:
     help:
       title: "Hjälp"
+      help: "Hjälp"
       in_case_of_problems: "Vid problem"
       about: "Om registret"

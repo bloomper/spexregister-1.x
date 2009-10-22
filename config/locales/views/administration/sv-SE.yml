@@ -2,6 +2,7 @@
   views:
     administration:
       title: "Administration"
+      instructions: "Instruktioner"
       users: "Användare"
       functions: "Funktioner"
       news: "Nyheter"
