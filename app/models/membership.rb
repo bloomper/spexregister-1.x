@@ -6,6 +6,7 @@ class Membership < ActiveRecord::Base
   }
   named_scope :fgv_memberships, :conditions => {:kind_id => 1}
   named_scope :cing_memberships, :conditions => {:kind_id => 2}
+  named_scope :by_kind, proc {|kind| { :conditions => { :kind_id => kind } } }
 
   protected
   validates_inclusion_of_enum :kind_id, { :message => :inclusion, :allow_blank => false }
