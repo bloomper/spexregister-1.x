@@ -2,8 +2,7 @@ require 'attr_encrypted'
 
 class Spexare < ActiveRecord::Base
   has_many :activities, :order => :position, :dependent => :destroy
-  has_many :fgv_memberships, :class_name => 'Membership', :order => :year, :dependent => :destroy
-  has_many :cing_memberships, :class_name => 'Membership', :order => :year, :dependent => :destroy
+  has_many :memberships, :order => :year, :dependent => :destroy
   acts_as_network :cohabitants, :through => :cohabitants
   belongs_to :user
   has_attached_file :picture, :styles => { :thumb => ApplicationConfig.picture_thumbnail_size }
