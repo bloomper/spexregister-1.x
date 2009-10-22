@@ -15,7 +15,4 @@
       %br>
       = f.error_message_on :function_category
       = f.select :function_category_id, get_available_function_categories
-    %p.form-buttons
-      = button t('views.base.create_action')
-      = t('views.base.or')
-      = link_to t('views.base.cancel_action'), collection_url
+    = render :partial => '/shared/new_resource_links'

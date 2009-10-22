@@ -4,7 +4,4 @@
 
 - form_for @function, :url => resource_url, :html => { :method => :put } do |f|
   = render :partial => 'form', :locals => { :f => f }
-  %p.form-buttons
-    = button t('views.base.edit_action')
-    = t('views.base.or')
-    = link_to t('views.base.cancel_action'), collection_url
+  = render :partial => '/shared/edit_resource_links'
