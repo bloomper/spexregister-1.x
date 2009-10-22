@@ -4,7 +4,9 @@ class Membership < ActiveRecord::Base
   { 1 => {:name => :fgv, :title => I18n.t('membership.kind.fgv') },
     2 => {:name => :cing, :title => I18n.t('membership.kind.cing')}
   }
-  
+  named_scope :fgv_memberships, :conditions => {:kind_id => 1}
+  named_scope :cing_memberships, :conditions => {:kind_id => 2}
+
   protected
   validates_inclusion_of_enum :kind_id, { :message => :inclusion, :allow_blank => false }
   validates_presence_of :year
