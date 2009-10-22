@@ -1,5 +1,5 @@
 "sv-SE":
   user_group:
     name:
-      administrator: "Administratör"
-      user: "Användare"
+      administrators: "Administratörer"
+      users: "Användare"

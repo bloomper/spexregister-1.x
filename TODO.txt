@@ -9,9 +9,6 @@ Short-term
   - Get rid of annoying SASS errors (deprecation)
   - Flash messages seem to stay around a bit too long (Flash.now?)
   - When creating an entity with errors, the layout is screwed up
-  - Matching in navigation menu
-  - How to locally override acts_as_dropdown in UserGroup? Use something else?
-  - Extract new/edit resource links into partials
 
 - Function
   - Update
