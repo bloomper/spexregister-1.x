@@ -1,67 +1,24 @@
 class SpexareController < ApplicationController
-
-  def index
-    @spexare = Spexare.find(:all)
-
-    respond_to do |format|
-      format.html
-    end
-  end
-  
-  def show
-    @spexare = Spexare.find(params[:id])
-
-    respond_to do |format|
-      format.html
-    end
-  end
+  inherit_resources
+  respond_to :html
   
   def new
-    @spexare = Spexare.new
-
-    respond_to do |format|
-      format.html
+    new! do |format|
+      format.html { render :action => :new, :layout => false }
     end
   end
   
-  def edit
-    @spexare = Spexare.find(params[:id])
-  end
+  protected
+  def resource
+    @spexare ||= end_of_association_chain.find_by_id(params[:id])
+  end  
   
-  def create
-    @spexare = Spex.new(params[:spexare])
-
-    respond_to do |format|
-      if @spexare.save
-        flash[:message] = I18n.t('views.spexare.successful_save')
-        format.html { redirect_to(@spexare) }
-      else
-        format.html { render :action => "new" }
-      end
-    end
-  end
-  
-  def update
-    @spexare = Spexare.find(params[:id])
-
-    respond_to do |format|
-      if @spexare.update_attributes(params[:spexare])
-        flash[:message] = I18n.t('views.spexare.successful_update')
-        format.html { redirect_to(@spexare) }
-      else
-        format.html { render :action => "edit" }
-      end
-    end
-  end
-  
-  def destroy
-    @spexare = Spexare.find(params[:id])
-    @spexare.destroy
-
-    respond_to do |format|
-      flash[:message] = I18n.t('views.spexare.successful_destroy')
-      format.html { redirect_to(spexare_url) }
-    end
+  def collection
+    base_scope = end_of_association_chain
+    @search = base_scope.search(params[:search])
+    @search.order ||= "ascend_by_last_name"
+    
+    @spexare ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
   end
   
 end

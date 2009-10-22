@@ -1,48 +1,30 @@
 class UsersController < ApplicationController
+  inherit_resources
+  respond_to :html
   
   def new
-    @user = User.new
+    new! do |format|
+      format.html { render :action => :new, :layout => false }
+    end
   end
   
   def create
-    @user = User.new(params[:user])
-    if @user.save
-      # TODO Fix me!
-      flash[:message] = "Account registered!"
-      add_lockdown_session_values
-      redirect_to account_url
-    else
-      render :action => :new
+    create! do |success, failure|
+      success { add_lockdown_session_values }
     end
   end
+
+  protected
+  def resource
+    @user ||= end_of_association_chain.find_by_id(params[:id])
+  end  
   
-  def show
-    @user = @current_user
+  def collection
+    base_scope = end_of_association_chain
+    @search = base_scope.search(params[:search])
+    @search.order ||= "ascend_by_username"
+    
+    @users ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
   end
-  
-  def edit
-    @user = @current_user
-  end
-  
-  def update
-    @user = @current_user
-    if @user.update_attributes(params[:user])
-      # TODO Fix me!
-      flash[:message] = "Account updated!"
-      redirect_to account_url
-    else
-      render :action => :edit
-    end
-  end
-  
-  def destroy
-    if current_user_is_admin?
-      user = User.find(params[:id])
-      user.destroy
-      # TODO Fix me!
-      flash[:message] = "User #{user.username} deleted!"
-    end
-    redirect_to root_path
-  end
-  
+
 end

@@ -1,15 +1,6 @@
 class PermissionsController < ApplicationController
-  before_filter(:get_user_group)
-
-  def index
-  end
-  
-  def show
-  end
-  
-  private
-  def get_user_group
-    @user_group = UserGroup.find(params[:user_group_id])
-  end
+  inherit_resources
+  actions :index, :show
+  nested_belongs_to :user, :user_group
 
 end
