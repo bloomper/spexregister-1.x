@@ -3,17 +3,17 @@
        
     # Translate model names. Used in Model.human_name().
     models:
-      achievement: "Prestation"
+      activity: "Aktivitet"
       actor: "Ensemblist"
       cohabitant: "Gift/sambo"
       function: "Funktion"
-      function_achievement: "Funktionsprestation"
+      function_activity: "Funktionsaktivitet"
       function_category: "Funktionskategori"
       membership: "Medlemsskap"
       news: "Nyhet"
       permission: "Rättighet"
       spex: "Spex"
-      spex_achievement: "Spexprestation"
+      spex_activity: "Spexaktivitet"
       spex_category: "Spexkategori"
       spexare: "Spexare"
       user: "Användare"

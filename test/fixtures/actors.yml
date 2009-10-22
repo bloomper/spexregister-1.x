@@ -2,4 +2,4 @@
 actor:
   role: 'TestRole'
   vocal_id: 2
-  function_achievement: function_achievement_2
+  function_activity: function_activity_2

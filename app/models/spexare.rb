@@ -1,7 +1,7 @@
 require 'attr_encrypted'
 
 class Spexare < ActiveRecord::Base
-  has_many :achievements, :order => :position, :dependent => :destroy
+  has_many :activities, :order => :position, :dependent => :destroy
   has_many :fgv_memberships, :class_name => 'Membership', :order => :year, :dependent => :destroy
   has_many :cing_memberships, :class_name => 'Membership', :order => :year, :dependent => :destroy
   acts_as_network :cohabitants, :through => :cohabitants

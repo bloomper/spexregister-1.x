@@ -1,4 +1,4 @@
-class AchievementsController < ApplicationController
+class ActivitiesController < ApplicationController
   before_filter(:get_spexare)
   
   def index

@@ -1,5 +1,5 @@
 class ActorsController < ApplicationController
-  before_filter(:get_function_achievement)
+  before_filter(:get_function_activity)
 
   def index
   end
@@ -23,8 +23,8 @@ class ActorsController < ApplicationController
   end
   
   private
-  def get_function_achievement
-    @function_achievement = FunctionAchievement.find(params[:function_achievement_id])
+  def get_function_activity
+    @function_activity = FunctionActivity.find(params[:function_activity_id])
   end
   
 end

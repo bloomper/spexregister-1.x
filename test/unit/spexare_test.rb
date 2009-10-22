@@ -65,14 +65,14 @@ class SpexareTest < ActiveSupport::TestCase
 
   test "should be ok with relationships" do
     spexare = Spexare.create(:last_name => Time.now, :first_name => Time.now)
-    achievement = Achievement.create(:spexare => spexare)
-    spexare.achievements << achievement
-    spex_achievement = SpexAchievement.create(:achievement => achievement, :spex => spex(:spex_1))
-    function_achievement = FunctionAchievement.create(:achievement => achievement, :function => functions(:function))
-    assert(1, spexare.achievements.size)
-    assert(spex(:spex_1), spexare.achievements.first.spex)
-    assert(1, spexare.achievements.first.functions.size)
-    assert(functions(:function), spexare.achievements.first.functions.first)
+    activity = Activity.create(:spexare => spexare)
+    spexare.activities << activity
+    spex_activity = SpexActivity.create(:activity => activity, :spex => spex(:spex_1))
+    function_activity = FunctionActivity.create(:activity => activity, :function => functions(:function))
+    assert(1, spexare.activities.size)
+    assert(spex(:spex_1), spexare.activities.first.spex)
+    assert(1, spexare.activities.first.functions.size)
+    assert(functions(:function), spexare.activities.first.functions.first)
     spexare.destroy
     assert(Spex.exists?(:year => spex(:spex_1).year))
     assert(Function.exists?(:name => functions(:function).name))

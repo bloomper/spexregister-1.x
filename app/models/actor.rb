@@ -1,5 +1,5 @@
 class Actor < ActiveRecord::Base
-  belongs_to :function_achievement
+  belongs_to :function_activity
   belongs_to_enum :vocal,
   { 1 => {:name => :unknown, :title => I18n.t('actor.vocal.unknown') },
     2 => {:name => :b1, :title => I18n.t('actor.vocal.b1')},

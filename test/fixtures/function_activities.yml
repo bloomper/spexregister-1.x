@@ -1,7 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-function_achievement_1:
+function_activity_1:
   function: function
-  achievement: achievement_1
-function_achievement_2:
+  activity: activity_1
+function_activity_2:
   function: function_with_actor
-  achievement: achievement_2
+  activity: activity_2

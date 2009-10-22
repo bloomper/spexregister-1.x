@@ -36,10 +36,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :spexare, :shallow => true do |spexare|
     spexare.resource :user
     spexare.resource :picture
-    spexare.resources :achievements do |achievement|
-      achievement.resource :spex_achievement
-      achievement.resources :function_achievements do |function_achievement|
-        function_achievement.resource :actor
+    spexare.resources :activities do |activity|
+      activity.resource :spex_activity
+      activity.resources :function_activities do |function_activity|
+        function_activity.resource :actor
       end
     end
   end 
