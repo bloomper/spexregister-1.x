@@ -1,6 +1,0 @@
-<%= render :partial => 'shared/error' %>
-<%= render :partial => 'shared/message' %>
-
-<% form_for :news, :url => { :action => 'update', :id => @news } do |form| %>
-  <%= render :partial => 'form', :locals => { :action => 'edit', :form => form } %>
-<% end %>

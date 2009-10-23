@@ -8,6 +8,18 @@ class NewsController < ApplicationController
     end
   end
   
+  def create
+    create! do |success, failure|
+      success.html { redirect_to news_index_url }
+    end
+  end
+  
+  def update
+    update! do |success, failure|
+      success.html { redirect_to news_index_url }
+    end
+  end
+
   protected
   def resource
     @news ||= end_of_association_chain.find_by_id(params[:id])

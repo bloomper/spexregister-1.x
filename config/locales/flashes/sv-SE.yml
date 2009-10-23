@@ -20,6 +20,16 @@
       destroy:
         notice: "Kategorin har raderats"
         error: "Kategorin kunde inte raderas"
+    news:
+      create:
+        notice: "Nyheten har skapats"
+        error: "Nyheten kunde inte skapas"
+      update:
+        notice: "Nyheten har uppdaterats"
+        error: "Nyheten kunde inte uppdateras"
+      destroy:
+        notice: "Nyheten har raderats"
+        error: "Nyheten kunde inte raderas"
     spex:
       create:
         notice: "Spexet har skapats"

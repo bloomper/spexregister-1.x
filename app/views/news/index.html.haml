@@ -1,0 +1,44 @@
+= render :partial => 'administration/sub_menu'
+
+.toolbar
+  %ul.actions
+    %li
+      = button_link_to_remote t('views.news.new_news'), { :url => new_resource_url, :method => :get, :update => 'new-news' }, :icon => 'add'
+
+%h1= t 'views.news.index_title', :action => t('views.base.listing_action')
+
+#new-news
+
+- if @news.empty?
+  %p= t 'views.news.no_news_exist'
+- else
+  %table.index
+    %tr
+      %th= order @search, :by => :publication_date, :as => t('activerecord.attributes.news.publication_date')
+      %th= order @search, :by => :subject, :as => t('activerecord.attributes.news.subject')
+      %th.action-column= t 'views.base.action'
+      - @news.each do |news|
+        %tr{:id => dom_id(news), :class => cycle('even', 'odd')}
+          %td= h news.publication_date
+          %td= h news.subject
+          %td.actions
+            = link_to_view_action news
+            = link_to_edit_action news
+            = link_to_delete_action news
+
+= will_paginate (:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+
+= content_for :sidebar do 
+  - form_for @search do |f|
+    .box
+      %h3= t 'views.base.search'
+      %p
+        %label= t 'activerecord.attributes.news.publication_date'
+        %br>
+        = f.text_field :publication_date_contains, :size => 15
+      %p
+        %label= t 'activerecord.attributes.news.subject'
+        %br>
+        = f.text_field :subject_contains, :size => 15
+      %p.form-buttons
+        = button t('views.base.search')

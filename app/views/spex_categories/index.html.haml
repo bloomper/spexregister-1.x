@@ -9,17 +9,16 @@
 
 #new-spex-category
 
-%table.index
-  - if @spex_categories.empty?
-    %tr
-      %td= t 'views.spex_category.no_spex_categories_exist'
-  - else
+- if @spex_categories.empty?
+  %p= t 'views.spex_category.no_spex_categories_exist'
+- else
+  %table.index
     %tr
       %th= order @search, :by => :name, :as => t('activerecord.attributes.spex_category.name')
       %th.action-column= t 'views.base.action'
       - @spex_categories.each do |spex_category|
         %tr{:id => dom_id(spex_category), :class => cycle('even', 'odd')}
-          %td= spex_category.name
+          %td= h spex_category.name
           %td.actions
             = link_to_view_action spex_category
             = link_to_edit_action spex_category

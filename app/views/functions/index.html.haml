@@ -9,19 +9,18 @@
 
 #new-function
 
-%table.index
-  - if @functions.empty?
-    %tr
-      %td= t 'views.function.no_functions_exist'
-  - else
+- if @functions.empty?
+  %p= t 'views.function.no_functions_exist'
+- else
+  %table.index
     %tr
       %th= order @search, :by => :name, :as => t('activerecord.attributes.function.name')
       %th= order @search, :by => :function_category_name, :as => t('activerecord.models.function_category')
       %th.action-column= t 'views.base.action'
       - @functions.each do |function|
         %tr{:id => dom_id(function), :class => cycle('even', 'odd')}
-          %td= function.name
-          %td= function.function_category.name
+          %td= h function.name
+          %td= h function.function_category.name
           %td.actions
             = link_to_view_action function
             = link_to_edit_action function

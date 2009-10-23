@@ -6,12 +6,12 @@
   %tr
     %th= t 'activerecord.attributes.function.name'
   %tr
-    %td= @function.name
+    %td= h @function.name
 
 %table.index
   %tr
     %th= t 'activerecord.attributes.function_category.name'
   %tr
-    %td= @function.function_category.name
+    %td= h @function.function_category.name
 
 = render :partial => '/shared/entity_details', :locals => {:entity => @function}

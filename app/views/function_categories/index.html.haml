@@ -9,18 +9,17 @@
 
 #new-function-category
 
-%table.index
-  - if @function_categories.empty?
-    %tr
-      %td= t 'views.function_category.no_function_categories_exist'
-  - else
+- if @function_categories.empty?
+  %p= t 'views.function_category.no_function_categories_exist'
+- else
+  %table.index
     %tr
       %th= order @search, :by => :name, :as => t('activerecord.attributes.function_category.name')
       %th= order @search, :by => :has_actor, :as => t('activerecord.attributes.function_category.has_actor')
       %th.action-column= t 'views.base.action'
       - @function_categories.each do |function_category|
         %tr{:id => dom_id(function_category), :class => cycle('even', 'odd')}
-          %td= function_category.name
+          %td= h function_category.name
           %td= translate_boolean function_category.has_actor
           %td.actions
             = link_to_view_action function_category

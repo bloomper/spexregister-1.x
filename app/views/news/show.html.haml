@@ -1,0 +1,23 @@
+= render :partial => 'administration/sub_menu'
+
+%h1= t 'views.news.page_title', :action => t('views.base.viewing_action')
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.news.publication_date'
+  %tr
+    %td= h @news.publication_date
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.news.subject'
+  %tr
+    %td= h @news.subject
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.news.body'
+  %tr
+    %td= simple_format @news.body
+
+= render :partial => '/shared/entity_details', :locals => {:entity => @news}

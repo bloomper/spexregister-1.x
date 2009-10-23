@@ -6,6 +6,6 @@
   %tr
     %th= t 'activerecord.attributes.spex_category.name'
   %tr
-    %td= @spex_category.name
+    %td= h @spex_category.name
 
 = render :partial => '/shared/entity_details', :locals => {:entity => @spex_category}

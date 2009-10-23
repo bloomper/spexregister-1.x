@@ -7,14 +7,16 @@ Short-term
 - Immediate problems
   - lightbox i18n settings are not loaded correctly
   - Get rid of annoying SASS errors (deprecation)
-  - Flash messages seem to stay around a bit too long (Flash.now?)
-  - When creating an entity with errors, the layout is screwed up
+  - When creating/updating an entity with errors, the layout is screwed up
+  - Double 'selected' in navigation menu when similar names
+  - When deleting, no flash message is shown
+  - When deleting news, redirect to show instead of index??
 
-- Function
-  - Update
-    - If changing name to '' -> weird title
-    - Category tab
-  - Delete
+- Controllers/views/translation
+  - News
+  - Spex
+  - User
+  - Spexare
 
 - Home page
   - View news
