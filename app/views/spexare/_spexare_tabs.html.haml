@@ -1,0 +1,8 @@
+%h1= t 'views.function.page_title', :action => current_action
+
+- content_for :sidebar do
+  %ul.sidebar
+    %li{:class => ("active" if current_tab == "function_tab")}
+      = link_to t('views.function.description_tab_title'), (edit_mode ? edit_function_url(@function) : function_url(@function))
+    %li{:class => ("active" if current_tab == "function_category_tab")}
+      = link_to t('views.function_category.description_tab_title'), (edit_mode ? edit_function_function_category_url(@function) : function_function_category_url(@function))

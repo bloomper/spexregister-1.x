@@ -1,0 +1,41 @@
+= render :partial => 'administration/sub_menu'
+
+.toolbar
+  %ul.actions
+    %li
+      = button_link_to_remote t('views.function.new_function'), { :url => new_resource_url, :method => :get, :update => 'new-function' }, :icon => 'add'
+
+%h1= t 'views.function.index_title', :action => t('views.base.listing_action')
+
+#new-function
+
+%table.index
+  - if @functions.empty?
+    %tr
+      %td= t 'views.function.no_functions_exist'
+  - else
+    %tr
+      %th= order @search, :by => :name, :as => t('activerecord.attributes.function.name')
+      %th= order @search, :by => :function_category_name, :as => t('activerecord.models.function_category')
+      %th.action-column= t 'views.base.action'
+      - @functions.each do |function|
+        %tr{:id => dom_id(function), :class => cycle('even', 'odd')}
+          %td= function.name
+          %td= function.function_category.name
+          %td.actions
+            = link_to_view_action function
+            = link_to_edit_action function
+            = link_to_delete_action function
+
+= will_paginate (:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+
+= content_for :sidebar do 
+  - form_for @search do |f|
+    .box
+      %h3= t 'views.base.search'
+      %p
+        %label= t 'activerecord.attributes.function.name'
+        %br>
+        = f.text_field :name_contains, :size => 15
+      %p.form-buttons
+        = button t('views.base.search')
