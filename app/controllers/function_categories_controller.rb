@@ -1,5 +1,7 @@
 class FunctionCategoriesController < ApplicationController
   inherit_resources
+  respond_to :html
+  respond_to :js, :only => :destroy
 
   def new
     new! do |format|

@@ -10,7 +10,10 @@ Short-term
   - When creating/updating an entity with errors, the layout is screwed up
   - Double 'selected' in navigation menu when similar names
   - When deleting, no flash message is shown
-  - When deleting news, redirect to show instead of index??
+    try {
+    jQuery("#flash").replaceWith("<div id='flash'>\n  <div class='flash notice'>\n    Nyheten har raderats\n  </div>\n</div>\n");
+    } catch (e) { alert('RJS error:\n\n' + e.toString()); alert('jQuery(\"#flash\").replaceWith(\"<div id=\'flash\'>\\n  <div class=\'flash notice\'>\\n    Nyheten har raderats\\n  </div>\\n</div>\\n\");'); throw e }
+  - When deleting, if no entries left in table, show message
 
 - Controllers/views/translation
   - News
