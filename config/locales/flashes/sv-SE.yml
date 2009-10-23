@@ -10,6 +10,56 @@
       destroy:
         notice: "Funktionen har raderats"
         error: "Funktionen kunde inte raderas"
+    function_categories:
+      create:
+        notice: "Kategorin har skapats"
+        error: "Kategorin kunde inte skapas"
+      update:
+        notice: "Kategorin har uppdaterats"
+        error: "Kategorin kunde inte uppdateras"
+      destroy:
+        notice: "Kategorin har raderats"
+        error: "Kategorin kunde inte raderas"
+    spex:
+      create:
+        notice: "Spexet har skapats"
+        error: "Spexet kunde inte skapas"
+      update:
+        notice: "Spexet har uppdaterats"
+        error: "Spexet kunde inte uppdateras"
+      destroy:
+        notice: "Spexet har raderats"
+        error: "Spexet kunde inte raderas"
+    spex_categories:
+      create:
+        notice: "Kategorin har skapats"
+        error: "Kategorin kunde inte skapas"
+      update:
+        notice: "Kategorin har uppdaterats"
+        error: "Kategorin kunde inte uppdateras"
+      destroy:
+        notice: "Kategorin har raderats"
+        error: "Kategorin kunde inte raderas"
+    spexare:
+      create:
+        notice: "Spexaren har skapats"
+        error: "Spexaren kunde inte skapas"
+      update:
+        notice: "Spexaren har uppdaterats"
+        error: "Spexaren kunde inte uppdateras"
+      destroy:
+        notice: "Spexaren har raderats"
+        error: "Spexaren kunde inte raderas"
+    users:
+      create:
+        notice: "Användaren har skapats"
+        error: "Användaren kunde inte skapas"
+      update:
+        notice: "Användaren har uppdaterats"
+        error: "Användaren kunde inte uppdateras"
+      destroy:
+        notice: "Användaren har raderats"
+        error: "Användaren kunde inte raderas"
     password_resets:
       create:
         notice: "Instruktioner för återställning av lösenord har skickats"

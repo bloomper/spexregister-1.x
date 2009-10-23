@@ -1,7 +1,7 @@
 = render :partial => 'administration/sub_menu'
 
-- form_for :function, :url => collection_url do |f|
+- form_for :function_category, :url => collection_url do |f|
   %fieldset
-    %legend= t 'views.function.new_function'
+    %legend= t 'views.function_category.new_function_category'
     = render :partial => 'form', :locals => { :f => f }
     = render :partial => '/shared/new_resource_links'

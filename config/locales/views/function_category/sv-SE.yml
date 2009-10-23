@@ -1,4 +1,7 @@
 "sv-SE":
   views:
     function_category:
-      description_tab_title: "Kategori"
+      index_title: "{{action}} kategorier"
+      page_title: "{{action}} kategori"
+      no_function_categories_exist: "Det finns inga kategorier"
+      new_function_category: "Skapa kategori"

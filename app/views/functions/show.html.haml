@@ -1,11 +1,17 @@
 = render :partial => 'administration/sub_menu'
 
-= render :partial => 'function_tabs', :locals => {:current_tab => 'function_tab'}
+%h1= t 'views.function.page_title', :action => t('views.base.viewing_action')
 
 %table.index
   %tr
     %th= t 'activerecord.attributes.function.name'
   %tr
     %td= @function.name
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.function_category.name'
+  %tr
+    %td= @function.function_category.name
 
 = render :partial => '/shared/entity_details', :locals => {:entity => @function}

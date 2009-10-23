@@ -22,7 +22,6 @@ Short-term
 - Change my password
 - Change my profile
 
-- Convert all REST controllers to inherited_resources
 - Convert existing ERB to HAML and SASS
 
 - Controller tests

@@ -19,23 +19,19 @@ ActionController::Routing::Routes.draw do |map|
   map.about '/about', :controller => 'help', :action => 'about'
   
   # Restful routes
-  map.resources :spex do |spex|
-    spex.resource :spex_category, :only => [:index, :show]
-    spex.resource :poster
-  end
-  map.resources :functions do |function|
-    function.resource :function_category, :only => [:index, :show]
-  end
+  map.resources :spex_categories
+  map.resources :spex
+  map.resources :function_categories
+  map.resources :functions
   map.resources :news
   map.resources :users, :shallow => true do |user|
     user.resource :spexare
-    user.resources :user_groups, :only => [:index, :show] do |user_group|
-      user_group.resources :permissions, :only => [:index, :show]
+    user.resources :user_groups do |user_group|
+      user_group.resources :permissions
     end
   end
   map.resources :spexare, :shallow => true do |spexare|
     spexare.resource :user
-    spexare.resource :picture
     spexare.resources :memberships
     spexare.resources :cohabitants
     spexare.resources :activities do |activity|

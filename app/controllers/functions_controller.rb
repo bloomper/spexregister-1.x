@@ -8,6 +8,18 @@ class FunctionsController < ApplicationController
     end
   end
   
+  def create
+    create! do |success, failure|
+      success.html { redirect_to functions_url }
+    end
+  end
+  
+  def update
+    update! do |success, failure|
+      success.html { redirect_to functions_url }
+    end
+  end
+
   protected
   def resource
     @function ||= end_of_association_chain.find_by_id(params[:id])

@@ -5,7 +5,7 @@
     %li
       = button_link_to_remote t('views.function.new_function'), { :url => new_resource_url, :method => :get, :update => 'new-function' }, :icon => 'add'
 
-%h1= t 'views.function.index_title'
+%h1= t 'views.function.index_title', :action => t('views.base.listing_action')
 
 #new-function
 
