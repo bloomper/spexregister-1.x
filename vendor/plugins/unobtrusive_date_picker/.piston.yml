@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: fd15b829a92951c4a7550c0644502587040fdedc
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/brianjlandau/unobtrusive_date_picker.git
