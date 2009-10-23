@@ -83,7 +83,7 @@ module ApplicationHelper
           type: 'POST',
           url: '#{options[:url]}',
           data: ({_method: 'delete', authenticity_token: AUTH_TOKEN}),
-          success: function(r){ jQuery('##{dom_id resource}').fadeOut('hide'); } 
+          success: function(r){ jQuery('##{dom_id resource}').fadeOut('hide'); eval(r);} 
         });
       }
     });"
