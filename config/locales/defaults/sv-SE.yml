@@ -132,7 +132,8 @@
         less_than_or_equal_to: "måste vara mindre än eller lika med {{count}}"
         odd: "måste vara udda"
         even: "måste vara jämnt"
-        invalid_email: "är en ogiltlig email adress"
+        invalid_email: "är inte en giltlig email adress"
+        invalid_date: "är inte ett giltligt datum"
         # Append your own errors here or at the model/attributes scope.
 
       # You can define own errors for models or model attributes.

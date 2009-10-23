@@ -7,14 +7,18 @@ javascripts:
   - jquery.validate
   - jquery.alerts
   - jquery.lightbox
+  - jquery.datepicker
   - jrails
   - jrails.autocomplete
   - spexregister
 stylesheets:
 - screen:
   - compiled/screen
+  - jquery.core
   - jquery.alerts
   - jquery.lightbox
+  - jquery.datepicker
+  - jquery.flick.theme
 - ie:
   - compiled/ie
 - print:

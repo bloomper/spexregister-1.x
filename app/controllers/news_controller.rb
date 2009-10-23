@@ -2,9 +2,10 @@ class NewsController < ApplicationController
   inherit_resources
   respond_to :html
   respond_to :js, :only => :destroy
-  defaults :collection_name => 'news_items', :route_collection_name => 'news_index_url'
+  defaults :collection_name => 'news_items', :route_collection_name => 'news_index'
 
   def new
+    @news = News.new :publication_date => Time.now.to_formatted_s(:short_format)
     new! do |format|
       format.html { render :action => :new, :layout => false }
     end

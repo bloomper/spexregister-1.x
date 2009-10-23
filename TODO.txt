@@ -7,16 +7,13 @@ Short-term
 - Immediate problems
   - lightbox i18n settings are not loaded correctly
   - Get rid of annoying SASS errors (deprecation)
-  - When creating/updating an entity with errors, the layout is screwed up
   - Double 'selected' in navigation menu when similar names
-  - When deleting, no flash message is shown
-    try {
-    jQuery("#flash").replaceWith("<div id='flash'>\n  <div class='flash notice'>\n    Nyheten har raderats\n  </div>\n</div>\n");
-    } catch (e) { alert('RJS error:\n\n' + e.toString()); alert('jQuery(\"#flash\").replaceWith(\"<div id=\'flash\'>\\n  <div class=\'flash notice\'>\\n    Nyheten har raderats\\n  </div>\\n</div>\\n\");'); throw e }
-  - When deleting, if no entries left in table, show message
 
 - Controllers/views/translation
   - News
+    - Search, begin and end date
+    - Unit test for date format in news
+    - named_scope in news should not include future news items
   - Spex
   - User
   - Spexare

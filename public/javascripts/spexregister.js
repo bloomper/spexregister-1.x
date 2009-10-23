@@ -12,3 +12,9 @@ jQuery(document).ajaxStart(function() {
 jQuery(document).ajaxStop(function() {
     jQuery("#progress-indicator").fadeOut();
 });
+
+jQuery(function(){
+    jQuery('.datepicker').live('click', function() {
+        jQuery(this).datepicker({showOn: 'focus', showButtonPanel: true, changeMonth: true, changeYear: true}).focus();
+    });
+});

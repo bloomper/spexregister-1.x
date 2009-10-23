@@ -4,7 +4,7 @@
     %span.required= t 'views.base.mandatory_attribute'
     %br>
     = f.error_message_on :publication_date
-    = f.text_field :publication_date
+    = f.text_field :publication_date, :class => 'datepicker'
   - f.field_container :subject do
     = f.label :subject, t('activerecord.attributes.news.subject')
     %span.required= t 'views.base.mandatory_attribute'
