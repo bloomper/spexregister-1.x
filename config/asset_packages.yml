@@ -9,14 +9,12 @@ javascripts:
   - jquery.lightbox
   - jrails
   - jrails.autocomplete
-  - datepicker/datepicker
   - spexregister
 stylesheets:
 - screen:
   - compiled/screen
   - jquery.alerts
   - jquery.lightbox
-  - datepicker
 - ie:
   - compiled/ie
 - print:
