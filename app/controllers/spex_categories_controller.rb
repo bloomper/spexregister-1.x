@@ -7,6 +7,18 @@ class SpexCategoriesController < ApplicationController
     end
   end
 
+  def create
+    create! do |success, failure|
+      success.html { redirect_to spex_categories_url }
+    end
+  end
+  
+  def update
+    update! do |success, failure|
+      success.html { redirect_to spex_categories_url }
+    end
+  end
+
   protected
   def resource
     @spex_category ||= end_of_association_chain.find_by_id(params[:id])

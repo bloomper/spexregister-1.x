@@ -1,0 +1,11 @@
+= render :partial => 'administration/sub_menu'
+
+%h1= t 'views.function_category.page_title', :action => t('views.base.viewing_action')
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.spex_category.name'
+  %tr
+    %td= @spex_category.name
+
+= render :partial => '/shared/entity_details', :locals => {:entity => @spex_category}

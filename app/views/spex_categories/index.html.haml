@@ -1,0 +1,39 @@
+= render :partial => 'administration/sub_menu'
+
+.toolbar
+  %ul.actions
+    %li
+      = button_link_to_remote t('views.spex_category.new_spex_category'), { :url => new_resource_url, :method => :get, :update => 'new-spex-category' }, :icon => 'add'
+
+%h1= t 'views.spex_category.index_title', :action => t('views.base.listing_action')
+
+#new-spex-category
+
+%table.index
+  - if @spex_categories.empty?
+    %tr
+      %td= t 'views.spex_category.no_spex_categories_exist'
+  - else
+    %tr
+      %th= order @search, :by => :name, :as => t('activerecord.attributes.spex_category.name')
+      %th.action-column= t 'views.base.action'
+      - @spex_categories.each do |spex_category|
+        %tr{:id => dom_id(spex_category), :class => cycle('even', 'odd')}
+          %td= spex_category.name
+          %td.actions
+            = link_to_view_action spex_category
+            = link_to_edit_action spex_category
+            = link_to_delete_action spex_category
+
+= will_paginate (:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+
+= content_for :sidebar do 
+  - form_for @search do |f|
+    .box
+      %h3= t 'views.base.search'
+      %p
+        %label= t 'activerecord.attributes.spex_category.name'
+        %br>
+        = f.text_field :name_contains, :size => 15
+      %p.form-buttons
+        = button t('views.base.search')

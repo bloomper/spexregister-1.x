@@ -1,3 +1,7 @@
 "sv-SE":
   views:
     spex_category:
+      index_title: "{{action}} kategorier"
+      page_title: "{{action}} kategori"
+      no_spex_categories_exist: "Det finns inga kategorier"
+      new_spex_category: "Skapa kategori"

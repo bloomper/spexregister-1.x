@@ -1,0 +1,8 @@
+%div
+  - f.field_container :name do
+    = f.label :name, t('activerecord.attributes.spex_category.name')
+    %span.required= t 'views.base.mandatory_attribute'
+    %br>
+    = f.error_message_on :name
+    = f.text_field :name
+    
