@@ -23,7 +23,8 @@
       = render :partial => '/shared/footer'
   = javascript_include_merged :base
   = javascript_tag '$ = jQuery;'
-  = javascript_tag 'jQuery.alerts.dialogClass = "alertDialog";'
   = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
-  = javascript_include_tag "i18n/#{I18n.locale}.js"
+  - current_language = I18n.locale.index('-').nil? ? I18n.locale : I18n.locale.split('-')[0]
+  = javascript_include_tag "i18n/#{current_language}.js"
+  = javascript_include_tag "datepicker/lang/#{current_language}.js"
   
