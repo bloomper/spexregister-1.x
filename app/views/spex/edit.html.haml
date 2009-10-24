@@ -1,0 +1,7 @@
+= render :partial => 'administration/sub_menu'
+
+%h1= t 'views.spex.page_title', :action => t('views.base.editing_action')
+
+- form_for @spex, :url => resource_url, :html => { :method => :put } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = render :partial => '/shared/edit_resource_links'

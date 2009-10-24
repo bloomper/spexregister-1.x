@@ -36,5 +36,9 @@
         %label= t 'activerecord.attributes.function.name'
         %br>
         = f.text_field :name_contains, :size => 15
+      %p
+        %label= t 'activerecord.models.function_category'
+        %br>
+        = f.select :function_category_id_equals, get_available_function_categories_first_empty
       %p.form-buttons
         = button t('views.base.search')

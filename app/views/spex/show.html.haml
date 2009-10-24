@@ -1,0 +1,29 @@
+= render :partial => 'administration/sub_menu'
+
+%h1= t 'views.spex.page_title', :action => t('views.base.viewing_action')
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.spex.year'
+  %tr
+    %td= h @spex.year
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.spex.title'
+  %tr
+    %td= h @spex.title
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.spex.is_revival'
+  %tr
+    %td= translate_boolean @spex.is_revival
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.spex.spex_category'
+  %tr
+    %td= h @spex.spex_category.name
+
+= render :partial => '/shared/entity_details', :locals => {:entity => @spex}

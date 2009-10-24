@@ -1,8 +1,7 @@
 "sv-SE":
   views:
     spex:
-      successful_save: "Spexet har skapats"
-      successful_update: "Spexet har uppdaterats"
-      successful_destroy: "Spexet har raderats"
+      index_title: "{{action}} spex"
+      page_title: "{{action}} spex"
       no_spex_exist: "Det finns inga spex"
-      no_poster_exists: "Saknas"
+      new_spex: "Skapa spex"

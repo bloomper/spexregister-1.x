@@ -2,6 +2,17 @@ class Spex < ActiveRecord::Base
   belongs_to :spex_category
   has_attached_file :poster, :styles => { :thumb => ApplicationConfig.poster_thumbnail_size }
   attr_protected :poster_file_name, :poster_content_type, :poster_file_size
+
+  def self.get_years
+    Rails.cache.fetch('spex_years') { (ApplicationConfig.first_spex_year..Time.now.strftime('%Y').to_i).entries }
+  end
+  
+  def self.update_years
+    if self.get_years.max < Time.now.strftime('%Y').to_i
+      Rails.cache.delete('spex_years')
+      self.get_years
+    end
+  end
   
   protected
   def validate_uniqueness_on_create

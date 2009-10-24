@@ -1,0 +1,7 @@
+= render :partial => 'administration/sub_menu'
+
+- form_for :spex, :url => collection_url do |f|
+  %fieldset
+    %legend= t 'views.spex.new_spex'
+    = render :partial => 'form', :locals => { :f => f }
+    = render :partial => '/shared/new_resource_links', :locals => { :url => spex_index_url }
