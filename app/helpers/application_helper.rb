@@ -16,7 +16,7 @@ module ApplicationHelper
     
     css_classes = []
     selected = if options[:match_path]
-      request.request_uri.starts_with?(options[:match_path])
+      (request.request_uri + '/').starts_with?(options[:match_path])
     else
       args.include?(controller.controller_name.to_sym)
     end
