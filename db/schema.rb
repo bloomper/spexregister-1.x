@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
   add_index "memberships", ["spexare_id"], :name => "index_memberships_on_spexare_id"
 
   create_table "news", :force => true do |t|
-    t.datetime "publication_date",                              :null => false
+    t.date     "publication_date",                              :null => false
     t.string   "subject",          :limit => 85,                :null => false
     t.text     "body",                                          :null => false
     t.integer  "lock_version",                   :default => 0
@@ -168,7 +168,7 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
     t.string   "phone_mobile",                     :limit => 25
     t.string   "phone_other",                      :limit => 25
     t.string   "email_address",                    :limit => 50
-    t.datetime "birth_date"
+    t.date     "birth_date"
     t.string   "encrypted_social_security_number"
     t.boolean  "chalmers_student",                                :default => true
     t.string   "graduation",                       :limit => 5
