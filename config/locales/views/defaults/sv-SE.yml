@@ -31,3 +31,5 @@
       "no": "Nej"
       or: "eller"
       mandatory_attribute: "*"
+      from: "från"
+      to: "till"

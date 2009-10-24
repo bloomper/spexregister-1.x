@@ -33,9 +33,13 @@
     .box
       %h3= t 'views.base.search'
       %p
-        %label= t 'activerecord.attributes.news.publication_date'
+        %label= t('activerecord.attributes.news.publication_date') + ' (' + t('views.base.from') + ')'
         %br>
-        = f.text_field :publication_date_contains, :size => 15
+        = f.text_field :publication_date_after, :class => 'datepicker', :size => 10 
+      %p
+        %label= t('activerecord.attributes.news.publication_date') + ' (' + t('views.base.to') + ')'
+        %br>
+        = f.text_field :publication_date_before, :class => 'datepicker', :size => 10
       %p
         %label= t 'activerecord.attributes.news.subject'
         %br>
