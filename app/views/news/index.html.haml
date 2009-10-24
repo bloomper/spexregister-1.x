@@ -35,11 +35,11 @@
       %p
         %label= t('activerecord.attributes.news.publication_date') + ' (' + t('views.base.from') + ')'
         %br>
-        = f.text_field :publication_date_after, :class => 'datepicker', :size => 10 
+        = f.text_field :publication_date_gte, :class => 'datepicker', :size => 10 
       %p
         %label= t('activerecord.attributes.news.publication_date') + ' (' + t('views.base.to') + ')'
         %br>
-        = f.text_field :publication_date_before, :class => 'datepicker', :size => 10
+        = f.text_field :publication_date_lte, :class => 'datepicker', :size => 10
       %p
         %label= t 'activerecord.attributes.news.subject'
         %br>
