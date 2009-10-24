@@ -16,7 +16,7 @@ module ApplicationHelper
     
     css_classes = []
     selected = if options[:match_path]
-      (request.request_uri + '/').starts_with?(options[:match_path] + '/') || request.request_uri.starts_with?(options[:match_path] + '?') 
+     (request.request_uri + '/').starts_with?(options[:match_path] + '/') || request.request_uri.starts_with?(options[:match_path] + '?') 
     else
       args.include?(controller.controller_name.to_sym)
     end
@@ -49,34 +49,34 @@ module ApplicationHelper
   def html_options_for_button_link(html_options)
     options = {:class => 'button'}.update(html_options)
   end
-
+  
   def button(text, icon = nil, button_type = 'submit')
     content_tag('button', content_tag('span', text), :type => button_type)
   end
-
+  
   def icon_tag(icon_name)
     image_tag("/images/#{icon_name}.png")
   end
-
+  
   def link_to_with_icon(icon_name, text, url, options = {})
     link_to(icon_tag(icon_name) + ' ' + text, url, options)
   end
-
+  
   def link_to_view_action(resource)
     link_to_with_icon('view', t('views.base.view_action'), resource_url(resource))
   end
-
+  
   def link_to_edit_action(resource)
     link_to_with_icon('edit', t('views.base.edit_action'), edit_resource_url(resource))
   end
-
+  
   def link_to_delete_action(resource, options = {})
     options.assert_valid_keys(:url, :caption, :title)
-
+    
     options.reverse_merge! :url => resource_url(resource) unless options.key? :url
     options.reverse_merge! :caption => t('views.base.are_you_sure')
     options.reverse_merge! :title => t('views.base.confirm_delete')
-
+    
     link_to_function icon_tag('delete') + ' ' + t('views.base.delete_action'), "jConfirm('#{options[:caption]}', '#{options[:title]}', function(r) { 
       if(r){ 
         jQuery.ajax({
@@ -89,11 +89,11 @@ module ApplicationHelper
       }
     });"
   end
-
+  
   def translate_boolean(value)
     value ? t('views.base.yes') : t('views.base.no')
   end
-
+  
   def field_container(model, method, options = {}, &block)
     unless error_message_on(model, method).blank?
       css_class = 'withError' 
@@ -101,5 +101,5 @@ module ApplicationHelper
     html = content_tag('p', capture(&block), :class => css_class)
     concat(html)
   end
-
+  
 end
