@@ -67,7 +67,6 @@ class SpexareTest < ActiveSupport::TestCase
     spexare = Spexare.new(:last_name => Time.now, :first_name => Time.now, :birth_date => 'invaliddate')
     assert(!spexare.valid?, "Should not save entry unless birth date has been set")
     assert(spexare.errors.invalid?(:birth_date), "Expected an error for invalid birth date")
-    puts spexare.errors.on(:birth_date)
   end
 
   test "should be ok with relationships" do
