@@ -6,7 +6,7 @@
     = f.error_message_on :name
     = f.text_field :name
   - f.field_container :function_category do
-    = f.label :name, t('activerecord.attributes.function.function_category')
+    = f.label :function_category, t('activerecord.attributes.function.function_category')
     %span.required= t 'views.base.mandatory_attribute'
     %br>
     = f.error_message_on :function_category
