@@ -12,6 +12,7 @@
 - if @spex_items.empty?
   %p= t 'views.spex.no_spex_exist'
 - else
+  .number-of-hits= page_entries_info @spex_items
   %table.index
     %tr
       %th= order @search, :by => :year, :as => t('activerecord.attributes.spex.year')

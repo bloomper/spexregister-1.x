@@ -22,6 +22,11 @@ Short-term
 
 - Controller tests
 
+- Show number of hits
+  - Needs translation
+  - http://github.com/mislav/will_paginate/issues/labels/todo#issue/10
+  - http://github.com/gcnovus/will_paginate
+
 - Simple search
 
 - Export
@@ -31,6 +36,8 @@ Short-term
 - Advanced search
 
 - Require SSL?
+
+- Remove jrails_auto_complete?
 
 Medium-term
 -----------

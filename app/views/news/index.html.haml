@@ -12,6 +12,7 @@
 - if @news_items.empty?
   %p= t 'views.news.no_news_exist'
 - else
+  .number-of-hits= page_entries_info @news_items
   %table.index
     %tr
       %th= order @search, :by => :publication_date, :as => t('activerecord.attributes.news.publication_date')
