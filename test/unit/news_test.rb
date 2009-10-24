@@ -24,5 +24,11 @@ class NewsTest < ActiveSupport::TestCase
     assert(!news.valid?, "Should not save entry unless body has been set")
     assert(news.errors.invalid?(:body), "Expected an error for missing body")
   end
-  
+
+  test "should not save news with invalid publication date" do
+    news = News.new(:publication_date => 'invaliddate', :subject => Time.now, :body => Time.now)
+    assert(!news.valid?, "Should not save entry unless publication date has been set")
+    assert(news.errors.invalid?(:publication_date), "Expected an error for invalid publication date")
+  end
+
 end

@@ -43,7 +43,7 @@ class CreateTables < ActiveRecord::Migration
     add_index :spex, :title
 
     create_table :news, :force => true do |t|
-      t.string :publication_date, :limit => 10, :null => false
+      t.datetime :publication_date, :null => false
       t.string :subject, :limit => 85, :null => false
       t.text :body, :null => false
       t.integer :lock_version, :default => 0
@@ -114,7 +114,7 @@ class CreateTables < ActiveRecord::Migration
       t.string :phone_mobile, :limit => 25
       t.string :phone_other, :limit => 25
       t.string :email_address, :limit => 50
-      t.string :birth_date, :limit => 10
+      t.datetime :birth_date
       t.string :encrypted_social_security_number
       t.boolean :chalmers_student, :default => true
       t.string :graduation, :limit => 5

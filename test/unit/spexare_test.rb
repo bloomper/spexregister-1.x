@@ -63,6 +63,13 @@ class SpexareTest < ActiveSupport::TestCase
     assert(spexare.errors.invalid?(:picture), "Expected an error for invalid picture")
   end
 
+  test "should not save spexare with invalid birth date" do
+    spexare = Spexare.new(:last_name => Time.now, :first_name => Time.now, :birth_date => 'invaliddate')
+    assert(!spexare.valid?, "Should not save entry unless birth date has been set")
+    assert(spexare.errors.invalid?(:birth_date), "Expected an error for invalid birth date")
+    puts spexare.errors.on(:birth_date)
+  end
+
   test "should be ok with relationships" do
     spexare = Spexare.create(:last_name => Time.now, :first_name => Time.now)
     activity = Activity.create(:spexare => spexare)
