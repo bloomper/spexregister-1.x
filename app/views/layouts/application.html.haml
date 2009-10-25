@@ -11,7 +11,7 @@
     %link{:rel => "icon", :href => "favicon.ico", :type => "image/x-icon"}
     %link{:rel => "shortcut icon", :href => "favicon.ico", :type => "image/x-icon"}
     %noscript
-      %meta{"http-equiv" => "refresh", :content => "0;url=http://#{ApplicationConfig.site_url}/nojswarning.html"}
+      %meta{"http-equiv" => "refresh", :content => "0;url=http://#{ApplicationConfig.site_url}/nojswarning#{('.' + extract_language_from_locale(I18n.locale)) unless I18n.locale == I18n.default_locale}.html"}
   %body
     .container
       = render :partial => '/shared/header'
@@ -26,6 +26,5 @@
   = javascript_include_merged :base
   = javascript_tag '$ = jQuery;'
   = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
-  - current_locale = I18n.locale.index('-').nil? ? I18n.locale : I18n.locale.split('-')[0]
-  = javascript_include_tag "i18n/#{current_locale}.js"
+  = javascript_include_tag "i18n/#{extract_language_from_locale(I18n.locale)}.js"
   

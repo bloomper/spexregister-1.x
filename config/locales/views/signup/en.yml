@@ -1,0 +1,7 @@
+"en":
+  views:
+    signup:
+      title: "Create new account"
+      instructions: "Enter the following and your account will be created but cannot be used until approved. You will receive an email when that happens."
+      create_my_account: "Create my account"
+      description_note: "(the spex you were active in and which roles you had (required for avoiding unauthorized access))"

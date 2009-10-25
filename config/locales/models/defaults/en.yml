@@ -1,0 +1,87 @@
+"en":
+  activerecord:
+       
+    # Translate model names. Used in Model.human_name().
+    models:
+      activity: "Activity"
+      actor: "Ensemble"
+      cohabitant: "Married/cohabitant"
+      function: "Function"
+      function_activity: "Function activity"
+      function_category: "Function category"
+      membership: "Membership"
+      news: "News"
+      permission: "Permission"
+      spex: "Spex"
+      spex_activity: "Spex activity"
+      spex_category: "Spex category"
+      spexare: "Spexer"
+      user: "User"
+      user_session: "User session"
+      
+    # Translate model attribute names. Used in Model.human_attribute_name(attribute).
+    attributes:
+      actor:
+        role: "Role"
+        vocal_id: "Vocal"
+      cohabitant:
+        spexare: "Spexer"
+        spexare_cohabitant: "Spexer"
+      function:
+        name: "Name"
+        function_category: "Category"
+      function_category:
+        name: "Name"
+        has_actor: "Ensemble relation"
+      membership:
+        type_id: "Type"
+      news:
+        publication_date: "Publication date"
+        subject: "Subject"
+        body: "Body"
+      spex:
+        year: "Year"
+        title: "Title"
+        is_revival: "Revival?"
+        poster: "Poster"
+        spex_category: "Category"
+      spex_category:
+        name: "Name"
+      spexare:
+        last_name: "Last name"
+        first_name: "First name"
+        nick_name: "Nick name"
+        street_address: "Street address"
+        postal_code: "Postal code"
+        postal_address: "Postal address"
+        country: "Country"
+        phone_home: "Phone number (home)"
+        phone_work: "Phone number (work)"
+        phone_mobile: "Phone number (mobile)"
+        phone_other: "Phone number (other)"
+        email_address: "Email address"
+        birth_date: "Birth date"
+        social_security_number: "Social security#"
+        chalmers_student: "Chalmers student?"
+        graduation: "Graduation"
+        comment: "Comment"
+        deceased: "Deceased?"
+        publish_approval: "Allows publishing?"
+        want_circulars: "Want circulars?"
+        uncertain_address: "Uncertain address?"
+        picture: "Picture"
+      user:
+        username: "Username"
+        password: "Password"
+        password_confirmation: "Password (again)"
+        user_groups: "Roles"
+        login_count: "Number of logins"
+        failed_login_count: "Number of failed logins"
+        last_request_at: "Last request at"
+        current_login_at: "Current login"
+        last_login_at: "Last login at"
+        current_login_ip: "Current login (IP address)"
+        last_login_ip: "Last login (IP address)"
+      other:
+        full_name: "Full name"
+        description: "Description"

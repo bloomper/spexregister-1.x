@@ -1,0 +1,7 @@
+"en":
+  views:
+    function_category:
+      index_title: "{{action}} categories"
+      page_title: "{{action}} category"
+      no_function_categories_exist: "There are no categories"
+      new_function_category: "Create category"

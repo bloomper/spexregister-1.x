@@ -1,0 +1,7 @@
+"en":
+  views:
+    spex_category:
+      index_title: "{{action}} categories"
+      page_title: "{{action}} category"
+      no_spex_categories_exist: "There are no categories"
+      new_spex_category: "Create category"

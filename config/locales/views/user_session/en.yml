@@ -1,0 +1,8 @@
+"en":
+  views:
+    user_session:
+      title: "Log in"
+      remember_me: "Remember me"
+      login: "Log in"
+      create_new_account: "Create new account"
+      forgot_my_password: "Forgot my password"

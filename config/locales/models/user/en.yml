@@ -1,0 +1,3 @@
+"en":
+  user:
+    cannot_delete_all_users: "Cannot delete all users, at least one must exist"

@@ -1,0 +1,7 @@
+"en":
+  views:
+    password_reset:
+      forgot_my_password: "Forgot my password"
+      instructions: "Enter the following and instructions will be mailed to you."
+      reset_my_password: "Reset my password"
+      update_my_password: "Update my password"

@@ -20,16 +20,18 @@ Short-term
 - Change my password
 - Change my profile
 
-- Controller tests
-
 - Show number of hits
   - Needs translation
-  - http://github.com/mislav/will_paginate/issues/labels/todo#issue/10
-  - http://github.com/gcnovus/will_paginate
+    - http://github.com/mislav/will_paginate/issues/labels/todo#issue/10
+    - http://github.com/gcnovus/will_paginate
 
 - Simple search
 
 - Export
+  - http://github.com/purzelrakete/workling
+  - http://www.therailsway.com/2009/7/22/do-it-later-with-delayed-job
+  - http://codeforpeople.rubyforge.org/svn/bj/trunk/README
+
 - Reporting
   - http://github.com/gunark/jasperserver-client
 
@@ -39,14 +41,15 @@ Short-term
 
 - Remove jrails_auto_complete?
 
+- Tests
+  - Replace fixtures with factories (Factory Girl)?
+  - Functional
+    - RSpec?
+    - Cucumber?
+    - etc
+
 Medium-term
 -----------
-
-- Use friendly_id?
-  - http://agilewebdevelopment.com/plugins/friendly_id
-
-- Better modeling of revivals
-  - Kind of tricky since the relationship with a spexare must be with the year(s)
 
 - Add cron job for asynchronous mail processing
   "script/runner 'MailQueue.process' -e production"
@@ -59,10 +62,20 @@ Medium-term
 
 - Help page for administrators
 
+- Fix import script/program
+
+- Import existing spex posters
+
 Long-term
 ---------
 
 - Flash messages sometimes stay one request too long
+
+- Use friendly_id?
+  - http://agilewebdevelopment.com/plugins/friendly_id
+
+- Better modeling of revivals
+  - Kind of tricky since the relationship with a spexare must be with the year(s)
 
 Problems
 --------

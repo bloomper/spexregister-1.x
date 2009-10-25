@@ -68,8 +68,6 @@
         deceased: "Avliden?"
         publish_approval: "Tillåter publicering?"
         want_circulars: "Vill ha utskick?"
-        fgv_member: "Medlem i FGV?"
-        alumni_member: "Medlem i CING?"
         uncertain_address: "Osäker adress?"
         picture: "Bild"
       user:

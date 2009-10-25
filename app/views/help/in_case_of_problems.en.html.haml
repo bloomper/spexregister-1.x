@@ -1,0 +1,13 @@
+= render :partial => 'sub_menu'
+
+%h1 Vid problem
+
+%p
+  Om du har något problem av något slag med registret,
+  skicka ett mail till
+  %i= mail_to h(ApplicationConfig.admin_mail_address)
+  i vilket du beskriver problemet så noggrannt som möjligt.
+  Detta kan inkludera detaljerad information om tex vad du
+  gjorde för att framkalla ett visst uppträdande och eventuella
+  felmeddelanden som visats.
+

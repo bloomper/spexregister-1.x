@@ -1,0 +1,12 @@
+"en":
+  views:
+    administration:
+      title: "Administration"
+      instructions: "Instructions"
+      users: "Users"
+      functions: "Functions"
+      function_categories: "Funktion categories"
+      news: "News"
+      spex: "Spex"
+      spex_categories: "Spex categories"
+      spexare: "Spexers"

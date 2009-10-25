@@ -1,0 +1,9 @@
+"en":
+  views:
+    spex:
+      index_title: "{{action}} spex"
+      page_title: "{{action}} spex"
+      no_spex_exist: "There are no spex"
+      new_spex: "Create spex"
+      poster_format_notice:  "Allowed formats are GIF, JPG and PNG"
+      poster_size_notice:  "Maximum allowed size is {{max_size}} Kb"

@@ -5,3 +5,5 @@
       page_title: "{{action}} spex"
       no_spex_exist: "Det finns inga spex"
       new_spex: "Skapa spex"
+      poster_format_notice:  "Tillåtna format är GIF, JPG och PNG"
+      poster_size_notice:  "Max tillåten storlek är {{max_size}} Kb"

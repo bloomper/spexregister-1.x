@@ -1,0 +1,10 @@
+"en":
+  mailers:
+    subject_prefix: "Chalmersspexet's Roster:"
+    user:
+      password_reset_instructions: "Password reset"
+      account_created_instructions: "Account created"
+      account_approved_instructions: "Account approved"
+      account_rejected_instructions: "Account rejected"
+    admin:
+      new_account_instructions: "New account"

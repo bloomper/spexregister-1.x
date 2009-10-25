@@ -102,8 +102,12 @@ module ApplicationHelper
     concat(html)
   end
 
-  def flag_image(code)
-    "#{code.to_s.split("-").last.downcase}.png"
+  def flag_image(locale)
+    "#{extract_language_from_locale(locale)}.png"
+  end
+  
+  def extract_language_from_locale(locale)
+    locale.to_s.split("-").last.downcase
   end
 
 end
