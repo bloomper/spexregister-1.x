@@ -21,7 +21,8 @@
       %br>
       = password_field_tag :password_confirmation, nil, :class => 'title'
     %p
-      = label_tag :description, t('activerecord.attributes.other.description') + ' ' + t('views.signup.description_note') 
+      = label_tag :description, t('activerecord.attributes.other.description')
+      %small= t('views.signup.description_note') 
       %br>
       = text_area_tag :description, nil, :class => 'title'
     %p
