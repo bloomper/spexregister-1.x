@@ -101,5 +101,9 @@ module ApplicationHelper
     html = content_tag('p', capture(&block), :class => css_class)
     concat(html)
   end
-  
+
+  def flag_image(code)
+    "#{code.to_s.split("-").last.downcase}.png"
+  end
+
 end

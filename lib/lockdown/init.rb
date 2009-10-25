@@ -108,6 +108,7 @@ set_permission(:home).with_controller(:home)
 set_permission(:search).with_controller(:search)
 set_permission(:administration).with_controller(:administration)
 set_permission(:help).with_controller(:help)
+set_permission(:locale).with_controller(:locale)
 set_permission(:spex_management).with_controller(:spex)
 set_permission(:spex_view).with_controller(:spex).only_methods(:show)
 set_permission(:function_management).with_controller(:functions)
@@ -134,7 +135,7 @@ set_permission(:spexare_view).with_controller(:spexare).and_controller(:cohabita
   #
   # Define the built-in user groups here:
 
-set_public_access :login, :signups, :password_resets
+set_public_access :login, :locale, :signups, :password_resets
 set_protected_access :home, :search, :help
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -33,3 +33,5 @@
       mandatory_attribute: "*"
       from: "från"
       to: "till"
+      change_language: "Ändra språk"
+      language_changed: "Språk har ändrats till svenska"

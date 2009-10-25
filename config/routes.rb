@@ -17,7 +17,8 @@ ActionController::Routing::Routes.draw do |map|
   map.help '/help', :controller => 'help', :action => 'index'
   map.in_case_of_problems '/in_case_of_problems', :controller => 'help', :action => 'in_case_of_problems'
   map.about '/about', :controller => 'help', :action => 'about'
-  
+  map.set_locale '/locale/set', :controller => 'locale', :action => 'set', :method => :get
+
   # Restful routes
   map.resources :spex_categories
   map.resources :spex
