@@ -6,8 +6,9 @@ javascripts:
   - jquery.suggest
   - jquery.validate
   - jquery.alerts
-  - jquery.lightbox
+  - jquery.fancybox
   - jquery.datepicker
+  - jquery.livequery
   - jrails
   - jrails.autocomplete
   - spexregister
@@ -16,7 +17,7 @@ stylesheets:
   - compiled/screen
   - jquery.core
   - jquery.alerts
-  - jquery.lightbox
+  - jquery.fancybox
   - jquery.datepicker
   - jquery.flick.theme
 - ie:
