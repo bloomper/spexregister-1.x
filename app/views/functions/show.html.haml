@@ -2,13 +2,13 @@
 
 %h1= t 'views.function.page_title', :action => t('views.base.viewing_action')
 
-%table.index
+%table.show
   %tr
     %th= t 'activerecord.attributes.function.name'
   %tr
     %td= h @function.name
 
-%table.index
+%table.show
   %tr
     %th= t 'activerecord.attributes.function.function_category'
   %tr
