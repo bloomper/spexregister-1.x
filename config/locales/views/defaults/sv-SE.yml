@@ -35,3 +35,4 @@
       to: "till"
       change_language: "Ändra språk"
       language_changed: "Språk har ändrats till svenska"
+      missing_image: "Saknas"

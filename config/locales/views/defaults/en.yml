@@ -35,3 +35,4 @@
       to: "to"
       change_language: "Change language"
       language_changed: "Language has been changed to English"
+      missing_image: "Missing"

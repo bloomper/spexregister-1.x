@@ -2,34 +2,37 @@
 
 %h1= t 'views.spex.page_title', :action => t('views.base.viewing_action')
 
-%table.index
+%table.show
   %tr
     %th= t 'activerecord.attributes.spex.year'
   %tr
     %td= h @spex.year
 
-%table.index
+%table.show
   %tr
     %th= t 'activerecord.attributes.spex.title'
   %tr
     %td= h @spex.title
 
-%table.index
+%table.show
   %tr
     %th= t 'activerecord.attributes.spex.spex_category'
   %tr
     %td= h @spex.spex_category.name
 
-%table.index
+%table.show
   %tr
     %th= t 'activerecord.attributes.spex.is_revival'
   %tr
     %td= translate_boolean @spex.is_revival
 
-%table.index
+%table.show
   %tr
     %th= t 'activerecord.attributes.spex.poster'
   %tr
-    %td= link_to(image_tag(@spex.poster.url(:thumb)), @spex.poster.url, :class => 'fancybox-single')
+    - if @spex.poster?
+      %td= link_to(image_tag(@spex.poster.url(:thumb)), @spex.poster.url, :class => 'fancybox-single')
+    - else
+      %td= t 'views.base.missing_image'
 
 = render :partial => '/shared/entity_details', :locals => {:entity => @spex}
