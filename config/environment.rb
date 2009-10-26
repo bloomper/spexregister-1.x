@@ -27,6 +27,7 @@ Rails::Initializer.run do |config|
   config.gem "shuber-eigenclass", :lib => 'eigenclass', :version => '1.0.1', :source => "http://gems.github.com/"
   config.gem "sqlite3-ruby", :lib => "sqlite3", :version => '1.2.5'
   config.gem "xml-simple", :lib => 'xmlsimple', :version => '1.0.12'
+  config.gem 'BlueCloth', :lib => 'bluecloth', :version => '1.0.0'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
