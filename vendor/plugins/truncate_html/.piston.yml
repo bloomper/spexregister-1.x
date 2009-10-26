@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 9f707c18bff29e85afc5d3ba6862e379c2afaa18
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/ianwhite/truncate_html.git
