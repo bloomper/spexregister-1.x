@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: de699224cb400ff389888ad7557b3b055be065d5
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/technicalpickles/has_markup.git
