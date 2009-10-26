@@ -7,10 +7,9 @@ Short-term
 - Immediate problems
   - lightbox i18n settings are not loaded correctly
   - Get rid of annoying SASS errors (deprecation)
+  - table.index is too wide when showing without side-bar
 
 - Controllers/views/translation
-  - Spex
-    - Poster
   - User
   - Spexare
 
@@ -76,6 +75,11 @@ Long-term
 
 - Better modeling of revivals
   - Kind of tricky since the relationship with a spexare must be with the year(s)
+
+- If deleting all entities, the table will be empty, i.e. the "none exist" message is not shown
+
+- Pagination is not updated when deleting
+  - This is a consequence of using Ajax and is probably not easily fixed
 
 Problems
 --------

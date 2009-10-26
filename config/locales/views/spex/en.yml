@@ -7,3 +7,4 @@
       new_spex: "Create spex"
       poster_format_notice:  "Allowed formats are GIF, JPG and PNG"
       poster_size_notice:  "Maximum allowed size is {{max_size}} Kb"
+      current_poster: "Current poster"

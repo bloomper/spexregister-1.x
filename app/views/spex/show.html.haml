@@ -16,14 +16,20 @@
 
 %table.index
   %tr
+    %th= t 'activerecord.attributes.spex.spex_category'
+  %tr
+    %td= h @spex.spex_category.name
+
+%table.index
+  %tr
     %th= t 'activerecord.attributes.spex.is_revival'
   %tr
     %td= translate_boolean @spex.is_revival
 
 %table.index
   %tr
-    %th= t 'activerecord.attributes.spex.spex_category'
+    %th= t 'activerecord.attributes.spex.poster'
   %tr
-    %td= h @spex.spex_category.name
+    %td= link_to(image_tag(@spex.poster.url(:thumb)), @spex.poster.url, :class => 'fancybox-single')
 
 = render :partial => '/shared/entity_details', :locals => {:entity => @spex}

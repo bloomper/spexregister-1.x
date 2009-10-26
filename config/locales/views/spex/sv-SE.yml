@@ -7,3 +7,4 @@
       new_spex: "Skapa spex"
       poster_format_notice:  "Tillåtna format är GIF, JPG och PNG"
       poster_size_notice:  "Max tillåten storlek är {{max_size}} Kb"
+      current_poster: "Nuvarande affisch"
