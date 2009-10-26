@@ -14,7 +14,23 @@ jQuery(document).ajaxStop(function() {
 });
 
 jQuery(function(){
-    jQuery('.datepicker').live('click', function() {
-        jQuery(this).datepicker({showOn: 'focus', showButtonPanel: true, changeMonth: true, changeYear: true}).focus();
+    jQuery('.datepicker').livequery( function() {
+        jQuery(this).datepicker({
+            showOn: 'button',
+            showButtonPanel: true,
+            changeMonth: true,
+            changeYear: true,
+            buttonImage: '/images/calendar.png',
+            buttonImageOnly: true
+            });
+    });
+});
+
+jQuery(function(){
+    jQuery('a.fancybox-single').livequery( function(){    
+        jQuery(this).fancybox({ 
+            'hideOnContentClick': true,     
+            'overlayShow': true
+            });
     });
 });
