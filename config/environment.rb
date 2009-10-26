@@ -19,6 +19,7 @@ Rails::Initializer.run do |config|
   config.gem "chriseppstein-compass", :lib => 'compass', :version => '0.8.17', :source => "http://gems.github.com/"
   config.gem "haml", :version => '2.2.8'
   config.gem "hpricot", :version => '0.8.1'
+  config.gem "htmlentities", :version => '4.2.0'
   config.gem "mysql", :version => '2.8.1'
   config.gem "piston", :version => '2.0.6'
   config.gem "rcov", :version => '0.8.1.2.0'
