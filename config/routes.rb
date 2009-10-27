@@ -32,7 +32,6 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
   map.resources :spexare, :shallow => true do |spexare|
-    spexare.resource :user
     spexare.resources :memberships
     spexare.resources :cohabitants
     spexare.resources :activities do |activity|
