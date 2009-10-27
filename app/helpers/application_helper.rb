@@ -111,7 +111,10 @@ module ApplicationHelper
   end
 
   def get_username_by_id(id)
-    User.find_by_id(id).username
+    begin
+      User.find_by_id(id).username
+    rescue ActiveRecord::RecordNotFound
+    end
   end
 
 end
