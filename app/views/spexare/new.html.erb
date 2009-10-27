@@ -1,6 +1,0 @@
-<%= render :partial => 'shared/error' %>
-<%= render :partial => 'shared/message' %>
-
-<% form_for :spexare, :url => { :action => 'create' }, :html => { :multipart => true } do |form| %>
-  <%= render :partial => 'form', :locals => { :action => 'new', :form => form } %>
-<% end %>

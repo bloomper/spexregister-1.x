@@ -1,3 +1,12 @@
 "sv-SE":
   views:
     spexare:
+      description_tab_title: "Beskrivning"
+      index_title: "{{action}} spexare"
+      page_title: "{{action}} spexare"
+      no_spexare_exist: "Det finns inga spexare"
+      new_spexare: "Skapa spexare"
+      social_security_number_notice: "Krypterat lagring för säkerställa integritet"
+      picture_format_notice:  "Tillåtna format är GIF, JPG och PNG"
+      picture_size_notice:  "Max tillåten storlek är {{max_size}} Kb"
+      current_picture: "Nuvarande bild"

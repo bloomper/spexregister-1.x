@@ -1,3 +1,4 @@
 "en":
   views:
     cohabitant:
+      description_tab_title: "Married/cohabitant with"

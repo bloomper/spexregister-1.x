@@ -25,6 +25,6 @@ class Spexare < ActiveRecord::Base
   validates_attachment_content_type :picture, :content_type => ApplicationConfig.allowed_file_types.split(/,/), :if => Proc.new { |s| s.picture? } 
   validates_attachment_size :picture, :less_than => ApplicationConfig.max_upload_size.kilobytes, :if => Proc.new { |s| s.picture? }
   validates_as_email_address :email_address, :if => Proc.new { |s| !s.email_address.blank? }
-  validates_date :birth_date, :allow_nil => true
+  validates_date :birth_date, :allow_blank => true, :format => 'yyyy-mm-dd'
   
 end

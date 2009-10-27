@@ -1,18 +1,7 @@
 = render :partial => 'administration/sub_menu'
 
-- form_for :function, :url => collection_url do |f|
+- form_for :spexare, :url => spexare_index_url, :html => { :multipart => true } do |f|
   %fieldset
-    %legend= t 'views.function.new_function'
-    - f.field_container :name do
-      = f.label :name, t('activerecord.attributes.function.name')
-      %span.required= t 'views.base.mandatory_attribute'
-      %br>
-      = f.error_message_on :name
-      = f.text_field :name, :class => 'fullwidth'
-    - f.field_container :function_category do
-      = f.label :name, t('activerecord.attributes.function.function_category')
-      %span.required= t 'views.base.mandatory_attribute'
-      %br>
-      = f.error_message_on :function_category
-      = f.select :function_category_id, get_available_function_categories
-    = render :partial => '/shared/new_resource_links'
+    %legend= t 'views.spexare.new_spexare'
+    = render :partial => 'form', :locals => { :f => f }
+    = render :partial => '/shared/new_resource_links', :locals => { :url => spexare_index_url }

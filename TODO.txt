@@ -6,10 +6,29 @@ Short-term
 
 - Immediate problems
   - Get rid of annoying SASS errors (deprecation)
+  - Lockdown model restrictions do not work as expected
 
 - Controllers/views/translation
   - User
   - Spexare
+    - Better form layout
+    - localized_country_select
+      - f.field_container :country do
+        = f.label :country, t('activerecord.attributes.spexare.country')
+        = f.error_message_on :country
+        = f.localized_country_select :country
+    - Implement show
+      - Tabs
+        - Description
+        - Memberships
+        - Cohabitants
+        - Activities
+    - Implement edit
+      - Tabs
+        - Memberships
+        - Cohabitants
+        - Activities
+    - Should search cover more like spex years etc?
 
 - Change my password
 - Change my profile

@@ -27,6 +27,21 @@ jQuery(function(){
 });
 
 jQuery(function(){
+    jQuery('.datepicker-birthdate').livequery( function() {
+        jQuery(this).datepicker({
+            showOn: 'button',
+            showButtonPanel: true,
+            changeMonth: true,
+            changeYear: true,
+            buttonImage: '/images/calendar.png',
+            buttonImageOnly: true,
+            yearRange: '-150:0',
+            constrainInput: false
+            });
+    });
+});
+
+jQuery(function(){
     jQuery('a.fancybox-single').livequery( function(){    
         jQuery(this).fancybox({ 
             'hideOnContentClick': true,     

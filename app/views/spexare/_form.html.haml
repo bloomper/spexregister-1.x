@@ -1,7 +1,114 @@
 %div
-  - f.field_container :name do
-    = f.label :name, t('activerecord.attributes.function.name')
+  - f.field_container :last_name do
+    = f.label :last_name, t('activerecord.attributes.spexare.last_name')
     %span.required= t 'views.base.mandatory_attribute'
     %br>
-    = f.error_message_on :name
-    = f.text_field :name, :class => 'fullwidth'
+    = f.error_message_on :last_name
+    = f.text_field :last_name
+  - f.field_container :first_name do
+    = f.label :first_name, t('activerecord.attributes.spexare.first_name')
+    %span.required= t 'views.base.mandatory_attribute'
+    %br>
+    = f.error_message_on :first_name
+    = f.text_field :first_name
+  - f.field_container :nick_name do
+    = f.label :nick_name, t('activerecord.attributes.spexare.nick_name')
+    %br>
+    = f.error_message_on :nick_name
+    = f.text_field :nick_name
+  - f.field_container :street_address do
+    = f.label :street_address, t('activerecord.attributes.spexare.street_address')
+    %br>
+    = f.error_message_on :street_address
+    = f.text_field :street_address
+  - f.field_container :postal_code do
+    = f.label :postal_code, t('activerecord.attributes.spexare.postal_code')
+    %br>
+    = f.error_message_on :postal_code
+    = f.text_field :postal_code
+  - f.field_container :postal_address do
+    = f.label :postal_address, t('activerecord.attributes.spexare.postal_address')
+    %br>
+    = f.error_message_on :postal_address
+    = f.text_field :postal_address
+  - f.field_container :phone_home do
+    = f.label :phone_home, t('activerecord.attributes.spexare.phone_home')
+    %br>
+    = f.error_message_on :phone_home
+    = f.text_field :phone_home
+  - f.field_container :phone_work do
+    = f.label :phone_work, t('activerecord.attributes.spexare.phone_work')
+    %br>
+    = f.error_message_on :phone_work
+    = f.text_field :phone_work
+  - f.field_container :phone_mobile do
+    = f.label :phone_mobile, t('activerecord.attributes.spexare.phone_mobile')
+    %br>
+    = f.error_message_on :phone_mobile
+    = f.text_field :phone_mobile
+  - f.field_container :phone_other do
+    = f.label :phone_other, t('activerecord.attributes.spexare.phone_other')
+    %br>
+    = f.error_message_on :phone_other
+    = f.text_field :phone_other
+  - f.field_container :email_address do
+    = f.label :phone_other, t('activerecord.attributes.spexare.email_address')
+    %br>
+    = f.error_message_on :email_address
+    = f.text_field :email_address
+  - f.field_container :birth_date do
+    = f.label :birth_date, t('activerecord.attributes.spexare.birth_date')
+    %br>
+    = f.error_message_on :birth_date
+    = f.text_field :birth_date, :class => 'datepicker-birthdate'
+  - f.field_container :social_security_number do
+    = f.label :social_security_number, t('activerecord.attributes.spexare.social_security_number')
+    %br>
+    %small= t 'views.spexare.social_security_number_notice'
+    %br>
+    = f.error_message_on :social_security_number
+    = f.text_field :social_security_number
+  - f.field_container :picture do
+    = f.label :poster, t('activerecord.attributes.spexare.picture')
+    - if @spexare.picture?
+      %br>
+      %small= t 'views.spexare.current_picture'
+      %br>
+      = link_to(image_tag(@spexare.picture.url(:thumb)), @spexare.picture.url, :class => 'fancybox-single')
+    %br>
+    %small= t 'views.spexare.picture_format_notice'
+    %br>
+    %small= t('views.spexare.picture_size_notice', :max_size => ApplicationConfig.max_upload_size)
+    %br>
+    = f.error_message_on :picture
+    = f.file_field :picture
+  - f.field_container :comment do
+    = f.label :comment, t('activerecord.attributes.spexare.comment')
+    %br>
+    = f.error_message_on :comment
+    = f.text_area :comment
+  - f.field_container :chalmers_student do
+    = f.label :chalmers_student, t('activerecord.attributes.spexare.chalmers_student')
+    = f.error_message_on :chalmers_student
+    = f.check_box :chalmers_student
+  - f.field_container :graduation do
+    = f.label :graduation, t('activerecord.attributes.spexare.graduation')
+    %br>
+    = f.error_message_on :graduation
+    = f.text_field :graduation
+  - f.field_container :deceased do
+    = f.label :deceased, t('activerecord.attributes.spexare.deceased')
+    = f.error_message_on :deceased
+    = f.check_box :deceased
+  - f.field_container :publish_approval do
+    = f.label :publish_approval, t('activerecord.attributes.spexare.publish_approval')
+    = f.error_message_on :publish_approval
+    = f.check_box :publish_approval
+  - f.field_container :want_circulars do
+    = f.label :want_circulars, t('activerecord.attributes.spexare.want_circulars')
+    = f.error_message_on :want_circulars
+    = f.check_box :want_circulars
+  - f.field_container :uncertain_address do
+    = f.label :uncertain_address, t('activerecord.attributes.spexare.uncertain_address')
+    = f.error_message_on :uncertain_address
+    = f.check_box :uncertain_address

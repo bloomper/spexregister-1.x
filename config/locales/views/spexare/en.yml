@@ -1,3 +1,12 @@
 "en":
   views:
     spexare:
+      description_tab_title: "Description"
+      index_title: "{{action}} spexare"
+      page_title: "{{action}} spexare"
+      no_spexare_exist: "There are no spexers"
+      new_spexare: "Create spexer"
+      social_security_number_notice: "Encrypted storage to ensure integrity"
+      picture_format_notice:  "Allowed formats are GIF, JPG and PNG"
+      picture_size_notice:  "Maximum allowed size is {{max_size}} Kb"
+      current_picture: "Current picture"

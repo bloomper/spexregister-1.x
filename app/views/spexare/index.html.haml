@@ -3,39 +3,49 @@
 .toolbar
   %ul.actions
     %li
-      = button_link_to_remote t('views.function.new_function'), { :url => new_resource_url, :method => :get, :update => 'new-function' }, :icon => 'add'
+      = button_link_to_remote t('views.spexare.new_spexare'), { :url => new_resource_url, :method => :get, :update => 'new-spexare' }, :icon => 'add'
 
-%h1= t 'views.function.index_title', :action => t('views.base.listing_action')
+%h1= t 'views.spexare.index_title', :action => t('views.base.listing_action')
 
-#new-function
+#new-spexare
 
-%table.index
-  - if @functions.empty?
+- if @spexare_items.empty?
+  %p= t 'views.spexare.no_spexare_exist'
+- else
+  .number-of-hits= page_entries_info @spexare_items
+  %table.index
     %tr
-      %td= t 'views.function.no_functions_exist'
-  - else
-    %tr
-      %th= order @search, :by => :name, :as => t('activerecord.attributes.function.name')
-      %th= order @search, :by => :function_category_name, :as => t('activerecord.models.function_category')
+      %th= order @search, :by => :last_name, :as => t('activerecord.attributes.spexare.last_name')
+      %th= order @search, :by => :first_name, :as => t('activerecord.attributes.spexare.first_name')
+      %th= order @search, :by => :nick_name, :as => t('activerecord.attributes.spexare.nick_name')
       %th.action-column= t 'views.base.action'
-      - @functions.each do |function|
-        %tr{:id => dom_id(function), :class => cycle('even', 'odd')}
-          %td= function.name
-          %td= function.function_category.name
+      - @spexare_items.each do |spexare|
+        %tr{:id => dom_id(spexare), :class => cycle('even', 'odd')}
+          %td= h spexare.last_name
+          %td= h spexare.first_name
+          %td= h spexare.nick_name
           %td.actions
-            = link_to_view_action function
-            = link_to_edit_action function
-            = link_to_delete_action function
+            = link_to_view_action spexare
+            = link_to_edit_action spexare
+            = link_to_delete_action spexare
 
-= will_paginate (:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+= will_paginate (@spexare_items, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
 
 = content_for :sidebar do 
   - form_for @search do |f|
     .box
       %h3= t 'views.base.search'
       %p
-        %label= t 'activerecord.attributes.function.name'
+        %label= t 'activerecord.attributes.spexare.last_name'
         %br>
-        = f.text_field :name_contains, :size => 15
+        = f.text_field :last_name_contains, :size => 15
+      %p
+        %label= t 'activerecord.attributes.spexare.first_name'
+        %br>
+        = f.text_field :first_name_contains, :size => 15
+      %p
+        %label= t 'activerecord.attributes.spexare.first_name'
+        %br>
+        = f.text_field :nick_name_contains, :size => 15
       %p.form-buttons
         = button t('views.base.search')
