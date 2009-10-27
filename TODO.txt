@@ -5,17 +5,12 @@ Short-term
 ----------
 
 - Immediate problems
-  - lightbox i18n settings are not loaded correctly
   - Get rid of annoying SASS errors (deprecation)
-  - table.index is too wide when showing without side-bar
 
 - Controllers/views/translation
   - User
   - Spexare
 
-- Home page
-  - View news
-    - RSS type? Popup?
 - Change my password
 - Change my profile
 

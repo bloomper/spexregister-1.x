@@ -113,13 +113,13 @@ set_permission(:spex_management).with_controller(:spex)
 set_permission(:spex_view).with_controller(:spex).only_methods(:show)
 set_permission(:function_management).with_controller(:functions)
 set_permission(:function_view).with_controller(:functions).only_methods(:show)
-set_permission(:news_management).with_controller(:news).except_methods(:show, :index)
-set_permission(:news_view).with_controller(:news).only_methods(:show, :index)
+set_permission(:news_management).with_controller(:news)
+set_permission(:news_view).with_controller(:news).only_methods(:show)
 set_permission(:user_management).with_controller(:users).and_controller(:user_groups).and_controller(:permissions).and_controller(:spexare)
-set_permission(:user_management_owner).with_controller(:users).and_controller(:user_groups).and_controller(:permissions).and_controller(:spexare).to_model(:user).where(:editable_by).includes(:current_user_id)
-set_permission(:spexare_management).with_controller(:spexare).and_controller(:cohabitants).and_controller(:memberships).and_controller(:activities).and_controller(:spex_activities).and_controller(:function_activities).and_controller(:actors).and_controller(:users).except_methods(:show, :index)
-set_permission(:spexare_management_owner).with_controller(:spexare).and_controller(:cohabitants).and_controller(:memberships).and_controller(:activities).and_controller(:spex_activities).and_controller(:function_activities).and_controller(:actors).and_controller(:users).except_methods(:show, :index).to_model(:spexare).where(:editable_by).includes(:current_user_id)
-set_permission(:spexare_view).with_controller(:spexare).and_controller(:cohabitants).and_controller(:memberships).and_controller(:activities).and_controller(:spex_activities).and_controller(:function_activities).and_controller(:actors).only_methods(:show, :index)
+set_permission(:user_owner).with_controller(:users).and_controller(:user_groups).and_controller(:permissions).and_controller(:spexare).to_model(:user).where(:editable_by).includes(:current_user_id)
+set_permission(:spexare_management).with_controller(:spexare).and_controller(:cohabitants).and_controller(:memberships).and_controller(:activities).and_controller(:spex_activities).and_controller(:function_activities).and_controller(:actors).and_controller(:users)
+set_permission(:spexare_owner).with_controller(:spexare).and_controller(:cohabitants).and_controller(:memberships).and_controller(:activities).and_controller(:spex_activities).and_controller(:function_activities).and_controller(:actors).and_controller(:users).to_model(:spexare).where(:editable_by).includes(:current_user_id)
+set_permission(:spexare_view).with_controller(:spexare).only_methods(:show).and_controller(:cohabitants).only_methods(:show).and_controller(:memberships).only_methods(:show).and_controller(:activities).only_methods(:show).and_controller(:spex_activities).only_methods(:show).and_controller(:function_activities).only_methods(:show).and_controller(:actors).only_methods(:show)
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Built-in user groups
@@ -136,7 +136,7 @@ set_permission(:spexare_view).with_controller(:spexare).and_controller(:cohabita
   # Define the built-in user groups here:
 
 set_public_access :login, :locale, :signups, :password_resets
-set_protected_access :home, :search, :help
+set_protected_access :home, :search, :help, :spexare_view, :news_view, :spex_view, :function_view
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Define user groups
@@ -152,7 +152,7 @@ set_protected_access :home, :search, :help
   # Define your user groups here:
 
 set_user_group(:administrators, :administration, :spexare_management, :user_management, :spex_management, :function_management, :news_management)
-set_user_group(:users, :spexare_management_owner, :spexare_view, :user_management_owner, :news_view, :spex_view, :function_view)
+set_user_group(:users, :spexare_owner, :user_owner)
 
 # Use Authlogic's session timeout mechanism instead
 options[:session_timeout] = 7776000

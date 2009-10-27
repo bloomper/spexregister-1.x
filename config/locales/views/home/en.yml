@@ -2,6 +2,6 @@
   views:
     home:
       title: "Home"
-      news: "News"
+      latest_news: "Latest news"
       change_profile: "Change profile"
       change_password: "Change password"

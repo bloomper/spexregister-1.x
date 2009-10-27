@@ -1,7 +1,3 @@
-= render :partial => 'administration/sub_menu'
-
-%h1= t 'views.news.page_title', :action => t('views.base.viewing_action')
-
 %table.index
   %tr
     %th= t 'activerecord.attributes.news.publication_date'
@@ -19,5 +15,3 @@
     %th= t 'activerecord.attributes.news.body'
   %tr
     %td= @news.cached_body_html
-
-= render :partial => '/shared/entity_details', :locals => {:entity => @news}

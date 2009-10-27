@@ -1,7 +1,7 @@
 class NewsController < ApplicationController
   inherit_resources
   respond_to :html
-  respond_to :js, :only => :destroy
+  respond_to :js, :only => [:destroy, :show]
   defaults :collection_name => 'news_items', :route_collection_name => 'news_index'
 
   def new
@@ -20,6 +20,12 @@ class NewsController < ApplicationController
   def update
     update! do |success, failure|
       success.html { redirect_to news_index_url }
+    end
+  end
+
+  def show
+    show! do |format|
+      format.js { render :action => :show_limited, :layout => false }
     end
   end
 

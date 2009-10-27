@@ -30,7 +30,19 @@ jQuery(function(){
     jQuery('a.fancybox-single').livequery( function(){    
         jQuery(this).fancybox({ 
             'hideOnContentClick': true,     
-            'overlayShow': false,
+            'overlayShow': true,
+            'zoomOpacity': true,
+            'zoomSpeedIn': 500,
+            'zoomSpeedOut': 500
+            });
+    });
+});
+
+jQuery(function(){
+    jQuery('a.fancybox-text').livequery( function(){    
+        jQuery(this).fancybox({ 
+            'hideOnContentClick': true,     
+            'overlayShow': true,
             'zoomOpacity': true,
             'zoomSpeedIn': 500,
             'zoomSpeedOut': 500

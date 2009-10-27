@@ -1,7 +1,7 @@
 "sv-SE":
   views:
     home:
-      title: "Hem"
-      news: "Nyheter"
+      title: "Home"
+      latest_news: "Senaste nyheterna"
       change_profile: "Ändra profil"
       change_password: "Ändra lösenord"

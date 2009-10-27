@@ -3,6 +3,7 @@ development: &defaults
   site_url: www.chalmersspexet.se/register
   admin_mail_address: register@chalmersspexet.com
   entities_per_page: 10
+  latest_news_per_page: 8
   # In Kb
   max_upload_size: 150
   allowed_file_types: image/jpg,image/jpeg,image/pjpeg,image/gif,image/png,image/x-png
