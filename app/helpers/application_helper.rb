@@ -110,4 +110,8 @@ module ApplicationHelper
     locale.to_s.split("-").last.downcase
   end
 
+  def get_username_by_id(id)
+    User.find_by_id(id).username
+  end
+
 end

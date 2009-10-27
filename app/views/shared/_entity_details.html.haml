@@ -9,10 +9,10 @@
     %td= h entity[:created_at].to_formatted_s(:long_format)
   %tr
     %td= t 'views.base.created_by'
-    %td= h entity[:created_by]
+    %td= h get_username_by_id(entity[:created_by])
   %tr
     %td= t 'views.base.updated_at'
     %td= h entity[:updated_at].to_formatted_s(:long_format)
   %tr
     %td= t 'views.base.updated_by'
-    %td= h entity[:updated_by]
+    %td= h get_username_by_id(entity[:updated_by])
