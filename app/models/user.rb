@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   acts_as_authentic do |c|
     c.logged_in_timeout = ApplicationConfig.logged_in_timeout
   end
-  has_one :spexare, :dependent => :nullify
+  belongs_to :spexare
   has_and_belongs_to_many :user_groups
   include AASM
   aasm_column :state
@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
   
   def editable_by
     user_group = UserGroup.find_by_name('Administrators')
-    if !self.user.nil?
+    if !self.nil?
       user_group.user_ids |= [self.id]
     else
       user_group.user_ids

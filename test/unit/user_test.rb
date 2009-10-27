@@ -7,7 +7,7 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "should be ok" do
-    user = User.create(:username => "test@test.com", :password => @password, :password_confirmation => @password, :user_groups => [ user_groups(:admins_user_group) ], :spexare => spexare(:spexare_1))
+    user = User.new(:username => "test@test.com", :password => @password, :password_confirmation => @password, :user_groups => [ user_groups(:admins_user_group) ], :spexare => spexare(:spexare_1))
     assert user.valid?, user.errors.full_messages.join("\n") 
   end
   

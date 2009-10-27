@@ -68,13 +68,16 @@ class CreateTables < ActiveRecord::Migration
       t.string :current_login_ip
       t.string :last_login_ip
       t.string :state
+      t.integer :spexare_id
       t.integer :lock_version, :default => 0
       t.string :created_by
       t.string :updated_by
       t.timestamps
+      t.foreign_key :spexare_id, :spexare, :id
     end
     add_index :users, :username, :unique => true
     add_index :users, :perishable_token
+    add_index :users, :spexare_id, :unique => true
 
     create_table :user_groups, :force => true do |t|
       t.string :name
@@ -124,7 +127,6 @@ class CreateTables < ActiveRecord::Migration
       t.boolean :publish_approval, :default => true
       t.boolean :want_circulars, :default => true
       t.boolean :uncertain_address, :default => false
-      t.integer :user_id
       t.string :picture_file_name
       t.string :picture_content_type
       t.integer :picture_file_size
@@ -133,11 +135,9 @@ class CreateTables < ActiveRecord::Migration
       t.string :created_by
       t.string :updated_by
       t.timestamps
-      t.foreign_key :user_id, :users, :id
     end
     add_index :spexare, :last_name
     add_index :spexare, :first_name
-    add_index :spexare, :user_id, :unique => true
 
     create_table :cohabitants, :id => false, :force => true do |t|
       t.integer :spexare_id, :null => false
@@ -199,6 +199,11 @@ class CreateTables < ActiveRecord::Migration
   end
 
   def self.down
+    drop_table :permissions_user_groups
+    drop_table :permissions
+    drop_table :user_groups_users
+    drop_table :user_groups
+    drop_table :users
     drop_table :actors
     drop_table :function_activities
     drop_table :spex_activities
@@ -206,11 +211,6 @@ class CreateTables < ActiveRecord::Migration
     drop_table :cohabitants
     drop_table :memberships
     drop_table :spexare
-    drop_table :permissions_user_groups
-    drop_table :permissions
-    drop_table :user_groups_users
-    drop_table :user_groups
-    drop_table :users
     drop_table :news
     drop_table :spex
     drop_table :spex_categories

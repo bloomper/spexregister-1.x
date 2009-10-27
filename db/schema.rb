@@ -178,7 +178,6 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
     t.boolean  "publish_approval",                                :default => true
     t.boolean  "want_circulars",                                  :default => true
     t.boolean  "uncertain_address",                               :default => false
-    t.integer  "user_id"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
@@ -190,7 +189,6 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
     t.datetime "updated_at"
   end
 
-  add_index "spexare", ["user_id"], :name => "index_spexare_on_user_id", :unique => true
   add_index "spexare", ["first_name"], :name => "index_spexare_on_first_name"
   add_index "spexare", ["last_name"], :name => "index_spexare_on_last_name"
 
@@ -221,6 +219,7 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
     t.string   "current_login_ip"
     t.string   "last_login_ip"
     t.string   "state"
+    t.integer  "spexare_id"
     t.integer  "lock_version",       :default => 0
     t.string   "created_by"
     t.string   "updated_by"
@@ -228,6 +227,7 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
     t.datetime "updated_at"
   end
 
+  add_index "users", ["spexare_id"], :name => "index_users_on_spexare_id", :unique => true
   add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
