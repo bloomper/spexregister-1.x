@@ -5,3 +5,4 @@
       page_title: "{{action}} nyhet"
       no_news_exist: "Det finns inga nyheter"
       new_news: "Skapa nyhet"
+      markdown_notice: "Formattera enligt {{markdown_link}}"

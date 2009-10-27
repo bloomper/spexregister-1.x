@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
     t.date     "publication_date",                              :null => false
     t.string   "subject",          :limit => 85,                :null => false
     t.text     "body",                                          :null => false
+    t.string   "cached_body_html"
     t.integer  "lock_version",                   :default => 0
     t.string   "created_by"
     t.string   "updated_by"
