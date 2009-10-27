@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
   end
 
   create_table "actors", :force => true do |t|
-    t.string   "role",                 :limit => 50
+    t.string   "role"
     t.integer  "vocal_id"
-    t.integer  "function_activity_id",                              :null => false
-    t.integer  "lock_version",                       :default => 0
+    t.integer  "function_activity_id",                :null => false
+    t.integer  "lock_version",         :default => 0
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"
@@ -58,9 +58,9 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
   add_index "function_categories", ["name"], :name => "index_function_categories_on_name", :unique => true
 
   create_table "functions", :force => true do |t|
-    t.string   "name",                 :limit => 50,                :null => false
-    t.integer  "function_category_id",                              :null => false
-    t.integer  "lock_version",                       :default => 0
+    t.string   "name",                                :null => false
+    t.integer  "function_category_id",                :null => false
+    t.integer  "lock_version",         :default => 0
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"
@@ -83,11 +83,11 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
   add_index "memberships", ["spexare_id"], :name => "index_memberships_on_spexare_id"
 
   create_table "news", :force => true do |t|
-    t.date     "publication_date",                              :null => false
-    t.string   "subject",          :limit => 85,                :null => false
-    t.text     "body",                                          :null => false
+    t.date     "publication_date",                :null => false
+    t.string   "subject",                         :null => false
+    t.text     "body",                            :null => false
     t.string   "cached_body_html"
-    t.integer  "lock_version",                   :default => 0
+    t.integer  "lock_version",     :default => 0
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"
@@ -125,15 +125,15 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
 
   create_table "spex", :force => true do |t|
-    t.string   "year",                :limit => 4,                     :null => false
-    t.string   "title",               :limit => 50,                    :null => false
-    t.boolean  "is_revival",                        :default => false
-    t.integer  "spex_category_id",                                     :null => false
+    t.string   "year",                :limit => 4,                    :null => false
+    t.string   "title",                                               :null => false
+    t.boolean  "is_revival",                       :default => false
+    t.integer  "spex_category_id",                                    :null => false
     t.string   "poster_file_name"
     t.string   "poster_content_type"
     t.integer  "poster_file_size"
     t.datetime "poster_updated_at"
-    t.integer  "lock_version",                      :default => 0
+    t.integer  "lock_version",                     :default => 0
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"
@@ -157,32 +157,32 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
   add_index "spex_categories", ["name"], :name => "index_spex_categories_on_name", :unique => true
 
   create_table "spexare", :force => true do |t|
-    t.string   "last_name",                        :limit => 40,                     :null => false
-    t.string   "first_name",                       :limit => 30,                     :null => false
-    t.string   "nick_name",                        :limit => 30
-    t.string   "street_address",                   :limit => 75
-    t.string   "postal_code",                      :limit => 30
-    t.string   "postal_address",                   :limit => 40
-    t.string   "country",                          :limit => 100
-    t.string   "phone_home",                       :limit => 25
-    t.string   "phone_work",                       :limit => 25
-    t.string   "phone_mobile",                     :limit => 25
-    t.string   "phone_other",                      :limit => 25
-    t.string   "email_address",                    :limit => 50
+    t.string   "last_name",                                           :null => false
+    t.string   "first_name",                                          :null => false
+    t.string   "nick_name"
+    t.string   "street_address"
+    t.string   "postal_code"
+    t.string   "postal_address"
+    t.string   "country"
+    t.string   "phone_home"
+    t.string   "phone_work"
+    t.string   "phone_mobile"
+    t.string   "phone_other"
+    t.string   "email_address"
     t.date     "birth_date"
     t.string   "encrypted_social_security_number"
-    t.boolean  "chalmers_student",                                :default => true
-    t.string   "graduation",                       :limit => 5
+    t.boolean  "chalmers_student",                 :default => true
+    t.string   "graduation"
     t.string   "comment"
-    t.boolean  "deceased",                                        :default => false
-    t.boolean  "publish_approval",                                :default => true
-    t.boolean  "want_circulars",                                  :default => true
-    t.boolean  "uncertain_address",                               :default => false
+    t.boolean  "deceased",                         :default => false
+    t.boolean  "publish_approval",                 :default => true
+    t.boolean  "want_circulars",                   :default => true
+    t.boolean  "uncertain_address",                :default => false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.integer  "lock_version",                                    :default => 0
+    t.integer  "lock_version",                     :default => 0
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"

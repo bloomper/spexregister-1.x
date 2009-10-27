@@ -8,7 +8,7 @@ class CreateTables < ActiveRecord::Migration
     add_index :function_categories, :name, :unique => true
 
     create_table :functions, :force => true do |t|
-      t.string :name, :limit => 50, :null => false
+      t.string :name, :null => false
       t.integer :function_category_id, :null => false
       t.integer :lock_version, :default => 0
       t.string :created_by
@@ -26,7 +26,7 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :spex, :force => true do |t|
       t.string :year, :limit => 4, :null => false
-      t.string :title, :limit => 50, :null => false
+      t.string :title, :null => false
       t.boolean :is_revival, :default => false
       t.integer :spex_category_id, :null => false
       t.string :poster_file_name
@@ -44,7 +44,7 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :news, :force => true do |t|
       t.date :publication_date, :null => false
-      t.string :subject, :limit => 85, :null => false
+      t.string :subject, :null => false
       t.text :body, :null => false
       t.string :cached_body_html
       t.integer :lock_version, :default => 0
@@ -106,22 +106,22 @@ class CreateTables < ActiveRecord::Migration
     end
 
     create_table :spexare, :force => true do |t|
-      t.string :last_name, :limit => 40, :null => false
-      t.string :first_name, :limit => 30, :null => false
-      t.string :nick_name, :limit => 30
-      t.string :street_address, :limit => 75
-      t.string :postal_code, :limit => 30
-      t.string :postal_address, :limit => 40
-      t.string :country, :limit => 100
-      t.string :phone_home, :limit => 25
-      t.string :phone_work, :limit => 25
-      t.string :phone_mobile, :limit => 25
-      t.string :phone_other, :limit => 25
-      t.string :email_address, :limit => 50
+      t.string :last_name, :null => false
+      t.string :first_name, :null => false
+      t.string :nick_name
+      t.string :street_address
+      t.string :postal_code
+      t.string :postal_address
+      t.string :country
+      t.string :phone_home
+      t.string :phone_work
+      t.string :phone_mobile
+      t.string :phone_other
+      t.string :email_address
       t.date :birth_date
       t.string :encrypted_social_security_number
       t.boolean :chalmers_student, :default => true
-      t.string :graduation, :limit => 5
+      t.string :graduation
       t.string :comment
       t.boolean :deceased, :default => false
       t.boolean :publish_approval, :default => true
@@ -186,7 +186,7 @@ class CreateTables < ActiveRecord::Migration
     end
 
     create_table :actors, :force => true do |t|
-      t.string :role, :limit => 50
+      t.string :role
       t.integer :vocal_id
       t.integer :function_activity_id, :null => false
       t.integer :lock_version, :default => 0
