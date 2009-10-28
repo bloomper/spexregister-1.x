@@ -22,7 +22,7 @@ jQuery(function() {
    // jQuery Lock Submit
    jQuery(':submit').livequery( function() {    
        jQuery(this).lockSubmit({
-           submitText: 'Vänligen vänta',
+           submitText: 'Vänta...',
            onAddCSS: 'button'
            });
    });
