@@ -4,7 +4,7 @@
     %span.required= t 'views.base.mandatory_attribute'
     %br>
     = f.error_message_on :name
-    = f.text_field :name
+    = f.text_field :name, :class => 'fullwidth'
   - f.field_container :has_actor do
     = f.label :has_actor, t('activerecord.attributes.function_category.has_actor')
     = f.error_message_on :has_actor

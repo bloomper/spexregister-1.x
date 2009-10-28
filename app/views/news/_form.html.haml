@@ -1,16 +1,16 @@
 %div
+  - f.field_container :subject do
+    = f.label :subject, t('activerecord.attributes.news.subject')
+    %span.required= t 'views.base.mandatory_attribute'
+    %br>
+    = f.error_message_on :subject
+    = f.text_field :subject, :class => 'fullwidth'
   - f.field_container :publication_date do
     = f.label :publication_date, t('activerecord.attributes.news.publication_date')
     %span.required= t 'views.base.mandatory_attribute'
     %br>
     = f.error_message_on :publication_date
     = f.text_field :publication_date, :class => 'datepicker'
-  - f.field_container :subject do
-    = f.label :subject, t('activerecord.attributes.news.subject')
-    %span.required= t 'views.base.mandatory_attribute'
-    %br>
-    = f.error_message_on :subject
-    = f.text_field :subject
   - f.field_container :body do
     = f.label :body, t('activerecord.attributes.news.body')
     %span.required= t 'views.base.mandatory_attribute'

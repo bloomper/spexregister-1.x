@@ -7,16 +7,20 @@ Short-term
 - Immediate problems
   - Get rid of annoying SASS errors (deprecation)
   - Lockdown model restrictions do not work as expected
+  - Checkbox problem at submit
+
+- http://digitalbush.com/projects/masked-input-plugin/
+- http://www.webintenta.com/9914.html (collapse/expand)
+- http://code.google.com/p/jquery-asmselect/ (for spex and functions)
 
 - Controllers/views/translation
   - User
   - Spexare
     - Better form layout
-    - localized_country_select
-      - f.field_container :country do
-        = f.label :country, t('activerecord.attributes.spexare.country')
-        = f.error_message_on :country
-        = f.localized_country_select :country
+      - Move into CSS and make it work for both edit and create
+      - jQuery checkbox?
+      - Checkbox text to the right?
+      - Other jQuery goodies?
     - Implement show
       - Tabs
         - Description

@@ -1,11 +1,11 @@
 = render :partial => 'administration/sub_menu'
 
-= render :partial => 'function_tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :current_tab => 'function_tab'}
+= render :partial => 'spexare_tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :current_tab => 'spexare_tab'}
 
 %table.index
   %tr
-    %th= t 'activerecord.attributes.function.name'
+    %th= t 'activerecord.attributes.spexare.last_name'
   %tr
-    %td= @function.name
+    %td= @spexare.last_name
 
-= render :partial => '/shared/entity_details', :locals => {:entity => @function}
+= render :partial => '/shared/entity_details', :locals => {:entity => @spexare}

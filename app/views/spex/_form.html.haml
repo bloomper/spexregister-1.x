@@ -1,16 +1,16 @@
 %div
+  - f.field_container :title do
+    = f.label :title, t('activerecord.attributes.spex.title')
+    %span.required= t 'views.base.mandatory_attribute'
+    %br>
+    = f.error_message_on :title
+    = f.text_field :title, :class => 'fullwidth'
   - f.field_container :year do
     = f.label :year, t('activerecord.attributes.spex.year')
     %span.required= t 'views.base.mandatory_attribute'
     %br>
     = f.error_message_on :year
     = f.select :year, get_spex_years.reverse
-  - f.field_container :title do
-    = f.label :title, t('activerecord.attributes.spex.title')
-    %span.required= t 'views.base.mandatory_attribute'
-    %br>
-    = f.error_message_on :title
-    = f.text_field :title
   - f.field_container :spex_category do
     = f.label :spex_category, t('activerecord.attributes.spex.spex_category')
     %span.required= t 'views.base.mandatory_attribute'

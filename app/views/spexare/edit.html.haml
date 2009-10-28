@@ -1,6 +1,6 @@
 = render :partial => 'administration/sub_menu'
 
-%h1= t 'views.spexare.page_title', :action => t('views.base.editing_action')
+= render :partial => 'spexare_tabs', :locals => {:edit_mode => true, :current_action => t('views.base.viewing_action'), :current_tab => 'spexare_tab'}
 
 - form_for @spexare, :url => resource_url, :html => { :method => :put, :multipart => true } do |f|
   = render :partial => 'form', :locals => { :f => f }
