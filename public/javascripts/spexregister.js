@@ -13,7 +13,7 @@ jQuery(document).ajaxStop(function() {
     jQuery("#progress-indicator").fadeOut();
 });
 
-jQuery(function(){
+jQuery(function() {
     jQuery('.datepicker').livequery( function() {
         jQuery(this).datepicker({
             showOn: 'button',
@@ -26,7 +26,7 @@ jQuery(function(){
     });
 });
 
-jQuery(function(){
+jQuery(function() {
     jQuery('.datepicker-birthdate').livequery( function() {
         jQuery(this).datepicker({
             showOn: 'button',
@@ -41,8 +41,8 @@ jQuery(function(){
     });
 });
 
-jQuery(function(){
-    jQuery('a.fancybox-single').livequery( function(){    
+jQuery(function() {
+    jQuery('a.fancybox-single').livequery( function() {    
         jQuery(this).fancybox({ 
             'hideOnContentClick': true,     
             'overlayShow': true,
@@ -53,8 +53,8 @@ jQuery(function(){
     });
 });
 
-jQuery(function(){
-    jQuery('a.fancybox-text').livequery( function(){    
+jQuery(function() {
+    jQuery('a.fancybox-text').livequery( function() {    
         jQuery(this).fancybox({ 
             'hideOnContentClick': true,     
             'overlayShow': true,

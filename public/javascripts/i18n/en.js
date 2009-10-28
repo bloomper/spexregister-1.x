@@ -18,4 +18,12 @@ jQuery(function() {
            dateFormat: 'yy-mm-dd', firstDay: 0,
            isRTL: false};
    jQuery.datepicker.setDefaults(jQuery.datepicker.regional['en']);
+
+   // jQuery Lock Submit
+   jQuery(':submit').livequery( function() {    
+       jQuery(this).lockSubmit({
+           submitText: 'Please wait',
+           onAddCSS: 'button'
+           });
+   });
 });

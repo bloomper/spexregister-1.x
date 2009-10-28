@@ -18,4 +18,12 @@ jQuery(function() {
            dateFormat: 'yy-mm-dd', firstDay: 1,
            isRTL: false};
    jQuery.datepicker.setDefaults(jQuery.datepicker.regional['sv']);
+
+   // jQuery Lock Submit
+   jQuery(':submit').livequery( function() {    
+       jQuery(this).lockSubmit({
+           submitText: 'Vänligen vänta',
+           onAddCSS: 'button'
+           });
+   });
 });

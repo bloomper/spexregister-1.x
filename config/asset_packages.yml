@@ -9,6 +9,7 @@ javascripts:
   - jquery.fancybox
   - jquery.datepicker
   - jquery.livequery
+  - jquery.lockSubmit
   - jrails
   - jrails.autocomplete
   - spexregister
