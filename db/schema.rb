@@ -83,10 +83,11 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
   add_index "memberships", ["spexare_id"], :name => "index_memberships_on_spexare_id"
 
   create_table "news", :force => true do |t|
-    t.date     "publication_date",                :null => false
-    t.string   "subject",                         :null => false
-    t.text     "body",                            :null => false
+    t.date     "publication_date",                    :null => false
+    t.string   "subject",                             :null => false
+    t.text     "body",                                :null => false
     t.string   "cached_body_html"
+    t.boolean  "is_published",     :default => false
     t.integer  "lock_version",     :default => 0
     t.string   "created_by"
     t.string   "updated_by"

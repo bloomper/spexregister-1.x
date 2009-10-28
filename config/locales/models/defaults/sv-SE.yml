@@ -39,6 +39,7 @@
         publication_date: "Publiceringsdatum"
         subject: "Ämne"
         body: "Text"
+        is_published: "Publicerad?"
       spex:
         year: "År"
         title: "Titel"

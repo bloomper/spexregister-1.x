@@ -47,6 +47,7 @@ class CreateTables < ActiveRecord::Migration
       t.string :subject, :null => false
       t.text :body, :null => false
       t.string :cached_body_html
+      t.boolean :is_published, :default => false
       t.integer :lock_version, :default => 0
       t.string :created_by
       t.string :updated_by

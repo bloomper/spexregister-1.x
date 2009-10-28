@@ -39,6 +39,7 @@
         publication_date: "Publication date"
         subject: "Subject"
         body: "Body"
+        is_published: "Published?"
       spex:
         year: "Year"
         title: "Title"

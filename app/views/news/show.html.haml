@@ -20,4 +20,10 @@
   %tr
     %td= @news.cached_body_html
 
+%table.show
+  %tr
+    %th= t 'activerecord.attributes.news.is_published'
+  %tr
+    %td= translate_boolean @news.is_published
+
 = render :partial => '/shared/entity_details', :locals => {:entity => @news}
