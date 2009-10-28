@@ -75,6 +75,15 @@ describe "Search" do
       search.username.should be_nil
     end
     
+    it "should use custom scopes before normalizing" do
+      User.create(:username => "bjohnson")
+      User.named_scope :username, lambda { |value| {:conditions => {:username => value.reverse}} }
+      search1 = User.search(:username => "bjohnson")
+      search2 = User.search(:username => "nosnhojb")
+      search1.count.should == 0
+      search2.count.should == 1
+    end
+    
     it "should ignore blank values in arrays" do
       search = User.search
       search.conditions = {"username_equals_any" => [""]}
@@ -95,7 +104,7 @@ describe "Search" do
       search.username_gt.should == "bjohnson"
     end
     
-    it "should allow chainging conditions" do
+    it "should allow chaining conditions" do
       user = User.create(:username => "bjohnson", :age => 20)
       User.create(:username => "bjohnson", :age => 5)
       search = User.search
@@ -103,6 +112,12 @@ describe "Search" do
       search.all.should == [user]
     end
     
+    it "should allow chaining conditions with n-depth associations" do
+      search = User.search
+      search.company_conglomerate_name_or_company_conglomerate_description_like("ben")
+      search.proxy_options.should == User.company_conglomerate_name_or_company_conglomerate_description_like("ben").proxy_options
+    end
+
     it "should allow setting association conditions" do
       search = User.search
       search.orders_total_gt = 10
@@ -235,6 +250,12 @@ describe "Search" do
         search = Order.search
         search.total_gt = "1.5"
         search.total_gt.should == 1.5
+      end
+      
+      it "should be a Range given 1..3" do
+        search = Order.search
+        search.total_eq = (1..3)
+        search.total_eq.should == (1..3)
       end
       
       it "should be a Date given 'Jan 1, 2009'" do

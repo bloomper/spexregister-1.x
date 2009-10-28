@@ -8,7 +8,7 @@ module Searchlogic
       
       private
         def association_condition?(name)
-          !association_condition_details(name).nil?
+          !association_condition_details(name).nil? unless name.to_s.downcase.match("_or_")
         end
         
         def method_missing(name, *args, &block)
@@ -20,11 +20,12 @@ module Searchlogic
           end
         end
         
-        def association_condition_details(name)
+        def association_condition_details(name, last_condition = nil)
           assocs = reflect_on_all_associations.reject { |assoc| assoc.options[:polymorphic] }.sort { |a, b| b.name.to_s.size <=> a.name.to_s.size }
           return nil if assocs.empty?
           
-          if name.to_s =~ /^(#{assocs.collect(&:name).join("|")})_(\w+)$/
+          name_with_condition = [name, last_condition].compact.join('_')
+          if name_with_condition.to_s =~ /^(#{assocs.collect(&:name).join("|")})_(\w+)$/
             association_name = $1
             condition = $2
             association = reflect_on_association(association_name.to_sym)

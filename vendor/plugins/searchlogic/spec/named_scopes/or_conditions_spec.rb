@@ -38,4 +38,16 @@ describe "Or conditions" do
     User.username_begins_with("ben").id_gt(10).age_not_nil.username_or_name_ends_with("ben").scope(:find).should ==
       {:conditions => "((users.username LIKE '%ben') OR (users.name LIKE '%ben')) AND ((users.age IS NOT NULL) AND ((users.id > 10) AND (users.username LIKE 'ben%')))"}
   end
+  
+  it "should play nice with scopes on associations" do
+    lambda { User.name_or_company_name_like("ben") }.should_not raise_error(Searchlogic::NamedScopes::OrConditions::NoConditionSpecifiedError)
+    User.name_or_company_name_like("ben").proxy_options.should == {:joins => :company, :conditions => "(users.name LIKE '%ben%') OR (companies.name LIKE '%ben%')"}
+    User.company_name_or_name_like("ben").proxy_options.should == {:joins => :company, :conditions => "(companies.name LIKE '%ben%') OR (users.name LIKE '%ben%')"}
+    User.company_name_or_company_description_like("ben").proxy_options.should == {:joins =>[:company], :conditions => "(companies.name LIKE '%ben%') OR (companies.description LIKE '%ben%')"}
+  end
+
+  it "should play nice with n-depth scopes on associations" do
+    User.company_conglomerate_name_or_company_conglomerate_description_like("ben").proxy_options.should ==
+      {:joins =>[{:company, :conglomerate}], :conditions => "(conglomerates.name LIKE '%ben%') OR (conglomerates.description LIKE '%ben%')"}
+  end
 end

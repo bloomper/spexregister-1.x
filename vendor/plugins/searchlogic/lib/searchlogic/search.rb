@@ -117,7 +117,11 @@ module Searchlogic
       end
       
       def normalize_scope_name(scope_name)
-        klass.column_names.include?(scope_name.to_s) ? "#{scope_name}_equals".to_sym : scope_name.to_sym
+        case
+        when klass.scopes.key?(scope_name.to_sym) then scope_name.to_sym
+        when klass.column_names.include?(scope_name.to_s) then "#{scope_name}_equals".to_sym
+        else scope_name.to_sym
+        end
       end
       
       def setter?(name)
@@ -138,7 +142,7 @@ module Searchlogic
       end
       
       def cast_type(name)
-        klass.send(name, nil) if !klass.respond_to?(name) # We need to set up the named scope if it doesn't exist, so we can get a value for named_ssope_options
+        klass.send(name, nil) if !klass.respond_to?(name) # We need to set up the named scope if it doesn't exist, so we can get a value for named_scope_options
         named_scope_options = klass.named_scope_options(name)
         arity = klass.named_scope_arity(name)
         if !arity || arity == 0
@@ -152,6 +156,8 @@ module Searchlogic
         case value
         when Array
           value.collect { |v| type_cast(v, type) }
+        when Range
+          Range.new(type_cast(value.first, type), type_cast(value.last, type))
         else
           # Let's leverage ActiveRecord's type casting, so that casting is consistent
           # with the other models.
