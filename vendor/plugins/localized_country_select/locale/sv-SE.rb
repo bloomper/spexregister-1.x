@@ -1,9 +1,9 @@
-{ :sv => {
+{ :'sv-SE' => {
 
     :countries => {
 			:AD => "Andorra",
 			:AE => "Förenade Arabemiraten",
-			:AF => "AfghanistanR222",
+			:AF => "Afghanistan",
 			:AG => "Antigua och Barbuda",
 			:AI => "Anguilla",
 			:AL => "Albanien",
@@ -142,7 +142,7 @@
 			:MC => "Monaco",
 			:MD => "Moldavien",
 			:ME => "Montenegro",
-			:MF => "S:t Martin; [draft=contributed]",
+			:MF => "S:t Martin",
 			:MG => "Madagaskar",
 			:MH => "Marshallöarna",
 			:MK => "Makedonien",
@@ -234,8 +234,8 @@
 			:TZ => "Tanzania",
 			:UA => "Ukraina",
 			:UG => "Uganda",
-			:UM => "USA:s yttre öarR221",
-			:US => "USAR217",
+			:UM => "USA:s yttre öar",
+			:US => "USA",
 			:UY => "Uruguay",
 			:UZ => "Uzbekistan",
 			:VA => "Vatikanstaten",
@@ -251,8 +251,7 @@
 			:YT => "Mayotte",
 			:ZA => "Sydafrika",
 			:ZM => "Zambia",
-			:ZW => "Zimbabwe",
-			:ZZ => "okänd eller ogiltig regionkod",
+			:ZW => "Zimbabwe"
     } 
 
   }

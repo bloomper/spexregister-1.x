@@ -31,6 +31,10 @@
     %br>
     = f.error_message_on :postal_address
     = f.text_field :postal_address
+  - f.field_container :country do
+    = f.label :country, t('activerecord.attributes.spexare.country')
+    = f.error_message_on :country
+    = f.localized_country_select :country, [" "]
   - f.field_container :phone_home do
     = f.label :phone_home, t('activerecord.attributes.spexare.phone_home')
     %br>
