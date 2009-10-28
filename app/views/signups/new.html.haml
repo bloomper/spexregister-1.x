@@ -4,26 +4,27 @@
   %p
     = t 'views.signup.instructions'
   - form_tag signups_path do
+    = negative_captcha(@captcha)
     %p
       = label_tag :full_name, t('activerecord.attributes.other.full_name')
       %br>
-      = text_field_tag :full_name, nil, :class => 'title'
+      = negative_text_field_tag @captcha, :full_name, :class => 'title'
     %p
       = label_tag :username, t('activerecord.attributes.user.username')
       %br>
-      = text_field_tag :username, nil, :class => 'title'
+      = negative_text_field_tag @captcha, :username, :class => 'title'
     %p
       = label_tag :password, t('activerecord.attributes.user.password')
       %br>
-      = password_field_tag :password, nil, :class => 'title'
+      = negative_password_field_tag @captcha, :password, :class => 'title'
     %p
       = label_tag :password_confirmation, t('activerecord.attributes.user.password_confirmation')
       %br>
-      = password_field_tag :password_confirmation, nil, :class => 'title'
+      = negative_password_field_tag @captcha, :password_confirmation, :class => 'title'
     %p
       = label_tag :description, t('activerecord.attributes.other.description')
       %small= t('views.signup.description_note') 
       %br>
-      = text_area_tag :description, nil, :class => 'title'
+      = negative_text_area_tag @captcha, :description, :class => 'title'
     %p
       = submit_tag t('views.signup.create_my_account'), :class => 'button primary'

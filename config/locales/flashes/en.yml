@@ -81,6 +81,7 @@
     signups:
       create:
         notice: "The account has been created"
+        error: "The accound could not be created"
     user_sessions:
       create:
         notice: "You have been logged in"

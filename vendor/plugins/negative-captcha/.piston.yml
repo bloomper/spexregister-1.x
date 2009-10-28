@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 86cb81dffe47ee95770c2f72f893dfcdd98e0bb7
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/subwindow/negative-captcha.git

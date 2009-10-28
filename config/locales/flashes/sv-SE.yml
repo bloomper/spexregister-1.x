@@ -81,6 +81,7 @@
     signups:
       create:
         notice: "Kontot har skapats"
+        error: "Konto kunde inte skapas"
     user_sessions:
       create:
         notice: "Du har loggats in"
