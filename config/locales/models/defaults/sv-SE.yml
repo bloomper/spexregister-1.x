@@ -32,7 +32,7 @@
         function_category: "Kategori"
       function_category:
         name: "Namn"
-        has_actor: "Ensemblistrelation"
+        has_actor: "Ensemblistrelation?"
       membership:
         type_id: "Typ"
       news:

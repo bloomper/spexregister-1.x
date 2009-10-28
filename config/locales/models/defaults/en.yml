@@ -32,7 +32,7 @@
         function_category: "Category"
       function_category:
         name: "Name"
-        has_actor: "Ensemble relation"
+        has_actor: "Ensemble relation?"
       membership:
         type_id: "Type"
       news:
