@@ -14,7 +14,7 @@
 
 /* Native widget or wrapped widget styles */
 .ui-checkbox, .ui-radio {
-	margin: 4px;
+	margin: 2px 4px 2px 2px;
 	border-width: 1px;
 	width: 16px;
 	display: inline;

@@ -47,5 +47,8 @@
         %label= t 'activerecord.attributes.news.subject'
         %br>
         = f.text_field :subject_contains, :size => 15
+      %p
+        %label= t 'activerecord.attributes.news.is_published'
+        = f.check_box :is_published_equals
       %p.form-buttons
         = button t('views.base.search')
