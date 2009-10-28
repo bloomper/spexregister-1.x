@@ -64,3 +64,9 @@ jQuery(function() {
             });
     });
 });
+
+jQuery(function() {
+    jQuery('input[type=checkbox]').livequery( function() {    
+        jQuery(this).checkbox();
+    });
+});

@@ -10,6 +10,7 @@ javascripts:
   - jquery.datepicker
   - jquery.livequery
   - jquery.lockSubmit
+  - jquery.checkbox
   - jrails
   - jrails.autocomplete
   - spexregister
@@ -20,6 +21,7 @@ stylesheets:
   - jquery.alerts
   - jquery.fancybox
   - jquery.datepicker
+  - jquery.checkbox
   - jquery.flick.theme
 - ie:
   - compiled/ie
