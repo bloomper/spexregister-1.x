@@ -11,6 +11,6 @@ class Membership < ActiveRecord::Base
   protected
   validates_inclusion_of_enum :kind_id, { :message => :inclusion, :allow_blank => false }
   validates_presence_of :year
-  validates_format_of :year, :with => /^(19|20)\d{2}$/
+  validates_format_of :year, :with => /^(19|20)\d{2}$/, :allow_blank => true
 
 end

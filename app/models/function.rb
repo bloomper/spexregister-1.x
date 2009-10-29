@@ -8,13 +8,13 @@ class Function < ActiveRecord::Base
   
   protected
   def validate_uniqueness_on_create
-    if !function_category.nil? && Function.find(:first, :joins => 'INNER JOIN function_categories', :conditions => ['functions.function_category_id = function_categories.id AND functions.name = ? AND function_categories.id = ?', name, function_category.id])
+    if !function_category.nil? && !name.nil? && Function.find(:first, :joins => 'INNER JOIN function_categories', :conditions => ['functions.function_category_id = function_categories.id AND functions.name = ? AND function_categories.id = ?', name, function_category.id])
       errors.add_to_base(I18n.t('function.invalid_combination'))
     end
   end
   
   def validate_uniqueness_on_update
-    if !function_category.nil? && Function.find(:first, :joins => 'INNER JOIN function_categories', :conditions => ['functions.function_category_id = function_categories.id AND functions.name = ? AND function_categories.id = ? AND functions.id <> ?', name, function_category.id, id])
+    if !function_category.nil? && !name.nil? && Function.find(:first, :joins => 'INNER JOIN function_categories', :conditions => ['functions.function_category_id = function_categories.id AND functions.name = ? AND function_categories.id = ? AND functions.id <> ?', name, function_category.id, id])
       errors.add_to_base(I18n.t('function.invalid_combination'))
     end
   end

@@ -16,7 +16,7 @@ class Spex < ActiveRecord::Base
   
   protected
   def validate_uniqueness_on_create
-    if !spex_category.nil?
+    if !spex_category.nil? && !year.nil? && !title.nil?
       if Spex.find(:first, :joins => 'INNER JOIN spex_categories', :conditions => ['spex.spex_category_id = spex_categories.id AND spex.year = ? AND spex.title = ? AND spex.is_revival = ? AND spex_categories.id = ?', year, title, is_revival, spex_category.id])
         errors.add_to_base(I18n.t('spex.invalid_combination'))
       elsif Spex.find(:first, :joins => 'INNER JOIN spex_categories', :conditions => ['spex.spex_category_id = spex_categories.id AND spex.title = ? AND spex.is_revival = ? AND spex_categories.id = ?', title, is_revival, spex_category.id])
@@ -26,7 +26,7 @@ class Spex < ActiveRecord::Base
   end
   
   def validate_uniqueness_on_update
-    if !spex_category.nil?
+    if !spex_category.nil? && !year.nil? && !title.nil?
       if Spex.find(:first, :joins => 'INNER JOIN spex_categories', :conditions => ['spex.spex_category_id = spex_categories.id AND spex.year = ? AND spex.title = ? AND spex.is_revival = ? AND spex_categories.id = ? AND spex.id <> ?', year, title, is_revival, spex_category.id, id])
         errors.add_to_base(I18n.t('spex.invalid_combination'))
       elsif Spex.find(:first, :joins => 'INNER JOIN spex_categories', :conditions => ['spex.spex_category_id = spex_categories.id AND spex.title = ? AND spex.is_revival = ? AND spex_categories.id = ? AND spex.id <> ?', title, is_revival, spex_category.id, id])
@@ -40,7 +40,7 @@ class Spex < ActiveRecord::Base
   validates_presence_of :year
   validates_presence_of :title
   validates_presence_of :spex_category
-  validates_format_of :year, :with => /^(19|20)\d{2}$/
+  validates_format_of :year, :with => /^(19|20)\d{2}$/, :allow_blank => true
   validates_attachment_content_type :poster, :content_type => ApplicationConfig.allowed_file_types.split(/,/), :if => Proc.new { |s| s.poster? } 
   validates_attachment_size :poster, :less_than => ApplicationConfig.max_upload_size.kilobytes, :if => Proc.new { |s| s.poster? }
   
