@@ -1,5 +1,5 @@
 %div
-  .span-22
+  #spexare-names
     - f.field_container :last_name do
       = f.label :last_name, t('activerecord.attributes.spexare.last_name')
       %span.required= t 'views.base.mandatory_attribute'
@@ -12,7 +12,7 @@
       %br>
       = f.error_message_on :first_name
       = f.text_field :first_name, :class => 'fullwidth'
-  .span-8
+  #spexare-address
     - f.field_container :nick_name do
       = f.label :nick_name, t('activerecord.attributes.spexare.nick_name')
       %br>
@@ -42,7 +42,7 @@
       = f.label :uncertain_address, t('activerecord.attributes.spexare.uncertain_address')
       = f.error_message_on :uncertain_address
       = f.check_box :uncertain_address
-  .span-7
+  #spexare-phones
     - f.field_container :phone_home do
       = f.label :phone_home, t('activerecord.attributes.spexare.phone_home')
       %br>
@@ -68,7 +68,7 @@
       %br>
       = f.error_message_on :email_address
       = f.text_field :email_address
-  .span-7
+  #spexare-tickboxes
     - f.field_container :birth_date do
       = f.label :birth_date, t('activerecord.attributes.spexare.birth_date')
       %br>
@@ -102,7 +102,7 @@
       = f.label :want_circulars, t('activerecord.attributes.spexare.want_circulars')
       = f.error_message_on :want_circulars
       = f.check_box :want_circulars
-  .span-8
+  #spexare-picture
     - f.field_container :picture do
       = f.label :poster, t('activerecord.attributes.spexare.picture')
       - if @spexare.picture?
@@ -117,7 +117,7 @@
       %br>
       = f.error_message_on :picture
       = f.file_field :picture
-  .span-14
+  #spexare-comment
     - f.field_container :comment do
       = f.label :comment, t('activerecord.attributes.spexare.comment')
       %br>
