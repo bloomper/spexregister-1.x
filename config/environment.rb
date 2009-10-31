@@ -49,5 +49,5 @@ Rails::Initializer.run do |config|
   config.i18n.load_path += Dir[File.join(RAILS_ROOT, 'config', 'locales', '**', '*.{rb,yml}')]
   config.i18n.default_locale = 'sv-SE'
 
-  config.active_record.colorize_logging = false 
+  config.active_record.colorize_logging = false
 end
