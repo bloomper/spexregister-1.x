@@ -14,7 +14,7 @@ development: &defaults
   consecutive_failed_logins_limit: 5
   failed_login_ban_for: <%= 2.hours.to_i %>
   first_spex_year: 1948
-  first_fgv_year: 1980
+  first_fgv_year: 1987
   first_cing_year: 1907
 test:
   <<: *defaults
