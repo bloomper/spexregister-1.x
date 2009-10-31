@@ -8,10 +8,10 @@ class String
   end
 end
 
-def import_posters(spex_category_name, spex_category_id)
-  posters_path = Dir[File.join("#{RAILS_ROOT}", 'test', 'fixtures', 'files', "#{spex_category_name.downcase}", '**', '*.{jpg,png,gif}')]
+def import_posters(spex_category)
+  posters_path = Dir[File.join("#{RAILS_ROOT}", 'test', 'fixtures', 'files', "#{spex_category.name.downcase}", '**', '*.{jpg,png,gif}')]
   posters_path.flatten.each do |poster|
-    spex_items = Spex.find(:all, :conditions => ['year = ? AND is_revival = ? AND spex_category_id = ?', File.basename(poster, File.extname(poster)), false, spex_category_id])
+    spex_items = Spex.find(:all, :conditions => ['year = ? AND is_revival = ? AND spex_category_id = ?', File.basename(poster, File.extname(poster)), false, spex_category.id])
     spex_items.each do |spex|
       puts "  Uploading poster for spex (year: #{spex.year}, title: #{spex.title})"
       uploaded_poster = ActionController::TestUploadedFile.new(File.new(poster).path, "image/#{File.extname(poster).nibble(1)}", true)
@@ -21,7 +21,7 @@ def import_posters(spex_category_name, spex_category_id)
       else
         puts "    Upload failed due to '#{spex.errors.on(:poster)}'"
       end
-      spex_revival_items = Spex.find(:all, :conditions => ['title = ? AND is_revival = ? AND spex_category_id = ?', spex.title, true, spex_category_id])
+      spex_revival_items = Spex.find(:all, :conditions => ['title = ? AND is_revival = ? AND spex_category_id = ?', spex.title, true, spex_category.id])
       spex_revival_items.each do |spex_revival|
         puts "    Uploading poster for spex revival (year: #{spex_revival.year})"
         spex_revival.poster = uploaded_poster
@@ -38,9 +38,9 @@ end
 namespace :spexregister do
   desc 'Import spex posters'
   task :import_posters => :environment do
-    ['Bob', 'Vera'].each do |spex_category|
-      puts "Importing #{spex_category} posters..."
-      import_posters(spex_category, SpexCategory.find_by_name(spex_category).id)
+    SpexCategory.find(:all).each do |spex_category|
+      puts "Importing #{spex_category.name} posters..."
+      import_posters(spex_category)
     end
   end
 end
