@@ -1,7 +1,7 @@
 --- 
 format: 1
 handler: 
-  commit: ca5ccd1821a5059bb69afe1ad8ba5b03710f34e5
+  commit: 99b494e775e62ce01dd478eda1f2cbb40a115430
   branch: master
 lock: false
 repository_class: Piston::Git::Repository
