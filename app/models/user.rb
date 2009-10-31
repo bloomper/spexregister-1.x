@@ -36,6 +36,18 @@ class User < ActiveRecord::Base
     active?
   end
 
+  def inactive?
+    ['inactive'].include? self.state
+  end
+
+  def pending?
+    ['pending'].include? self.state
+  end
+
+  def rejected?
+    ['rejected'].include? self.state
+  end
+
   protected
   def deliver_password_reset_instructions!
     reset_perishable_token!

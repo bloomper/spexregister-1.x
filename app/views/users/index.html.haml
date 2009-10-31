@@ -1,0 +1,46 @@
+= render :partial => 'administration/sub_menu'
+
+.toolbar
+  %ul.actions
+    %li
+      = button_link_to_remote t('views.user.new_user'), { :url => new_resource_url, :method => :get, :update => 'new-user' }, :icon => 'add'
+
+%h1= t 'views.user.index_title', :action => t('views.base.listing_action')
+
+#new-user
+
+- if @users.empty?
+  %p= t 'views.user.no_users_exist'
+- else
+  .number-of-hits= page_entries_info @users
+  %table.index
+    %tr
+      %th= order @search, :by => :username, :as => t('activerecord.attributes.user.username')
+      %th= order @search, :by => :state, :as => t('activerecord.attributes.user.state')
+      %th.user-action-column= t 'views.base.action'
+      - @users.each do |user|
+        %tr{:id => dom_id(user), :class => cycle('even', 'odd')}
+          %td= h user.username
+          %td= h translate_user_state(user.state)
+          %td.actions
+            = link_to_view_action user
+            = link_to_edit_action user
+            = link_to_delete_action user
+            = link_to_state_events user
+
+= will_paginate (:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+
+= content_for :sidebar do 
+  - form_for @search do |f|
+    .box
+      %h3= t 'views.base.search'
+      %p
+        %label= t 'activerecord.attributes.user.username'
+        %br>
+        = f.text_field :username_contains, :size => 15
+      %p
+        %label= t 'activerecord.attributes.user.state'
+        %br>
+        = f.select :state_equals, get_available_states_first_empty
+      %p.form-buttons
+        = button t('views.base.search')

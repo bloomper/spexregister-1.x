@@ -1,0 +1,60 @@
+= render :partial => 'administration/sub_menu'
+
+= render :partial => 'user_tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :current_tab => 'user_tab'}
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.user.username'
+  %tr
+    %td= h @user.username
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.user.user_groups'
+  - @user.user_groups.each do |user_group|
+    %tr
+      %td= t "user_group.name.#{user_group.name.downcase}"
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.user.login_count'
+  %tr
+    %td= h @user.login_count
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.user.failed_login_count'
+  %tr
+    %td= h @user.failed_login_count
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.user.last_request_at'
+  %tr
+    %td= h @user.last_request_at
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.user.current_login_at'
+  %tr
+    %td= h @user.current_login_at
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.user.last_login_at'
+  %tr
+    %td= h @user.last_login_at
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.user.current_login_ip'
+  %tr
+    %td= h @user.current_login_ip
+
+%table.index
+  %tr
+    %th= t 'activerecord.attributes.user.last_login_ip'
+  %tr
+    %td= h @user.last_login_ip
+
+= render :partial => '/shared/entity_details', :locals => {:entity => @user}

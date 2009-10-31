@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   inherit_resources
   respond_to :html
-  
+  respond_to :js, :only => :destroy
+
   def new
     new! do |format|
       format.html { render :action => :new, :layout => false }
@@ -10,8 +11,34 @@ class UsersController < ApplicationController
   
   def create
     create! do |success, failure|
-      success { add_lockdown_session_values }
+      success.html { redirect_to users_url }
     end
+  end
+
+  def update
+    update! do |success, failure|
+      success.html { redirect_to users_url }
+    end
+  end
+  
+  def approve
+    @user = User.find_by_id(params[:id])
+    @user.approve!
+  end
+
+  def activate
+    @user = User.find_by_id(params[:id])
+    @user.activate!
+  end
+
+  def deactivate
+    @user = User.find_by_id(params[:id])
+    @user.deactivate!
+  end
+
+  def reject
+    @user = User.find_by_id(params[:id])
+    @user.reject!
   end
 
   protected

@@ -25,10 +25,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :function_categories
   map.resources :functions
   map.resources :news
-  map.resources :users, :shallow => true do |user|
-    user.resource :spexare
-    user.resources :user_groups do |user_group|
-      user_group.resources :permissions
+  map.resources :users, :shallow => true, :member => { :approve => :put, :activate => :put, :deactivate => :put, :reject => :put } do |user|
+    user.resources :user_groups, :only => [:index, :show] do |user_group|
+      user_group.resources :permissions, :only => [:index, :show]
     end
   end
   map.resources :spexare, :shallow => true do |spexare|

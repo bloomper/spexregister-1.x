@@ -1,3 +1,4 @@
 "en":
   views:
     user_group:
+      description_tab_title: "Groups"

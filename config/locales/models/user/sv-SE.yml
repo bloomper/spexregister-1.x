@@ -1,3 +1,8 @@
 "sv-SE":
   user:
+    state:
+      pending: "Avvaktande"
+      active: "Aktiv"
+      inactive: "Inaktiv"
+      rejected: "Avslagen"
     cannot_delete_all_users: "Kan inte radera samtliga användare, minst en måste existera"

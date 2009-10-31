@@ -7,28 +7,26 @@ Short-term
 - Immediate problems
   - Get rid of annoying SASS errors (deprecation)
   - Lockdown model restrictions do not work as expected
-  - Checkbox problem at submit
-
-- http://digitalbush.com/projects/masked-input-plugin/
-- http://www.webintenta.com/9914.html (collapse/expand)
-- http://code.google.com/p/jquery-asmselect/ (for spex and functions)
 
 - Controllers/views/translation
   - User
+    - Remove permissions_controller?
+    - Remove user_groups_controller?
+    - Remove user_tabs?
+    - Correct actions in routes for user_groups and permissions?
+    - Move user_groups from show and form to correct place?
+    - Add spexare to form (auto complete!)
+    - Too many mails seem to be sent
   - Spexare
-    - Better form layout
-      - Move into CSS and make it work for both edit and create
-      - jQuery checkbox?
-      - Checkbox text to the right?
-      - Other jQuery goodies?
+    - Implement edit
+      - Tabs
+        - Memberships
+          - Three columns?
+        - Cohabitants
+        - Activities
     - Implement show
       - Tabs
         - Description
-        - Memberships
-        - Cohabitants
-        - Activities
-    - Implement edit
-      - Tabs
         - Memberships
         - Cohabitants
         - Activities
@@ -53,6 +51,8 @@ Short-term
   - http://github.com/gunark/jasperserver-client
 
 - Advanced search
+
+- Exception notifier
 
 - Require SSL?
 
@@ -79,9 +79,9 @@ Medium-term
 
 - Help page for administrators
 
-- Fix import script/program
+- Merge recent changes from existing register
 
-- Import existing spex posters
+- Import existing spex posters using rake task
 
 Long-term
 ---------
@@ -91,7 +91,7 @@ Long-term
 - Use friendly_id?
   - http://agilewebdevelopment.com/plugins/friendly_id
 
-- Better modeling of revivals
+- Better modeling of revivals to avoid duplication
   - Kind of tricky since the relationship with a spexare must be with the year(s)
 
 - If deleting all entities, the table will be empty, i.e. the "none exist" message is not shown
@@ -104,9 +104,13 @@ Problems
 
 - Lockdown
   - http://stonean.lighthouseapp.com/projects/33317/tickets/30-error-in-functional-test
-  - Lockdown fails when running 'rake db:migrate' (did not happen with 1.3.1)
+  - http://stonean.lighthouseapp.com/projects/33317/tickets/35-issue-with-dbmigrate-some-other-plugins
 
 Goodies
 -------
 
 - http://jetpackweb.com/blog/2009/10/14/high-quality-ruby-on-rails-example-applications/
+- http://code.google.com/p/jquery-asmselect/ (for spex and functions)
+- http://railsbuilder.blogspot.com/2009/05/multiple-select-option-in-rails.html
+- http://thechriswalker.net/2009-02/multiple-drag-and-drop-between-two-lists-with-jquery.html
+- http://www.quasipartikel.at/multiselect/
