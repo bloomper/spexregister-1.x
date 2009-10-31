@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
   
   def password_reset_instructions(email_address)
     subject       I18n.t('mailers.subject_prefix') + ' ' + I18n.t('mailers.user.password_reset_instructions')
-    from          ApplicationConfig.admin_mail_address
+    from          ApplicationConfig.admin_email_address
     recipients    email_address
     sent_on       Time.now
     body          :edit_password_reset_url => edit_password_reset_url(user.perishable_token)
@@ -11,7 +11,7 @@ class UserMailer < ActionMailer::Base
   
   def account_created_instructions(email_address)
     subject       I18n.t('mailers.subject_prefix') + ' ' + I18n.t('mailers.user.account_created_instructions')
-    from          ApplicationConfig.admin_mail_address
+    from          ApplicationConfig.admin_email_address
     recipients    email_address
     sent_on       Time.now
     body          :login_url => login_url
@@ -19,7 +19,7 @@ class UserMailer < ActionMailer::Base
   
   def account_approved_instructions(email_address)
     subject       I18n.t('mailers.subject_prefix') + ' ' + I18n.t('mailers.user.account_approved_instructions')
-    from          ApplicationConfig.admin_mail_address
+    from          ApplicationConfig.admin_email_address
     recipients    email_address
     sent_on       Time.now
     body          :login_url => login_url
@@ -27,7 +27,7 @@ class UserMailer < ActionMailer::Base
 
   def account_rejected_instructions(email_address)
     subject       I18n.t('mailers.subject_prefix') + ' ' + I18n.t('mailers.user.account_rejected_instructions')
-    from          ApplicationConfig.admin_mail_address
+    from          ApplicationConfig.admin_email_address
     recipients    email_address
     sent_on       Time.now
   end
