@@ -19,8 +19,6 @@ class Spex < ActiveRecord::Base
     if !spex_category.nil? && !year.nil? && !title.nil?
       if Spex.find(:first, :joins => 'INNER JOIN spex_categories', :conditions => ['spex.spex_category_id = spex_categories.id AND spex.year = ? AND spex.title = ? AND spex.is_revival = ? AND spex_categories.id = ?', year, title, is_revival, spex_category.id])
         errors.add_to_base(I18n.t('spex.invalid_combination'))
-      elsif Spex.find(:first, :joins => 'INNER JOIN spex_categories', :conditions => ['spex.spex_category_id = spex_categories.id AND spex.title = ? AND spex.is_revival = ? AND spex_categories.id = ?', title, is_revival, spex_category.id])
-        errors.add_to_base(I18n.t('spex.combination_already_exists'))
       end
     end
   end
@@ -29,8 +27,6 @@ class Spex < ActiveRecord::Base
     if !spex_category.nil? && !year.nil? && !title.nil?
       if Spex.find(:first, :joins => 'INNER JOIN spex_categories', :conditions => ['spex.spex_category_id = spex_categories.id AND spex.year = ? AND spex.title = ? AND spex.is_revival = ? AND spex_categories.id = ? AND spex.id <> ?', year, title, is_revival, spex_category.id, id])
         errors.add_to_base(I18n.t('spex.invalid_combination'))
-      elsif Spex.find(:first, :joins => 'INNER JOIN spex_categories', :conditions => ['spex.spex_category_id = spex_categories.id AND spex.title = ? AND spex.is_revival = ? AND spex_categories.id = ? AND spex.id <> ?', title, is_revival, spex_category.id, id])
-        errors.add_to_base(I18n.t('spex.combination_already_exists'))
       end
     end
   end

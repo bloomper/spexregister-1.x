@@ -71,13 +71,6 @@ class SpexTest < ActiveSupport::TestCase
     assert(spex.errors.on_base, "Expected an error for invalid combination")
   end
 
-  test "should not save spex with already existing combination" do
-    existing_spex = spex(:spex_1)
-    spex = Spex.new(:year => '2099', :title => existing_spex.title, :spex_category => existing_spex.spex_category)
-    assert(!spex.valid?, "Should not save entry if an already existing combination has been set")
-    assert(spex.errors.on_base, "Expected an error for already existing combination")
-  end
-
   test "should not update spex with invalid combination" do
     existing_spex = spex(:spex_1)
     spex = Spex.create(:year => '2099', :title => Time.now, :spex_category => spex_categories(:spex_category))
@@ -90,15 +83,14 @@ class SpexTest < ActiveSupport::TestCase
     assert(spex.errors.on_base, "Expected an error for invalid combination")
   end
 
-  test "should not update spex with already existing combination" do
-    existing_spex = spex(:spex_1)
-    spex = Spex.create(:year => '2099', :title => Time.now, :spex_category => spex_categories(:spex_category))
+  test "should be ok with multiple revivals" do
+    title = Time.now
+    spex = Spex.create(:year => '2099', :title => title, :spex_category => spex_categories(:spex_category))
     assert spex.valid?, spex.errors.full_messages.join("\n") 
-    spex.title = existing_spex.title
-    spex.spex_category = existing_spex.spex_category
-    spex.save
-    assert(!spex.valid?, "Should not update entry if an already existing combination has been set")
-    assert(spex.errors.on_base, "Expected an error for already existing combination")
+    spex = Spex.create(:year => '2100', :title => title, :spex_category => spex_categories(:spex_category), :is_revival => true)
+    assert spex.valid?, spex.errors.full_messages.join("\n") 
+    spex = Spex.create(:year => '2101', :title => title, :spex_category => spex_categories(:spex_category), :is_revival => true)
+    assert spex.valid?, spex.errors.full_messages.join("\n") 
   end
 
 end

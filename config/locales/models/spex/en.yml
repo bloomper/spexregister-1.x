@@ -1,4 +1,3 @@
 "en":
   spex:
     invalid_combination: "The combination of year, title, revival and category already exists"
-    combination_already_exists: "There is already a spex with entered title, revival and category"
