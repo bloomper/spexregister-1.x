@@ -7,8 +7,10 @@
 #   Major.create(:name => 'Daley', :city => cities.first)
 
 # Users
-User.create :username => 'admin@chalmersspexet.se', :password => 'admin99', :password_confirmation => 'admin99', :user_groups => [ UserGroup.find_by_name('Administrators') ], :state => :active
-User.create :username => 'user@chalmersspexet.se', :password => 'user99', :password_confirmation => 'user99', :user_groups => [ UserGroup.find_by_name('Users') ], :state => :active
+user = User.create :username => 'admin@chalmersspexet.se', :password => 'admin99', :password_confirmation => 'admin99', :user_groups => [ UserGroup.find_by_name('Administrators') ]
+user.approve!
+user = User.create :username => 'user@chalmersspexet.se', :password => 'user99', :password_confirmation => 'user99', :user_groups => [ UserGroup.find_by_name('Users') ]
+user.approve!
 
 # Function categories
 FunctionCategory.create :name => 'Kommitté'
