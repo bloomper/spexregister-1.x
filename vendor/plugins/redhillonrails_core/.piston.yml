@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 18b5c3607ef5574122384dd4562be5ed934c3d63
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/weplay/redhillonrails_core.git
