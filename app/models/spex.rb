@@ -40,7 +40,7 @@ class Spex < ActiveRecord::Base
   validates_presence_of :year
   validates_presence_of :title
   validates_presence_of :spex_category
-  validates_format_of :year, :with => /^(19|20)\d{2}$/, :allow_blank => true
+  validates_format_of :year, :with => /^(19|20|21)\d{2}$/, :allow_blank => true
   validates_attachment_content_type :poster, :content_type => ApplicationConfig.allowed_file_types.split(/,/), :if => Proc.new { |s| s.poster? } 
   validates_attachment_size :poster, :less_than => ApplicationConfig.max_upload_size.kilobytes, :if => Proc.new { |s| s.poster? }
   
