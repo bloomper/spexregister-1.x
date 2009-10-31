@@ -182,6 +182,7 @@ Spex.create :year => '2007', :title => 'Frankenstein', :spex_category => vera_sp
 Spex.create :year => '2008', :title => 'Picasso', :spex_category => bob_spex_category
 Spex.create :year => '2008', :title => 'Wyatt Earp & Doc Holiday', :spex_category => vera_spex_category
 Spex.create :year => '2009', :title => 'Newton', :spex_category => bob_spex_category
+Spex.create :year => '2009', :title => 'Taj Mahal', :spex_category => vera_spex_category
 
 # Revivals
 Spex.create :year => '1968', :title => 'Henrik VIII', :is_revival => true, :spex_category => bob_spex_category
