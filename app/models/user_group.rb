@@ -1,11 +1,14 @@
 class UserGroup < ActiveRecord::Base
   has_and_belongs_to_many :permissions
   has_and_belongs_to_many :users
-  acts_as_dropdown :value => 'id', :text => 'name', :order => 'name ASC'
 
   validates_presence_of :name
   
-	def all_users
+  def translated_name
+    I18n.t "user_group.name.#{self.name.downcase}"
+  end
+
+  def all_users
 		User.find_by_sql <<-SQL
 			select users.* 
 			from users, user_groups_users
