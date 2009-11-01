@@ -70,6 +70,18 @@
       destroy:
         notice: "Användaren har raderats"
         error: "Användaren kunde inte raderas"
+      approve:
+        notice: "Användaren har godkänts"
+        error: "Användaren kunde inte godkännas"
+      activate:
+        notice: "Användaren har aktiverats"
+        error: "Användaren kunde inte aktiveras"
+      deactivate:
+        notice: "Användaren har deaktiverats"
+        error: "Användaren kunde inte deaktiveras"
+      reject:
+        notice: "Användaren har avslagits"
+        error: "Användaren kunde inte avslås"
     password_resets:
       create:
         notice: "Instruktioner för återställning av lösenord har skickats"

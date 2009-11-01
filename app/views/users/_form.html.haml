@@ -17,4 +17,17 @@
     %br>
     = f.error_message_on :password_confirmation
     = f.password_field :password_confirmation, :class => 'fullwidth'
+  - f.field_container :spexare do
+    = f.label :spexare, t('activerecord.models.spexare')
+    %br>
+    %small= t 'views.user.spexare_notice'
+    %br>
+    = f.error_message_on :spexare
+    = f.text_field_with_auto_complete :spexare, :class => 'fullwidth'
+  - f.field_container :user_groups do
+    = f.label :user_groups, t('activerecord.attributes.user.user_groups')
+    %span.required= t 'views.base.mandatory_attribute'
+    %br>
+    = f.error_message_on :user_groups
+    = f.collection_select :user_group_ids, UserGroup.all, :id, :translated_name, {}, { :multiple => true, :name => 'user[user_group_ids][]' }
       

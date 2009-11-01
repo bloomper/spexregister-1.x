@@ -10,3 +10,4 @@
       reject_event: "Avslå"
       deactivate_event: "Avaktivera"
       activate_event: "Aktivera"
+      spexare_notice: "Skriv enligt 'förnamn efternamn' eller 'efternamn förnamn'"

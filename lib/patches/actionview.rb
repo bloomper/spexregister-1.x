@@ -40,6 +40,14 @@ class ActionView::Helpers::FormBuilder
     @template.field_container(@object_name,method,options,&block)
   end
 
+  def text_field_with_auto_complete(method, options = {}, auto_complete_options = {})
+    text_field(method, options) + auto_complete_for(method, auto_complete_options)
+  end
+
+  def auto_complete_for(method, options = {})
+    @template.auto_complete_for(@object_name, method, options)
+  end
+
   %w(error_message_on).each do |selector|
     src = <<-end_src
       def #{selector}(method, options = {})

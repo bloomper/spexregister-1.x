@@ -11,12 +11,16 @@ Short-term
 - Controllers/views/translation
   - User
     - Remove permissions_controller?
-    - Remove user_groups_controller?
-    - Remove user_tabs?
     - Correct actions in routes for user_groups and permissions?
-    - Move user_groups from show and form to correct place?
     - Add spexare to form (auto complete!)
-    - Too many mails seem to be sent
+      - Cannot create user if no spexare
+      - How to set spexare from full name
+        - before_filter that finds the spexare and sets the id in the params hash?
+        - http://stackoverflow.com/questions/81174/in-rails-whats-the-best-way-to-get-autocomplete-that-shows-names-but-uses-ids
+        - http://blog.jasoncrystal.com/?p=52
+        - http://markmail.org/message/z2oqbxcizqvlpqtj#query:rails%20autocomplete%20hidden%20field+page:1+mid:l6gdzq252qfk4m3z+state:results
+        - http://lists.rubyonrails.org/pipermail/rails-spinoffs/2005-September/000865.html
+    - When performing event, redraw actions
   - Spexare
     - Implement edit
       - Tabs
@@ -87,6 +91,7 @@ Long-term
 ---------
 
 - Flash messages sometimes stay one request too long
+  - This is due to inherited_resources not using flash.now and there does not seem to be any way to override
 
 - Use friendly_id?
   - http://agilewebdevelopment.com/plugins/friendly_id

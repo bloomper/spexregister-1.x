@@ -22,7 +22,7 @@ module UsersHelper
     options.reverse_merge! :url => user_url(user) unless options.key? :url
     
     if user.pending?
-      construct_link_to_state_event('approve', options[:url])
+      construct_link_to_state_event('approve', options[:url]) +
       construct_link_to_state_event('reject', options[:url])
     elsif user.active? 
       construct_link_to_state_event('deactivate', options[:url])

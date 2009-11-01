@@ -1,4 +1,5 @@
 "en":
   views:
     membership:
-      description_tab_title: "Memberships"
+      fgv_description_tab_title: "FGV memberships"
+      cing_description_tab_title: "CING memberships"

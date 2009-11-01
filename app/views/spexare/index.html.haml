@@ -29,7 +29,7 @@
             = link_to_edit_action spexare
             = link_to_delete_action spexare
 
-= will_paginate (@spexare_items, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+= will_paginate(@spexare_items, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
 
 = content_for :sidebar do 
   - form_for @search do |f|
