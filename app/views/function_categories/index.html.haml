@@ -27,7 +27,7 @@
             = link_to_edit_action function_category
             = link_to_delete_action function_category
 
-= will_paginate (:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+= will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
 
 = content_for :sidebar do 
   - form_for @search do |f|
