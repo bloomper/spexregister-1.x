@@ -23,12 +23,6 @@ class NewsController < ApplicationController
     end
   end
 
-  def show
-    show! do |format|
-      format.js { render :action => :show_limited, :layout => false }
-    end
-  end
-
   protected
   def resource
     @news ||= end_of_association_chain.find_by_id(params[:id])
