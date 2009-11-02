@@ -33,7 +33,7 @@ module UsersHelper
   
   private
   def construct_link_to_state_event(event_type, base_url)
-    url = base_url.index('?') ? base_url.insert(base_url.index('?'), '/' + event_type) : base_url + '/' + event_type 
+    url = base_url.index('?') ? base_url.dup.insert(base_url.index('?'), '/' + event_type) : base_url + '/' + event_type 
     link_to_function icon_tag(event_type) + ' ' + t("views.user.#{event_type}_event"), " 
       jQuery.ajax({
         type: 'POST',
