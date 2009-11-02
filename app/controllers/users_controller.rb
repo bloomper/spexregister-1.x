@@ -1,15 +1,9 @@
 class UsersController < ApplicationController
   inherit_resources
-  respond_to :html
-  respond_to :js, :only => :destroy
+  respond_to :html, :except => [:new, :destroy]
+  respond_to :js, :only => [:new, :destroy]
   before_filter :load_user, :only => [:approve, :activate, :deactivate, :reject]
   auto_complete_for :user, :spexare
-  
-  def new
-    new! do |format|
-      format.html { render :action => :new, :layout => false }
-    end
-  end
   
   def create
     create! do |success, failure|

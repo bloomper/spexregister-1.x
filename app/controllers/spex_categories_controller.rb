@@ -1,13 +1,7 @@
 class SpexCategoriesController < ApplicationController
   inherit_resources
-  respond_to :html
-  respond_to :js, :only => :destroy
-
-  def new
-    new! do |format|
-      format.html { render :action => :new, :layout => false }
-    end
-  end
+  respond_to :html, :except => [:new, :destroy]
+  respond_to :js, :only => [:new, :destroy]
 
   def create
     create! do |success, failure|

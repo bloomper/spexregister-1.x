@@ -1,14 +1,8 @@
 class SpexareController < ApplicationController
   inherit_resources
-  respond_to :html
-  respond_to :js, :only => [:destroy, :show]
+  respond_to :html, :except => [:new, :destroy]
+  respond_to :js, :only => [:new, :index, :destroy, :show]
   defaults :collection_name => 'spexare_items', :route_collection_name => 'spexare_index'
-  
-  def new
-    new! do |format|
-      format.html { render :action => :new, :layout => false }
-    end
-  end
   
   def create
     create! do |success, failure|
@@ -19,12 +13,6 @@ class SpexareController < ApplicationController
   def update
     update! do |success, failure|
       success.html { redirect_to spexare_index_url }
-    end
-  end
-  
-  def show
-    show! do |format|
-      format.js { render :action => :show_limited, :layout => false }
     end
   end
   
