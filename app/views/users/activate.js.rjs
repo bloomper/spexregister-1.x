@@ -1,1 +1,2 @@
 page.replace 'flash', :partial => 'shared/flashes'
+page.replace "#{dom_id(@user)}-status", :partial => 'user_status_column', :locals => { :user => @user }

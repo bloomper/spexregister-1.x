@@ -1,0 +1,4 @@
+%td{:id => "#{dom_id(user)}-status"}
+  = h translate_user_state(user.state)
+  .right
+    = link_to_state_events user
