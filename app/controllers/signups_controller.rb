@@ -8,7 +8,8 @@ class SignupsController < ApplicationController
   def create
     if @captcha.valid?
       @user = User.new :username => @captcha.values[:username], :password => @captcha.values[:password], :password_confirmation => @captcha.values[:password_confirmation], :user_groups => [ UserGroup.find_by_name('Users') ]
-      if @user.save && @user.errors.size == 1 && !@user.errors.on(:spexare).nil? && !@captcha.values[:full_name].blank? && !@captcha.values[:description].blank?
+      @user.save
+      if @user.errors.size == 1 && !@user.errors.on(:spexare).nil? && !@captcha.values[:full_name].blank? && !@captcha.values[:description].blank?
         AdminMailer.deliver_new_account_instructions(@captcha.values[:full_name], @captcha.values[:username], @captcha.values[:description])
         flash[:notice] = I18n.t('flash.signups.create.notice')
         redirect_to login_path
