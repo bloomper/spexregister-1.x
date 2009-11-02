@@ -92,6 +92,6 @@ class User < ActiveRecord::Base
   validates_presence_of :user_groups
   validates_as_email_address :username
   validates_presence_of :spexare
-  validates_uniqueness_of :spexare, :allow_nil => true
+  validates_uniqueness_of :spexare_id, :allow_nil => true
 
 end

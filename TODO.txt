@@ -12,15 +12,8 @@ Short-term
   - User
     - Remove permissions_controller?
     - Correct actions in routes for user_groups and permissions?
-    - Add spexare to form (auto complete!)
-      - Cannot create user if no spexare
-      - How to set spexare from full name
-        - before_filter that finds the spexare and sets the id in the params hash?
-        - http://stackoverflow.com/questions/81174/in-rails-whats-the-best-way-to-get-autocomplete-that-shows-names-but-uses-ids
-        - http://blog.jasoncrystal.com/?p=52
-        - http://markmail.org/message/z2oqbxcizqvlpqtj#query:rails%20autocomplete%20hidden%20field+page:1+mid:l6gdzq252qfk4m3z+state:results
-        - http://lists.rubyonrails.org/pipermail/rails-spinoffs/2005-September/000865.html
-    - When performing event, redraw actions
+    - Roles tab in edit
+    - Auto complete does not work in edit mode or when there are form errors
   - Spexare
     - Implement edit
       - Tabs
@@ -101,7 +94,9 @@ Long-term
 
 - If deleting all entities, the table will be empty, i.e. the "none exist" message is not shown
 
-- Pagination is not updated when deleting
+- When deleting an entity
+  - Pagination is not updated
+  - The table is not updated
   - This is a consequence of using Ajax and is probably not easily fixed
 
 Problems
