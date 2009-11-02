@@ -8,8 +8,8 @@
     /[if lt IE 8]
       = stylesheet_link_merged :ie, :media => "screen, projection"
     = stylesheet_link_merged :print, :media => "print"
-    %link{:rel => "icon", :href => "favicon.ico", :type => "image/x-icon"}
-    %link{:rel => "shortcut icon", :href => "favicon.ico", :type => "image/x-icon"}
+    %link{:rel => "icon", :href => "/favicon.ico", :type => "image/x-icon"}
+    %link{:rel => "shortcut icon", :href => "/favicon.ico", :type => "image/x-icon"}
     %noscript
       %meta{"http-equiv" => "refresh", :content => "0;url=http://#{ApplicationConfig.site_url}/nojswarning#{('.' + extract_language_from_locale(I18n.locale)) unless I18n.locale == I18n.default_locale}.html"}
     = javascript_include_merged :base
