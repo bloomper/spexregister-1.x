@@ -9,6 +9,10 @@ class Spexare < ActiveRecord::Base
   attr_protected :picture_file_name, :picture_content_type, :picture_file_size
   attr_encrypted :social_security_number, :key => 'A8AD3BC66E66FC6C255312D70FFA547E1CE8FB8A4382BE961DFFBED0DD45B340', :encode => true
 
+  def full_name
+    [first_name, nick_name.blank? ? ' ' : " '#{nick_name}' ", last_name].join
+  end
+  
   protected
   def editable_by
     user_group = UserGroup.find_by_name('Administrators')

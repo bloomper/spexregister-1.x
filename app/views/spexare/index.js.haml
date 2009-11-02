@@ -1,1 +1,4 @@
-= auto_complete_result @spexare_items, :full_name
+%ul
+  - @spexare_items.each do |spexare|
+    %li
+      = h spexare.full_name

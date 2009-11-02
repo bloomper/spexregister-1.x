@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   respond_to :html, :except => [:new, :destroy]
   respond_to :js, :only => [:new, :destroy]
   before_filter :load_user, :only => [:approve, :activate, :deactivate, :reject]
-  auto_complete_for :user, :spexare
   
   def create
     create! do |success, failure|
@@ -52,13 +51,6 @@ class UsersController < ApplicationController
     else
       flash.now[:error] = I18n.t('flash.users.reject.error')
     end
-  end
-  
-  def auto_complete_for_user_spexare
-    search = Spexare.search(:first_name_like_or_last_name_like_any => params[:user][:spexare].split(' '))
-    search.order ||= "ascend_by_first_name"
-    @spexare_full_names = search.all.collect { |spexare| spexare.first_name << (spexare.nick_name.blank? ? "" : " '#{spexare.nick_name}'") << " " << spexare.last_name}
-    render :partial => 'auto_complete_for_user_spexare'
   end
   
   protected
