@@ -8,23 +8,23 @@
     %p
       = label_tag :full_name, t('activerecord.attributes.other.full_name')
       %br>
-      = negative_text_field_tag @captcha, :full_name, :class => 'title'
+      = negative_text_field_tag @captcha, :full_name
     %p
       = label_tag :username, t('activerecord.attributes.user.username')
       %br>
-      = negative_text_field_tag @captcha, :username, :class => 'title'
+      = negative_text_field_tag @captcha, :username
     %p
       = label_tag :password, t('activerecord.attributes.user.password')
       %br>
-      = negative_password_field_tag @captcha, :password, :class => 'title'
+      = negative_password_field_tag @captcha, :password
     %p
       = label_tag :password_confirmation, t('activerecord.attributes.user.password_confirmation')
       %br>
-      = negative_password_field_tag @captcha, :password_confirmation, :class => 'title'
+      = negative_password_field_tag @captcha, :password_confirmation
     %p
       = label_tag :description, t('activerecord.attributes.other.description')
       %small= t('views.signup.description_note') 
       %br>
-      = negative_text_area_tag @captcha, :description, :class => 'title'
+      = negative_text_area_tag @captcha, :description
     %p
-      = submit_tag t('views.signup.create_my_account'), :class => 'button primary'
+      = submit_tag t('views.signup.create_my_account'), :class => 'button'
