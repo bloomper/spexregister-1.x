@@ -12,7 +12,7 @@ Short-term
   - User
     - Remove permissions_controller?
     - Correct actions in routes for user_groups and permissions?
-    - Roles tab in edit
+    - Roles tab in edit (remove from current form)
   - Spexare
     - Implement edit
       - Tabs
