@@ -22,8 +22,8 @@
     %br>
     %small= t 'views.user.spexare_notice'
     %br>
-    = f.error_message_on :spexare
-    = f.text_field_with_auto_complete :spexare, { :class => 'fullwidth' }, { :url => spexare_index_path(:format => :js), :method => :get, :param_name => 'search[first_name_like_or_last_name_like_any]' }
+    = f.hidden_field :spexare_id
+    = text_field_with_auto_complete :dummy, :spexare, { :class => 'fullwidth' }, { :url => spexare_index_path(:format => :js), :method => :get, :param_name => 'search[first_name_like_or_last_name_like_any]', :after_update_element => "function (inputField, selectedItem) { jQuery('#user_spexare_id').val(selectedItem.id); }" }
   - f.field_container :user_groups do
     = f.label :user_groups, t('activerecord.attributes.user.user_groups')
     %span.required= t 'views.base.mandatory_attribute'

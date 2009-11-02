@@ -1,4 +1,4 @@
 %ul
   - @spexare_items.each do |spexare|
-    %li
+    %li{:id => "#{spexare.id}"}
       = h spexare.full_name
