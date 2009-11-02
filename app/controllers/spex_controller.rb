@@ -1,9 +1,15 @@
 class SpexController < ApplicationController
   inherit_resources
-  respond_to :html, :except => [:new, :destroy]
-  respond_to :js, :only => [:new, :destroy]
+  respond_to :html, :except => :destroy
+  respond_to :js, :only => :destroy
   defaults :collection_name => 'spex_items', :route_collection_name => 'spex_index'
-  
+
+  def new
+    new! do |format|
+      format.html { render :action => :new, :layout => false }
+    end
+  end
+
   def create
     create! do |success, failure|
       success.html { redirect_to spex_index_url }

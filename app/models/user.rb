@@ -47,6 +47,13 @@ class User < ActiveRecord::Base
   def rejected?
     ['rejected'].include? self.state
   end
+  
+  def spexare_full_name
+    spexare.full_name unless spexare.nil?
+  end
+  
+  def spexare_full_name=(value)
+  end
 
   protected
   def deliver_password_reset_instructions!
@@ -84,5 +91,7 @@ class User < ActiveRecord::Base
   # Authlogic validates username, password and password_confirmation
   validates_presence_of :user_groups
   validates_as_email_address :username
-  
+  validates_presence_of :spexare
+  validates_uniqueness_of :spexare, :allow_nil => true
+
 end

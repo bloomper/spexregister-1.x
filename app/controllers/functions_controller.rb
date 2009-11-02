@@ -1,8 +1,14 @@
 class FunctionsController < ApplicationController
   inherit_resources
-  respond_to :html, :except => [:new, :destroy]
-  respond_to :js, :only => [:new, :destroy]
-  
+  respond_to :html, :except => :destroy
+  respond_to :js, :only => :destroy
+
+  def new
+    new! do |format|
+      format.html { render :action => :new, :layout => false }
+    end
+  end
+
   def create
     create! do |success, failure|
       success.html { redirect_to functions_url }
