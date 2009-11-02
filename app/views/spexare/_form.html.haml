@@ -1,17 +1,17 @@
 %div
   #spexare-names
-    - f.field_container :last_name do
-      = f.label :last_name, t('activerecord.attributes.spexare.last_name')
-      %span.required= t 'views.base.mandatory_attribute'
-      %br>
-      = f.error_message_on :last_name
-      = f.text_field :last_name, :class => 'fullwidth'
     - f.field_container :first_name do
       = f.label :first_name, t('activerecord.attributes.spexare.first_name')
       %span.required= t 'views.base.mandatory_attribute'
       %br>
       = f.error_message_on :first_name
       = f.text_field :first_name, :class => 'fullwidth'
+    - f.field_container :last_name do
+      = f.label :last_name, t('activerecord.attributes.spexare.last_name')
+      %span.required= t 'views.base.mandatory_attribute'
+      %br>
+      = f.error_message_on :last_name
+      = f.text_field :last_name, :class => 'fullwidth'
   #spexare-address
     - f.field_container :nick_name do
       = f.label :nick_name, t('activerecord.attributes.spexare.nick_name')
