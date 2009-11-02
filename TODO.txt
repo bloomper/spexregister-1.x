@@ -13,7 +13,6 @@ Short-term
     - Remove permissions_controller?
     - Correct actions in routes for user_groups and permissions?
     - Roles tab in edit
-    - Auto complete does not work in edit mode or when there are form errors
   - Spexare
     - Implement edit
       - Tabs
