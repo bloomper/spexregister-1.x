@@ -6,11 +6,11 @@ jQuery.alerts.dialogClass = "alertDialog";
 jQuery.noConflict();
 
 jQuery(document).ajaxStart(function() {
-    jQuery("#progress-indicator").fadeIn();
+    jQuery('#progress-indicator').fadeIn();
 });
 
 jQuery(document).ajaxStop(function() {
-    jQuery("#progress-indicator").fadeOut();
+    jQuery('#progress-indicator').fadeOut();
 });
 
 jQuery(function() {
