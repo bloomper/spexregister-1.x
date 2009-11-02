@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :user_groups
   include AASM
   aasm_column :state
-  aasm_state :pending, :enter => :deliver_account_created_instructions!, :exit => :deliver_account_approved_instructions!
-  aasm_state :active
+  aasm_state :pending, :after_enter => :deliver_account_created_instructions!
+  aasm_state :active, :after_enter => :deliver_account_approved_instructions!
   aasm_state :inactive
-  aasm_state :rejected, :enter => :deliver_account_rejected_instructions!
+  aasm_state :rejected, :after_enter => :deliver_account_rejected_instructions!
   aasm_initial_state :pending
   
   aasm_event :approve do
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   aasm_event :activate do
-    transitions :to => :active, :from => [:inactive]
+    transitions :to => :active, :from => [:inactive, :rejected]
   end
 
   aasm_event :reject do
@@ -62,10 +62,10 @@ class User < ActiveRecord::Base
     UserMailer.deliver_account_approved_instructions(self.username)
   end
   
-  def deliver_password_reset_instructions!
-    UserMailer.deliver_password_reset_instructions(self.username)
+  def deliver_account_rejected_instructions!
+    UserMailer.deliver_account_rejected_instructions(self.username)
   end
-  
+
   def editable_by
     user_group = UserGroup.find_by_name('Administrators')
     if !self.nil?

@@ -28,6 +28,8 @@ module UsersHelper
       construct_link_to_state_event('deactivate', options[:url])
     elsif user.inactive? 
       construct_link_to_state_event('activate', options[:url])
+    elsif user.rejected? 
+      construct_link_to_state_event('activate', options[:url])
     end
   end
   
