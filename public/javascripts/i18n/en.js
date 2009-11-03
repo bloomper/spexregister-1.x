@@ -26,4 +26,11 @@ jQuery(function() {
            onAddCSS: 'button'
            });
    });
+
+  // jQuery Multiselect
+  jQuery.extend(jQuery.ui.multiselect.locale, {
+           addAll: 'Add all',
+           removeAll: 'Remove all',
+           itemsCount: 'items selected'
+  });
 });

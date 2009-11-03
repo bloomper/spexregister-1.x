@@ -11,18 +11,20 @@ javascripts:
   - jquery.livequery
   - jquery.lockSubmit
   - jquery.checkbox
+  - jquery.multiselect
   - jrails
   - jrails.autocomplete
   - spexregister
 stylesheets:
 - screen:
-  - compiled/screen
   - jquery.core
   - jquery.alerts
   - jquery.fancybox
   - jquery.datepicker
   - jquery.checkbox
+  - jquery.multiselect
   - jquery.flick.theme
+  - compiled/screen
 - ie:
   - compiled/ie
 - print:

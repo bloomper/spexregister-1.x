@@ -31,5 +31,5 @@
     %span.required= t 'views.base.mandatory_attribute'
     %br>
     = f.error_message_on :user_groups
-    = f.collection_select :user_group_ids, UserGroup.all, :id, :translated_name, {}, { :multiple => true, :name => 'user[user_group_ids][]' }
+    = f.collection_select :user_group_ids, UserGroup.all, :id, :translated_name, {}, { :multiple => true, :name => 'user[user_group_ids][]', :class => 'multiselect-usergroups' }
       

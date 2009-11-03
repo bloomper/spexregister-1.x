@@ -70,3 +70,12 @@ jQuery(function() {
         jQuery(this).checkbox();
     });
 });
+
+jQuery(function() {
+    jQuery('.multiselect-usergroups').livequery( function() {    
+        jQuery(this).multiselect({
+             'searchable': false,
+             'sortable': false
+             });
+    });
+});

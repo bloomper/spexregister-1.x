@@ -26,4 +26,11 @@ jQuery(function() {
            onAddCSS: 'button'
            });
    });
+
+  // jQuery Multiselect
+  jQuery.extend(jQuery.ui.multiselect.locale, {
+           addAll: 'Lägg till alla',
+           removeAll: 'Ta bort alla',
+           itemsCount: 'valda'
+  });
 });
