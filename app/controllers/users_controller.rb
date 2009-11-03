@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   inherit_resources
   respond_to :html, :except => :destroy
   respond_to :js, :only => :destroy
-  before_filter :load_user, :only => [:approve, :activate, :deactivate, :reject]
+  before_filter :resource, :only => [:approve, :activate, :deactivate, :reject]
 
   def new
     new! do |format|
@@ -60,10 +60,6 @@ class UsersController < ApplicationController
   end
   
   protected
-  def load_user
-    @user = User.find_by_id(params[:id])
-  end
-  
   def resource
     @user ||= end_of_association_chain.find_by_id(params[:id])
   end  
