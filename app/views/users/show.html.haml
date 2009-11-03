@@ -10,6 +10,12 @@
 
 %table.index
   %tr
+    %th= t 'activerecord.attributes.user.state'
+  %tr
+    %td= h translate_user_state(@user.state)
+
+%table.index
+  %tr
     %th= t 'activerecord.attributes.user.user_groups'
   - @user.user_groups.each do |user_group|
     %tr
