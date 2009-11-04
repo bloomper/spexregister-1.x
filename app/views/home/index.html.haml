@@ -8,6 +8,6 @@
           %span= news.publication_date.to_s(:short_format)
         %h3= link_to truncate(h(news.subject)), news, :class => 'fancybox-text'
         %p= truncate_html news.cached_body_html, :length => 210, :omission => "... #{link_to t('views.base.read_more'), news, :class => 'fancybox-text'}"
-  #latest-news-pagination= will_paginate (@news_items, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")
+  #latest-news-pagination= will_paginate(@news_items, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")
   - else
     %p= t 'views.news.no_news_exist'
