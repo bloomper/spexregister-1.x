@@ -7,12 +7,12 @@ Short-term
 - Immediate problems
   - Get rid of annoying SASS errors (deprecation)
   - Lockdown model restrictions do not work as expected
+  - Problem with session timeout?
+  - When adding/removing user group, the style of the table cell disappears
 
 - Controllers/views/translation
   - User
-    - Remove permissions_controller?
-    - Correct actions in routes for user_groups and permissions?
-    - Roles tab in edit (remove from current form)
+    - Roles tab in show (should not be able to edit)
   - Spexare
     - Implement edit
       - Tabs
@@ -20,6 +20,7 @@ Short-term
           - Three columns?
         - Cohabitants
         - Activities
+          - Use jsTree?
     - Implement show
       - Tabs
         - Description
@@ -82,6 +83,9 @@ Medium-term
 Long-term
 ---------
 
+- A more fine grained permission scheme
+  - For example, a directeur should only be able to administer his/her spex
+
 - Flash messages sometimes stay one request too long
   - This is due to inherited_resources not using flash.now and there does not seem to be any way to override
 
@@ -110,6 +114,5 @@ Goodies
 
 - http://jetpackweb.com/blog/2009/10/14/high-quality-ruby-on-rails-example-applications/
 - http://code.google.com/p/jquery-asmselect/ (for spex and functions)
-- http://railsbuilder.blogspot.com/2009/05/multiple-select-option-in-rails.html
-- http://thechriswalker.net/2009-02/multiple-drag-and-drop-between-two-lists-with-jquery.html
 - http://www.quasipartikel.at/multiselect/
+- http://akibjorklund.com/code/multiselectable

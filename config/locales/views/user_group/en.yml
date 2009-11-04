@@ -2,3 +2,7 @@
   views:
     user_group:
       description_tab_title: "Groups"
+      no_associated_user_groups: "No associated groups"
+      add_user_group: "Add group"
+      available_user_groups: "Available groups"
+      no_available_user_groups_exist: "There are no available groups"

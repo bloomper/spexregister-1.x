@@ -16,13 +16,6 @@
 
 %table.index
   %tr
-    %th= t 'activerecord.attributes.user.user_groups'
-  - @user.user_groups.each do |user_group|
-    %tr
-      %td= t "user_group.name.#{user_group.name.downcase}"
-
-%table.index
-  %tr
     %th= t 'activerecord.attributes.user.login_count'
   %tr
     %td= h @user.login_count

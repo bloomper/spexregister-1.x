@@ -1,0 +1,23 @@
+= render :partial => 'administration/sub_menu'
+
+#selected-user-groups
+
+  = render :partial => '/users/user_tabs', :locals => {:edit_mode => true, :current_action => t('views.base.editing_action'), :current_tab => 'user_groups_tab'}
+
+  - if @user_groups.empty?
+    %p= t 'views.user_group.no_associated_user_groups'
+  - else
+    %table.index
+      %tr
+        %th= t('activerecord.attributes.user_group.name')
+        %th.action-column= t 'views.base.action'
+        - @user_groups.each do |user_group|
+          %tr{:id => dom_id(user_group), :class => cycle('even', 'odd')}
+            %td= h translate_user_group(user_group.name)
+            %td.actions
+              = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => remove_user_user_group_url(@user, user_group), :method => :get, :update => 'selected-user-groups' }
+
+  #available-user-groups
+
+  %span
+    = link_to_remote icon_tag('add') + ' ' + t('views.user_group.add_user_group'), { :url => available_user_user_groups_url(@user), :method => :get, :update => 'available-user-groups' }

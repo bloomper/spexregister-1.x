@@ -26,10 +26,11 @@
     = f.error_message_on :spexare_id
     = f.hidden_field :spexare_id
     = f.text_field_with_auto_complete :spexare_full_name, { :class => 'fullwidth' }, { :url => spexare_index_path(:format => :js), :method => :get, :param_name => 'search[first_name_like_or_last_name_like_any]', :after_update_element => "function (inputField, selectedItem) { jQuery('#user_spexare_id').val(selectedItem.id); }" }
-  - f.field_container :user_groups do
-    = f.label :user_groups, t('activerecord.attributes.user.user_groups')
-    %span.required= t 'views.base.mandatory_attribute'
-    %br>
-    = f.error_message_on :user_groups
-    = f.collection_select :user_group_ids, UserGroup.all, :id, :translated_name, {}, { :multiple => true, :name => 'user[user_group_ids][]', :class => 'multiselect-usergroups' }
+  - if show_user_groups  
+    - f.field_container :user_groups do
+      = f.label :user_groups, t('activerecord.attributes.user.user_groups')
+      %span.required= t 'views.base.mandatory_attribute'
+      %br>
+      = f.error_message_on :user_groups
+      = f.collection_select :user_group_ids, UserGroup.all, :id, :translated_name, {}, { :multiple => true, :name => 'user[user_group_ids][]', :class => 'multiselect-usergroups' }
       

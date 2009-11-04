@@ -21,6 +21,8 @@
       listing_action: "Listar"
       viewing_action: "Visar"
       editing_action: "Ändrar"
+      remove_action: "Ta bort"
+      add_action: "Lägg till"
       are_you_sure: "Är du säker?"
       confirm_delete: "Bekräfta radering"
       next: "Nästa"

@@ -5,4 +5,4 @@
     %li{:class => ("active" if current_tab == "user_tab")}
       = link_to t('views.user.description_tab_title'), (edit_mode ? edit_user_url(@user) : user_url(@user))
     %li{:class => ("active" if current_tab == "user_groups_tab")}
-      = link_to t('views.user_group.description_tab_title'), user_user_groups_url(@user)
+      = link_to t('views.user_group.description_tab_title'), selected_user_user_groups_url(@user)

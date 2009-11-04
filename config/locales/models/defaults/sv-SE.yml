@@ -76,7 +76,7 @@
         password: "Lösenord"
         password_confirmation: "Lösenord (igen)"
         state: "Status"
-        user_groups: "Roller"
+        user_groups: "Grupper"
         login_count: "Antal inloggningar"
         failed_login_count: "Antal misslyckade inloggningar"
         last_request_at: "Senaste begäran"
@@ -84,6 +84,8 @@
         last_login_at: "Senaste inloggning"
         current_login_ip: "Nuvarande inloggning (IP adress)"
         last_login_ip: "Senaste inloggning (IP adress)"
+      user_group:
+        name: "Namn"
       other:
         full_name: "Fullständigt namn"
         description: "Beskrivning"

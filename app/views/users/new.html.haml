@@ -3,5 +3,5 @@
 - form_for :user, :url => users_url do |f|
   %fieldset
     %legend= t 'views.user.new_user'
-    = render :partial => 'form', :locals => { :f => f }
+    = render :partial => 'form', :locals => { :f => f, :show_user_groups => true }
     = render :partial => '/shared/new_resource_links'

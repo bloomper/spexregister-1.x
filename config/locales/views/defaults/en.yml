@@ -21,6 +21,8 @@
       listing_action: "Listing"
       viewing_action: "Viewing"
       editing_action: "Editing"
+      remove_action: "Remove"
+      add_action: "Add"
       are_you_sure: "Are you sure?"
       confirm_delete: "Confirm deletion"
       next: "Next"

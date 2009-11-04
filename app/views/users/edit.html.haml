@@ -3,5 +3,5 @@
 = render :partial => 'user_tabs', :locals => {:edit_mode => true, :current_action => t('views.base.editing_action'), :current_tab => 'user_tab'}
 
 - form_for @user, :url => resource_url, :html => { :method => :put } do |f|
-  = render :partial => 'form', :locals => { :f => f }
+  = render :partial => 'form', :locals => { :f => f, :show_user_groups => false }
   = render :partial => '/shared/edit_resource_links'

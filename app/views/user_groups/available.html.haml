@@ -1,0 +1,14 @@
+%h3= t 'views.user_group.available_user_groups'
+
+- if @available_user_groups.empty?
+  %p= t 'views.user_group.no_available_user_groups_exist'
+- else
+  %table.index
+    %tr
+      %th= t('activerecord.attributes.user_group.name')
+      %th.action-column= t 'views.base.action'
+      - @available_user_groups.each do |user_group|
+        %tr{:id => dom_id(user_group), :class => cycle('even', 'odd')}
+          %td= h translate_user_group(user_group.name)
+          %td.actions
+            = link_to_remote icon_tag('add') + ' ' + t('views.base.add_action'), { :url => select_user_user_group_url(@user, user_group), :method => :get, :update => 'selected-user-groups' }
