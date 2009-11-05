@@ -102,9 +102,10 @@ Lockdown::System.configure do
   # Define your permissions here:
 
 set_permission(:login).with_controller(:user_sessions)
-set_permission(:signups).with_controller(:signups)
-set_permission(:password_resets).with_controller(:password_resets)
+set_permission(:signup).with_controller(:accounts).only_methods(:new, :create)
+set_permission(:password_reset).with_controller(:password_resets)
 set_permission(:home).with_controller(:home)
+set_permission(:account).with_controller(:accounts).except_methods(:new, :create)
 set_permission(:search).with_controller(:search)
 set_permission(:administration).with_controller(:administration)
 set_permission(:help).with_controller(:help)
@@ -116,9 +117,8 @@ set_permission(:function_view).with_controller(:functions).only_methods(:show)
 set_permission(:news_management).with_controller(:news)
 set_permission(:news_view).with_controller(:news).only_methods(:show)
 set_permission(:user_management).with_controller(:users).and_controller(:user_groups).and_controller(:spexare)
-# set_permission(:user_owner).with_controller(:users).and_controller(:user_groups).and_controller(:spexare).to_model(:user).where(:editable_by).includes(:current_user_id)
 set_permission(:spexare_management).with_controller(:spexare).and_controller(:cohabitants).and_controller(:memberships).and_controller(:activities).and_controller(:spex_activities).and_controller(:function_activities).and_controller(:actors)
-# set_permission(:spexare_owner).with_controller(:spexare).to_model(:spexare).where(:editable_by).includes(:current_user_id).and_controller(:cohabitants).and_controller(:memberships).and_controller(:activities).and_controller(:spex_activities).and_controller(:function_activities).and_controller(:actors)
+# set_permission(:spexare_myself).with_controller(:spexare).to_model(:spexare).where(:editable_by).includes(:current_user_id).and_controller(:cohabitants).and_controller(:memberships).and_controller(:activities).and_controller(:spex_activities).and_controller(:function_activities).and_controller(:actors)
 set_permission(:spexare_view).with_controller(:spexare).only_methods(:show).and_controller(:cohabitants).only_methods(:show).and_controller(:memberships).only_methods(:show).and_controller(:activities).only_methods(:show).and_controller(:spex_activities).only_methods(:show).and_controller(:function_activities).only_methods(:show).and_controller(:actors).only_methods(:show)
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -135,8 +135,8 @@ set_permission(:spexare_view).with_controller(:spexare).only_methods(:show).and_
   #
   # Define the built-in user groups here:
 
-set_public_access :login, :locale, :signups, :password_resets
-set_protected_access :home, :search, :help, :spexare_view, :news_view, :spex_view, :function_view
+set_public_access :login, :locale, :signup, :password_reset
+set_protected_access :home, :account, :search, :help, :spexare_view, :news_view, :spex_view, :function_view
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Define user groups
@@ -153,7 +153,7 @@ set_protected_access :home, :search, :help, :spexare_view, :news_view, :spex_vie
 
 set_user_group(:administrators, :administration, :spexare_management, :user_management, :spex_management, :function_management, :news_management)
 set_user_group(:users)
-# set_user_group(:users, :spexare_owner, :user_owner)
+# set_user_group(:users, :spexare_myself)
 
 # Use Authlogic's session timeout mechanism instead
 options[:session_timeout] = 7776000

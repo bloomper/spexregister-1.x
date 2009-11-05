@@ -90,10 +90,13 @@
         notice: "Lösenordet har uppdaterats"
         error: "Lösenordet kunde inte uppdateras"
       token_not_found: "Ditt konto kunde inte hittas"
-    signups:
+    accounts:
       create:
         notice: "Kontot har skapats"
         error: "Konto kunde inte skapas"
+      update:
+        notice: "Lösenordet har uppdaterats"
+        error: "Lösenordet kunde inte uppdateras"
     user_sessions:
       create:
         notice: "Du har loggats in"

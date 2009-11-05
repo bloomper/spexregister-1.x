@@ -78,10 +78,13 @@
         notice: "The password has been updated"
         error: "The password could not be updated"
       token_not_found: "Your account could not be found"
-    signups:
+    accounts:
       create:
         notice: "The account has been created"
         error: "The accound could not be created"
+      update:
+        notice: "The password has been updated"
+        error: "The password could not be updated"
     user_sessions:
       create:
         notice: "You have been logged in"

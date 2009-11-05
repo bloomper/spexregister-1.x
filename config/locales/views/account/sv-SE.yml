@@ -1,6 +1,6 @@
 "sv-SE":
   views:
-    signup:
+    account:
       title: "Skapa nytt konto"
       instructions: "Fyll i nedanstående så kommer ditt konto att skapas men kan inte användas förrän det har blivit godkänt. Du får ett mail när detta sker."
       create_my_account: "Skapa mitt konto"

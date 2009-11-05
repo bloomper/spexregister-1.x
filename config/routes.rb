@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.home '/home', :controller => 'home', :action => 'index'
   map.change_profile '/change_profile', :controller => 'home', :action => 'change_profile'
   map.change_password '/change_password', :controller => 'home', :action => 'change_password'
-  map.signup '/signup', :controller => 'signup', :action => 'new'
+  map.signup '/signup', :controller => 'accounts', :action => 'new'
   map.search '/search', :controller => 'search', :action => 'index'
   map.simple_search '/simple_search', :controller => 'search', :action => 'simple_search'
   map.advanced_search '/advanced_search', :controller => 'search', :action => 'advanced_search'
@@ -40,7 +40,7 @@ ActionController::Routing::Routes.draw do |map|
   end 
   map.resource :user_session
   map.resources :password_resets
-  map.resources :signups, :only => [:new, :create]
+  map.resource :account, :except => [:destroy, :show]
 
   map.root :controller => 'home', :action => 'index'
 

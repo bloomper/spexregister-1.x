@@ -1,4 +1,4 @@
-class SignupsController < ApplicationController
+class AccountsController < ApplicationController
   before_filter :setup_negative_captcha, :only => [:new, :create]
   
   def new
@@ -11,7 +11,7 @@ class SignupsController < ApplicationController
       @user.save
       if @user.errors.size == 1 && !@user.errors.on(:spexare).nil? && !@captcha.values[:full_name].blank? && !@captcha.values[:description].blank?
         AdminMailer.deliver_new_account_instructions(@captcha.values[:full_name], @captcha.values[:username], @captcha.values[:description])
-        flash[:notice] = I18n.t('flash.signups.create.notice')
+        flash[:notice] = I18n.t('flash.accounts.create.notice')
         redirect_to login_path
       else
         @user.errors.add_to_base I18n.t('activerecord.attributes.other.full_name') + I18n.t('activerecord.errors.format.separator', :default => ' ') + I18n.t('activerecord.errors.messages.empty') if @captcha.values[:full_name].blank?
@@ -19,11 +19,25 @@ class SignupsController < ApplicationController
         render :action => :new
       end
     else
-      flash[:error] = I18n.t('flash.signups.create.error') 
+      flash[:error] = I18n.t('flash.accounts.create.error') 
       render :action => 'new'
     end
   end
   
+  def edit
+    @user = @current_user
+  end
+
+  def update
+    @user = @current_user
+    if @user.update_attributes(params[:user])
+      flash[:notice] = I18n.t('flash.accounts.update.notice')
+      redirect_to home_path
+    else
+      render :action => :edit
+    end
+  end
+
   private
   def setup_negative_captcha
     @captcha = NegativeCaptcha.new(
