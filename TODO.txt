@@ -8,11 +8,9 @@ Short-term
   - Get rid of annoying SASS errors (deprecation)
   - Lockdown model restrictions do not work as expected
   - Problem with session timeout?
-  - When adding/removing user group, the style of the table cell disappears
+  - Menu is messed up for 'change my password'
 
 - Controllers/views/translation
-  - User
-    - Roles tab in show (should not be able to edit)
   - Spexare
     - Implement edit
       - Tabs
@@ -29,13 +27,7 @@ Short-term
         - Activities
     - Should search cover more like spex years etc?
 
-- Change my password
 - Change my profile
-
-- Show number of hits
-  - Needs translation
-    - http://github.com/mislav/will_paginate/issues/labels/todo#issue/10
-    - http://github.com/gcnovus/will_paginate
 
 - Simple search
 
@@ -49,11 +41,10 @@ Short-term
 
 - Advanced search
 
-- Exception notifier
+- A more fine grained permission scheme
+  - For example, a directeur should only be able to administer his/her spex
 
 - Require SSL?
-
-- Remove jrails_auto_complete?
 
 - Tests
   - Replace fixtures with factories (Factory Girl)?
@@ -68,7 +59,7 @@ Medium-term
 - Add cron job for asynchronous mail processing
   "script/runner 'MailQueue.process' -e production"
 
-- Add cron job for updating years in Spex
+- Add cron job for updating years in Spex and Membership
 
 - Update documentation
 
@@ -80,11 +71,10 @@ Medium-term
 
 - Import existing spex posters using rake task
 
+- Using the correct admin email address?
+
 Long-term
 ---------
-
-- A more fine grained permission scheme
-  - For example, a directeur should only be able to administer his/her spex
 
 - Flash messages sometimes stay one request too long
   - This is due to inherited_resources not using flash.now and there does not seem to be any way to override
