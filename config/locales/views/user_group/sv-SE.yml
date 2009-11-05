@@ -1,8 +1,8 @@
 "sv-SE":
   views:
     user_group:
-      description_tab_title: "Grupper"
-      no_associated_user_groups: "Inga associerade grupper"
-      add_user_group: "Lägg till grupp"
-      available_user_groups: "Tillgängliga grupper"
-      no_available_user_groups_exist: "Det finns inga tillgängliga grupper"
+      description_tab_title: "Användargrupper"
+      no_associated_user_groups: "Inga associerade användargrupper"
+      add_user_group: "Lägg till användargrupp"
+      available_user_groups: "Tillgängliga användargrupper"
+      no_available_user_groups_exist: "Det finns inga tillgängliga användargrupper"

@@ -2,8 +2,8 @@
   views:
     spexare:
       description_tab_title: "Description"
-      index_title: "{{action}} spexare"
-      page_title: "{{action}} spexare"
+      index_title: "{{action}} spexers"
+      page_title: "{{action}} spexer"
       no_spexare_exist: "There are no spexers"
       new_spexare: "Create spexer"
       social_security_number_notice: "Encrypted storage to ensure integrity"
