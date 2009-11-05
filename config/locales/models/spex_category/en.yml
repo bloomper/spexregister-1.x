@@ -1,2 +1,5 @@
 "en":
   spex_category:
+    zero: "spex category"
+    one: "spex category"
+    other: "spex category"

@@ -1,3 +1,6 @@
 "sv-SE":
   spex:
+    zero: "spex"
+    one: "spex"
+    other: "spex"
     invalid_combination: "Kombinationen av år, titel, nyuppsättning och kategori används redan"

@@ -5,7 +5,7 @@
 - if @user_groups.empty?
   %p= t 'views.user_group.no_associated_user_groups'
 - else
-  .number-of-hits= page_entries_info @user_groups
+  .number-of-hits= page_entries_info @user_groups, { :entry_translation_group_key => 'user_group' }
   %table.index
     %tr
       %th= order @search, :by => :name, :as => t('activerecord.attributes.user_group.name')

@@ -1,2 +1,5 @@
 "en":
   function_category:
+    zero: "function category"
+    one: "function category"
+    other: "function categories"

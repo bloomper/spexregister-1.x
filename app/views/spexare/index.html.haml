@@ -12,7 +12,7 @@
 - if @spexare_items.empty?
   %p= t 'views.spexare.no_spexare_exist'
 - else
-  .number-of-hits= page_entries_info @spexare_items
+  .number-of-hits= page_entries_info @spexare_items, { :entry_translation_group_key => 'spexare' }
   %table.index
     %tr
       %th= order @search, :by => :last_name, :as => t('activerecord.attributes.spexare.last_name')

@@ -1,3 +1,6 @@
 "en":
   spex:
+    zero: "spex"
+    one: "spex"
+    other: "spex"
     invalid_combination: "The combination of year, title, revival and category already exists"

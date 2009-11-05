@@ -39,3 +39,7 @@
       language_changed: "Language has been changed to English"
       missing_image: "Missing"
       read_more: "Read more..."
+      page_entries_none_found: "No {{entry_name}} found"
+      page_entries_showing_one: "Displaying 1 {{entry_name}}"
+      page_entries_showing_all: "Displaying all {{number_of_hits}} {{entry_name}}"
+      page_entries_showing: "Displaying {{entry_name}} {{start}} - {{end}} of {{total}} in total"

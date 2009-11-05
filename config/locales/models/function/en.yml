@@ -1,3 +1,6 @@
 "en":
   function:
+    zero: "function"
+    one: "function"
+    other: "functions"
     invalid_combination: "The combination of name and category already exists"

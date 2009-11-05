@@ -1,2 +1,5 @@
 "sv-SE":
   function_category:
+    zero: "funktionskategori"
+    one: "funktionskategori"
+    other: "funktionskategorier"

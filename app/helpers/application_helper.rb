@@ -117,4 +117,17 @@ module ApplicationHelper
     end
   end
 
+  def page_entries_info(collection, options = {})
+    entry_translation_group_key = options[:entry_translation_group_key]
+    if collection.total_pages < 2
+      case collection.size
+      when 0; t('views.base.page_entries_none_found', :entry_name => t(entry_translation_group_key, :count => 0))
+      when 1; t('views.base.page_entries_showing_one', :entry_name => t(entry_translation_group_key, :count => 1))
+      else; t('views.base.page_entries_showing_all', :entry_name => t(entry_translation_group_key, :count => collection.size), :number_of_hits => collection.size)
+      end
+    else
+      t('views.base.page_entries_showing', :entry_name => t(entry_translation_group_key, :count => collection.total_entries), :start => collection.offset + 1, :end => collection.offset + collection.length, :total => collection.total_entries)
+    end
+  end
+
 end

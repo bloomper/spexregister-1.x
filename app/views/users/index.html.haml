@@ -12,7 +12,7 @@
 - if @users.empty?
   %p= t 'views.user.no_users_exist'
 - else
-  .number-of-hits= page_entries_info @users
+  .number-of-hits= page_entries_info @users, { :entry_translation_group_key => 'user' }
   %table.index
     %tr
       %th= order @search, :by => :username, :as => t('activerecord.attributes.user.username')

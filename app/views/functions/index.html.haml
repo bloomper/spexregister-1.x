@@ -12,7 +12,7 @@
 - if @functions.empty?
   %p= t 'views.function.no_functions_exist'
 - else
-  .number-of-hits= page_entries_info @functions
+  .number-of-hits= page_entries_info @functions, { :entry_translation_group_key => 'function' }
   %table.index
     %tr
       %th= order @search, :by => :name, :as => t('activerecord.attributes.function.name')

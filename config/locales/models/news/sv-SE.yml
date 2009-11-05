@@ -1,2 +1,5 @@
 "sv-SE":
   news:
+    zero: "nyhet"
+    one: "nyhet"
+    other: "nyheter"

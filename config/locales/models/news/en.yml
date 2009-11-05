@@ -1,2 +1,5 @@
 "en":
   news:
+    zero: "news"
+    one: "news"
+    other: "news"

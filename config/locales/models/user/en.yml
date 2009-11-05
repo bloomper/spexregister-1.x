@@ -1,5 +1,8 @@
 "en":
   user:
+    zero: "user"
+    one: "user"
+    other: "users"
     state:
       pending: "Pending"
       active: "Active"

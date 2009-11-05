@@ -1,3 +1,6 @@
 "sv-SE":
   function:
+    zero: "funktion"
+    one: "funktion"
+    other: "funktioner"
     invalid_combination: "Kombinationen av namn och kategori används redan"

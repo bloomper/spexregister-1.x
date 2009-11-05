@@ -1,5 +1,8 @@
 "sv-SE":
   user:
+    zero: "användare"
+    one: "användare"
+    other: "användare"
     state:
       pending: "Avvaktande"
       active: "Aktiv"

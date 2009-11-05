@@ -1,5 +1,8 @@
 "en":
   user_group:
+    zero: "user group"
+    one: "user group"
+    other: "user groups"
     name:
       administrators: "Administrators"
       users: "Users"

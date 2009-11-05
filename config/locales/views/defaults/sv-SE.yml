@@ -39,3 +39,7 @@
       language_changed: "Språk har ändrats till svenska"
       missing_image: "Saknas"
       read_more: "Läs mer..."
+      page_entries_none_found: "Inga {{entry_name}} kunde hittas"
+      page_entries_showing_one: "Visar 1 {{entry_name}}"
+      page_entries_showing_all: "Visar alla {{number_of_hits}} {{entry_name}}"
+      page_entries_showing: "Visar {{entry_name}} {{start}} - {{end}} av totalt {{total}}"
