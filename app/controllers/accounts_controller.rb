@@ -25,16 +25,24 @@ class AccountsController < ApplicationController
   end
   
   def edit
-    @user = @current_user
+    @user = current_user
   end
 
   def update
-    @user = @current_user
-    if @user.update_attributes(params[:user])
-      flash[:notice] = I18n.t('flash.accounts.update.notice')
-      redirect_to home_path
-    else
+    @user = current_user
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      flash[:notice] = I18n.t('flash.accounts.update.error')
       render :action => :edit
+    else
+      @user.update_attributes(params[:user])
+      if @user.errors.size == 1 && !@user.errors.on(:spexare).nil?
+        @user.save(false)
+        flash[:notice] = I18n.t('flash.accounts.update.notice')
+        redirect_to home_path
+      else
+        flash[:notice] = I18n.t('flash.accounts.update.error')
+        render :action => :edit
+      end
     end
   end
 

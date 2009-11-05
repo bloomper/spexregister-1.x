@@ -1,0 +1,7 @@
+= render :partial => 'home/sub_menu'
+
+%h1= t 'views.account.change_my_password_title'
+
+- form_for @user, :url => account_path do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  = render :partial => '/shared/edit_resource_links', :locals => { :url => home_url }

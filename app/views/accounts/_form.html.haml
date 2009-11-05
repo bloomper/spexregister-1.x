@@ -1,0 +1,13 @@
+%div
+  - f.field_container :password do
+    = f.label :password, t('activerecord.attributes.user.password')
+    %span.required= t 'views.base.mandatory_attribute'
+    %br>
+    = f.error_message_on :password
+    = f.password_field :password
+  - f.field_container :password_confirmation do
+    = f.label :password_confirmation, t('activerecord.attributes.user.password_confirmation')
+    %span.required= t 'views.base.mandatory_attribute'
+    %br>
+    = f.error_message_on :password_confirmation
+    = f.password_field :password_confirmation

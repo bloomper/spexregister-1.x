@@ -1,8 +1,8 @@
 #signup
-  %h1= t 'views.account.title'
+  %h1= t 'views.account.signup_title'
   = error_messages_for :user, :header_message => nil
   %p
-    = t 'views.account.instructions'
+    = t 'views.account.signup_instructions'
   - form_tag account_path do
     = negative_captcha(@captcha)
     %p
@@ -23,7 +23,7 @@
       = negative_password_field_tag @captcha, :password_confirmation
     %p
       = label_tag :description, t('activerecord.attributes.other.description')
-      %small= t('views.account.description_note') 
+      %small= t('views.account.signup_description_note') 
       %br>
       = negative_text_area_tag @captcha, :description
     %p

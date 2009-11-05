@@ -1,7 +1,8 @@
 "en":
   views:
     account:
-      title: "Create new account"
-      instructions: "Enter the following and your account will be created but cannot be used until approved. You will receive an email when that happens."
+      signup_title: "Create new account"
+      signup_instructions: "Enter the following and your account will be created but cannot be used until approved. You will receive an email when that happens."
+      signup_description_note: "(the spex you were active in and which roles you had (required for avoiding unauthorized access))"
       create_my_account: "Create my account"
-      description_note: "(the spex you were active in and which roles you had (required for avoiding unauthorized access))"
+      change_my_password_title: "Ändra mitt lösenord"

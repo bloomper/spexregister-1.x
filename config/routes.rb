@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   # UI routes
   map.home '/home', :controller => 'home', :action => 'index'
   map.change_profile '/change_profile', :controller => 'home', :action => 'change_profile'
-  map.change_password '/change_password', :controller => 'home', :action => 'change_password'
+  map.change_password '/change_password', :controller => 'accounts', :action => 'edit'
   map.signup '/signup', :controller => 'accounts', :action => 'new'
   map.search '/search', :controller => 'search', :action => 'index'
   map.simple_search '/simple_search', :controller => 'search', :action => 'simple_search'

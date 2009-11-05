@@ -1,7 +1,8 @@
 "sv-SE":
   views:
     account:
-      title: "Skapa nytt konto"
-      instructions: "Fyll i nedanstående så kommer ditt konto att skapas men kan inte användas förrän det har blivit godkänt. Du får ett mail när detta sker."
+      signup_title: "Skapa nytt konto"
+      signup_instructions: "Fyll i nedanstående så kommer ditt konto att skapas men kan inte användas förrän det har blivit godkänt. Du får ett mail när detta sker."
+      signup_description_note: "(spexen du var med i och vilka poster (krävs för att undvika obehörig åtkomst))"
       create_my_account: "Skapa mitt konto"
-      description_note: "(spexen du var med i och vilka poster (krävs för att undvika obehörig åtkomst))"
+      change_my_password_title: "Ändra mitt lösenord"

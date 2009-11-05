@@ -1,6 +1,8 @@
 = content_for :sub_menu do
   %ul
     = tab :latest_news, :route => 'home', :match_path => '/home', :translation_key => 'views.home.latest_news'
-    = tab :change_password, :match_path => '/change_password', :translation_key => 'views.home.change_password', :css_class => 'last'
     - if !current_user.spexare.nil?
-      = tab :change_profile, :match_path => '/change_profile', :translation_key => 'views.home.change_profile'
+      = tab :change_password, :match_path => '/change_password', :translation_key => 'views.home.change_password'
+      = tab :change_profile, :match_path => '/change_profile', :translation_key => 'views.home.change_profile', :css_class => 'last'
+    - else
+      = tab :change_password, :match_path => '/change_password', :translation_key => 'views.home.change_password', :css_class => 'last'
