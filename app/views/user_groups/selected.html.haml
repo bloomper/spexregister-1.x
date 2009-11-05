@@ -15,7 +15,7 @@
           %tr{:id => dom_id(user_group), :class => cycle('even', 'odd')}
             %td= h translate_user_group(user_group.name)
             %td.actions
-              = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => remove_user_user_group_url(@user, user_group), :method => :get, :update => 'selected-user-groups' }
+              = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => remove_user_user_group_url(@user, user_group), :method => :get, :before => '', :update => 'selected-user-groups' }
 
   #available-user-groups
 
