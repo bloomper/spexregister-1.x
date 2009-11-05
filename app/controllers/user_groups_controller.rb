@@ -1,6 +1,7 @@
 class UserGroupsController < ApplicationController
   inherit_resources
-  actions :all, :except => [ :new, :create, :index, :show, :edit, :update, :destroy ]
+  respond_to :html
+  actions :all, :except => [ :new, :create, :show, :edit, :update, :destroy ]
   belongs_to :user
   before_filter :resource, :only => [:select, :selected, :available, :remove]
   
@@ -33,7 +34,15 @@ class UserGroupsController < ApplicationController
   def resource
     @user_group ||= end_of_association_chain.find_by_id(params[:id])
   end  
-  
+
+  def collection
+    base_scope = end_of_association_chain
+    @search = base_scope.search(params[:search])
+    @search.order ||= "ascend_by_name"
+    
+    @user_groups ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+  end
+
   private 
   def set_available_user_groups
     @available_user_groups = UserGroup.all

@@ -26,7 +26,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :functions
   map.resources :news
   map.resources :users, :member => { :approve => :put, :activate => :put, :deactivate => :put, :reject => :put } do |user|
-    user.resources :user_groups, :only => [], :member => { :select => :get, :remove => :get}, :collection => { :available => :get, :selected => :get }
+    user.resources :user_groups, :only => [:index], :member => { :select => :get, :remove => :get}, :collection => { :available => :get, :selected => :get }
   end
   map.resources :spexare, :shallow => true do |spexare|
     spexare.resources :memberships

@@ -1,0 +1,16 @@
+= render :partial => 'administration/sub_menu'
+
+= render :partial => '/users/user_tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :current_tab => 'user_groups_tab'}
+
+- if @user_groups.empty?
+  %p= t 'views.user_group.no_associated_user_groups'
+- else
+  .number-of-hits= page_entries_info @user_groups
+  %table.index
+    %tr
+      %th= order @search, :by => :name, :as => t('activerecord.attributes.user_group.name')
+      - @user_groups.each do |user_group|
+        %tr{:id => dom_id(user_group), :class => cycle('even', 'odd')}
+          %td= h translate_user_group(user_group.name)
+
+= will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
