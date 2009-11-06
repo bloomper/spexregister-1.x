@@ -106,7 +106,8 @@ set_permission(:signup).with_controller(:accounts).only_methods(:new, :create)
 set_permission(:password_reset).with_controller(:password_resets)
 set_permission(:home).with_controller(:home)
 set_permission(:account).with_controller(:accounts).except_methods(:new, :create)
-set_permission(:search).with_controller(:search)
+set_permission(:search).with_controller(:searches)
+set_permission(:advanced_search).with_controller(:advanced_searches)
 set_permission(:administration).with_controller(:administration)
 set_permission(:help).with_controller(:help)
 set_permission(:locale).with_controller(:locale)
@@ -136,7 +137,7 @@ set_permission(:spexare_view).with_controller(:spexare).only_methods(:show).and_
   # Define the built-in user groups here:
 
 set_public_access :login, :locale, :signup, :password_reset
-set_protected_access :home, :account, :search, :help, :spexare_view, :news_view, :spex_view, :function_view
+set_protected_access :home, :account, :search, :advanced_search, :help, :spexare_view, :news_view, :spex_view, :function_view
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Define user groups

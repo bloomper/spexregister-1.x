@@ -2,5 +2,4 @@
   views:
     search:
       title: "Search"
-      simple_search: "Simple search"
-      advanced_search: "Advanced search"
+      search: "Simple search"
