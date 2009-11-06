@@ -55,10 +55,9 @@ class User < ActiveRecord::Base
   def spexare_full_name=(value)
   end
 
-  protected
   def deliver_password_reset_instructions!
     reset_perishable_token!
-    UserMailer.deliver_password_reset_instructions(self.username)
+    UserMailer.deliver_password_reset_instructions(self.username, self.perishable_token)
   end
   
   def deliver_account_created_instructions!
@@ -73,6 +72,7 @@ class User < ActiveRecord::Base
     UserMailer.deliver_account_rejected_instructions(self.username)
   end
 
+  protected
   def editable_by
     user_group = UserGroup.find_by_name('Administrators')
     if !self.nil?
