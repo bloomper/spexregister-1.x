@@ -2,9 +2,9 @@
 
 %h1= t 'views.search.title'
 
-- form_tag search_path do
+- form_for @search do |f|
   %p
     %label= t 'activerecord.models.spex_category'
     %br>
-    = select_tag :spex_category_id_equals, get_available_spex_categories_first_empty
+    = f.select :spex_category_id_equals, get_available_spex_categories_first_empty
   

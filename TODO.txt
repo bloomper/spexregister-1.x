@@ -8,7 +8,6 @@ Short-term
   - Get rid of annoying SASS errors (deprecation)
   - Lockdown model restrictions do not work as expected
   - Problem with session timeout?
-  - Menu is messed up for 'change my password'
 
 - Controllers/views/translation
   - Spexare
@@ -30,11 +29,15 @@ Short-term
 - Change my profile
 
 - Simple search
+  - http://railscasts.com/episodes/121-non-active-record-model
+  - http://github.com/artofmission/passive_record
 
 - Export
   - http://github.com/purzelrakete/workling
   - http://www.therailsway.com/2009/7/22/do-it-later-with-delayed-job
   - http://codeforpeople.rubyforge.org/svn/bj/trunk/README
+  - http://github.com/jfiorato/growl4rails
+  - Skip mail batch functionality?
 
 - Reporting
   - http://github.com/gunark/jasperserver-client
@@ -45,6 +48,7 @@ Short-term
   - For example, a directeur should only be able to administer his/her spex
 
 - Require SSL?
+  - http://github.com/iwarshak/ssl_requirement
 
 - Tests
   - Replace fixtures with factories (Factory Girl)?

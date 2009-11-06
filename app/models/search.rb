@@ -1,7 +1,3 @@
-class Search
-  attr_reader :spex_category_id
-
-  def new
-    Spexare.new_search
-  end
+class Search < PassiveRecord::Base
+  define_fields :spex_category_id_equals
 end
