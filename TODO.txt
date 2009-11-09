@@ -29,8 +29,9 @@ Short-term
 - Change my profile
 
 - Simple search
-  - http://railscasts.com/episodes/121-non-active-record-model
-  - http://github.com/artofmission/passive_record
+  - spex_items_years
+  - spex_items_titles
+  - Funktion
 
 - Export
   - http://github.com/purzelrakete/workling

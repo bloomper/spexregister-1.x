@@ -1,5 +1,8 @@
 "sv-SE":
   views:
     search:
-      title: "Sök"
+      title: "Sök spexare"
       search: "Enkel sökning"
+      include_deceased: "Inkludera avlidna"
+      include_no_circulars: "Inkludera ej utskick"
+      include_not_published: "Inkludera ej publicerade"

@@ -2,9 +2,40 @@
 
 %h1= t 'views.search.title'
 
-- form_for @search do |f|
+- form_tag search_path do
   %p
-    %label= t 'activerecord.models.spex_category'
+    %label= t 'activerecord.attributes.spexare.first_name'
     %br>
-    = f.select :spex_category_id_equals, get_available_spex_categories_first_empty
+    = text_field_tag 'search[first_name_contains]', nil, :class => 'fullwidth'
+  %p
+    %label= t 'activerecord.attributes.spexare.last_name'
+    %br>
+    = text_field_tag 'search[last_name_contains]', nil, :class => 'fullwidth'
+  %p
+    %label= t 'activerecord.attributes.spexare.nick_name'
+    %br>
+    = text_field_tag 'search[nick_name_contains]', nil, :class => 'fullwidth'
+  .span-10
+    %p
+      %label= t 'activerecord.models.spex_category'
+      %br>
+      = select_tag 'search[spex_category_id_equals]', options_for_select(get_available_spex_categories_first_empty)
+  .span-10
+    %p
+      %label= t 'activerecord.models.function_category'
+      %br>
+      = select_tag 'search[function_category_id_equals]', options_for_select(get_available_function_categories_first_empty)
+  .span-9
+    %p
+      %label= t 'views.search.include_deceased'
+      = check_box_tag 'search[deceased_like_any]'
+    %p
+      %label= t 'views.search.include_no_circulars'
+      = check_box_tag 'search[want_circulars_like_any]'
+    - if current_user_is_admin?
+      %p
+        %label= t 'views.search.include_not_published'
+        = check_box_tag 'search[publish_approval_like_any]'
+  %p.form-buttons
+    = button t('views.base.search')
   
