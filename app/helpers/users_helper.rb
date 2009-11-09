@@ -9,7 +9,7 @@ module UsersHelper
     User.aasm_states_for_select.each do |aasm_state|
       states << [translate_user_state(aasm_state.first), aasm_state.last]
     end
-    states
+    return states
   end
   
   def get_available_states_first_empty
