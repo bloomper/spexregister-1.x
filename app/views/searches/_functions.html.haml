@@ -1,0 +1,5 @@
+- disabled = false if local_assigns[:disabled].nil? 
+- if !disabled && !function_category_id.blank?
+  = select_tag('search[function_id_equals]', options_for_select(get_function_names_by_category_first_empty(function_category_id)))
+- else
+  = select_tag('search[function_id_equals]', nil, { :disabled => true })

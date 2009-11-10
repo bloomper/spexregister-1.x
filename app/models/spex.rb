@@ -2,6 +2,9 @@ class Spex < ActiveRecord::Base
   belongs_to :spex_category
   has_attached_file :poster, :styles => { :thumb => ApplicationConfig.poster_thumbnail_size }
   attr_protected :poster_file_name, :poster_content_type, :poster_file_size
+  named_scope :by_category, lambda { |category, order|
+    { :conditions => { :spex_category_id => category }, :order => "#{order} asc" }
+  }
 
   def self.get_years
     Rails.cache.fetch('spex_years') { (ApplicationConfig.first_spex_year..Time.now.strftime('%Y').to_i).entries }

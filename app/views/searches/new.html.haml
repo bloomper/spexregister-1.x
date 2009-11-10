@@ -1,6 +1,6 @@
 = render :partial => 'sub_menu'
 
-%h1= t 'views.search.title'
+%h1= t 'views.search.page_title'
 
 - form_tag search_path do
   %p
@@ -20,11 +20,32 @@
       %label= t 'activerecord.models.spex_category'
       %br>
       = select_tag 'search[spex_category_id_equals]', options_for_select(get_available_spex_categories_first_empty)
+      = observe_field 'search_spex_category_id_equals', :update => 'spex-years', :method => :get, :url => { :action => :find_spex_years_by_category }, :with => 'spex_category_id'
+      = observe_field 'search_spex_category_id_equals', :update => 'spex-titles', :method => :get, :url => { :action => :find_spex_titles_by_category }, :with => 'spex_category_id'
+    %p
+      %label= t 'views.search.show_revivals'
+      = check_box_tag 'show_revivals'
+    %p
+      %label= t 'activerecord.attributes.spex.year'
+      %br>
+      %span#spex-years
+        = render :partial => 'spex_years', :locals => { :disabled => true }
+    %p
+      %label= t 'activerecord.attributes.spex.title'
+      %br>
+      %span#spex-titles
+        = render :partial => 'spex_titles', :locals => { :disabled => true }
   .span-10
     %p
       %label= t 'activerecord.models.function_category'
       %br>
       = select_tag 'search[function_category_id_equals]', options_for_select(get_available_function_categories_first_empty)
+      = observe_field 'search_function_category_id_equals', :update => 'functions', :method => :get, :url => { :action => :find_functions_by_category }, :with => 'function_category_id'
+    %p
+      %label= t 'activerecord.models.function'
+      %br>
+      %span#functions
+        = render :partial => 'functions', :locals => { :disabled => true }
   .span-9
     %p
       %label= t 'views.search.include_deceased'
