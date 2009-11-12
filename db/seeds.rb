@@ -42,7 +42,7 @@ Function.create :name => 'Designer', :function_category => FunctionCategory.find
 Function.create :name => 'Directeur', :function_category => FunctionCategory.find_by_name('Kommitté')
 Function.create :name => 'Directeursassistent', :function_category => FunctionCategory.find_by_name('Kommitté')
 Function.create :name => 'Elfiol', :function_category => FunctionCategory.find_by_name('Bandet')
-Function.create :name => 'Ensemble', :function_category => FunctionCategory.find_by_name('Ensemble')
+Function.create :name => 'Ensemblist', :function_category => FunctionCategory.find_by_name('Ensemble')
 Function.create :name => 'Exspextor', :function_category => FunctionCategory.find_by_name('Kommitté')
 Function.create :name => 'Fagott', :function_category => FunctionCategory.find_by_name('Orkester')
 Function.create :name => 'Festdirecteur', :function_category => FunctionCategory.find_by_name('Kommitté')
