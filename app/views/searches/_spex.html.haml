@@ -1,0 +1,10 @@
+- disabled = false if local_assigns[:disabled].nil? 
+- if !disabled && !spex_category_id.blank? && !show_revivals.nil?
+  - spex_items = get_spex_by_category_first_empty(spex_category_id, show_revivals)
+  = select_tag 'search[spex_id_equals]', options_for_select(spex_items.fetch('years')), { :onchange => "jQuery('#search_spex_title_equals').val(jQuery('#search_spex_id_equals').val());" }
+  %br>
+  = select_tag 'search[spex_title_equals]', options_for_select(spex_items.fetch('titles')), { :onchange => "jQuery('#search_spex_id_equals').val(jQuery('#search_spex_title_equals').val());" }
+- else
+  = select_tag 'search[spex_id_equals]', nil, { :disabled => true }
+  %br>
+  = select_tag 'search[spex_title_equals]', nil, { :disabled => true }

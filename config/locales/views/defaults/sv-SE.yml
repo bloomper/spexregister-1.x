@@ -32,6 +32,7 @@
       "yes": "Ja"
       "no": "Nej"
       or: "eller"
+      and: "och"
       mandatory_attribute: "*"
       from: "från"
       to: "till"

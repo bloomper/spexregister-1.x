@@ -16,47 +16,48 @@
     %br>
     = text_field_tag 'search[nick_name_contains]', nil, :class => 'fullwidth'
   .span-10
-    %p
-      %label= t 'activerecord.models.spex_category'
-      %br>
-      = select_tag 'search[spex_category_id_equals]', options_for_select(get_available_spex_categories_first_empty)
-      = observe_field 'search_spex_category_id_equals', :update => 'spex-years', :method => :get, :url => { :action => :find_spex_years_by_category }, :with => 'spex_category_id'
-      = observe_field 'search_spex_category_id_equals', :update => 'spex-titles', :method => :get, :url => { :action => :find_spex_titles_by_category }, :with => 'spex_category_id'
-    %p
-      %label= t 'views.search.show_revivals'
-      = check_box_tag 'show_revivals'
-    %p
-      %label= t 'activerecord.attributes.spex.year'
-      %br>
-      %span#spex-years
-        = render :partial => 'spex_years', :locals => { :disabled => true }
-    %p
-      %label= t 'activerecord.attributes.spex.title'
-      %br>
-      %span#spex-titles
-        = render :partial => 'spex_titles', :locals => { :disabled => true }
-  .span-10
-    %p
-      %label= t 'activerecord.models.function_category'
-      %br>
-      = select_tag 'search[function_category_id_equals]', options_for_select(get_available_function_categories_first_empty)
-      = observe_field 'search_function_category_id_equals', :update => 'functions', :method => :get, :url => { :action => :find_functions_by_category }, :with => 'function_category_id'
-    %p
-      %label= t 'activerecord.models.function'
-      %br>
-      %span#functions
-        = render :partial => 'functions', :locals => { :disabled => true }
-  .span-9
-    %p
-      %label= t 'views.search.include_deceased'
-      = check_box_tag 'search[deceased_like_any]'
-    %p
-      %label= t 'views.search.include_no_circulars'
-      = check_box_tag 'search[want_circulars_like_any]'
-    - if current_user_is_admin?
+    %fieldset
+      %legend= t 'activerecord.models.spex'
       %p
-        %label= t 'views.search.include_not_published'
-        = check_box_tag 'search[publish_approval_like_any]'
+        %label= t 'activerecord.attributes.spex.spex_category'
+        %br>
+        = select_tag 'search[spex_category_id_equals]', options_for_select(get_available_spex_categories_first_empty)
+        = observe_field 'search_spex_category_id_equals', :update => 'spex', :method => :get, :url => { :action => :find_spex_by_category }, :with => "'spex_category_id=' + value + '&show_revivals=' + (jQuery('#show_revivals:checked').val() != undefined ? true : false)"
+      %p
+        %label= t 'views.search.show_revivals'
+        = check_box_tag 'show_revivals'
+        = observe_field 'show_revivals', :update => 'spex', :method => :get, :url => { :action => :find_spex_by_category }, :with => "'spex_category_id=' + jQuery('#search_spex_category_id_equals').val() + '&show_revivals=' + (jQuery('#show_revivals:checked').val() != undefined ? true : false)"
+      %p
+        %label= "#{t('activerecord.attributes.spex.year')} #{t('views.base.and')} #{t('activerecord.attributes.spex.title')}"
+        %br>
+        %span#spex
+          = render :partial => 'spex', :locals => { :disabled => true }
+  .span-10
+    %fieldset
+      %legend= t 'activerecord.models.function'
+      %p
+        %label= t 'activerecord.attributes.function.function_category'
+        %br>
+        = select_tag 'search[function_category_id_equals]', options_for_select(get_available_function_categories_first_empty)
+        = observe_field 'search_function_category_id_equals', :update => 'functions', :method => :get, :url => { :action => :find_functions_by_category }, :with => 'function_category_id'
+      %p
+        %label= t 'activerecord.attributes.function.name'
+        %br>
+        %span#functions
+          = render :partial => 'functions', :locals => { :disabled => true }
+  .span-10
+    %fieldset
+      %legend= t 'views.search.include'
+      %p
+        %label= t 'views.search.include_deceased'
+        = check_box_tag 'search[deceased_like_any]'
+      %p
+        %label= t 'views.search.include_no_circulars'
+        = check_box_tag 'search[want_circulars_like_any]'
+      - if current_user_is_admin?
+        %p
+          %label= t 'views.search.include_not_published'
+          = check_box_tag 'search[publish_approval_like_any]'
   %p.form-buttons
     = button t('views.base.search')
   

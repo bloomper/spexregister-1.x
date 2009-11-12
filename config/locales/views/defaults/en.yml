@@ -32,6 +32,7 @@
       "yes": "Yes"
       "no": "No"
       or: "or"
+      and: "and"
       mandatory_attribute: "*"
       from: "from"
       to: "to"
