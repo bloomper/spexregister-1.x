@@ -22,16 +22,19 @@
         %label= t 'activerecord.attributes.spex.spex_category'
         %br>
         = select_tag 'search[spex_category_id_equals]', options_for_select(get_available_spex_categories_first_empty)
-        = observe_field 'search_spex_category_id_equals', :update => 'spex', :method => :get, :url => { :action => :find_spex_by_category }, :with => "'spex_category_id=' + value + '&show_revivals=' + (jQuery('#show_revivals:checked').val() != undefined ? true : false)"
+        = observe_field 'search_spex_category_id_equals', :function => "jQuery.fetch_spex_by_category(value, (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'search_spex_id_equals', 'search_spex_title_equals')"
       %p
         %label= t 'views.search.show_revivals'
         = check_box_tag 'show_revivals'
-        = observe_field 'show_revivals', :update => 'spex', :method => :get, :url => { :action => :find_spex_by_category }, :with => "'spex_category_id=' + jQuery('#search_spex_category_id_equals').val() + '&show_revivals=' + (jQuery('#show_revivals:checked').val() != undefined ? true : false)"
+        = observe_field 'show_revivals', :function => "jQuery.fetch_spex_by_category(jQuery('#search_spex_category_id_equals').val(), (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'search_spex_id_equals', 'search_spex_title_equals')"
       %p
-        %label= "#{t('activerecord.attributes.spex.year')} #{t('views.base.and')} #{t('activerecord.attributes.spex.title')}"
+        %label= t 'activerecord.attributes.spex.year'
         %br>
-        %span#spex
-          = render :partial => 'spex', :locals => { :disabled => true }
+        = select_tag 'search[spex_id_equals]', nil, { :disabled => true, :onchange => "jQuery('#search_spex_title_equals').val(jQuery('#search_spex_id_equals').val());" }
+      %p
+        %label= t 'activerecord.attributes.spex.title'
+        %br>
+        = select_tag 'search[spex_title_equals]', nil, { :disabled => true, :onchange => "jQuery('#search_spex_id_equals').val(jQuery('#search_spex_title_equals').val());" }
   .span-10
     %fieldset
       %legend= t 'activerecord.models.function'
@@ -39,12 +42,11 @@
         %label= t 'activerecord.attributes.function.function_category'
         %br>
         = select_tag 'search[function_category_id_equals]', options_for_select(get_available_function_categories_first_empty)
-        = observe_field 'search_function_category_id_equals', :update => 'functions', :method => :get, :url => { :action => :find_functions_by_category }, :with => 'function_category_id'
+        = observe_field 'search_function_category_id_equals', :function => "jQuery.fetch_functions_by_category(value, 'search_function_id_equals')"
       %p
         %label= t 'activerecord.attributes.function.name'
         %br>
-        %span#functions
-          = render :partial => 'functions', :locals => { :disabled => true }
+        = select_tag('search[function_id_equals]', nil, { :disabled => true })
   .span-10
     %fieldset
       %legend= t 'views.search.include'

@@ -12,6 +12,7 @@ javascripts:
   - jquery.lockSubmit
   - jquery.checkbox
   - jquery.multiselect
+  - jquery.selectboxes
   - jrails
   - jrails.autocomplete
   - spexregister

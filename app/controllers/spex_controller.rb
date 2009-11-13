@@ -2,6 +2,7 @@ class SpexController < ApplicationController
   inherit_resources
   respond_to :html, :except => :destroy
   respond_to :js, :only => :destroy
+  respond_to :json, :only => :index
   defaults :collection_name => 'spex_items', :route_collection_name => 'spex_index'
 
   def new
@@ -22,6 +23,12 @@ class SpexController < ApplicationController
     end
   end
 
+  def index
+    index! do |format|
+      format.json { render :json => @spex_items.to_json(:only => [:id, :title, :year]) }
+    end
+  end
+
   protected
   def resource
     @spex ||= end_of_association_chain.find_by_id(params[:id])
@@ -32,7 +39,11 @@ class SpexController < ApplicationController
     @search = base_scope.search(params[:search])
     @search.order ||= "ascend_by_year"
     
-    @spex_items ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    if params[:format] != 'json'
+      @spex_items ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    else
+      @spex_items ||= @search.all
+    end
   end
   
 end

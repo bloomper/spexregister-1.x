@@ -2,13 +2,14 @@ class FunctionsController < ApplicationController
   inherit_resources
   respond_to :html, :except => :destroy
   respond_to :js, :only => :destroy
-
+  respond_to :json, :only => :index
+  
   def new
     new! do |format|
       format.html { render :action => :new, :layout => false }
     end
   end
-
+  
   def create
     create! do |success, failure|
       success.html { redirect_to functions_url }
@@ -20,7 +21,13 @@ class FunctionsController < ApplicationController
       success.html { redirect_to functions_url }
     end
   end
-
+  
+  def index
+    index! do |format|
+      format.json { render :json => @functions.to_json(:only => [:id, :name]) }
+    end
+  end
+  
   protected
   def resource
     @function ||= end_of_association_chain.find_by_id(params[:id])
@@ -31,7 +38,11 @@ class FunctionsController < ApplicationController
     @search = base_scope.search(params[:search])
     @search.order ||= "ascend_by_name"
     
-    @functions ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    if params[:format] != 'json'
+      @functions ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    else
+      @functions ||= @search.all
+    end
   end
   
 end
