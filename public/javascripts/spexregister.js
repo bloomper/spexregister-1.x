@@ -84,8 +84,7 @@ jQuery.extend( {
 	fetch_functions_by_category : function(category, nameElement) {
 	  var nameSelect = jQuery('select#' + nameElement);
 	  if(category == '') {
-		  nameSelect.html('');
-		  nameSelect.attr('disabled', 'disabled');
+		  nameSelect.html('').attr('disabled', 'disabled');
 	  } else {
 		  jQuery.getJSON('/functions', {'search[function_category_id_equals]': category, format: 'json', 'search[order]': 'asscend_by_name'}, function(j) {
 			  nameSelect.addOption('', '');
@@ -103,10 +102,8 @@ jQuery.extend( {
 	  var yearSelect = jQuery('select#' + yearElement);
 	  var titleSelect = jQuery('select#' + titleElement);
 	  if(category == '') {
-		  yearSelect.html('');
-		  yearSelect.attr('disabled', 'disabled');
-		  titleSelect.html('');
-		  titleSelect.attr('disabled', 'disabled');
+		  yearSelect.html('').attr('disabled', 'disabled');
+		  titleSelect.html('').attr('disabled', 'disabled');
 	  } else {
 		  jQuery.getJSON('/spex', {'search[spex_category_id_equals]': category, 'search[is_revival_equals]': showRevivals, format: 'json', 'search[order]': 'ascend_by_title'}, function(j) {
 			  yearSelect.addOption('', '');
