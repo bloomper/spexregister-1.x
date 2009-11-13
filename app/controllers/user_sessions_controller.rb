@@ -1,8 +1,10 @@
 class UserSessionsController < ApplicationController
   after_filter :set_lockdown_values, :only => :create
+  skip_before_filter :check_session
   
   def new
     @user_session = UserSession.new
+    flash[:notice] = I18n.t('flash.user_sessions.timeout') if params[:stale]
   end
   
   def create

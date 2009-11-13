@@ -103,4 +103,5 @@
         error: "Ogiltligt användarnamn och/eller lösenord"
       destroy:
         notice: "Du har loggats ut"
+      timeout: "Du har loggats ut på grund av inaktivitet"
 

@@ -7,7 +7,6 @@ Short-term
 - Immediate problems
   - Get rid of annoying SASS errors (deprecation)
   - Lockdown model restrictions do not work as expected
-  - Problem with session timeout?
 
 - Controllers/views/translation
   - Spexare
@@ -29,9 +28,8 @@ Short-term
 - Change my profile
 
 - Simple search
-  - spex_items_years
-  - spex_items_titles
-  - Funktion
+  - Controller
+  - Search result
 
 - Export
   - http://github.com/purzelrakete/workling
@@ -47,6 +45,7 @@ Short-term
 
 - A more fine grained permission scheme
   - For example, a directeur should only be able to administer his/her spex
+  - FGV should only be able to administer memberships
 
 - Require SSL?
   - http://github.com/iwarshak/ssl_requirement

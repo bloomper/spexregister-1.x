@@ -12,12 +12,22 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
   
   before_filter :set_locale
+  before_filter :check_session
   
   protected
   def set_locale
     locale = session[:locale] || I18n.default_locale
     locale = AVAILABLE_LOCALES.keys.include?(locale) ? locale : I18n.default_locale
     I18n.locale = locale
+  end
+  
+  def check_session
+    sess = current_user_session
+    if sess && sess.stale?
+      reset_lockdown_session
+      redirect_to login_url(:stale => true)
+      return false
+    end
   end
   
   def default_url_options(options={})

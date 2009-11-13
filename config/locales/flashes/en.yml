@@ -91,4 +91,5 @@
         error: "Invalid username and/or password"
       destroy:
         notice: "You have been logged out"
+      timeout: "You have been logged out due to inactivity"
 
