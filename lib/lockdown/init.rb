@@ -157,7 +157,8 @@ set_user_group(:users)
 # set_user_group(:users, :spexare_myself)
 
 # Use Authlogic's session timeout mechanism instead
-options[:session_timeout] = 7776000
+# Must be longer than Authlogic's remember me timeout
+options[:session_timeout] = 10368000
 options[:session_timeout_method] = :clear_authlogic_session
 options[:access_denied_path] = "/login"
 
