@@ -14,14 +14,6 @@ class UserGroupsController < ApplicationController
     @user_groups = @user.user_groups
   end
   
-  def remove
-    @user.user_groups.delete(@user_group)
-    @user.save
-    @user_groups = @user.user_groups
-    set_available_user_groups
-    render :action => 'selected', :layout => false
-  end
-  
   def select
     @user.user_groups << UserGroup.find_by_id(params[:id])
     @user.save
@@ -30,6 +22,14 @@ class UserGroupsController < ApplicationController
     render :action => 'selected', :layout => false
   end
 
+  def remove
+    @user.user_groups.delete(@user_group)
+    @user.save
+    @user_groups = @user.user_groups
+    set_available_user_groups
+    render :action => 'selected', :layout => false
+  end
+  
   protected
   def resource
     @user_group ||= end_of_association_chain.find_by_id(params[:id])
