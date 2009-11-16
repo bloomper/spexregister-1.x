@@ -71,6 +71,7 @@
         want_circulars: "Want circulars?"
         uncertain_address: "Uncertain address?"
         picture: "Picture"
+        cohabitant: "Cohabitant"
       user:
         username: "Username"
         password: "Password"

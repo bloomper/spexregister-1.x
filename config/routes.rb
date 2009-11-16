@@ -29,7 +29,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   map.resources :spexare, :shallow => true do |spexare|
     spexare.resources :memberships
-    spexare.resources :cohabitants
+    spexare.resources :cohabitants, :only => [ :index ], :member => { :select => :get, :remove => :get}, :collection => { :available => :get, :selected => :get }
     spexare.resources :activities do |activity|
       activity.resource :spex_activity
       activity.resources :function_activities do |function_activity|

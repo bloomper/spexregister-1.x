@@ -1,0 +1,27 @@
+= render :partial => 'administration/sub_menu'
+
+#selected-cohabitants
+
+  = render :partial => '/spexare/spexare_tabs', :locals => {:edit_mode => true, :current_action => t('views.base.editing_action'), :current_tab => 'cohabitants_tab'}
+
+  - if @cohabitants.empty?
+    %p= t 'views.cohabitant.no_associated_spexare'
+  - else
+    %table.index
+      %tr
+        %th= t 'activerecord.attributes.spexare.last_name'
+        %th= t 'activerecord.attributes.spexare.first_name'
+        %th= t 'activerecord.attributes.spexare.nick_name'
+        %th.action-column= t 'views.base.action'
+        - @cohabitants.each do |cohabitant|
+          %tr{:id => dom_id(cohabitant), :class => cycle('even', 'odd')}
+            %td= h cohabitant.last_name
+            %td= h cohabitant.first_name
+            %td= h cohabitant.nick_name
+            %td.actions
+              = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => remove_spexare_cohabitant_url(@spexare, cohabitant), :method => :get, :before => '', :update => 'selected-cohabitants' }
+
+  #available-cohabitants
+
+  %span
+    = link_to_remote icon_tag('add') + ' ' + t('views.cohabitant.add_cohabitant'), { :url => available_spexare_cohabitants_url(@spexare), :method => :get, :update => 'available-cohabitants' }

@@ -71,6 +71,7 @@
         want_circulars: "Vill ha utskick?"
         uncertain_address: "Osäker adress?"
         picture: "Bild"
+        cohabitant: "Gift/sambo med"
       user:
         username: "Användarnamn"
         password: "Lösenord"
