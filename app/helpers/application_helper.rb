@@ -111,9 +111,11 @@ module ApplicationHelper
   end
 
   def get_username_by_id(id)
-    begin
-      User.find_by_id(id).username
-    rescue ActiveRecord::RecordNotFound
+    if !id.nil?
+      begin
+        User.find_by_id(id).username
+      rescue ActiveRecord::RecordNotFound
+      end
     end
   end
 
