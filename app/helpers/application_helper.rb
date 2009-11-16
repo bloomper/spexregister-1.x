@@ -50,7 +50,7 @@ module ApplicationHelper
     options = {:class => 'button'}.update(html_options)
   end
   
-  def button(text, icon = nil, button_type = 'submit')
+  def button(text, button_type = 'submit')
     content_tag('button', content_tag('span', text), :type => button_type)
   end
   
