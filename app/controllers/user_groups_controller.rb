@@ -1,7 +1,7 @@
 class UserGroupsController < ApplicationController
   inherit_resources
   respond_to :html
-  actions :all, :except => [ :new, :create, :show, :edit, :update, :destroy ]
+  actions :all, :only => [ :index ]
   belongs_to :user
   before_filter :resource, :only => [:select, :selected, :available, :remove]
   
