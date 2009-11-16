@@ -142,9 +142,9 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :cohabitants, :id => false, :force => true do |t|
       t.integer :spexare_id, :null => false
-      t.integer :spexare_id_cohabitant, :null => false
+      t.integer :spexare_id_target, :null => false
       t.foreign_key :spexare_id, :spexare, :id
-      t.foreign_key :spexare_id_cohabitant, :spexare, :id
+      t.foreign_key :spexare_id_target, :spexare, :id
       t.string :created_by
       t.string :updated_by
       t.timestamps

@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
   add_index "actors", ["function_activity_id"], :name => "index_actors_on_function_activity_id"
 
   create_table "cohabitants", :id => false, :force => true do |t|
-    t.integer  "spexare_id",            :null => false
-    t.integer  "spexare_id_cohabitant", :null => false
+    t.integer  "spexare_id",        :null => false
+    t.integer  "spexare_id_target", :null => false
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"
