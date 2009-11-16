@@ -9,7 +9,7 @@
   - else
     %table.index
       %tr
-        %th= t('activerecord.attributes.user_group.name')
+        %th= t 'activerecord.attributes.user_group.name'
         %th.action-column= t 'views.base.action'
         - @user_groups.each do |user_group|
           %tr{:id => dom_id(user_group), :class => cycle('even', 'odd')}
