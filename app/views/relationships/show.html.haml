@@ -1,0 +1,19 @@
+= render :partial => 'administration/sub_menu'
+
+= render :partial => '/spexare/spexare_tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :current_tab => 'relationship_tab'}
+
+- if !@spexare.spouse
+  %p= t 'views.relationship.no_associated_relationship'
+- else
+  %table.index
+    %tr
+      %th= t 'activerecord.attributes.spexare.last_name'
+      %th= t 'activerecord.attributes.spexare.first_name'
+      %th= t 'activerecord.attributes.spexare.nick_name'
+      %th.action-column= t 'views.base.action'
+    %tr
+      %td= h @spexare.spouse.last_name
+      %td= h @spexare.spouse.first_name
+      %td= h @spexare.spouse.nick_name
+      %td.actions
+        = link_to_view_action @spexare.spouse
