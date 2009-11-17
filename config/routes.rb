@@ -28,7 +28,7 @@ ActionController::Routing::Routes.draw do |map|
     user.resources :user_groups, :only => [:index], :member => { :select => :get, :remove => :get}, :collection => { :available => :get, :selected => :get }
   end
   map.resources :spexare, :shallow => true do |spexare|
-    spexare.resource :relationship, :only => [ :show, :new, :create ], :member => { :remove => :get}, :collection => { :available => :get, :selected => :get }
+    spexare.resource :relationship, :except => [:update]
     spexare.resources :memberships
     spexare.resources :activities do |activity|
       activity.resource :spex_activity

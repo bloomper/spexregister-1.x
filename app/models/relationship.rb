@@ -13,7 +13,7 @@ class Relationship < ActiveRecord::Base
   end
   
   def delete_both_sides
-    Relationship.delete_all(:conditions => ['spexare_id = ? OR spouse_id = ?', spexare_id, spexare_id])
+    Relationship.delete_all(['spexare_id = ? OR spouse_id = ?', spexare_id, spexare_id])
   end
 
   validates_presence_of :spexare

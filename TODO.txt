@@ -15,7 +15,7 @@ Short-term
         - Memberships
           - Three columns?
         - Cohabitants
-          - Use form_remote_for or form_remote_tag when adding cohabitant?
+          - Check for already existing relationship on spouse
         - Activities
           - Use jsTree?
     - Implement show

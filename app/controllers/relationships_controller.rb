@@ -1,41 +1,28 @@
 class RelationshipsController < ApplicationController
   inherit_resources
-  actions :all, :only => [ :index, :new, :create ]
+  actions :all, :except => [:update]
   respond_to :html
-  belongs_to :spexare
-  before_filter :resource, :only => [:selected, :remove]
+  belongs_to :spexare, :singleton => true
 
-  # TODO: This controller needs some love...
-  
   def new
-    new!{ render :layout => false }
-  end
-
-  def selected
-    @cohabitants = @spexare.spouse
+    new! do |format|
+      format.html { render :layout => false }
+    end
   end
 
   def create
-    Relationship.create(:spexare_source => @spexare, :spexare_target => Spexare.find_by_id(params[:spexare_target_id]))
+    @spexare = Spexare.find_by_id(params[:spexare_id])
+    @spouse = Spexare.find_by_id(params[:spouse_id])
+    # TODO: Do some validation
+    Relationship.create(:spexare => @spexare, :spouse => @spouse)
     @spexare.reload
-    @relationships = @spexare.spouse
-    render :action => 'selected', :layout => false
+    render :action => 'edit', :layout => false
   end
 
-  def remove
-    @cohabitant.destroy
-    @spexare.reload
-    @relationships = @spexare.spouse
-    render :action => 'selected', :layout => false
-  end
-
-  protected
-  def resource
-    @spouse ||= end_of_association_chain.find(params[:id])
-  end  
-
-  def collection
-    @relationships ||= end_of_association_chain.find(:all)
+  def destroy
+    @spexare = Spexare.find_by_id(params[:spexare_id])
+    @spexare.relationship.destroy
+    render :action => 'edit', :layout => false
   end
 
 end

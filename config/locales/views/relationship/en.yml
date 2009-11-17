@@ -1,8 +1,7 @@
 "en":
   views:
     relationship:
-      description_tab_title: "Spouse"
+      description_tab_title: "Married/co-living with"
       no_associated_relationship: "No relation has been specified"
       add_spouse: "Add spouse"
-      only_one_relation_allowed: "Only one relation at a time is allowed"
       format_notice: "Write as 'first_name last_name' or 'last_name first_name'"
