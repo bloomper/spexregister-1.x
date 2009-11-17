@@ -1,8 +1,0 @@
-"sv-SE":
-  views:
-    cohabitant:
-      description_tab_title: "Gift/sambo med"
-      no_associated_spexare: "Ingen relation har angivits"
-      add_cohabitant: "Lägg till make/maka/sambo"
-      only_one_relation_allowed: "Endast en relation åt gången är tillåten"
-      format_notice: "Skriv enligt 'förnamn efternamn' eller 'efternamn förnamn'"

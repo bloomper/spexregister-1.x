@@ -69,7 +69,7 @@ class SpexareTest < ActiveSupport::TestCase
     assert(spexare.errors.invalid?(:birth_date), "Expected an error for invalid birth date")
   end
 
-  test "should be ok with relationships" do
+  test "should be ok with activities" do
     spexare = Spexare.create(:last_name => Time.now, :first_name => Time.now)
     activity = Activity.create(:spexare => spexare)
     spexare.activities << activity
@@ -82,6 +82,16 @@ class SpexareTest < ActiveSupport::TestCase
     spexare.destroy
     assert(Spex.exists?(:year => spex(:spex_1).year))
     assert(Function.exists?(:name => functions(:function).name))
+  end
+
+  test "should be ok with relationships" do
+    spexare = Spexare.create(:last_name => Time.now, :first_name => Time.now)
+    spouse = Spexare.create(:last_name => Time.now, :first_name => Time.now)
+    Relationship.create(:spexare => spexare, :spouse => spouse)
+    spexare.reload
+    spouse.reload
+    assert(spouse, spexare.spouse);
+    assert(spexare, spouse.spouse);
   end
 
 end

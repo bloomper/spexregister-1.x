@@ -140,11 +140,11 @@ class CreateTables < ActiveRecord::Migration
     add_index :spexare, :last_name
     add_index :spexare, :first_name
 
-    create_table :cohabitants, :id => false, :force => true do |t|
+    create_table :relationships, :id => false, :force => true do |t|
       t.integer :spexare_id, :null => false
-      t.integer :spexare_id_target, :null => false
+      t.integer :spouse_id, :null => false
       t.foreign_key :spexare_id, :spexare, :id
-      t.foreign_key :spexare_id_target, :spexare, :id
+      t.foreign_key :spouse_id, :spexare, :id
       t.string :created_by
       t.string :updated_by
       t.timestamps
@@ -209,7 +209,7 @@ class CreateTables < ActiveRecord::Migration
     drop_table :function_activities
     drop_table :spex_activities
     drop_table :activities
-    drop_table :cohabitants
+    drop_table :relationships
     drop_table :memberships
     drop_table :spexare
     drop_table :news

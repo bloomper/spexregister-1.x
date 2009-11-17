@@ -1,8 +1,0 @@
-"en":
-  views:
-    cohabitant:
-      description_tab_title: "Married/cohabitant with"
-      no_associated_spexare: "No relation has been specified"
-      add_cohabitant: "Add cohabitant"
-      only_one_relation_allowed: "Only one relation at a time is allowed"
-      format_notice: "Write as 'first_name last_name' or 'last_name first_name'"

@@ -34,15 +34,6 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
 
   add_index "actors", ["function_activity_id"], :name => "index_actors_on_function_activity_id"
 
-  create_table "cohabitants", :id => false, :force => true do |t|
-    t.integer  "spexare_id",        :null => false
-    t.integer  "spexare_id_target", :null => false
-    t.string   "created_by"
-    t.string   "updated_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "function_activities", :force => true do |t|
     t.integer "function_id", :null => false
     t.integer "activity_id", :null => false
@@ -113,6 +104,15 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
   create_table "queued_mails", :force => true do |t|
     t.text   "object"
     t.string "mailer"
+  end
+
+  create_table "relationships", :id => false, :force => true do |t|
+    t.integer  "spexare_id", :null => false
+    t.integer  "spouse_id",  :null => false
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sessions", :force => true do |t|

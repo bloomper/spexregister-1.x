@@ -5,7 +5,7 @@
     models:
       activity: "Activity"
       actor: "Ensemble"
-      cohabitant: "Married/cohabitant"
+      relationship: "Married/cohabitant"
       function: "Function"
       function_activity: "Function activity"
       function_category: "Function category"
@@ -24,9 +24,9 @@
       actor:
         role: "Role"
         vocal_id: "Vocal"
-      cohabitant:
-        spexare: "Spexer"
-        spexare_cohabitant: "Spexer"
+      relationship:
+        spexare_source: "Spexer"
+        spexare_target: "Spexer"
       function:
         name: "Name"
         function_category: "Category"
@@ -71,7 +71,7 @@
         want_circulars: "Want circulars?"
         uncertain_address: "Uncertain address?"
         picture: "Picture"
-        cohabitant: "Cohabitant"
+        spouse: "Spouse"
       user:
         username: "Username"
         password: "Password"

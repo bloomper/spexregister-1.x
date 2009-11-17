@@ -118,9 +118,9 @@ set_permission(:function_view).with_controller(:functions).only_methods(:show)
 set_permission(:news_management).with_controller(:news)
 set_permission(:news_view).with_controller(:news).only_methods(:show)
 set_permission(:user_management).with_controller(:users).and_controller(:user_groups).and_controller(:spexare)
-set_permission(:spexare_management).with_controller(:spexare).and_controller(:cohabitants).and_controller(:memberships).and_controller(:activities).and_controller(:spex_activities).and_controller(:function_activities).and_controller(:actors)
+set_permission(:spexare_management).with_controller(:spexare).and_controller(:relationships).and_controller(:memberships).and_controller(:activities).and_controller(:spex_activities).and_controller(:function_activities).and_controller(:actors)
 # set_permission(:spexare_myself).with_controller(:spexare).to_model(:spexare).where(:editable_by).includes(:current_user_id).and_controller(:cohabitants).and_controller(:memberships).and_controller(:activities).and_controller(:spex_activities).and_controller(:function_activities).and_controller(:actors)
-set_permission(:spexare_view).with_controller(:spexare).only_methods(:show).and_controller(:cohabitants).only_methods(:show).and_controller(:memberships).only_methods(:show).and_controller(:activities).only_methods(:show).and_controller(:spex_activities).only_methods(:show).and_controller(:function_activities).only_methods(:show).and_controller(:actors).only_methods(:show)
+set_permission(:spexare_view).with_controller(:spexare).only_methods(:show).and_controller(:relationships).only_methods(:show).and_controller(:memberships).only_methods(:show).and_controller(:activities).only_methods(:show).and_controller(:spex_activities).only_methods(:show).and_controller(:function_activities).only_methods(:show).and_controller(:actors).only_methods(:show)
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Built-in user groups

@@ -3,7 +3,8 @@ require 'attr_encrypted'
 class Spexare < ActiveRecord::Base
   has_many :activities, :order => :position, :dependent => :destroy
   has_many :memberships, :order => :year, :dependent => :destroy
-  acts_as_network :cohabitant, :through => :cohabitants
+  has_one :relationship
+  has_one :spouse, :through => :relationship
   has_one :user, :dependent => :nullify
   has_attached_file :picture, :styles => { :thumb => ApplicationConfig.picture_thumbnail_size }
   attr_protected :picture_file_name, :picture_content_type, :picture_file_size

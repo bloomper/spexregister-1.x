@@ -5,7 +5,7 @@
     models:
       activity: "Aktivitet"
       actor: "Ensemblist"
-      cohabitant: "Gift/sambo"
+      relationship: "Gift/sambo"
       function: "Funktion"
       function_activity: "Funktionsaktivitet"
       function_category: "Funktionskategori"
@@ -24,9 +24,9 @@
       actor:
         role: "Roll"
         vocal_id: "Stämma"
-      cohabitant:
-        spexare: "Spexare"
-        spexare_cohabitant: "Spexare"
+      relationship:
+        spexare_source: "Spexare"
+        spexare_target: "Spexare"
       function:
         name: "Namn"
         function_category: "Kategori"
@@ -71,7 +71,7 @@
         want_circulars: "Vill ha utskick?"
         uncertain_address: "Osäker adress?"
         picture: "Bild"
-        cohabitant: "Gift/sambo med"
+        spouse: "Gift/sambo med"
       user:
         username: "Användarnamn"
         password: "Lösenord"
