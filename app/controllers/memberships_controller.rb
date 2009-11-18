@@ -1,9 +1,10 @@
 class MembershipsController < ApplicationController
   inherit_resources
-  actions :all, :except => [:show, :update]
+  actions :all, :except => [:show, :edit, :update]
   respond_to :html
   belongs_to :spexare
   has_scope :by_kind
+  before_filter :resource, :only => [:selected]
 
   def new
     new! do |format|
@@ -16,21 +17,21 @@ class MembershipsController < ApplicationController
     create! do |format|
       @memberships = @spexare.memberships.by_kind(params[:by_kind])
       set_available_memberships(params[:by_kind])
-      format.html { render :action => 'edit', :layout => false }
+      flash.discard
+      format.html { render :action => 'selected', :layout => false }
     end
   end
 
-  def edit
-    edit! do
-      @memberships = @spexare.memberships.by_kind(params[:by_kind])
-    end
+  def selected
+    @memberships = @spexare.memberships.by_kind(params[:by_kind])
   end
 
   def destroy
     destroy! do |format|
       @memberships = @spexare.memberships.by_kind(params[:by_kind])
       set_available_memberships(params[:by_kind])
-      format.html { render :action => 'edit', :layout => false }
+      flash.discard
+      format.html { render :action => 'selected', :layout => false }
     end
   end
   
@@ -52,11 +53,9 @@ class MembershipsController < ApplicationController
   private 
   def set_available_memberships(kind)
      @available_memberships = Membership.get_years(kind.to_i).dup
-     selected_memberships = []
-     @spexare.memberships.by_kind(kind).each do |membership| 
-       selected_memberships << membership
+     @spexare.memberships.by_kind(kind).each do |membership|
+       @available_memberships.delete_if {|year| membership.year == year.to_s}
      end
-     @available_memberships.delete_if {|membership| selected_memberships.include? membership}
   end
 
 end
