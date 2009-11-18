@@ -34,6 +34,7 @@
         name: "Namn"
         has_actor: "Ensemblistrelation?"
       membership:
+        year: "År"
         type_id: "Typ"
       news:
         publication_date: "Publiceringsdatum"

@@ -8,6 +8,16 @@ class Membership < ActiveRecord::Base
   named_scope :cing_memberships, :conditions => {:kind_id => 2}
   named_scope :by_kind, proc {|kind| { :conditions => { :kind_id => kind } } }
 
+  def self.get_years(kind_type)
+    if kind_type == self.kind(:fgv).id
+      return self.get_fgv_years
+    elsif kind_type == self.kind(:cing).id
+      return self.get_cing_years
+    else
+      return nil
+    end
+  end
+
   def self.get_fgv_years
     Rails.cache.fetch('fgv_years') { (ApplicationConfig.first_fgv_year..Time.now.strftime('%Y').to_i).entries }
   end

@@ -1,7 +1,23 @@
 = render :partial => 'administration/sub_menu'
 
-= render :partial => '/spexare/spexare_tabs', :locals => {:edit_mode => true, :current_action => t('views.base.editing_action'), :current_tab => "#{params[:kind_name]}_memberships_tab"}
+#edit-memberships
 
-- form_for @membership, :url => resource_url, :html => { :method => :put } do |f|
-  = render :partial => 'form', :locals => { :f => f }
-  = render :partial => '/shared/edit_resource_links'
+  = render :partial => '/spexare/spexare_tabs', :locals => {:edit_mode => true, :current_action => t('views.base.editing_action'), :current_tab => "#{params[:kind_name]}_memberships_tab"}
+
+  - if @memberships.empty?
+    %p= t 'views.membership.no_associated_memberships', :kind => params[:kind_name].upcase
+  - else
+    %table.index
+      %tr
+        %th= t 'activerecord.attributes.membership.year'
+        %th.action-column= t 'views.base.action'
+        - @memberships.each do |membership|
+          %tr{:id => dom_id(membership), :class => cycle('even', 'odd')}
+            %td= h membership.year
+            %td.actions
+              = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => spexare_membership_url(@spexare, membership, :by_kind => params[:by_kind], :kind_name => params[:kind_name]), :method => :delete, :before => '', :update => 'edit-memberships' }
+
+  #add-membership
+
+  %span
+    = link_to_remote icon_tag('add') + ' ' + t('views.membership.add_membership'), { :url => new_spexare_membership_url(@spexare, :by_kind => params[:by_kind], :kind_name => params[:kind_name]), :method => :get, :update => 'add-membership' }

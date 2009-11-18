@@ -7,8 +7,8 @@
     %li{:class => ("active" if current_tab == "activities_tab")}
       = link_to t('views.activity.description_tab_title'), spexare_activities_url(@spexare)
     %li{:class => ("active" if current_tab == "fgv_memberships_tab")}
-      = link_to t('views.membership.fgv_description_tab_title'), spexare_memberships_url(@spexare, :by_kind => Membership.kind(:fgv).id, :kind_name => Membership.kind(:fgv).name)
+      = link_to t('views.membership.fgv_description_tab_title'), (edit_mode ? edit_spexare_membership_url(@spexare, :by_kind => Membership.kind(:fgv).id, :kind_name => Membership.kind(:fgv).name) : spexare_memberships_url(@spexare, :by_kind => Membership.kind(:fgv).id, :kind_name => Membership.kind(:fgv).name))
     %li{:class => ("active" if current_tab == "cing_memberships_tab")}
-      = link_to t('views.membership.cing_description_tab_title'), spexare_memberships_url(@spexare, :by_kind => Membership.kind(:cing).id, :kind_name => Membership.kind(:cing).name)
+      = link_to t('views.membership.cing_description_tab_title'), (edit_mode ? edit_spexare_membership_url(@spexare, :by_kind => Membership.kind(:cing).id, :kind_name => Membership.kind(:cing).name) : spexare_memberships_url(@spexare, :by_kind => Membership.kind(:cing).id, :kind_name => Membership.kind(:cing).name))
     %li{:class => ("active" if current_tab == "relationship_tab")}
       = link_to t('views.relationship.description_tab_title'), (edit_mode ? edit_spexare_relationship_url(@spexare) : spexare_relationship_url(@spexare))

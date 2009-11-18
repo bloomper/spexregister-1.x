@@ -34,6 +34,7 @@
         name: "Name"
         has_actor: "Ensemble relation?"
       membership:
+        year: "Year"
         type_id: "Type"
       news:
         publication_date: "Publication date"

@@ -1,4 +1,29 @@
 = render :partial => 'administration/sub_menu'
 
-= render :partial => '/spexare/spexare_tabs', :locals => {:edit_mode => true, :current_action => t('views.base.viewing_action'), :current_tab => "#{params[:kind_name]}_memberships_tab"}
+= render :partial => '/spexare/spexare_tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :current_tab => "#{params[:kind_name]}_memberships_tab"}
 
+- if @memberships.empty?
+  %p= t 'views.membership.no_associated_memberships', :kind => params[:kind_name].upcase
+- else
+  %table.index
+    %tr
+      - if @memberships.size > 24
+        %th= t 'activerecord.attributes.membership.year'
+        %th= t 'activerecord.attributes.membership.year'
+        %th= t 'activerecord.attributes.membership.year'
+        - @memberships.in_groups_of(3).each do |membership_group|
+          %tr{:class => cycle('even', 'odd')}
+            - membership_group.each do |membership|
+              %td= h membership.year
+      - elsif @memberships.size > 12
+        %th= t 'activerecord.attributes.membership.year'
+        %th= t 'activerecord.attributes.membership.year'
+        - @memberships.in_groups_of(2).each do |membership_group|
+          %tr{:class => cycle('even', 'odd')}
+            - membership_group.each do |membership|
+              %td= h membership.year
+      - else
+        %th= t 'activerecord.attributes.membership.year'
+        - @memberships.each do |membership|
+          %tr{:class => cycle('even', 'odd')}
+            %td= h membership.year

@@ -13,13 +13,14 @@ Short-term
     - Implement edit
       - Tabs
         - Memberships
-          - Three columns?
+          - Cannot create, something strange with url helper
         - Activities
           - Use jsTree?
     - Implement show
       - Tabs
         - Description
         - Memberships
+          - Test many
         - Activities
     - Should search cover more like spex years etc?
 
