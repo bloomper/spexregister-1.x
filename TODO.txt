@@ -14,15 +14,12 @@ Short-term
       - Tabs
         - Memberships
           - Three columns?
-        - Cohabitants
-          - Check for already existing relationship on spouse
         - Activities
           - Use jsTree?
     - Implement show
       - Tabs
         - Description
         - Memberships
-        - Cohabitants
         - Activities
     - Should search cover more like spex years etc?
 

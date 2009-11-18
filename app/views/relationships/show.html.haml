@@ -16,4 +16,4 @@
       %td= h @spexare.spouse.first_name
       %td= h @spexare.spouse.nick_name
       %td.actions
-        = link_to_view_action @spexare.spouse
+        = link_to_with_icon 'view', t('views.base.view_action'), spexare_url(@spexare.spouse)

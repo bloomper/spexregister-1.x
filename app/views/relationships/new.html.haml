@@ -1,6 +1,6 @@
 %h3= t 'views.relationship.add_spouse'
 
-- form_remote_for @spexare, :url => spexare_relationship_path(@spexare), :update => 'edit-relationship', :html => { :method => :post } do |f|
+- form_remote_for @spexare, :url => spexare_relationship_path(@spexare, :format => :js), :complete => evaluate_remote_response(), :html => { :method => :post } do |f|
   %small= t 'views.relationship.format_notice'
   %br>
   = hidden_field_tag :spouse_id

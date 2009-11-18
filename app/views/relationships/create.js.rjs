@@ -1,0 +1,4 @@
+page.replace 'edit-relationship', :partial => 'edit'
+if !flash.empty?
+  page.replace 'flash', :partial => 'shared/flashes'
+end  

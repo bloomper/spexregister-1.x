@@ -104,4 +104,9 @@
       destroy:
         notice: "Du har loggats ut"
       timeout: "Du har loggats ut på grund av inaktivitet"
+    relationships:
+      create:
+        error: "Angiven spexare har redan en relation med någon annan"
+      spexare_not_found: "Spexaren kunde inte hittas"
+
 
