@@ -13,24 +13,26 @@ class RelationshipsController < ApplicationController
   
   def create
     @spexare = Spexare.find_by_id(params[:spexare_id])
-    @spouse = Spexare.find_by_id(params[:spouse_id])
-    if @spouse
-      if !@spouse.spouse
-        Relationship.create(:spexare => @spexare, :spouse => @spouse)
-        @spexare.reload
-      else
-        flash.now[:error] = t 'flash.relationships.create.error'
-        return false
-      end
-    else 
+    @spouse = Spexare.find_by_id(params[:relationship][:spouse_id])
+    if !@spouse
       flash.now[:error] = t 'flash.relationships.spexare_not_found'
       return false
+    end
+    if !@spouse.spouse.nil?
+      flash.now[:error] = t 'flash.relationships.create.error'
+      return false
+    end
+    create! do
+      flash.discard
+      @spexare.reload
     end
   end
   
   def destroy
-    @spexare = Spexare.find_by_id(params[:spexare_id])
-    @spexare.relationship.destroy
+    destroy! do |format|
+      flash.discard
+      format.html { render :action => 'edit', :layout => false }
+    end
   end
   
 end

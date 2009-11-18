@@ -1,4 +1,4 @@
 page.replace 'edit-relationship', :partial => 'edit'
-if !flash.empty?
+if flash.has_key?(:error)
   page.replace 'flash', :partial => 'shared/flashes'
 end  
