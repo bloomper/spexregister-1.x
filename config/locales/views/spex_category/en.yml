@@ -5,3 +5,6 @@
       page_title: "{{action}} category"
       no_spex_categories_exist: "There are no categories"
       new_spex_category: "Create category"
+      logo_format_notice:  "Allowed formats are GIF, JPG and PNG"
+      logo_size_notice:  "Maximum allowed size is {{max_size}} Kb"
+      current_logo: "Current logo"

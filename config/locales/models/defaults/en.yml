@@ -49,6 +49,7 @@
         spex_category: "Category"
       spex_category:
         name: "Name"
+        logo: "Logo"
       spexare:
         last_name: "Last name"
         first_name: "First name"

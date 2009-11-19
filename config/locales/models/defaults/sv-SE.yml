@@ -49,6 +49,7 @@
         spex_category: "Kategori"
       spex_category:
         name: "Namn"
+        logo: "Logga"
       spexare:
         last_name: "Efternamn"
         first_name: "Förnamn"

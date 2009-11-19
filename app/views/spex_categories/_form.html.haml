@@ -5,4 +5,17 @@
     %br>
     = f.error_message_on :name
     = f.text_field :name, :class => 'fullwidth'
-    
+  - f.field_container :logo do
+    = f.label :logo, t('activerecord.attributes.spex_category.logo')
+    - if @spex_category.logo?
+      %br>
+      %small= t 'views.spex_category.current_logo'
+      %br>
+      = link_to(image_tag(@spex_category.logo.url(:thumb)), @spex_category.logo.url, :class => 'fancybox-single')
+    %br>
+    %small= t 'views.spex_category.logo_format_notice'
+    %br>
+    %small= t('views.spex_category.logo_size_notice', :max_size => ApplicationConfig.max_upload_size)
+    %br>
+    = f.error_message_on :logo
+    = f.file_field :logo

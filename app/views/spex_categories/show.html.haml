@@ -8,4 +8,13 @@
   %tr
     %td= h @spex_category.name
 
+%table.show
+  %tr
+    %th= t 'activerecord.attributes.spex_category.logo'
+  %tr
+    - if @spex_category.logo?
+      %td= link_to(image_tag(@spex_category.logo.url(:thumb)), @spex_category.logo.url, :class => 'fancybox-single')
+    - else
+      %td= t 'views.base.missing_image'
+
 = render :partial => '/shared/entity_details', :locals => {:entity => @spex_category}

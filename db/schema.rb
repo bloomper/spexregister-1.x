@@ -35,13 +35,21 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
   add_index "actors", ["function_activity_id"], :name => "index_actors_on_function_activity_id"
 
   create_table "function_activities", :force => true do |t|
-    t.integer "function_id", :null => false
-    t.integer "activity_id", :null => false
+    t.integer  "function_id",                 :null => false
+    t.integer  "activity_id",                 :null => false
+    t.integer  "lock_version", :default => 0
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "function_categories", :force => true do |t|
-    t.string   "name",                          :null => false
-    t.boolean  "has_actor",  :default => false
+    t.string   "name",                            :null => false
+    t.boolean  "has_actor",    :default => false
+    t.integer  "lock_version", :default => 0
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -145,12 +153,24 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
   add_index "spex", ["year"], :name => "index_spex_on_year"
 
   create_table "spex_activities", :force => true do |t|
-    t.integer "spex_id",     :null => false
-    t.integer "activity_id", :null => false
+    t.integer  "spex_id",                     :null => false
+    t.integer  "activity_id",                 :null => false
+    t.integer  "lock_version", :default => 0
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "spex_categories", :force => true do |t|
-    t.string   "name",       :null => false
+    t.string   "name",                             :null => false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.integer  "lock_version",      :default => 0
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -202,8 +222,13 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
   add_index "user_groups", ["name"], :name => "index_user_groups_on_name", :unique => true
 
   create_table "user_groups_users", :id => false, :force => true do |t|
-    t.integer "user_group_id"
-    t.integer "user_id"
+    t.integer  "user_group_id"
+    t.integer  "user_id"
+    t.integer  "lock_version",  :default => 0
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

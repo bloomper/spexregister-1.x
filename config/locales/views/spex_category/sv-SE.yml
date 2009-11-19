@@ -5,3 +5,6 @@
       page_title: "{{action}} kategori"
       no_spex_categories_exist: "Det finns inga kategorier"
       new_spex_category: "Skapa kategori"
+      logo_format_notice:  "Tillåtna format är GIF, JPG och PNG"
+      logo_size_notice:  "Max tillåten storlek är {{max_size}} Kb"
+      current_logo: "Nuvarande logga"

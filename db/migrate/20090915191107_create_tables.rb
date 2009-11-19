@@ -3,6 +3,9 @@ class CreateTables < ActiveRecord::Migration
     create_table :function_categories, :force => true do |t|
       t.string :name, :null => false
       t.boolean :has_actor, :default => false
+      t.integer :lock_version, :default => 0
+      t.string :created_by
+      t.string :updated_by
       t.timestamps
     end
     add_index :function_categories, :name, :unique => true
@@ -20,6 +23,13 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :spex_categories, :force => true do |t|
       t.string :name, :null => false
+      t.string :logo_file_name
+      t.string :logo_content_type
+      t.integer :logo_file_size
+      t.datetime :logo_updated_at
+      t.integer :lock_version, :default => 0
+      t.string :created_by
+      t.string :updated_by
       t.timestamps
     end
     add_index :spex_categories, :name, :unique => true
@@ -89,6 +99,10 @@ class CreateTables < ActiveRecord::Migration
     create_table :user_groups_users, :force => true, :id => false do |t|
       t.integer :user_group_id
       t.integer :user_id
+      t.integer :lock_version, :default => 0
+      t.string :created_by
+      t.string :updated_by
+      t.timestamps
       t.foreign_key :user_group_id, :user_groups, :id
       t.foreign_key :user_id, :users, :id
     end
@@ -175,6 +189,10 @@ class CreateTables < ActiveRecord::Migration
     create_table :spex_activities, :force => true do |t|
       t.integer :spex_id, :null => false
       t.integer :activity_id, :null => false
+      t.integer :lock_version, :default => 0
+      t.string :created_by
+      t.string :updated_by
+      t.timestamps
       t.foreign_key :spex_id, :spex, :id
       t.foreign_key :activity_id, :activities, :id
     end
@@ -182,6 +200,10 @@ class CreateTables < ActiveRecord::Migration
     create_table :function_activities, :force => true do |t|
       t.integer :function_id, :null => false
       t.integer :activity_id, :null => false
+      t.integer :lock_version, :default => 0
+      t.string :created_by
+      t.string :updated_by
+      t.timestamps
       t.foreign_key :function_id, :functions, :id
       t.foreign_key :activity_id, :activities, :id
     end
