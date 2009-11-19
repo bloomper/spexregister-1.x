@@ -12,12 +12,20 @@ body
   +container
 
 #header
-  h1.logo
-    :color = !header_text_color
-
-  ul#login-details
-    +horizontal-list(4px)
+  #logo
+    +column(8)
+    :float left
+  #title
+    +column(14)
+    h1
+      :color = !header_text_color
+  #details
+    +column(8)
     :float right
+    ul
+      &#login-details
+        +horizontal-list(4px)
+        :float right
 
 #progress-indicator
   :display none
