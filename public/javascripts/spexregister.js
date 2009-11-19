@@ -85,7 +85,7 @@ jQuery.extend( {
 	  var nameSelect = jQuery('select#' + nameElement);
 	  nameSelect.html('').attr('disabled', 'disabled');
 	  if(category != '') {
-		  jQuery.getJSON('/functions', {'search[function_category_id_equals]': category, format: 'json', 'search[order]': 'asscend_by_name'}, function(j) {
+		  jQuery.getJSON('/functions', {'search[function_category_id_equals]': category, format: 'json', 'search[order]': 'ascend_by_name'}, function(j) {
 			  nameSelect.addOption('', '');
 		      for (var i = 0; i < j.length; i++) {
 		    	  nameSelect.addOption(j[i].function.id, j[i].function.name, false);
