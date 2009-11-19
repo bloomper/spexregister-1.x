@@ -1,8 +1,10 @@
 class Function < ActiveRecord::Base
   belongs_to :function_category
-  named_scope :by_category, lambda { |category_id, order|
-    { :conditions => { :function_category_id => category_id }, :order => "#{order} asc" }
+  named_scope :by_category, lambda { |category_id|
+    { :conditions => { :function_category_id => category_id } }
   }
+  named_scope :by_name, :order => 'name asc' 
+  named_scope :by_name_desc, :order => 'name desc' 
   acts_as_dropdown
   
   def name_with_category

@@ -4,9 +4,9 @@ class Membership < ActiveRecord::Base
   { 1 => {:name => :fgv, :title => I18n.t('membership.kind.fgv') },
     2 => {:name => :cing, :title => I18n.t('membership.kind.cing')}
   }
-  named_scope :fgv_memberships, :conditions => {:kind_id => 1}
-  named_scope :cing_memberships, :conditions => {:kind_id => 2}
-  named_scope :by_kind, proc {|kind| { :conditions => { :kind_id => kind } } }
+  named_scope :by_kind, lambda {|kind| { :conditions => { :kind_id => kind } } }
+  named_scope :by_year, :order => 'year asc' 
+  named_scope :by_year_desc, :order => 'year desc' 
 
   def self.get_years(kind_type)
     if kind_type == self.kind(:fgv).id

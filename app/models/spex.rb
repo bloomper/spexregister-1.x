@@ -2,9 +2,13 @@ class Spex < ActiveRecord::Base
   belongs_to :spex_category
   has_attached_file :poster, :styles => { :thumb => ApplicationConfig.poster_thumbnail_size }
   attr_protected :poster_file_name, :poster_content_type, :poster_file_size
-  named_scope :by_category, lambda { |category, show_revivals, order|
-    { :conditions => { :spex_category_id => category, :is_revival => show_revivals }, :order => "#{order} asc" }
+  named_scope :by_category, lambda { |category, show_revivals|
+    { :conditions => { :spex_category_id => category, :is_revival => show_revivals } }
   }
+  named_scope :by_year, :order => 'year asc' 
+  named_scope :by_year_desc, :order => 'year desc' 
+  named_scope :by_title, :order => 'title asc' 
+  named_scope :by_title_desc, :order => 'title desc' 
 
   def self.get_years
     Rails.cache.fetch('spex_years') { (ApplicationConfig.first_spex_year..Time.now.strftime('%Y').to_i).entries }

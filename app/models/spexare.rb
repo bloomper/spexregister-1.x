@@ -2,7 +2,7 @@ require 'attr_encrypted'
 
 class Spexare < ActiveRecord::Base
   has_many :activities, :order => :position, :dependent => :destroy
-  has_many :memberships, :order => :year, :dependent => :destroy
+  has_many :memberships, :dependent => :destroy
   has_one :relationship
   has_one :spouse, :through => :relationship
   has_one :user, :dependent => :nullify
