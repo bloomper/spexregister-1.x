@@ -13,7 +13,7 @@
   %p= t 'views.spexare.no_spexare_exist'
 - else
   .number-of-hits= page_entries_info @spexare_items, { :entry_translation_group_key => 'spexare' }
-  %table.index
+  %table.index#spexare
     %tr
       %th= order @search, :by => :last_name, :as => t('activerecord.attributes.spexare.last_name')
       %th= order @search, :by => :first_name, :as => t('activerecord.attributes.spexare.first_name')
@@ -27,7 +27,7 @@
           %td.actions
             = link_to_view_action spexare
             = link_to_edit_action spexare
-            = link_to_delete_action spexare
+            = link_to_delete_action spexare, { :table => 'spexare' }
 
 = will_paginate(@spexare_items, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
 

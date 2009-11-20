@@ -13,7 +13,7 @@
   %p= t 'views.spex_category.no_spex_categories_exist'
 - else
   .number-of-hits= page_entries_info @spex_categories, { :entry_translation_group_key => 'spex_category' }
-  %table.index
+  %table.index#spex-categories
     %tr
       %th= order @search, :by => :name, :as => t('activerecord.attributes.spex_category.name')
       %th= order @search, :by => :name, :as => t('activerecord.attributes.spex_category.first_year')
@@ -25,7 +25,7 @@
           %td.actions
             = link_to_view_action spex_category
             = link_to_edit_action spex_category
-            = link_to_delete_action spex_category
+            = link_to_delete_action spex_category, { :table => 'spex-categories' }
 
 = will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
 

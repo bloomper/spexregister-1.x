@@ -140,3 +140,10 @@ jQuery.extend( {
 	  }
    }
 });
+
+jQuery.extend( {
+	stripeTable : function(table) {
+	  jQuery('tbody tr:visible:even', table).removeClass().addClass('even');
+	  jQuery('tbody tr:visible:odd', table).removeClass().addClass('odd');
+    }
+});

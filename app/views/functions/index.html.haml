@@ -13,7 +13,7 @@
   %p= t 'views.function.no_functions_exist'
 - else
   .number-of-hits= page_entries_info @functions, { :entry_translation_group_key => 'function' }
-  %table.index
+  %table.index#functions
     %tr
       %th= order @search, :by => :name, :as => t('activerecord.attributes.function.name')
       %th= order @search, :by => :function_category_name, :as => t('activerecord.models.function_category')
@@ -25,7 +25,7 @@
           %td.actions
             = link_to_view_action function
             = link_to_edit_action function
-            = link_to_delete_action function
+            = link_to_delete_action function, { :table => 'functions' }
 
 = will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
 

@@ -71,7 +71,7 @@ module ApplicationHelper
   end
   
   def link_to_delete_action(resource, options = {})
-    options.assert_valid_keys(:url, :caption, :title)
+    options.assert_valid_keys(:url, :caption, :title, :table)
     
     options.reverse_merge! :url => resource_url(resource) unless options.key? :url
     options.reverse_merge! :caption => t('views.base.are_you_sure')
@@ -83,7 +83,7 @@ module ApplicationHelper
           type: 'POST',
           url: '#{options[:url]}',
           data: ({_method: 'delete', authenticity_token: AUTH_TOKEN}),
-          success: function(r){ jQuery('##{dom_id resource}').fadeOut('hide'); },
+          success: function(r){ jQuery('##{dom_id resource}').fadeOut('fast', function () { #{options[:table] ? 'jQuery.stripeTable(\'#' + options[:table] + '\');' : ''} }); },
           complete: function(r){ eval(r.responseText); } 
         });
       }
