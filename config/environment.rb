@@ -17,17 +17,17 @@ Rails::Initializer.run do |config|
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   config.gem "chriseppstein-compass", :lib => 'compass', :version => '0.8.17', :source => "http://gems.github.com/"
-  config.gem "haml", :version => '2.2.8'
-  config.gem "hpricot", :version => '0.8.1'
+  config.gem "haml", :version => '2.2.13'
+  config.gem "hpricot", :version => '0.8.2'
   config.gem "htmlentities", :version => '4.2.0'
   config.gem "mysql", :version => '2.8.1'
-  config.gem "piston", :version => '2.0.6'
+  config.gem "piston", :version => '2.0.7'
   config.gem "rcov", :version => '0.8.1.2.0'
   config.gem "shuber-encryptor", :lib => 'encryptor', :version => '1.0.1', :source => "http://gems.github.com/"
   config.gem "shuber-eigenclass", :lib => 'eigenclass', :version => '1.0.1', :source => "http://gems.github.com/"
   config.gem "sqlite3-ruby", :lib => "sqlite3", :version => '1.2.5'
   config.gem "xml-simple", :lib => 'xmlsimple', :version => '1.0.12'
-  config.gem 'BlueCloth', :lib => 'bluecloth', :version => '1.0.0'
+  config.gem 'BlueCloth', :lib => 'bluecloth', :version => '1.0.1'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
