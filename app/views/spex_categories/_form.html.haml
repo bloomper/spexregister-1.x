@@ -10,7 +10,7 @@
     %span.required= t 'views.base.mandatory_attribute'
     %br>
     = f.error_message_on :first_year
-    = f.select :first_year, get_spex_category_years.reverse
+    = f.select :first_year, get_spex_category_years
   - f.field_container :logo do
     = f.label :logo, t('activerecord.attributes.spex_category.logo')
     - if @spex_category.logo?
