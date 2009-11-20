@@ -10,17 +10,6 @@ class Spex < ActiveRecord::Base
   named_scope :by_title, :order => 'title asc' 
   named_scope :by_title_desc, :order => 'title desc' 
 
-  def self.get_years
-    Rails.cache.fetch('spex_years') { (ApplicationConfig.first_spex_year..Time.now.strftime('%Y').to_i).entries }
-  end
-  
-  def self.update_years
-    if self.get_years.max < Time.now.strftime('%Y').to_i
-      Rails.cache.delete('spex_years')
-      self.get_years
-    end
-  end
-  
   protected
   def validate_uniqueness_on_create
     if !spex_category.nil? && !year.nil? && !title.nil?

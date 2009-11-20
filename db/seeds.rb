@@ -20,8 +20,8 @@ FunctionCategory.create :name => 'Bandet'
 FunctionCategory.create :name => 'Annat'
 
 # Spex categories
-SpexCategory.create :name => 'Bob'
-SpexCategory.create :name => 'Vera'
+SpexCategory.create :name => 'Bob', :first_year => '1948'
+SpexCategory.create :name => 'Vera', :first_year => '2003'
 
 # Functions
 Function.create :name => 'Affisch', :function_category => FunctionCategory.find_by_name('Annat')

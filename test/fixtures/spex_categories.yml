@@ -1,3 +1,4 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 spex_category:
   name: 'Spex Category'
+  first_year: '1098'

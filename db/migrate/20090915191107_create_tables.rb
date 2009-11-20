@@ -23,6 +23,7 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :spex_categories, :force => true do |t|
       t.string :name, :null => false
+      t.string :first_year, :limit => 4, :null => false
       t.string :logo_file_name
       t.string :logo_content_type
       t.integer :logo_file_size

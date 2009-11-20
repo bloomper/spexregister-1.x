@@ -40,11 +40,11 @@
       %p
         %label= t('activerecord.attributes.spex.year') + ' (' + t('views.base.from') + ')'
         %br>
-        = f.select :year_gte, get_spex_years_with_first_empty
+        = f.select :year_gte, get_spex_category_years_with_first_empty
       %p
         %label= t('activerecord.attributes.spex.year') + ' (' + t('views.base.to') + ')'
         %br>
-        = f.select :year_lte, get_spex_years_with_first_empty
+        = f.select :year_lte, get_spex_category_years_with_first_empty
       %p
         %label= t 'activerecord.attributes.spex.title'
         %br>

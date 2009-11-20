@@ -10,6 +10,12 @@
 
 %table.show
   %tr
+    %th= t 'activerecord.attributes.spex_category.first_year'
+  %tr
+    %td= h @spex_category.first_year
+
+%table.show
+  %tr
     %th= t 'activerecord.attributes.spex_category.logo'
   %tr
     - if @spex_category.logo?

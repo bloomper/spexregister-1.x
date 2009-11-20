@@ -50,6 +50,7 @@
       spex_category:
         name: "Namn"
         logo: "Logga"
+        first_year: "Första året"
       spexare:
         last_name: "Efternamn"
         first_name: "Förnamn"

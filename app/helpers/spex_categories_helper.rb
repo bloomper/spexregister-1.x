@@ -9,4 +9,13 @@ module SpexCategoriesHelper
     spex_categories.insert(0, ['',''])
   end
 
+  def get_spex_category_years
+    SpexCategory.get_years.reverse
+  end
+
+  def get_spex_category_years_with_first_empty
+    spex_category_years = Array.new get_spex_category_years
+    spex_category_years.insert(0, '')
+  end
+
 end

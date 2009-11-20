@@ -163,12 +163,13 @@ ActiveRecord::Schema.define(:version => 20091020071613) do
   end
 
   create_table "spex_categories", :force => true do |t|
-    t.string   "name",                             :null => false
+    t.string   "name",                                          :null => false
+    t.string   "first_year",        :limit => 4,                :null => false
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
-    t.integer  "lock_version",      :default => 0
+    t.integer  "lock_version",                   :default => 0
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"

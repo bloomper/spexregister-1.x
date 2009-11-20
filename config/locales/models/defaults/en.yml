@@ -50,6 +50,7 @@
       spex_category:
         name: "Name"
         logo: "Logo"
+        first_year: "First year"
       spexare:
         last_name: "Last name"
         first_name: "First name"

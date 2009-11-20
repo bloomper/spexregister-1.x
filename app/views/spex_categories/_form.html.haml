@@ -5,6 +5,12 @@
     %br>
     = f.error_message_on :name
     = f.text_field :name, :class => 'fullwidth'
+  - f.field_container :first_year do
+    = f.label :first_year, t('activerecord.attributes.spex_category.first_year')
+    %span.required= t 'views.base.mandatory_attribute'
+    %br>
+    = f.error_message_on :first_year
+    = f.select :first_year, get_spex_category_years.reverse
   - f.field_container :logo do
     = f.label :logo, t('activerecord.attributes.spex_category.logo')
     - if @spex_category.logo?
