@@ -119,3 +119,24 @@ jQuery.extend( {
 	  }
    }
 });
+
+jQuery.extend( {
+	populate_years_from_spex_category : function(id, yearElement) {
+	  var yearSelect = jQuery('select#' + yearElement);
+	  yearSelect.html('').attr('disabled', 'disabled');
+	  if(id != '') {
+		  jQuery.getJSON('/spex_categories/' + id + '?format=json', function(j) {
+			  var first_year = j.spex_category.first_year;
+			  var current_year = new Date().getFullYear();
+			  if(first_year <= current_year) {
+				  for(var i = current_year; i >= first_year; i--) {
+	         	      yearSelect.addOption(i, i, false);
+				  }
+			  } else {
+         	      yearSelect.addOption(first_year, first_year, true);
+			  }
+		      yearSelect.removeAttr('disabled');
+		  });
+	  }
+   }
+});

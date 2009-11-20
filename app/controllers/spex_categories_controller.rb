@@ -2,6 +2,7 @@ class SpexCategoriesController < ApplicationController
   inherit_resources
   respond_to :html, :except => :destroy
   respond_to :js, :only => :destroy
+  respond_to :json, :only => :show
 
   def new
     new! do |format|
@@ -18,6 +19,12 @@ class SpexCategoriesController < ApplicationController
   def update
     update! do |success, failure|
       success.html { redirect_to spex_categories_url }
+    end
+  end
+
+  def show
+    show! do |format|
+      format.json { render :json => @spex_category.to_json(:only => [:id, :name, :first_year]) }
     end
   end
 
