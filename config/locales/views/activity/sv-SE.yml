@@ -2,3 +2,7 @@
   views:
     activity:
       description_tab_title: "Aktiviteter"
+      no_associated_activities: "Inga associerade aktiviteter"
+      add_activity: "Lägg till {{spex_category_name}} aktivitet"
+      available_activities: "Tillgängliga {{spex_category_name}} aktiviteter"
+      no_available_activities_exist: "Det finns inga tillgängliga aktiviteter"

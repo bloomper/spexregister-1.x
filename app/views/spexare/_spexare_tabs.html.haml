@@ -5,7 +5,7 @@
     %li{:class => ("active" if current_tab == "spexare_tab")}
       = link_to t('views.spexare.description_tab_title'), (edit_mode ? edit_spexare_url(@spexare) : spexare_url(@spexare))
     %li{:class => ("active" if current_tab == "activities_tab")}
-      = link_to t('views.activity.description_tab_title'), spexare_activities_url(@spexare)
+      = link_to t('views.activity.description_tab_title'), (edit_mode ? selected_spexare_activities_url(@spexare) : spexare_activities_url(@spexare))
     %li{:class => ("active" if current_tab == "fgv_memberships_tab")}
       = link_to t('views.membership.fgv_description_tab_title'), (edit_mode ? selected_spexare_memberships_url(@spexare, :by_kind => Membership.kind(:fgv).id, :kind_name => Membership.kind(:fgv).name) : spexare_memberships_url(@spexare, :by_kind => Membership.kind(:fgv).id, :kind_name => Membership.kind(:fgv).name))
     %li{:class => ("active" if current_tab == "cing_memberships_tab")}

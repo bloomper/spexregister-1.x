@@ -2,3 +2,7 @@
   views:
     activity:
       description_tab_title: "Activities"
+      no_associated_activities: "No associated activities"
+      add_activity: "Add activity"
+      available_activities: "Available activites"
+      no_available_activities_exist: "There are no available activities"

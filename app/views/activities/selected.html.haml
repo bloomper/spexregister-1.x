@@ -1,0 +1,37 @@
+= render :partial => 'administration/sub_menu'
+
+#edit-activities
+
+  = render :partial => '/spexare/spexare_tabs', :locals => {:edit_mode => true, :current_action => t('views.base.editing_action'), :current_tab => "activities_tab"}
+
+  - if @activities.empty?
+    %p= t 'views.activity.no_associated_activities'
+  - else
+    %table.index
+      %tr
+        %th{:colspan => '2'}= t 'activerecord.models.spex'
+        %th{:colspan => '3'}= t 'activerecord.models.function'
+        %th
+      %tr
+        %th= t 'activerecord.attributes.spex.year'
+        %th= t 'activerecord.attributes.spex.title'
+        %th= t 'activerecord.attributes.function.name'
+        %th= t 'activerecord.attributes.actor.role'
+        %th= t 'activerecord.attributes.actor.vocal_id'
+        %th.action-column= t 'views.base.action'
+        - @activities.each do |activity|
+          %tr{:id => dom_id(activity), :class => cycle('even', 'odd')}
+            %td= TODO
+            %td= TODO
+            %td= TODO
+            %td= TODO
+            %td= TODO
+            %td.actions
+              = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => spexare_activity_url(@spexare, activity), :method => :delete, :before => '', :update => 'edit-activities' }
+  
+  #add-activity
+
+  %span
+    - get_available_spex_categories.each do |spex_category|
+      = link_to_remote icon_tag('add') + ' ' + t('views.activity.add_activity', :spex_category_name => spex_category[0]), { :url => new_spexare_activity_url(@spexare, :spex_category_id => spex_category[1]), :method => :get, :update => 'add-activity' }
+      %br>
