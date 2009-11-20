@@ -83,6 +83,15 @@ class SpexTest < ActiveSupport::TestCase
     assert(spex.errors.on_base, "Expected an error for invalid combination")
   end
 
+  test "should not delete spex with associated spexare" do
+    spexare = Spexare.create(:last_name => Time.now, :first_name => Time.now)
+    activity = Activity.create(:spexare => spexare)
+    spex = Spex.create(:year => '2099', :title => Time.now, :spex_category => spex_categories(:spex_category))
+    spex_activity = SpexActivity.create(:activity => activity, :spex => spex)
+    spex.destroy
+    assert(spex.errors.on_base, "Expected an error for forbidden deletion")
+  end
+
   test "should be ok with multiple revivals" do
     title = Time.now
     spex = Spex.create(:year => '2099', :title => title, :spex_category => spex_categories(:spex_category))

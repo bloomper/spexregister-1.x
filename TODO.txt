@@ -8,8 +8,9 @@ Short-term
   - Get rid of annoying SASS errors (deprecation)
   - Lockdown model restrictions do not work as expected
 
+- Update lockdown to 1.6.x (1.6.0 does not seem to work)
+
 - Controllers/views/translation
-  - User group controller is not really perfect
   - Spexare
     - Implement edit
       - Tabs
@@ -38,10 +39,6 @@ Short-term
   - http://github.com/gunark/jasperserver-client
 
 - Advanced search
-
-- A more fine grained permission scheme
-  - For example, a directeur should only be able to administer his/her spex
-  - FGV should only be able to administer memberships
 
 - Require SSL?
   - http://github.com/iwarshak/ssl_requirement
@@ -83,6 +80,10 @@ Long-term
 
 - Better modeling of revivals to avoid duplication
   - Kind of tricky since the relationship with a spexare must be with the year(s)
+
+- A more fine grained permission scheme
+  - For example, a directeur should only be able to administer his/her spex
+  - FGV should only be able to administer memberships
 
 Problems
 --------

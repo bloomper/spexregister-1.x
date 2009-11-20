@@ -65,4 +65,11 @@ class SpexCategoryTest < ActiveSupport::TestCase
     assert(spex_category.errors.invalid?(:logo), "Expected an error for invalid logo")
   end
 
+  test "should not delete spex category with associated spex" do
+    spex_category = SpexCategory.create(:name => Time.now, :first_year => '2099')
+    spex = Spex.create(:year => '2099', :title => Time.now, :spex_category => spex_category)
+    spex_category.destroy
+    assert(spex_category.errors.on_base, "Expected an error for forbidden deletion")
+  end
+
 end

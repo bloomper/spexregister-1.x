@@ -19,5 +19,12 @@ class FunctionCategoryTest < ActiveSupport::TestCase
     assert(!function_category.valid?, "Should not save entry unless name is unique")
     assert(function_category.errors.invalid?(:name), "Expected an error for duplicate name")
   end
-  
+
+  test "should not delete function category with associated function" do
+    function_category = FunctionCategory.create(:name => Time.now)
+    function = Function.create(:name => Time.now, :function_category => function_category)
+    function_category.destroy
+    assert(function_category.errors.on_base, "Expected an error for forbidden deletion")
+  end
+
 end

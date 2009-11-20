@@ -36,6 +36,15 @@ class FunctionTest < ActiveSupport::TestCase
     assert(!function.valid?, "Should not update entry if an invalid combination has been set")
     assert(function.errors.on_base, "Expected an error for invalid combination")
   end
+
+  test "should not delete function with associated spexare" do
+    spexare = Spexare.create(:last_name => Time.now, :first_name => Time.now)
+    activity = Activity.create(:spexare => spexare)
+    function = Function.create(:name => Time.now, :function_category => function_categories(:function_category))
+    function_activity = FunctionActivity.create(:activity => activity, :function => function)
+    function.destroy
+    assert(function.errors.on_base, "Expected an error for forbidden deletion")
+  end
   
   test "name with category" do
     existing_function = functions(:function)
