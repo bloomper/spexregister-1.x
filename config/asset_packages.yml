@@ -4,7 +4,6 @@ javascripts:
   - jquery
   - jquery-ui
   - jquery.suggest
-  - jquery.validate
   - jquery.alerts
   - jquery.fancybox
   - jquery.datepicker
