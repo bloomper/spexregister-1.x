@@ -3,3 +3,4 @@
     zero: "function category"
     one: "function category"
     other: "function categories"
+    cannot_delete_if_associated_functions_exist: "Cannot delete category as it is associated with one or many functions"

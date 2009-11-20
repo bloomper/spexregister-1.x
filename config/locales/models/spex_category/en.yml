@@ -3,3 +3,4 @@
     zero: "spex category"
     one: "spex category"
     other: "spex categories"
+    cannot_delete_if_associated_spex_exist: "Cannot delete category as it is associated with one or many spex"

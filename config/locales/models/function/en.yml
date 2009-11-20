@@ -4,3 +4,4 @@
     one: "function"
     other: "functions"
     invalid_combination: "The combination of name and category already exists"
+    cannot_delete_if_associated_spexare_exist: "Cannot delete function as it is associated with one or many spexers"
