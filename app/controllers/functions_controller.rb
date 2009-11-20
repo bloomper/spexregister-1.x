@@ -28,6 +28,12 @@ class FunctionsController < ApplicationController
     end
   end
   
+  def destroy
+    destroy! do |success, failure|
+      failure.js { render :status => 409 }
+    end
+  end
+
   protected
   def resource
     @function ||= end_of_association_chain.find_by_id(params[:id])

@@ -9,20 +9,17 @@ Short-term
   - Lockdown model restrictions do not work as expected
 
 - Controllers/views/translation
+  - User group controller is not really perfect
   - Spexare
     - Implement edit
       - Tabs
-        - Memberships
-          - Cannot create, something strange with url helper
         - Activities
-          - Use jsTree?
+          - Drag and drop?
+          - Continue to use acts_as_list? Can named_scope be used instead?
     - Implement show
       - Tabs
         - Description
-        - Memberships
-          - Test many
         - Activities
-    - Should search cover more like spex years etc?
 
 - Change my profile
 
@@ -62,7 +59,7 @@ Medium-term
 - Add cron job for asynchronous mail processing
   "script/runner 'MailQueue.process' -e production"
 
-- Add cron job for updating years in Spex and Membership
+- Add cron job for updating years in SpexCategory and Membership
 
 - Update documentation
 
@@ -74,26 +71,18 @@ Medium-term
 
 - Import existing spex posters using rake task
 
+- Import existing spex category logos using rake task
+
 - Using the correct admin email address?
 
 Long-term
 ---------
-
-- Flash messages sometimes stay one request too long
-  - This is due to inherited_resources not using flash.now and there does not seem to be any way to override
 
 - Use friendly_id?
   - http://agilewebdevelopment.com/plugins/friendly_id
 
 - Better modeling of revivals to avoid duplication
   - Kind of tricky since the relationship with a spexare must be with the year(s)
-
-- If deleting all entities, the table will be empty, i.e. the "none exist" message is not shown
-
-- When deleting an entity
-  - Pagination is not updated
-  - The table is not updated
-  - This is a consequence of using Ajax and is probably not easily fixed
 
 Problems
 --------

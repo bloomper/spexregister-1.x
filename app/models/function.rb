@@ -10,7 +10,13 @@ class Function < ActiveRecord::Base
   def name_with_category
     name + " (#{function_category.name})"
   end
-  
+
+  def before_destroy
+    if FunctionActivity.function_id_equals(id).all.size > 0
+      false
+    end
+  end
+
   protected
   def validate_uniqueness_on_create
     if !function_category.nil? && !name.nil? && Function.find(:first, :joins => 'INNER JOIN function_categories', :conditions => ['functions.function_category_id = function_categories.id AND functions.name = ? AND function_categories.id = ?', name, function_category.id])

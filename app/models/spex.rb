@@ -10,6 +10,12 @@ class Spex < ActiveRecord::Base
   named_scope :by_title, :order => 'title asc' 
   named_scope :by_title_desc, :order => 'title desc' 
 
+  def before_destroy
+    if SpexActivity.spex_id_equals(id).all.size > 0
+      false
+    end
+  end
+
   protected
   def validate_uniqueness_on_create
     if !spex_category.nil? && !year.nil? && !title.nil?
