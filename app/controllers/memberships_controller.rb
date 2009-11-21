@@ -16,7 +16,6 @@ class MembershipsController < ApplicationController
   def create
     create! do |format|
       @memberships = @spexare.memberships.by_kind(params[:by_kind]).by_year_desc
-      set_available_memberships(params[:by_kind])
       flash.discard
       format.html { render :action => 'selected', :layout => false }
     end
@@ -29,7 +28,6 @@ class MembershipsController < ApplicationController
   def destroy
     destroy! do |format|
       @memberships = @spexare.memberships.by_kind(params[:by_kind]).by_year_desc
-      set_available_memberships(params[:by_kind])
       flash.discard
       format.html { render :action => 'selected', :layout => false }
     end
