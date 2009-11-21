@@ -1,0 +1,6 @@
+%h3= t 'views.activity.edit_activity', :spex_category_name => @activity.spex.spex_category.name
+
+- form_remote_for @activity, :url => spexare_activity_path(@spexare, @activity), :complete => evaluate_remote_response(), :html => { :method => :put } do |f|
+  %fieldset
+    = render :partial => 'form', :locals => { :f => f }
+    = render :partial => '/shared/edit_resource_links', :locals => { :url => selected_spexare_activities_url(@spexare) }

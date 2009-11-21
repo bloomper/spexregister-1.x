@@ -5,5 +5,11 @@ class Activity < ActiveRecord::Base
   has_many :function_activities
   has_many :functions, :through => :function_activities
   acts_as_list :scope => :spexare_id
-
+  named_scope :by_spex_category, lambda { |spex_category| {
+      :joins => 'left join spex_activities on spex_activities.activity_id = activities.id left join spex on spex.id = spex_activities.spex_id left join spex_categories on spex_categories.id = spex.spex_category_id',
+      :select => 'activities.*',
+      :conditions => [ 'spex_categories.id = ?', spex_category.id ]
+    }
+  }
+  
 end

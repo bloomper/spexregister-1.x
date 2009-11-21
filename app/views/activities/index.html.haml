@@ -7,14 +7,14 @@
 - else
   %table.index
     %tr
-      %th{:colspan => '2'}= t 'activerecord.models.spex'
-      %th{:colspan => '3'}= t 'activerecord.models.function'
-    %tr
+      %th= t 'activerecord.models.spex_category'
       %th= t 'activerecord.attributes.spex.year'
       %th= t 'activerecord.attributes.spex.title'
-      %th= t 'activerecord.attributes.function.name'
-      %th= t 'activerecord.attributes.actor.role'
-      %th= t 'activerecord.attributes.actor.vocal_id'
+      %th.action-column= t 'views.base.action'
       - @activities.each do |activity|
         %tr{:class => cycle('even', 'odd')}
-          %td= TODO
+          %td= h activity.spex.spex_category.name
+          %td= h activity.spex.year
+          %td= h activity.spex.title
+          %td.actions
+            = link_to icon_tag('view') + ' ' + t('views.base.view_action'), activity, :class => 'fancybox-text'

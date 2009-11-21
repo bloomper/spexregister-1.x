@@ -18,4 +18,7 @@ module SpexCategoriesHelper
     spex_category_years.insert(0, '')
   end
 
+  def get_spex_category_name(id)
+    SpexCategory.find_by_id(id).name
+  end
 end

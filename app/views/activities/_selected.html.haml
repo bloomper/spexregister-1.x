@@ -1,0 +1,33 @@
+= render :partial => 'administration/sub_menu'
+
+#edit-activities
+
+  = render :partial => '/spexare/spexare_tabs', :locals => {:edit_mode => true, :current_action => t('views.base.editing_action'), :current_tab => "activities_tab"}
+
+  - if @activities.empty?
+    %p= t 'views.activity.no_associated_activities'
+  - else
+    %table.index
+      %tr
+        %th= t 'activerecord.models.spex_category'
+        %th= t 'activerecord.attributes.spex.year'
+        %th= t 'activerecord.attributes.spex.title'
+        %th.action-column= t 'views.base.action'
+        - @activities.each do |activity|
+          %tr{:id => dom_id(activity), :class => cycle('even', 'odd')}
+            %td= h activity.spex.spex_category.name
+            %td= h activity.spex.year
+            %td= h activity.spex.title
+            %td.actions
+              = link_to icon_tag('view') + ' ' + t('views.base.view_action'), activity, :class => 'fancybox-text'
+              = link_to_remote icon_tag('edit') + ' ' + t('views.base.edit_action'), { :url => edit_spexare_activity_url(@spexare, activity), :method => :get, :before => "jQuery('#add-activity').hide(); jQuery('#add-activity-action').hide();", :update => 'edit-activity' }
+              = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => spexare_activity_url(@spexare, activity), :method => :delete, :before => '', :update => 'edit-activities' }
+  
+  #edit-activity
+  
+  #add-activity
+
+  %span#add-activity-action
+    - get_available_spex_categories.each do |spex_category|
+      = link_to_remote icon_tag('add') + ' ' + t('views.activity.add_activity', :spex_category_name => spex_category[0]), { :url => new_spexare_activity_url(@spexare, :spex_category_id => spex_category[1]), :method => :get, :before => "jQuery('#edit-activity').hide(); jQuery(this).parent().hide();", :update => 'add-activity' }
+      %br>
