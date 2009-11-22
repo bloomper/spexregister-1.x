@@ -5,8 +5,9 @@ module SpexCategoriesHelper
   end
 
   def get_available_spex_categories_first_empty
-    spex_categories = get_available_spex_categories
-    spex_categories.insert(0, ['',''])
+    returning spex_categories = get_available_spex_categories do
+      spex_categories.insert(0, ['',''])
+    end
   end
 
   def get_spex_category_years
@@ -14,8 +15,9 @@ module SpexCategoriesHelper
   end
 
   def get_spex_category_years_with_first_empty
-    spex_category_years = Array.new get_spex_category_years
-    spex_category_years.insert(0, '')
+    returning spex_category_years = Array.new(get_spex_category_years) do
+      spex_category_years.insert(0, '')
+    end
   end
 
   def get_spex_category_name(id)

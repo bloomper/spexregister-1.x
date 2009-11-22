@@ -5,16 +5,17 @@ module UsersHelper
   end
   
   def get_available_states
-    states = []
-    User.aasm_states_for_select.each do |aasm_state|
-      states << [translate_user_state(aasm_state.first), aasm_state.last]
+    returning [] do |states|
+      User.aasm_states_for_select.each do |aasm_state|
+        states << [translate_user_state(aasm_state.first), aasm_state.last]
+      end
     end
-    return states
   end
   
   def get_available_states_first_empty
-    states = get_available_states
-    states.insert(0, ['',''])
+    returning states = get_available_states do
+      states.insert(0, ['',''])
+    end
   end
   
   def link_to_state_events(user, options = {})

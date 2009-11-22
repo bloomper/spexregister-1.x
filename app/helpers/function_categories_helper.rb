@@ -5,8 +5,9 @@ module FunctionCategoriesHelper
   end
 
   def get_available_function_categories_first_empty
-    function_categories = get_available_function_categories
-    function_categories.insert(0, ['',''])
+    returning function_categories = get_available_function_categories do
+      function_categories.insert(0, ['',''])
+    end
   end
 
 end
