@@ -7,7 +7,7 @@
   - if @activities.empty?
     %p= t 'views.activity.no_associated_activities'
   - else
-    %table.index
+    %table.index#activities{:class => 'dnd'}
       %tr
         %th= t 'activerecord.models.spex_category'
         %th= t 'activerecord.attributes.spex.year'
