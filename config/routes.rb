@@ -30,12 +30,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :spexare do |spexare|
     spexare.resource :relationship, :except => [:update]
     spexare.resources :memberships, :except => [:show, :edit, :update], :collection => { :selected => :get }
-    spexare.resources :activities, :collection => { :selected => :get } do |activity|
-      activity.resource :spex_activity
-      activity.resources :function_activities do |function_activity|
-        function_activity.resource :actor
-      end
-    end
+    spexare.resources :activities, :collection => { :selected => :get }
   end 
   map.resource :user_session, :except => [:show, :edit, :update]
   map.resource :password_reset, :except => [:show, :destroy]

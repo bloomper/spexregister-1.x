@@ -7,6 +7,7 @@ Short-term
 - Immediate problems
   - Get rid of annoying SASS errors (deprecation)
   - Lockdown model restrictions do not work as expected
+    - spexare_myself and spexare_management should perhaps be merged
 
 - Update lockdown to 1.6.x (1.6.0 does not seem to work)
 
@@ -15,8 +16,9 @@ Short-term
     - Implement edit
       - Tabs
         - Activities
-          - Drag and drop?
-          - Continue to use acts_as_list? Can named_scope be used instead?
+          - Add server side action for storing up and down
+          - ActionView::TemplateError (`@activity[spex_activity_attributes]' is not allowed as an instance variable name) on line #4 of app/views/activities/_spex_activity_form.html.haml
+          - Show form errors
     - Implement show
       - Tabs
         - Description
@@ -33,6 +35,7 @@ Short-term
   - http://www.therailsway.com/2009/7/22/do-it-later-with-delayed-job
   - http://codeforpeople.rubyforge.org/svn/bj/trunk/README
   - http://github.com/jfiorato/growl4rails
+  - http://webtoolkit4.me/2009/08/13/jquery-growl-likenotification-systems/
   - Skip mail batch functionality?
 
 - Reporting
