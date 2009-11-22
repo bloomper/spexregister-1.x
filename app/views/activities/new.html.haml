@@ -6,4 +6,4 @@
   - form_remote_for @activity, :url => spexare_activities_path(@spexare), :complete => evaluate_remote_response(), :html => { :method => :post } do |f|
     %fieldset
       = render :partial => 'form', :locals => { :f => f }
-      = render :partial => '/shared/new_resource_links', :locals => { :url => selected_spexare_activities_url(@spexare) }
+      = render :partial => '/shared/add_resource_links', :locals => { :url => selected_spexare_activities_url(@spexare) }

@@ -1,0 +1,6 @@
+- url = nil if local_assigns[:url].nil? 
+
+%p.form-buttons
+  = button t('views.base.add_action')
+  = t('views.base.or')
+  = link_to t('views.base.cancel_action'), (url.nil? ? collection_url : url)

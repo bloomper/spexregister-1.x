@@ -1,8 +1,8 @@
 %h3= t 'views.relationship.add_spouse'
 
-- form_remote_for @spexare, :url => spexare_relationship_path(@spexare, :format => :js), :complete => evaluate_remote_response(), :html => { :method => :post } do |f|
+- form_remote_tag :url => spexare_relationship_path(@spexare, :format => :js), :complete => evaluate_remote_response(), :html => { :method => :post } do |f|
   %small= t 'views.relationship.format_notice'
   %br>
   = hidden_field_tag 'relationship[spouse_id]'
   = text_field_with_auto_complete :dummy, :full_name, { :class => 'fullwidth' }, { :url => spexare_index_path(:format => :js, 'search[id_not_equal_to]' => @spexare.id), :method => :get, :param_name => 'search[first_name_like_or_last_name_like_any]', :after_update_element => "function (inputField, selectedItem) { jQuery('#relationship_spouse_id').val(selectedItem.id); }" }
-  = button t('views.base.add_action')
+  = render :partial => '/shared/add_resource_links', :locals => { :url => edit_spexare_relationship_url(@spexare) }
