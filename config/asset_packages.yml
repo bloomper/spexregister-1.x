@@ -12,7 +12,6 @@ javascripts:
   - jquery.checkbox
   - jquery.multiselect
   - jquery.selectboxes
-  - jquery.tablednd
   - jrails
   - jrails.autocomplete
   - spexregister

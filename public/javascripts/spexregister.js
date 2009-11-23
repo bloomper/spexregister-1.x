@@ -80,18 +80,6 @@ jQuery(function() {
 	});
 });
 
-jQuery(function() {
-	jQuery('table.dnd').livequery(function() {
-		jQuery(this).tableDnD( {
-			onDrop: function(table, row) {
-			  jQuery.stripeTable(table);
-			  // TODO: Submit to server side
-  			  alert(jQuery.tableDnD.serialize());
-		    }
-		});
-	});
-});
-
 jQuery.extend( {
 	fetch_functions_by_category : function(category, nameElement) {
 	  var nameSelect = jQuery('select#' + nameElement);
