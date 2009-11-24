@@ -10,6 +10,10 @@ class Spex < ActiveRecord::Base
   named_scope :by_title, :order => 'title asc' 
   named_scope :by_title_desc, :order => 'title desc' 
 
+  def title_with_revival
+    [title, (is_revival ? I18n.t('spex.with_revival') : nil)].join(' ')
+  end
+  
   def before_destroy
     if SpexActivity.spex_id_equals(id).all.size > 0
       errors.add_to_base(I18n.t('spex.cannot_delete_if_associated_spexare_exist'))

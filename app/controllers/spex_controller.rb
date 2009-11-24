@@ -25,7 +25,7 @@ class SpexController < ApplicationController
 
   def index
     index! do |format|
-      format.json { render :json => @spex_items.to_json(:only => [:id, :title, :year]) }
+      format.json { render :json => @spex_items.to_json(:only => [:id, :year], :methods => :title_with_revival) }
     end
   end
 
