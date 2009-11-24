@@ -1,9 +1,13 @@
+- spex_items = get_spex_by_category(params[:spex_category_id])
 %div
   %fieldset
-  %legend= t 'activerecord.models.spex'
-  - f.field_container :title do
-    = f.label :title, t('activerecord.attributes.spex.title')
-    %span.required= t 'views.base.mandatory_attribute'
-    %br>
-    = f.error_message_on :title
-    = f.text_field :title, :class => 'fullwidth'
+    %legend= t 'activerecord.models.spex'
+    - f.nested_field_container :spex do
+      = f.label :spex_id, t('activerecord.attributes.spex.year')
+      %br>
+      = select_tag :activity_spex_activity_attributes_spex_id, options_for_select(spex_items.fetch('years')), { :onchange => "jQuery('#activity_spex_activity_attributes_dummy_spex_title').val(jQuery('#activity_spex_activity_attributes_spex_id').val());" }
+    - f.nested_field_container :spex do
+      = f.label :dummy_spex_title, t('activerecord.attributes.spex.title')
+      %br>
+      = select_tag :activity_spex_activity_attributes_dummy_spex_title, options_for_select(spex_items.fetch('titles')), { :onchange => "jQuery('#activity_spex_activity_attributes_spex_id').val(jQuery('#activity_spex_activity_attributes_dummy_spex_title').val());" }
+      

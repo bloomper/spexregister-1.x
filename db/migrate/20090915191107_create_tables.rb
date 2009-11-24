@@ -179,7 +179,6 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :activities, :force => true do |t|
       t.integer :spexare_id, :null => false
-      t.integer :position
       t.integer :lock_version, :default => 0
       t.string :created_by
       t.string :updated_by

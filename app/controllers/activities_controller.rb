@@ -18,7 +18,7 @@ class ActivitiesController < ApplicationController
 
   def create
     create! do
-      @activities = @spexare.activities
+      @activities = @spexare.activities.by_spex_year
       flash.discard
     end
   end
@@ -32,13 +32,13 @@ class ActivitiesController < ApplicationController
 
   def update
     update! do
-      @activities = @spexare.activities
+      @activities = @spexare.activities.by_spex_year
       flash.discard
     end
   end
 
   def selected
-    @activities = @spexare.activities
+    @activities = @spexare.activities.by_spex_year
   end
 
   def destroy

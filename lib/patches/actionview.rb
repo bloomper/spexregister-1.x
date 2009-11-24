@@ -40,6 +40,10 @@ class ActionView::Helpers::FormBuilder
     @template.field_container(@object_name,method,options,&block)
   end
 
+  def nested_field_container(method, options = {}, &block)
+    @template.field_container(@object_name.gsub(/[\[]/, '_').gsub(/[\]]/, ''),method,options,&block)
+  end
+
   def text_field_with_auto_complete(method, options = {}, auto_complete_options = {})
     text_field(method, options) + auto_complete_for(method, auto_complete_options)
   end
