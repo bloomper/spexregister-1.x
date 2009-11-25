@@ -9,17 +9,17 @@
   - else
     %table.index
       %tr
-        %th= t 'activerecord.models.spex_category'
         %th= t 'activerecord.attributes.spex.year'
         %th= t 'activerecord.attributes.spex.title'
+        %th= t 'activerecord.models.spex_category'
         %th.action-column= t 'views.base.action'
         - @activities.each do |activity|
           %tr{:id => dom_id(activity), :class => cycle('even', 'odd')}
-            %td= h activity.spex.spex_category.name
             %td= h activity.spex.year
             %td= h activity.spex.title
+            %td= h activity.spex.spex_category.name
             %td.actions
-              = link_to icon_tag('view') + ' ' + t('views.base.view_action'), activity, :class => 'fancybox-text'
+              = link_to icon_tag('view') + ' ' + t('views.base.view_action'), spexare_activity_url(@spexare, activity), :class => 'fancybox-text'
               = link_to_remote icon_tag('edit') + ' ' + t('views.base.edit_action'), { :url => edit_spexare_activity_url(@spexare, activity), :method => :get, :before => "jQuery('#add-activity').hide(); jQuery('#add-activity-action').hide();", :update => 'edit-activity' }
               = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => spexare_activity_url(@spexare, activity), :method => :delete, :before => '', :update => 'edit-activities' }
   

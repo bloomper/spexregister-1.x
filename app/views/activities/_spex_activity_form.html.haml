@@ -5,11 +5,11 @@
     - f.nested_field_container :spex do
       = f.label :spex_id, t('activerecord.attributes.spex.year')
       %br>
-      = select_tag :activity_spex_activity_attributes_spex_id, options_for_select(spex_items.fetch('years')), { :onchange => "jQuery('#activity_spex_activity_attributes_dummy_spex_title').val(jQuery('#activity_spex_activity_attributes_spex_id').val());" }
-    - f.nested_field_container :spex do
-      = f.label :dummy_spex_title, t('activerecord.attributes.spex.title')
+      = select_tag 'activity[spex_activity_attributes[spex_id]]', options_for_select(spex_items.fetch('years')), { :onchange => "jQuery('#dummy_spex_title').val(jQuery('#activity_spex_activity_attributes_spex_id').val());" }
+    - field_container :dummy, :spex_title do
+      = label_tag :dummy_spex_title, t('activerecord.attributes.spex.title')
       %br>
-      = select_tag :activity_spex_activity_attributes_dummy_spex_title, options_for_select(spex_items.fetch('titles')), { :onchange => "jQuery('#activity_spex_activity_attributes_spex_id').val(jQuery('#activity_spex_activity_attributes_dummy_spex_title').val());" }
+      = select_tag :dummy_spex_title, options_for_select(spex_items.fetch('titles')), { :onchange => "jQuery('#activity_spex_activity_attributes_spex_id').val(jQuery('#dummy_spex_title').val());" }
     :javascript
-      jQuery('#activity_spex_activity_attributes_dummy_spex_title').val(jQuery('#activity_spex_activity_attributes_spex_id').val());
+      jQuery('#dummy_spex_title').val(jQuery('#activity_spex_activity_attributes_spex_id').val());
       
