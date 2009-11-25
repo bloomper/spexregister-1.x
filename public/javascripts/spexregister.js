@@ -111,7 +111,7 @@ jQuery.extend( {
 		      yearSelect.sortOptions();
 		      titleSelect.addOption('', '');
 		      for (var i = 0; i < j.length; i++) {
-		    	  titleSelect.addOption(j[i].spex.id, j[i].spex.title_with_revival, false);
+		    	  titleSelect.addOption(j[i].spex.id, j[i].spex.title, false);
 		      }
 			  yearSelect.removeAttr('disabled');
 			  titleSelect.removeAttr('disabled');
