@@ -5,7 +5,7 @@ module SpexHelper
       spex_years = []
       spex_titles = []
       Spex.by_category_all(category_id).by_title.each do |spex|
-        spex_years << [spex.year, spex.id]
+        spex_years << [spex.year_with_revival, spex.id]
         spex_titles << [spex.title_with_revival, spex.id]
       end
       spex_items.store('years', spex_years.sort!)

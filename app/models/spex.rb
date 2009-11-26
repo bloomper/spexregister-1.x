@@ -13,6 +13,10 @@ class Spex < ActiveRecord::Base
   named_scope :by_title, :order => 'title asc' 
   named_scope :by_title_desc, :order => 'title desc' 
 
+  def year_with_revival
+    [year, (is_revival ? I18n.t('spex.with_revival') : nil)].join(' ')
+  end
+
   def title_with_revival
     [title, (is_revival ? I18n.t('spex.with_revival') : nil)].join(' ')
   end
