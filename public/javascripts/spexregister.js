@@ -81,12 +81,14 @@ jQuery(function() {
 });
 
 jQuery.extend( {
-	fetch_functions_by_category : function(category, nameElement) {
+	fetch_functions_by_category : function(category, nameElement, addEmptyFirst) {
 	  var nameSelect = jQuery('select#' + nameElement);
 	  nameSelect.html('').attr('disabled', 'disabled');
 	  if(category != '') {
 		  jQuery.getJSON('/functions', {'search[function_category_id_equals]': category, format: 'json', 'search[order]': 'ascend_by_name'}, function(j) {
-			  nameSelect.addOption('', '');
+			  if (addEmptyFirst) {
+			      nameSelect.addOption('', '');
+			  }
 		      for (var i = 0; i < j.length; i++) {
 		    	  nameSelect.addOption(j[i].function.id, j[i].function.name, false);
 		      }
@@ -97,19 +99,21 @@ jQuery.extend( {
 });
 
 jQuery.extend( {
-	fetch_spex_by_category : function(category, showRevivals, yearElement, titleElement) {
+	fetch_spex_by_category : function(category, showRevivals, yearElement, titleElement, addEmptyFirst) {
 	  var yearSelect = jQuery('select#' + yearElement);
 	  var titleSelect = jQuery('select#' + titleElement);
 	  yearSelect.html('').attr('disabled', 'disabled');
 	  titleSelect.html('').attr('disabled', 'disabled');
 	  if(category != '') {
 		  jQuery.getJSON('/spex', {'search[spex_category_id_equals]': category, 'search[is_revival_equals]': showRevivals, format: 'json', 'search[order]': 'ascend_by_title'}, function(j) {
-			  yearSelect.addOption('', '');
+			  if (addEmptyFirst) {
+				  yearSelect.addOption('', '');
+			      titleSelect.addOption('', '');
+			  }
 		      for (var i = 0; i < j.length; i++) {
 		    	  yearSelect.addOption(j[i].spex.id, j[i].spex.year, false);
 		      }
 		      yearSelect.sortOptions();
-		      titleSelect.addOption('', '');
 		      for (var i = 0; i < j.length; i++) {
 		    	  titleSelect.addOption(j[i].spex.id, j[i].spex.title, false);
 		      }
@@ -126,14 +130,14 @@ jQuery.extend( {
 	  yearSelect.html('').attr('disabled', 'disabled');
 	  if(id != '') {
 		  jQuery.getJSON('/spex_categories/' + id + '?format=json', function(j) {
-			  var first_year = j.spex_category.first_year;
-			  var current_year = new Date().getFullYear();
-			  if(first_year <= current_year) {
-				  for(var i = current_year; i >= first_year; i--) {
+			  var firstYear = j.spex_category.first_year;
+			  var currentYear = new Date().getFullYear();
+			  if(firstYear <= currentYear) {
+				  for(var i = currentYear; i >= firstYear; i--) {
 	         	      yearSelect.addOption(i, i, false);
 				  }
 			  } else {
-         	      yearSelect.addOption(first_year, first_year, true);
+         	      yearSelect.addOption(firstYear, firstYear, true);
 			  }
 		      yearSelect.removeAttr('disabled');
 		  });
@@ -145,5 +149,23 @@ jQuery.extend( {
 	stripeTable : function(table) {
 	  jQuery('tbody tr:visible:even', table).removeClass().addClass('even');
 	  jQuery('tbody tr:visible:odd', table).removeClass().addClass('odd');
+    }
+});
+
+jQuery.extend( {
+	removeFields : function(element) {
+	  var hiddenField = jQuery(element).prev('input[type=hidden]')[0];
+	  if (hiddenField) {
+	    hiddenField.value = '1';
+	  }
+	  jQuery(element).closest('.fields').hide();
+    }
+});
+
+jQuery.extend( {
+	insertFields : function(element, method, content) {
+	  var newId = new Date().getTime();
+	  var regExp = new RegExp('new_' + method, 'g');
+	  jQuery(element).before(content.replace(regExp, newId));
     }
 });

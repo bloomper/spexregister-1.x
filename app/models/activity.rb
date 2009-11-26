@@ -5,7 +5,7 @@ class Activity < ActiveRecord::Base
   has_many :function_activities, :dependent => :destroy
   has_many :functions, :through => :function_activities
   accepts_nested_attributes_for :spex_activity, :allow_destroy => true, :reject_if => lambda { |a| a.values.all?(&:blank?) }
-  #accepts_nested_attributes_for :function_activities, :allow_destroy => true, :reject_if => lambda { |a| a.values.all?(&:blank?) }
+  accepts_nested_attributes_for :function_activities, :allow_destroy => true, :reject_if => lambda { |a| a.values.all?(&:blank?) }
   named_scope :by_spex_category, lambda { |spex_category| {
       :joins => 'left join spex_activities on spex_activities.activity_id = activities.id left join spex on spex.id = spex_activities.spex_id left join spex_categories on spex_categories.id = spex.spex_category_id',
       :select => 'activities.*',

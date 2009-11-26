@@ -101,7 +101,7 @@ module ApplicationHelper
     html = content_tag('p', capture(&block), :class => css_class)
     concat(html)
   end
-
+  
   def flag_image(locale)
     "#{extract_language_from_locale(locale)}.png"
   end
@@ -109,7 +109,7 @@ module ApplicationHelper
   def extract_language_from_locale(locale)
     locale.to_s.split("-").last.downcase
   end
-
+  
   def get_username_by_id(id)
     if !id.nil?
       begin
@@ -118,18 +118,48 @@ module ApplicationHelper
       end
     end
   end
-
+  
   def page_entries_info(collection, options = {})
     entry_translation_group_key = options[:entry_translation_group_key]
     if collection.total_pages < 2
       case collection.size
-      when 0; t('views.base.page_entries_none_found', :entry_name => t(entry_translation_group_key, :count => 0))
-      when 1; t('views.base.page_entries_showing_one', :entry_name => t(entry_translation_group_key, :count => 1))
-      else; t('views.base.page_entries_showing_all', :entry_name => t(entry_translation_group_key, :count => collection.size), :number_of_hits => collection.size)
+        when 0; t('views.base.page_entries_none_found', :entry_name => t(entry_translation_group_key, :count => 0))
+        when 1; t('views.base.page_entries_showing_one', :entry_name => t(entry_translation_group_key, :count => 1))
+        else; t('views.base.page_entries_showing_all', :entry_name => t(entry_translation_group_key, :count => collection.size), :number_of_hits => collection.size)
       end
     else
       t('views.base.page_entries_showing', :entry_name => t(entry_translation_group_key, :count => collection.total_entries), :start => collection.offset + 1, :end => collection.offset + collection.length, :total => collection.total_entries)
     end
   end
-
+  
+  def sanitized_object_name(object_name)
+    object_name.gsub(/\]\[|[^-a-zA-Z0-9:.]/,"_").sub(/_$/,"")
+  end
+  
+  def sanitized_method_name(method_name)
+    method_name.sub(/\?$/, "")
+  end
+  
+  def form_tag_id(object_name, method_name)
+    "#{sanitized_object_name(object_name.to_s)}_#{sanitized_method_name(method_name.to_s)}"
+  end 
+  
+  def remove_sub_link(name, f)
+    f.hidden_field(:_delete) + link_to_function(name, "jQuery.removeFields(this)")
+  end
+  
+  def add_sub_link(name, f, method)
+    fields = new_sub_fields(f, method)
+    link_to_function(name, h("jQuery.insertFields(this, \"#{method}\", \"#{escape_javascript(fields)}\")"))
+  end
+  
+  def new_sub_fields(form_builder, method, options = {})
+    options[:object] ||= form_builder.object.class.reflect_on_association(method).klass.new
+    options[:partial] ||= method.to_s.singularize + '_form'
+    options[:form_builder_local] ||= :f
+    form_builder.fields_for(method, options[:object], :child_index => "new_#{method}") do |f|
+      render(:partial => options[:partial], :locals => { options[:form_builder_local] => f })
+    end
+  end
+  
 end

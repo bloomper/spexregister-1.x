@@ -7,3 +7,5 @@
       new_activity: "New {{spex_category_name}} activity"
       edit_activity: "Edit {{spex_category_name}} activity"
       no_available_activities_exist: "There are no available {{spex_category_name}} activities"
+      add_function_activity: "Add function"
+      remove_function_activity: "Remove function"

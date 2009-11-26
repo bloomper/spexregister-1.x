@@ -1,3 +1,15 @@
-%div
+%div.fields
   %fieldset
     %legend= t 'activerecord.models.function'
+    - unique_function_category_id = "function_category_id_#{form_tag_id(f.object_name, :function_id)}"
+    = label_tag unique_function_category_id, t('activerecord.attributes.function.function_category')
+    %br>
+    = select_tag unique_function_category_id, get_options_for_select_with_actor_attribute
+    :javascript
+      jQuery.fetch_functions_by_category(jQuery('##{unique_function_category_id}').val(), '#{form_tag_id(f.object_name, :function_id)}', false);
+    = observe_field unique_function_category_id, :function => "jQuery.fetch_functions_by_category(value, '#{form_tag_id(f.object_name, :function_id)}', false);"
+    - f.nested_field_container :function_id do
+      = f.label :function_id, t('activerecord.attributes.function.name')
+      %br>
+      = f.select :function_id, [], { :disabled => true }
+    = remove_sub_link t('views.activity.remove_function_activity'), f

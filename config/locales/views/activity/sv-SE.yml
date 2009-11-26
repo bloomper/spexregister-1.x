@@ -7,3 +7,5 @@
       new_activity: "Skapa {{spex_category_name}} aktivitet"
       edit_activity: "Ändra {{spex_category_name}} aktivitet"
       no_available_activities_exist: "Det finns inga tillgängliga {{spex_category_name}} aktiviteter"
+      add_function_activity: "Lägg till funktion"
+      remove_function_activity: "Ta bort funktion"

@@ -16,9 +16,12 @@ Short-term
     - Implement edit
       - Tabs
         - Activities
-          - Add server side action for storing up and down
-          - ActionView::TemplateError (`@activity[spex_activity_attributes]' is not allowed as an instance variable name) on line #4 of app/views/activities/_spex_activity_form.html.haml
-          - Show form errors
+          - http://github.com/ryanb/complex-form-examples/tree/deep
+          - Add function activity
+            - Show/hide actor form if has_actor = true/false
+            - An empty actor must not be created
+          - Edit activity
+          - Show form errors?
     - Implement show
       - Tabs
         - Description

@@ -1,6 +1,9 @@
 %div
   - f.fields_for :spex_activity do |spex_activity_form|
     = render :partial => 'spex_activity_form', :locals => { :f => spex_activity_form }
-  - f.fields_for :function_activities do |function_activity_form|
-    = render :partial => 'function_activity_form', :locals => { :f => function_activity_form }
-    
+  %fieldset
+    %legend= t('function', :count => :other).humanize()
+    - if !@activity.function_activities.empty?
+      - f.fields_for :function_activities do |function_activity_form|
+        = render :partial => 'function_activity_form', :locals => { :f => function_activity_form }
+    = add_sub_link t('views.activity.add_function_activity'), f, :function_activities
