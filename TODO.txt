@@ -17,9 +17,10 @@ Short-term
       - Tabs
         - Activities
           - http://github.com/ryanb/complex-form-examples/tree/deep
+          - http://www.pixellatedvisions.com/2009/03/18/rails-2-3-nested-model-forms-and-nil-new-record
           - Add function activity
-            - Show/hide actor form if has_actor = true/false
-            - An empty actor must not be created
+            - Show/hide 'add actor link' if has_actor = true/false
+            - If removing a function activity, the field sets are screwed up causing the observe_field to fail
           - Edit activity
           - Show form errors?
     - Implement show
@@ -58,6 +59,10 @@ Short-term
 
 Medium-term
 -----------
+
+- Once 2.3.5 has been released, fix according to these issues:
+  - https://rails.lighthouseapp.com/projects/8994/tickets/2501
+  - https://rails.lighthouseapp.com/projects/8994/tickets/2365
 
 - Add cron job for asynchronous mail processing
   "script/runner 'MailQueue.process' -e production"

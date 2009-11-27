@@ -14,5 +14,10 @@ class Activity < ActiveRecord::Base
   }
   named_scope :by_spex_year, :order => 'spex.year asc', :select => 'activities.*', :joins => 'left join spex_activities on spex_activities.activity_id = activities.id left join spex on spex.id = spex_activities.spex_id'
   named_scope :by_spex_year_desc, :order => 'spex.year desc', :select => 'activities.*', :joins => 'left join spex_activities on spex_activities.activity_id = activities.id left join spex on spex.id = spex_activities.spex_id' 
-  
+
+  def initialize(attributes=nil)
+    super
+    self.build_spex_activity unless self.spex_activity
+  end
+
 end

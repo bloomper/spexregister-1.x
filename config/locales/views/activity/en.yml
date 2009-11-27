@@ -9,5 +9,3 @@
       no_available_activities_exist: "There are no available {{spex_category_name}} activities"
       add_function_activity: "Add function"
       remove_function_activity: "Remove function"
-      add_actor: "Add role/vocal"
-      remove_actor: "Remove role/vocal"

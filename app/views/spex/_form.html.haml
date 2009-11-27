@@ -12,8 +12,8 @@
     = f.error_message_on :spex_category
     = f.select :spex_category_id, get_available_spex_categories
     :javascript
-      jQuery.populate_years_from_spex_category(jQuery('#spex_spex_category_id').val(), 'spex_year')
-    = observe_field 'spex_spex_category_id', :function => "jQuery.populate_years_from_spex_category(value, 'spex_year')"
+      jQuery.populateYearsFromSpexCategory(jQuery('#spex_spex_category_id').val(), 'spex_year')
+    = observe_field 'spex_spex_category_id', :function => "jQuery.populateYearsFromSpexCategory(value, 'spex_year')"
   - f.field_container :year do
     = f.label :year, t('activerecord.attributes.spex.year')
     %span.required= t 'views.base.mandatory_attribute'

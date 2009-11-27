@@ -8,9 +8,6 @@ class ActivitiesController < ApplicationController
 
   def new
     new! do |format|
-      @activity.build_spex_activity
-      @activity.function_activities.build
-      @activity.function_activities.each{|function_activity| function_activity.build_actor}
       set_available_activities(SpexCategory.find_by_id(params[:spex_category_id]))
       format.html { render :layout => false }
     end

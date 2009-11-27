@@ -22,11 +22,11 @@
         %label= t 'activerecord.attributes.spex.spex_category'
         %br>
         = select_tag 'search[spex_category_id_equals]', options_for_select(get_available_spex_categories_first_empty)
-        = observe_field 'search_spex_category_id_equals', :function => "jQuery.fetch_spex_by_category(value, (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'search_spex_id_equals', 'search_spex_title_equals', true)"
+        = observe_field 'search_spex_category_id_equals', :function => "jQuery.fetchSpexByCategory(value, (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'search_spex_id_equals', 'search_spex_title_equals', true)"
       %p
         %label= t 'views.search.show_revivals'
         = check_box_tag 'show_revivals'
-        = observe_field 'show_revivals', :function => "jQuery.fetch_spex_by_category(jQuery('#search_spex_category_id_equals').val(), (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'search_spex_id_equals', 'search_spex_title_equals', true)"
+        = observe_field 'show_revivals', :function => "jQuery.fetchSpexByCategory(jQuery('#search_spex_category_id_equals').val(), (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'search_spex_id_equals', 'search_spex_title_equals', true)"
       %p
         %label= t 'activerecord.attributes.spex.year'
         %br>
@@ -42,7 +42,7 @@
         %label= t 'activerecord.attributes.function.function_category'
         %br>
         = select_tag 'search[function_category_id_equals]', options_for_select(get_available_function_categories_first_empty)
-        = observe_field 'search_function_category_id_equals', :function => "jQuery.fetch_functions_by_category(value, 'search_function_id_equals', true)"
+        = observe_field 'search_function_category_id_equals', :function => "jQuery.fetchFunctionsByCategory(value, 'search_function_id_equals', true)"
       %p
         %label= t 'activerecord.attributes.function.name'
         %br>

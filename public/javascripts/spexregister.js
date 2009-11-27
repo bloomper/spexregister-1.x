@@ -81,7 +81,7 @@ jQuery(function() {
 });
 
 jQuery.extend( {
-	fetch_functions_by_category : function(category, nameElement, addEmptyFirst) {
+	fetchFunctionsByCategory : function(category, nameElement, addEmptyFirst) {
 	  var nameSelect = jQuery('select#' + nameElement);
 	  nameSelect.html('').attr('disabled', 'disabled');
 	  if(category != '') {
@@ -99,7 +99,7 @@ jQuery.extend( {
 });
 
 jQuery.extend( {
-	fetch_spex_by_category : function(category, showRevivals, yearElement, titleElement, addEmptyFirst) {
+	fetchSpexByCategory : function(category, showRevivals, yearElement, titleElement, addEmptyFirst) {
 	  var yearSelect = jQuery('select#' + yearElement);
 	  var titleSelect = jQuery('select#' + titleElement);
 	  yearSelect.html('').attr('disabled', 'disabled');
@@ -125,7 +125,7 @@ jQuery.extend( {
 });
 
 jQuery.extend( {
-	populate_years_from_spex_category : function(id, yearElement) {
+	populateYearsFromSpexCategory : function(id, yearElement) {
 	  var yearSelect = jQuery('select#' + yearElement);
 	  yearSelect.html('').attr('disabled', 'disabled');
 	  if(id != '') {
@@ -152,24 +152,6 @@ jQuery.extend( {
     }
 });
 
-jQuery.extend( {
-	removeFields : function(element) {
-	  var hiddenField = jQuery(element).prev('input[type=hidden]')[0];
-	  if (hiddenField) {
-	    hiddenField.value = '1';
-	  }
-	  jQuery(element).closest('.fields').hide();
-    }
-});
-
-jQuery.extend( {
-	insertFields : function(element, method, content) {
-	  var newId = new Date().getTime();
-	  var regExp = new RegExp('new_' + method, 'g');
-	  jQuery(element).before(content.replace(regExp, newId));
-    }
-});
-
 jQuery(function() {
 	jQuery('a.add-sub').livequery('click', function() {
 	    var assoc = jQuery(this).attr('data-association');
@@ -189,4 +171,15 @@ jQuery(function() {
 	    jQuery(this).parents('.fields').hide();
 	    return false;
 	});
+});
+
+jQuery.extend( {
+	toggleDisplayOfActorFields : function(actorFields, hasActorValue) {
+	  var selectedActorFields = jQuery(actorFields);
+	  if(hasActorValue == 'true') {
+		  selectedActorFields.show();
+	  } else {
+		  selectedActorFields.hide();
+	  }
+    }
 });
