@@ -4,7 +4,7 @@
     # Translate model names. Used in Model.human_name().
     models:
       activity: "Activity"
-      actor: "Ensemble"
+      actor: "Role/vocal"
       relationship: "Married/cohabitant"
       function: "Function"
       function_activity: "Function activity"
@@ -32,7 +32,7 @@
         function_category: "Category"
       function_category:
         name: "Name"
-        has_actor: "Ensemble relation?"
+        has_actor: "Has role/vocal?"
       membership:
         year: "Year"
         type_id: "Type"

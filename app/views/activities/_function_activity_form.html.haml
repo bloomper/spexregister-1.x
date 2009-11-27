@@ -12,4 +12,4 @@
       = f.label :function_id, t('activerecord.attributes.function.name')
       %br>
       = f.select :function_id, [], { :disabled => true }
-    = remove_sub_link t('views.activity.remove_function_activity'), f
+    = remove_sub_link icon_tag('remove') + ' ' + t('views.activity.remove_function_activity'), f

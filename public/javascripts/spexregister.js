@@ -169,3 +169,24 @@ jQuery.extend( {
 	  jQuery(element).before(content.replace(regExp, newId));
     }
 });
+
+jQuery(function() {
+	jQuery('a.add-sub').livequery('click', function() {
+	    var assoc = jQuery(this).attr('data-association');
+	    var content = jQuery('#' + assoc + '_fields_template').html();
+	    var regexp = new RegExp('new_' + assoc, 'g');
+	    var newId = new Date().getTime();
+	        
+	    jQuery(this).parent().before(content.replace(regexp, newId));
+	    return false;
+	});
+
+	jQuery('a.remove-sub').livequery('click', function() {
+	    var hiddenField = jQuery(this).prev('input[type=hidden]')[0];
+	    if(hiddenField) {
+	    	hiddenField.value = '1';
+	    }
+	    jQuery(this).parents('.fields').hide();
+	    return false;
+	});
+});

@@ -4,7 +4,7 @@
     # Translate model names. Used in Model.human_name().
     models:
       activity: "Aktivitet"
-      actor: "Ensemblist"
+      actor: "Roll/stämma"
       relationship: "Gift/sambo"
       function: "Funktion"
       function_activity: "Funktionsaktivitet"
@@ -32,7 +32,7 @@
         function_category: "Kategori"
       function_category:
         name: "Namn"
-        has_actor: "Ensemblistrelation?"
+        has_actor: "Har roll/stämma?"
       membership:
         year: "År"
         type_id: "Typ"

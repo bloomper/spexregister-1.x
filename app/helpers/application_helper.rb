@@ -145,20 +145,21 @@ module ApplicationHelper
   end 
   
   def remove_sub_link(name, f)
-    (f.object.new_record? ? '' : f.hidden_field(:_delete)) + link_to_function(name, "jQuery.removeFields(this)")
+    (f.object.new_record? ? '' : f.hidden_field(:_delete)) + link_to(name, 'javascript:void(0)', :class => 'remove-sub')
   end
   
-  def add_sub_link(name, f, method)
-    fields = new_sub_fields(f, method)
-    link_to_function(name, h("jQuery.insertFields(this, \"#{method}\", \"#{escape_javascript(fields)}\")"))
+  def add_sub_link(name, association)
+    link_to(name, 'javascript:void(0)', :class => 'add-sub', :'data-association' => association)
   end
   
-  def new_sub_fields(form_builder, method, options = {})
-    options[:object] ||= form_builder.object.class.reflect_on_association(method).klass.new
-    options[:partial] ||= method.to_s.singularize + '_form'
+  def new_sub_fields_template(form_builder, association, options = {})
+    options[:object] ||= form_builder.object.class.reflect_on_association(association).klass.new
+    options[:partial] ||= association.to_s.singularize + '_form'
     options[:form_builder_local] ||= :f
-    form_builder.fields_for(method, options[:object], :child_index => "new_#{method}") do |f|
-      render(:partial => options[:partial], :locals => { options[:form_builder_local] => f })
+    content_tag(:div, :id => "#{association}_fields_template", :style => "display: none") do
+      form_builder.fields_for(association, options[:object], :child_index => "new_#{association}") do |f|
+        render(:partial => options[:partial], :locals => { options[:form_builder_local] => f })
+      end
     end
   end
   
