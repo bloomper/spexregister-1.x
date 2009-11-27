@@ -1,5 +1,7 @@
 class FunctionCategory < ActiveRecord::Base
   has_many :functions
+  named_scope :by_name, :order => 'name asc' 
+  named_scope :by_name_desc, :order => 'name desc' 
   acts_as_dropdown :value => 'id', :text => 'name', :order => 'name ASC'
 
   def before_destroy
