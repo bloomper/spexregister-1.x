@@ -145,7 +145,7 @@ module ApplicationHelper
   end 
   
   def remove_sub_link(name, f)
-    f.hidden_field(:_delete) + link_to_function(name, "jQuery.removeFields(this)")
+    (f.object.new_record? ? '' : f.hidden_field(:_delete)) + link_to_function(name, "jQuery.removeFields(this)")
   end
   
   def add_sub_link(name, f, method)
