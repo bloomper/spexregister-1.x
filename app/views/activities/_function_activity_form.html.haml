@@ -1,21 +1,17 @@
 %div.fields
   %fieldset
     %legend= t 'activerecord.models.function'
-    - unique_function_category_id = "function_category_id_#{Time.now.to_i}"
-    - unique_actor_template_id = "actor_fields_template_#{Time.now.to_i}"
+    - now = Time.now.to_i
+    - unique_function_category_id = "function_category_id_#{now}"
+    - unique_actor_template_id = "actor_fields_template_#{now}"
     = label_tag unique_function_category_id, t('activerecord.attributes.function.function_category')
     %br>
     = select_tag unique_function_category_id, get_options_for_select_with_actor_attribute, { :class => 'observe-function-activity-function-category-changes', :functions_field => "#{form_tag_id(f.object_name, :function_id)}", :actor_field => "#{form_tag_id(f.object_name, :actor)}", :actor_template_field => "#{unique_actor_template_id}" }
     - f.nested_field_container :function_id do
       = f.label :function_id, t('activerecord.attributes.function.name')
       %br>
-      = f.select :function_id, get_functions_by_category(get_first_function_category.id)
-    - if get_first_function_category.has_actor
-      %div{:id => "#{form_tag_id(f.object_name, :actor)}", :class => 'sub-fields'}
-        - f.fields_for :actor do |actor_form|
-          = render :partial => 'actor_form', :locals => { :f => actor_form }
-    - else
-      %div{:id => "#{form_tag_id(f.object_name, :actor)}", :class => 'sub-fields', :style => 'display: none'}
+      = f.select :function_id, [], {}, { :disabled => true }
+    %div{:id => "#{form_tag_id(f.object_name, :actor)}", :class => 'sub-fields', :style => 'display: none'}
     %div{:id => unique_actor_template_id, :style => 'display: none'}
       - f.fields_for :actor do |actor_form|
         = render :partial => 'actor_form', :locals => { :f => actor_form }

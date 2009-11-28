@@ -16,8 +16,9 @@ Short-term
     - Implement edit
       - Tabs
         - Activities
-          - Add function activity
-            - If removing a function activity, the field sets are screwed up causing the observe_field to fail
+          - :reject_if is not working properly
+            - https://rails.lighthouseapp.com/projects/8994/tickets/1912-accepts_nested_attributes_for-reject_if-option-not-honored-for-has_one-associations
+            - "activity"=>{"spex_activity_attributes"=>{"spex_id"=>"1"}, "function_activities_attributes"=>{"0"=>{"actor_attributes"=>{"role"=>"", "vocal_id"=>""}}, "new_function_activities"=>{"actor_attributes"=>{"role"=>"", "vocal_id"=>""}}}}
           - Edit activity
           - Show form errors?
     - Implement show

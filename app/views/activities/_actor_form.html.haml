@@ -8,5 +8,5 @@
     - f.nested_field_container :vocal_id do
       = f.label :vocal_id, t('activerecord.attributes.actor.vocal_id')
       %br>
-      = f.select :vocal_id, get_available_vocals
+      = f.select :vocal_id, get_available_vocals, { :include_blank => true }
       
