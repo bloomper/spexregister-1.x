@@ -20,4 +20,8 @@ module FunctionCategoriesHelper
     options_for_select.join("\n")
   end
   
+  def get_first_function_category
+    FunctionCategory.by_name[0]
+  end
+  
 end

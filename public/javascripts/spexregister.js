@@ -82,7 +82,6 @@ jQuery(function() {
 
 jQuery.extend( {
 	fetchFunctionsByCategory : function(category, nameElement, addEmptyFirst) {
-	  alert('invoked fetchFunctionsByCategory for ' + nameElement);
 	  var nameSelect = jQuery('select#' + nameElement);
 	  nameSelect.html('').attr('disabled', 'disabled');
 	  if(category != '') {
@@ -176,7 +175,7 @@ jQuery(function() {
 
 jQuery.extend( {
 	toggleDisplayOfActorFields : function(actorFields, hasActorValue, templateFields) {
-	  var selectedActorFields = jQuery(actorFields);
+	  var selectedActorFields = jQuery('#' + actorFields);
 	  if(hasActorValue == 'true') {
           var content = jQuery('#' + templateFields).html();
 		  selectedActorFields.html(content).show();
@@ -184,4 +183,12 @@ jQuery.extend( {
 		  selectedActorFields.hide();
 	  }
     }
+});
+
+jQuery(function() {
+	jQuery('select.observe-function-activity-function-category-changes').livequery('change', function() {
+		jQuery.fetchFunctionsByCategory(jQuery('option:selected', this).val(), jQuery(this).attr('functions_field'), false);
+		jQuery.toggleDisplayOfActorFields(jQuery(this).attr('actor_field'), jQuery('option:selected', this).attr('has_actor'), jQuery(this).attr('actor_template_field'));
+	    return false;
+	});
 });
