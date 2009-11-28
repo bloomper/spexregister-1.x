@@ -1,5 +1,12 @@
 %div
   %fieldset
     %legend= t 'activerecord.models.actor'
-    TODO
+    - f.nested_field_container :role do
+      = f.label :role, t('activerecord.attributes.actor.role')
+      %br>
+      = f.text_field :role
+    - f.nested_field_container :vocal_id do
+      = f.label :vocal_id, t('activerecord.attributes.actor.vocal_id')
+      %br>
+      = f.select :vocal_id, get_available_vocals
       

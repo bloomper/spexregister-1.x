@@ -82,6 +82,7 @@ jQuery(function() {
 
 jQuery.extend( {
 	fetchFunctionsByCategory : function(category, nameElement, addEmptyFirst) {
+	  alert('invoked fetchFunctionsByCategory for ' + nameElement);
 	  var nameSelect = jQuery('select#' + nameElement);
 	  nameSelect.html('').attr('disabled', 'disabled');
 	  if(category != '') {
@@ -159,7 +160,7 @@ jQuery(function() {
 	    var regexp = new RegExp('new_' + assoc, 'g');
 	    var newId = new Date().getTime();
 	        
-	    jQuery(this).parent().before(content.replace(regexp, newId));
+	    jQuery(this).before(content.replace(regexp, newId));
 	    return false;
 	});
 
@@ -174,10 +175,11 @@ jQuery(function() {
 });
 
 jQuery.extend( {
-	toggleDisplayOfActorFields : function(actorFields, hasActorValue) {
+	toggleDisplayOfActorFields : function(actorFields, hasActorValue, templateFields) {
 	  var selectedActorFields = jQuery(actorFields);
 	  if(hasActorValue == 'true') {
-		  selectedActorFields.show();
+          var content = jQuery('#' + templateFields).html();
+		  selectedActorFields.html(content).show();
 	  } else {
 		  selectedActorFields.hide();
 	  }
