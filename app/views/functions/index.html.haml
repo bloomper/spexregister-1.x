@@ -40,6 +40,6 @@
       %p
         %label= t 'activerecord.models.function_category'
         %br>
-        = f.select :function_category_id_equals, get_available_function_categories_first_empty
+        = f.select :function_category_id_equals, get_available_function_categories, { :include_blank => true }
       %p.form-buttons
         = button t('views.base.search')

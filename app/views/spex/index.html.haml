@@ -40,11 +40,11 @@
       %p
         %label= t('activerecord.attributes.spex.year') + ' (' + t('views.base.from') + ')'
         %br>
-        = f.select :year_gte, get_spex_category_years_with_first_empty
+        = f.select :year_gte, get_spex_category_years, { :include_blank => true }
       %p
         %label= t('activerecord.attributes.spex.year') + ' (' + t('views.base.to') + ')'
         %br>
-        = f.select :year_lte, get_spex_category_years_with_first_empty
+        = f.select :year_lte, get_spex_category_years, { :include_blank => true }
       %p
         %label= t 'activerecord.attributes.spex.title'
         %br>
@@ -56,6 +56,6 @@
       %p
         %label= t 'activerecord.models.spex_category'
         %br>
-        = f.select :spex_category_id_equals, get_available_spex_categories_first_empty
+        = f.select :spex_category_id_equals, get_available_spex_categories, { :include_blank => true }
       %p.form-buttons
         = button t('views.base.search')

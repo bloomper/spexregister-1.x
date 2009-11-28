@@ -12,12 +12,6 @@ module UsersHelper
     end
   end
   
-  def get_available_states_first_empty
-    returning states = get_available_states do
-      states.insert(0, ['',''])
-    end
-  end
-  
   def link_to_state_events(user, options = {})
     options.assert_valid_keys(:url)
     options.reverse_merge! :url => user_url(user) unless options.key? :url

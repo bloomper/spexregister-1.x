@@ -4,12 +4,6 @@ module FunctionCategoriesHelper
     FunctionCategory.to_dropdown
   end
   
-  def get_available_function_categories_first_empty
-    returning function_categories = get_available_function_categories do
-      function_categories.insert(0, ['',''])
-    end
-  end
-  
   def get_options_for_select_with_actor_attribute(selected = nil)
     selected, disabled = extract_selected_and_disabled(selected)
     

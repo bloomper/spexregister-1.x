@@ -40,6 +40,6 @@
       %p
         %label= t 'activerecord.attributes.user.state'
         %br>
-        = f.select :state_equals, get_available_states_first_empty
+        = f.select :state_equals, get_available_states, { :include_blank => true }
       %p.form-buttons
         = button t('views.base.search')
