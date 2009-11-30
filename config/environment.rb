@@ -17,7 +17,7 @@ Rails::Initializer.run do |config|
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   config.gem "chriseppstein-compass", :lib => 'compass', :version => '0.8.17', :source => "http://gems.github.com/"
-  config.gem "haml", :version => '2.2.13'
+  config.gem "haml", :version => '2.2.14'
   config.gem "hpricot", :version => '0.8.2'
   config.gem "htmlentities", :version => '4.2.0'
   config.gem "mysql", :version => '2.8.1'
