@@ -5,5 +5,6 @@
     %legend= t('function', :count => :other).humanize()
     - f.fields_for :function_activities do |function_activity_form|
       = render :partial => 'function_activity_form', :locals => { :f => function_activity_form }
-    = add_sub_link icon_tag('add') + ' ' + t('views.activity.add_function_activity'), :function_activities
+    %div
+      = add_sub_link icon_tag('add') + ' ' + t('views.activity.add_function_activity'), :function_activities
     = new_sub_fields_template(f, :function_activities)

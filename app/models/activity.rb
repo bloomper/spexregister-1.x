@@ -4,6 +4,7 @@ class Activity < ActiveRecord::Base
   has_one :spex, :through => :spex_activity
   has_many :function_activities, :dependent => :destroy
   has_many :functions, :through => :function_activities
+  has_many :actors, :through => :function_activities
   accepts_nested_attributes_for :spex_activity, :allow_destroy => true, :reject_if => lambda { |a| a.values.all?(&:blank?) }
   accepts_nested_attributes_for :function_activities, :allow_destroy => true, :reject_if => lambda { |a| a.values.all?(&:blank?) }
   named_scope :by_spex_category, lambda { |spex_category| {

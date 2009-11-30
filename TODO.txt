@@ -16,9 +16,12 @@ Short-term
     - Implement edit
       - Tabs
         - Activities
-          - :reject_if is not working properly
-            - https://rails.lighthouseapp.com/projects/8994/tickets/1912-accepts_nested_attributes_for-reject_if-option-not-honored-for-has_one-associations
-            - "activity"=>{"spex_activity_attributes"=>{"spex_id"=>"1"}, "function_activities_attributes"=>{"0"=>{"actor_attributes"=>{"role"=>"", "vocal_id"=>""}}, "new_function_activities"=>{"actor_attributes"=>{"role"=>"", "vocal_id"=>""}}}}
+          - http://github.com/timriley/complex-form-examples/blob/unobtrusive-jquery-deep-fix2
+          - Change has_one :actor to has_many :actors?
+            - Update import script
+            - actors are not stored properly if remove has been invoked
+              - Remove action removes incorrect div id?
+              - "activity"=>{"spex_activity_attributes"=>{"spex_id"=>"1"}, "function_activities_attributes"=>{"1259621968446"=>{"_delete"=>"", "function_id"=>"1"}, "1259621798704"=>{"_delete"=>"", "function_id"=>"19", "actors_attributes"=>{"1259621819063"=>{"_delete"=>"1", "role"=>"", "vocal_id"=>""}}}}}
           - Edit activity
           - Show form errors?
     - Implement show
@@ -58,7 +61,7 @@ Short-term
 Medium-term
 -----------
 
-- Once 2.3.5 has been released, fix according to these issues:
+- Fix according to these issues when released:
   - https://rails.lighthouseapp.com/projects/8994/tickets/2501
   - https://rails.lighthouseapp.com/projects/8994/tickets/2365
 

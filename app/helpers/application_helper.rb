@@ -145,7 +145,7 @@ module ApplicationHelper
   end 
   
   def remove_sub_link(name, f)
-    (f.object.new_record? ? '' : f.hidden_field(:_delete)) + link_to(name, 'javascript:void(0)', :class => 'remove-sub')
+    f.hidden_field(:_delete) + link_to(name, 'javascript:void(0)', :class => 'remove-sub')
   end
   
   def add_sub_link(name, association)
@@ -153,14 +153,22 @@ module ApplicationHelper
   end
   
   def new_sub_fields_template(form_builder, association, options = {})
-    options[:object] ||= form_builder.object.class.reflect_on_association(association).klass.new
-    options[:partial] ||= association.to_s.singularize + '_form'
-    options[:form_builder_local] ||= :f
-    content_tag(:div, :id => "#{association}_fields_template", :style => 'display: none') do
-      form_builder.fields_for(association, options[:object], :child_index => "new_#{association}") do |f|
-        render(:partial => options[:partial], :locals => { options[:form_builder_local] => f })
+    content_for "#{association}_fields_template" do
+      options[:object] ||= form_builder.object.class.reflect_on_association(association).klass.new
+      options[:partial] ||= association.to_s.singularize + '_form'
+      options[:form_builder_local] ||= :f
+
+      content_tag(:div, :id => "#{association}_fields_template", :style => 'display: none') do
+        form_builder.fields_for(association, options[:object], :child_index => "new_#{association}") do |f|
+          render(:partial => options[:partial], :locals => { options[:form_builder_local] => f })
+        end
       end
-    end
+    end unless content_given?("#{association}_fields_template")
+  end
+
+  def content_given?(name)
+    content = instance_variable_get("@content_for_#{name}")
+    ! content.nil?
   end
 
 end

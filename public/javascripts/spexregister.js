@@ -156,10 +156,21 @@ jQuery(function() {
 	jQuery('a.add-sub').livequery('click', function() {
 	    var assoc = jQuery(this).attr('data-association');
 	    var content = jQuery('#' + assoc + '_fields_template').html();
+	    var context = (jQuery(this).parents('.fields').find('input:first').attr('name') || '').replace(new RegExp('\[[a-z_]+\]$'), '');
+	    if(context) {
+		    var parentNames = context.match(/[a-z_]+_attributes/g) || [];
+		    var parentIds = context.match(/[0-9]+/g);
+		      
+		    for(i = 0; i < parentNames.length; i++) {
+		        if(parentIds[i]) {
+		            content = content.replace(new RegExp('(\\[' + parentNames[i] + '\\])\\[.+?\\]', 'g'), '$1[' + parentIds[i] + ']');
+		        }
+  	        }
+	    }
 	    var regexp = new RegExp('new_' + assoc, 'g');
 	    var newId = new Date().getTime();
-	        
-	    jQuery(this).before(content.replace(regexp, newId));
+	    content = content.replace(regexp, newId);
+	    jQuery(this).parent().before(content);
 	    return false;
 	});
 
@@ -168,19 +179,19 @@ jQuery(function() {
 	    if(hiddenField) {
 	    	hiddenField.value = '1';
 	    }
-	    jQuery(this).parents('.fields').hide();
+	    jQuery(this).closest('.fields').hide();
 	    return false;
 	});
 });
 
 jQuery.extend( {
-	toggleDisplayOfActorFields : function(actorFields, hasActorValue, templateFields) {
-	  var selectedActorFields = jQuery('#' + actorFields);
-	  if(hasActorValue == 'true') {
-          var content = jQuery('#' + templateFields).html();
-		  selectedActorFields.html(content).show();
+	toggleDisplayOfActor : function(addActorLink, categoryHasActor) {
+	  var selectedAddActorLink = jQuery('#' + addActorLink);
+	  if(categoryHasActor == 'true') {
+		  jQuery(selectedAddActorLink).show();
 	  } else {
-		  selectedActorFields.hide();
+		  jQuery(selectedAddActorLink).hide();
+		  jQuery(selectedAddActorLink).siblings('.fields').remove();
 	  }
     }
 });
@@ -188,7 +199,7 @@ jQuery.extend( {
 jQuery(function() {
 	jQuery('select.observe-function-activity-function-category-changes').livequery('change', function() {
 		jQuery.fetchFunctionsByCategory(jQuery('option:selected', this).val(), jQuery(this).attr('functions_field'), false);
-		jQuery.toggleDisplayOfActorFields(jQuery(this).attr('actor_field'), jQuery('option:selected', this).attr('has_actor'), jQuery(this).attr('actor_template_field'));
+		jQuery.toggleDisplayOfActor(jQuery(this).attr('add_actor_link'), jQuery('option:selected', this).attr('has_actor'));
 	    return false;
 	});
 });

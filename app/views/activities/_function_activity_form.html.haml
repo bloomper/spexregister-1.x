@@ -2,16 +2,17 @@
   %fieldset
     %legend= t 'activerecord.models.function'
     - unique_function_category_id = "#{form_tag_id(f.object_name, :function_id)}_function_category_id"
-    - unique_actor_template_id = "#{form_tag_id(f.object_name, :actor)}_actor_fields_template"
     = label_tag unique_function_category_id, t('activerecord.attributes.function.function_category')
     %br>
-    = select_tag unique_function_category_id, get_options_for_select_with_actor_attribute, { :class => 'observe-function-activity-function-category-changes', :functions_field => "#{form_tag_id(f.object_name, :function_id)}", :actor_field => "#{form_tag_id(f.object_name, :actor)}", :actor_template_field => "#{unique_actor_template_id}" }
+    = select_tag unique_function_category_id, get_options_for_select_with_actor_attribute, { :class => 'observe-function-activity-function-category-changes', :functions_field => "#{form_tag_id(f.object_name, :function_id)}", :add_actor_link => "#{form_tag_id(f.object_name, :function_id)}_add_actor_link" }
     - f.nested_field_container :function_id do
       = f.label :function_id, t('activerecord.attributes.function.name')
       %br>
       = f.select :function_id, [], {}, { :disabled => true }
-    %div{:id => "#{form_tag_id(f.object_name, :actor)}", :class => 'sub-fields', :style => 'display: none'}
-    %div{:id => unique_actor_template_id, :style => 'display: none'}
-      - f.fields_for :actor do |actor_form|
+    %div.sub-fields
+      - f.fields_for :actors do |actor_form|
         = render :partial => 'actor_form', :locals => { :f => actor_form }
+      %div{:id => "#{form_tag_id(f.object_name, :function_id)}_add_actor_link", :style => 'display: none'}
+        = add_sub_link icon_tag('add') + ' ' + t('views.activity.add_actor'), :actors
+      = new_sub_fields_template(f, :actors)
     = remove_sub_link icon_tag('remove') + ' ' + t('views.activity.remove_function_activity'), f

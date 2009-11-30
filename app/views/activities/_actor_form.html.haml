@@ -1,4 +1,4 @@
-%div
+%div.fields
   %fieldset
     %legend= t 'activerecord.models.actor'
     - f.nested_field_container :role do
@@ -9,4 +9,5 @@
       = f.label :vocal_id, t('activerecord.attributes.actor.vocal_id')
       %br>
       = f.select :vocal_id, get_available_vocals, { :include_blank => true }
+    = remove_sub_link icon_tag('remove') + ' ' + t('views.activity.remove_actor'), f
       

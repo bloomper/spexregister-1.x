@@ -9,3 +9,5 @@
       no_available_activities_exist: "Det finns inga tillgängliga {{spex_category_name}} aktiviteter"
       add_function_activity: "Lägg till funktion"
       remove_function_activity: "Ta bort funktion"
+      add_actor: "Lägg till roll/stämma"
+      remove_actor: "Ta bort roll/stämma"
