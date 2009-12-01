@@ -17,4 +17,4 @@
           %td= h activity.spex.year
           %td= h activity.spex.title
           %td.actions
-            = link_to icon_tag('view') + ' ' + t('views.base.view_action'), activity, :class => 'fancybox-text'
+            = link_to icon_tag('view') + ' ' + t('views.base.view_action'), spexare_activity_url(@spexare, activity), :class => 'fancybox-text'
