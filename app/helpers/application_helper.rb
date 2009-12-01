@@ -174,5 +174,13 @@ module ApplicationHelper
   def whitespace(times = 1)
     '&nbsp;' * times
   end
-  
+
+  def print_text(text)
+    if text.blank?
+      return t 'views.base.missing_text'
+    else
+      h text
+    end
+  end
+
 end

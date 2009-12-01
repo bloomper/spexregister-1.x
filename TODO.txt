@@ -10,15 +10,9 @@ Short-term
     - spexare_myself and spexare_management should perhaps be merged
   - Possibly a problem with storing actors when managing activities
     - Might occur if remove is used in some specific sequence
+  - When editing activities and adding an actor, any old ones are removed
 
 - Update lockdown to 1.6.x (1.6.0 does not seem to work)
-
-- Controllers/views/translation
-  - Spexare
-    - Implement show
-      - Tabs
-        - Description
-        - Activities
 
 - Change my profile
 
@@ -51,6 +45,8 @@ Short-term
 
 Medium-term
 -----------
+
+- Update jQuery Fancybox JS library
 
 - Fix according to these issues when released:
   - https://rails.lighthouseapp.com/projects/8994/tickets/2501
