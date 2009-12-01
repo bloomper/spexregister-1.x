@@ -8,22 +8,13 @@ Short-term
   - Get rid of annoying SASS errors (deprecation)
   - Lockdown model restrictions do not work as expected
     - spexare_myself and spexare_management should perhaps be merged
+  - Possibly a problem with storing actors when managing activities
+    - Might occur if remove is used in some specific sequence
 
 - Update lockdown to 1.6.x (1.6.0 does not seem to work)
 
 - Controllers/views/translation
   - Spexare
-    - Implement edit
-      - Tabs
-        - Activities
-          - http://github.com/timriley/complex-form-examples/blob/unobtrusive-jquery-deep-fix2
-          - Change has_one :actor to has_many :actors?
-            - Update import script
-            - actors are not stored properly if remove has been invoked
-              - Remove action removes incorrect div id?
-              - "activity"=>{"spex_activity_attributes"=>{"spex_id"=>"1"}, "function_activities_attributes"=>{"1259621968446"=>{"_delete"=>"", "function_id"=>"1"}, "1259621798704"=>{"_delete"=>"", "function_id"=>"19", "actors_attributes"=>{"1259621819063"=>{"_delete"=>"1", "role"=>"", "vocal_id"=>""}}}}}
-          - Edit activity
-          - Show form errors?
     - Implement show
       - Tabs
         - Description

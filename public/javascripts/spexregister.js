@@ -191,7 +191,10 @@ jQuery.extend( {
 		  jQuery(selectedAddActorLink).show();
 	  } else {
 		  jQuery(selectedAddActorLink).hide();
-		  jQuery(selectedAddActorLink).siblings('.fields').remove();
+		  var hiddenFields = jQuery(selectedAddActorLink).siblings('.fields').hide().find('input[type=hidden]');
+		  for(var i = 0; i <= hiddenFields.size(); i++) {
+			  hiddenFields[i].value = '1';
+		  }
 	  }
     }
 });
