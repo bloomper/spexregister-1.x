@@ -8,4 +8,8 @@ module FunctionsHelper
     end
   end
   
+  def get_function_by_id(id)
+    Function.find_by_id(id)
+  end
+  
 end

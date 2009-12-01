@@ -4,7 +4,7 @@ module FunctionCategoriesHelper
     FunctionCategory.to_dropdown
   end
   
-  def get_options_for_select_with_actor_attribute(selected = nil)
+  def options_for_select_with_has_actor_attribute(selected = nil)
     selected, disabled = extract_selected_and_disabled(selected)
     
     available_function_categories = FunctionCategory.by_name.map { |f| [f.name, f.has_actor, f.id]}

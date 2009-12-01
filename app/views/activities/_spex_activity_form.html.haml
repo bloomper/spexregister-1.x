@@ -5,7 +5,7 @@
     - f.nested_field_container :spex do
       = f.label :spex_id, t('activerecord.attributes.spex.year')
       %br>
-      = f.select :spex_id, options_for_select(spex_items.fetch('years')), {}, { :onchange => "jQuery('#dummy_spex_title').val(jQuery('##{form_tag_id(f.object_name, :spex_id)}').val());" }
+      = f.select :spex_id, spex_items.fetch('years'), {}, { :onchange => "jQuery('#dummy_spex_title').val(jQuery('##{form_tag_id(f.object_name, :spex_id)}').val());" }
     = label_tag :dummy_spex_title, t('activerecord.attributes.spex.title')
     %br>
     = select_tag :dummy_spex_title, options_for_select(spex_items.fetch('titles')), { :onchange => "jQuery('##{form_tag_id(f.object_name, :spex_id)}').val(jQuery('#dummy_spex_title').val());" }

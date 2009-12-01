@@ -20,7 +20,7 @@
             %td= h activity.spex.spex_category.name
             %td.actions
               = link_to icon_tag('view') + ' ' + t('views.base.view_action'), spexare_activity_url(@spexare, activity), :class => 'fancybox-text'
-              = link_to_remote icon_tag('edit') + ' ' + t('views.base.edit_action'), { :url => edit_spexare_activity_url(@spexare, activity), :method => :get, :before => "jQuery('#add-activity').hide(); jQuery('#add-activity-action').hide();", :update => 'edit-activity' }
+              = link_to_remote icon_tag('edit') + ' ' + t('views.base.edit_action'), { :url => edit_spexare_activity_url(@spexare, activity, :spex_category_id => activity.spex.spex_category.id), :method => :get, :before => "jQuery('#add-activity').hide(); jQuery('#add-activity-action').hide();", :after => "jQuery('#edit-activity').show();", :update => 'edit-activity' }
               = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => spexare_activity_url(@spexare, activity), :method => :delete, :before => '', :update => 'edit-activities' }
   
   #edit-activity
@@ -29,5 +29,5 @@
 
   %span#add-activity-action
     - get_available_spex_categories.each do |spex_category|
-      = link_to_remote icon_tag('add') + ' ' + t('views.activity.add_activity', :spex_category_name => spex_category[0]), { :url => new_spexare_activity_url(@spexare, :spex_category_id => spex_category[1]), :method => :get, :before => "jQuery('#edit-activity').hide(); jQuery(this).parent().hide();", :update => 'add-activity' }
+      = link_to_remote icon_tag('add') + ' ' + t('views.activity.add_activity', :spex_category_name => spex_category[0]), { :url => new_spexare_activity_url(@spexare, :spex_category_id => spex_category[1]), :method => :get, :before => "jQuery('#edit-activity').hide(); jQuery(this).parent().hide();", :after => "jQuery('#add-activity').show();", :update => 'add-activity' }
       %br>
