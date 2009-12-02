@@ -1,4 +1,5 @@
 #flash
   - flash.each do |key, value|
-    %div{:class => "flash #{key}" }
-      = h value
+    - if !['notice', 'error'].include? key.to_s
+      %div{:class => "flash #{key}" }
+        = h value
