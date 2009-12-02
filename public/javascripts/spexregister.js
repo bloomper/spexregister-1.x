@@ -156,7 +156,7 @@ jQuery(function() {
 	jQuery('a.add-sub').livequery('click', function() {
 	    var assoc = jQuery(this).attr('data-association');
 	    var content = jQuery('#' + assoc + '_fields_template').html();
-	    var context = (jQuery(this).parents('.fields').find('input:first').attr('name') || '').replace(new RegExp('\[[a-z_]+\]$'), '');
+	    var context = (jQuery(this).parents('.fields').find('input:last').attr('name') || '').replace(new RegExp('\[[a-z_]+\]$'), '');
 	    if(context) {
 		    var parentNames = context.match(/[a-z_]+_attributes/g) || [];
 		    var parentIds = context.match(/[0-9]+/g);
