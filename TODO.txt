@@ -11,11 +11,15 @@ Short-term
 
 - Update lockdown to 1.6.x (1.6.0 does not seem to work)
 
+- Show spexare? JS?
+
 - Change my profile
 
 - Simple search
   - Controller
   - Search result
+    - actions
+    - link to edit for admin and myself only
 
 - Export
   - http://github.com/purzelrakete/workling

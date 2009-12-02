@@ -9,3 +9,5 @@
       include_no_circulars: "ej utskick"
       include_not_published: "ej publicerade"
       show_revivals: "Visa nyuppsättningar"
+      index_title: "Sökresultat"
+      empty_search_result: "Inga träffar"
