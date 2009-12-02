@@ -22,40 +22,39 @@ class UsersController < ApplicationController
     end
   end
   
-  # Note that the following methods are not powered by inherited_resources
   def approve
     if @user
       @user.approve!
-      flash.now[:notice] = I18n.t('flash.users.approve.notice')
+      flash.now[:notice] = I18n.t('flash.users.approve.success')
     else
-      flash.now[:error] = I18n.t('flash.users.approve.error')
+      flash.now[:error] = I18n.t('flash.users.approve.failure')
     end
   end
   
   def activate
     if @user
       @user.activate!
-      flash.now[:notice] = I18n.t('flash.users.activate.notice')
+      flash.now[:notice] = I18n.t('flash.users.activate.success')
     else
-      flash.now[:error] = I18n.t('flash.users.activate.error')
+      flash.now[:error] = I18n.t('flash.users.activate.failure')
     end
   end
   
   def deactivate
     if @user
       @user.deactivate!
-      flash.now[:notice] = I18n.t('flash.users.deactivate.notice')
+      flash.now[:notice] = I18n.t('flash.users.deactivate.success')
     else
-      flash.now[:error] = I18n.t('flash.users.deactivate.error')
+      flash.now[:error] = I18n.t('flash.users.deactivate.failure')
     end
   end
   
   def reject
     if @user
       @user.reject!
-      flash.now[:notice] = I18n.t('flash.users.reject.notice')
+      flash.now[:notice] = I18n.t('flash.users.reject.success')
     else
-      flash.now[:error] = I18n.t('flash.users.reject.error')
+      flash.now[:error] = I18n.t('flash.users.reject.failure')
     end
   end
   

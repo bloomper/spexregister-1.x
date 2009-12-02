@@ -2,111 +2,111 @@
   flash:
     functions:
       create:
-        notice: "Funktionen har skapats"
-        error: "Funktionen kunde inte skapas"
+        success: "Funktionen har skapats"
+        failure: "Funktionen kunde inte skapas"
       update:
-        notice: "Funktionen har uppdaterats"
-        error: "Funktionen kunde inte uppdateras"
+        success: "Funktionen har uppdaterats"
+        failure: "Funktionen kunde inte uppdateras"
       destroy:
-        notice: "Funktionen har raderats"
-        error: "Funktionen kunde inte raderas"
+        success: "Funktionen har raderats"
+        failure: "Funktionen kunde inte raderas"
     function_categories:
       create:
-        notice: "Kategorin har skapats"
-        error: "Kategorin kunde inte skapas"
+        success: "Kategorin har skapats"
+        failure: "Kategorin kunde inte skapas"
       update:
-        notice: "Kategorin har uppdaterats"
-        error: "Kategorin kunde inte uppdateras"
+        success: "Kategorin har uppdaterats"
+        failure: "Kategorin kunde inte uppdateras"
       destroy:
-        notice: "Kategorin har raderats"
-        error: "Kategorin kunde inte raderas"
+        success: "Kategorin har raderats"
+        failure: "Kategorin kunde inte raderas"
     news:
       create:
-        notice: "Nyheten har skapats"
-        error: "Nyheten kunde inte skapas"
+        success: "Nyheten har skapats"
+        failure: "Nyheten kunde inte skapas"
       update:
-        notice: "Nyheten har uppdaterats"
-        error: "Nyheten kunde inte uppdateras"
+        success: "Nyheten har uppdaterats"
+        failure: "Nyheten kunde inte uppdateras"
       destroy:
-        notice: "Nyheten har raderats"
-        error: "Nyheten kunde inte raderas"
+        success: "Nyheten har raderats"
+        failure: "Nyheten kunde inte raderas"
     spex:
       create:
-        notice: "Spexet har skapats"
-        error: "Spexet kunde inte skapas"
+        success: "Spexet har skapats"
+        failure: "Spexet kunde inte skapas"
       update:
-        notice: "Spexet har uppdaterats"
-        error: "Spexet kunde inte uppdateras"
+        success: "Spexet har uppdaterats"
+        failure: "Spexet kunde inte uppdateras"
       destroy:
-        notice: "Spexet har raderats"
-        error: "Spexet kunde inte raderas"
+        success: "Spexet har raderats"
+        failure: "Spexet kunde inte raderas"
     spex_categories:
       create:
-        notice: "Kategorin har skapats"
-        error: "Kategorin kunde inte skapas"
+        success: "Kategorin har skapats"
+        failure: "Kategorin kunde inte skapas"
       update:
-        notice: "Kategorin har uppdaterats"
-        error: "Kategorin kunde inte uppdateras"
+        success: "Kategorin har uppdaterats"
+        failure: "Kategorin kunde inte uppdateras"
       destroy:
-        notice: "Kategorin har raderats"
-        error: "Kategorin kunde inte raderas"
+        success: "Kategorin har raderats"
+        failure: "Kategorin kunde inte raderas"
     spexare:
       create:
-        notice: "Spexaren har skapats"
-        error: "Spexaren kunde inte skapas"
+        success: "Spexaren har skapats"
+        failure: "Spexaren kunde inte skapas"
       update:
-        notice: "Spexaren har uppdaterats"
-        error: "Spexaren kunde inte uppdateras"
+        success: "Spexaren har uppdaterats"
+        failure: "Spexaren kunde inte uppdateras"
       destroy:
-        notice: "Spexaren har raderats"
-        error: "Spexaren kunde inte raderas"
+        success: "Spexaren har raderats"
+        failure: "Spexaren kunde inte raderas"
     users:
       create:
-        notice: "Användaren har skapats"
-        error: "Användaren kunde inte skapas"
+        success: "Användaren har skapats"
+        failure: "Användaren kunde inte skapas"
       update:
-        notice: "Användaren har uppdaterats"
-        error: "Användaren kunde inte uppdateras"
+        success: "Användaren har uppdaterats"
+        failure: "Användaren kunde inte uppdateras"
       destroy:
-        notice: "Användaren har raderats"
-        error: "Användaren kunde inte raderas"
+        success: "Användaren har raderats"
+        failure: "Användaren kunde inte raderas"
       approve:
-        notice: "Användaren har godkänts"
-        error: "Användaren kunde inte godkännas"
+        success: "Användaren har godkänts"
+        failure: "Användaren kunde inte godkännas"
       activate:
-        notice: "Användaren har aktiverats"
-        error: "Användaren kunde inte aktiveras"
+        success: "Användaren har aktiverats"
+        failure: "Användaren kunde inte aktiveras"
       deactivate:
-        notice: "Användaren har deaktiverats"
-        error: "Användaren kunde inte deaktiveras"
+        success: "Användaren har deaktiverats"
+        failure: "Användaren kunde inte deaktiveras"
       reject:
-        notice: "Användaren har avslagits"
-        error: "Användaren kunde inte avslås"
+        success: "Användaren har avslagits"
+        failure: "Användaren kunde inte avslås"
     password_resets:
       create:
-        notice: "Instruktioner för återställning av lösenord har skickats"
-        error: "Användaren kunde inte hittas"
+        success: "Instruktioner för återställning av lösenord har skickats"
+        failure: "Användaren kunde inte hittas"
       update:
-        notice: "Lösenordet har uppdaterats"
-        error: "Lösenordet kunde inte uppdateras"
+        success: "Lösenordet har uppdaterats"
+        failure: "Lösenordet kunde inte uppdateras"
       token_not_found: "Ditt konto kunde inte hittas"
     accounts:
       create:
-        notice: "Kontot har skapats"
-        error: "Konto kunde inte skapas"
+        success: "Kontot har skapats"
+        failure: "Konto kunde inte skapas"
       update:
-        notice: "Lösenordet har uppdaterats"
-        error: "Lösenordet kunde inte uppdateras"
+        success: "Lösenordet har uppdaterats"
+        failure: "Lösenordet kunde inte uppdateras"
     user_sessions:
       create:
-        notice: "Du har loggats in"
-        error: "Ogiltligt användarnamn och/eller lösenord"
+        success: "Du har loggats in"
+        failure: "Ogiltligt användarnamn och/eller lösenord"
       destroy:
-        notice: "Du har loggats ut"
+        success: "Du har loggats ut"
       timeout: "Du har loggats ut på grund av inaktivitet"
     relationships:
       create:
-        error: "Angiven spexare har redan en relation med någon annan"
+        failure: "Angiven spexare har redan en relation med någon annan"
       spexare_not_found: "Spexaren kunde inte hittas"
 
 

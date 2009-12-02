@@ -19,7 +19,7 @@ class RelationshipsController < ApplicationController
       return false
     end
     if !@spouse.spouse.nil?
-      flash.now[:error] = t 'flash.relationships.create.error'
+      flash.now[:error] = t 'flash.relationships.create.failure'
       return false
     end
     create! do

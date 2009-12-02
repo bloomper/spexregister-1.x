@@ -11,7 +11,7 @@ class AccountsController < ApplicationController
       @user.save
       if @user.errors.size == 1 && !@user.errors.on(:spexare).nil? && !@captcha.values[:full_name].blank? && !@captcha.values[:description].blank?
         AdminMailer.deliver_new_account_instructions(@captcha.values[:full_name], @captcha.values[:username], @captcha.values[:description])
-        flash[:notice] = I18n.t('flash.accounts.create.notice')
+        flash[:notice] = I18n.t('flash.accounts.create.success')
         redirect_to login_path
       else
         @user.errors.add_to_base I18n.t('activerecord.attributes.other.full_name') + I18n.t('activerecord.errors.format.separator', :default => ' ') + I18n.t('activerecord.errors.messages.empty') if @captcha.values[:full_name].blank?
@@ -19,7 +19,7 @@ class AccountsController < ApplicationController
         render :action => :new
       end
     else
-      flash[:error] = I18n.t('flash.accounts.create.error') 
+      flash[:error] = I18n.t('flash.accounts.create.failure') 
       render :action => 'new'
     end
   end
@@ -31,16 +31,16 @@ class AccountsController < ApplicationController
   def update
     @user = current_user
     if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
-      flash[:notice] = I18n.t('flash.accounts.update.error')
+      flash[:notice] = I18n.t('flash.accounts.update.failure')
       render :action => :edit
     else
       @user.update_attributes(params[:user])
       if @user.errors.size == 1 && !@user.errors.on(:spexare).nil?
         @user.save(false)
-        flash[:notice] = I18n.t('flash.accounts.update.notice')
+        flash[:notice] = I18n.t('flash.accounts.update.success')
         redirect_to home_path
       else
-        flash[:notice] = I18n.t('flash.accounts.update.error')
+        flash[:notice] = I18n.t('flash.accounts.update.failure')
         render :action => :edit
       end
     end

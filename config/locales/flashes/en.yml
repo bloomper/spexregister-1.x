@@ -2,98 +2,98 @@
   flash:
     functions:
       create:
-        notice: "The function has been created"
-        error: "The function could not be created"
+        success: "The function has been created"
+        failure: "The function could not be created"
       update:
-        notice: "The function has been updated"
-        error: "The function could not be updated"
+        success: "The function has been updated"
+        failure: "The function could not be updated"
       destroy:
-        notice: "The function has been deleted"
-        error: "The function could not be deleted"
+        success: "The function has been deleted"
+        failure: "The function could not be deleted"
     function_categories:
       create:
-        notice: "The category has been created"
-        error: "The category could not be created"
+        success: "The category has been created"
+        failure: "The category could not be created"
       update:
-        notice: "The category has been updated"
-        error: "The category could not be updated"
+        success: "The category has been updated"
+        failure: "The category could not be updated"
       destroy:
-        notice: "The category has been deleted"
-        error: "The category could not be deleted"
+        success: "The category has been deleted"
+        failure: "The category could not be deleted"
     news:
       create:
-        notice: "The news item has been created"
-        error: "The news item could not be created"
+        success: "The news item has been created"
+        failure: "The news item could not be created"
       update:
-        notice: "The news item has been updated"
-        error: "The news item could not be updated"
+        success: "The news item has been updated"
+        failure: "The news item could not be updated"
       destroy:
-        notice: "The news item has been deleted"
-        error: "The news item could not be deleted"
+        success: "The news item has been deleted"
+        failure: "The news item could not be deleted"
     spex:
       create:
-        notice: "The spex has been created"
-        error: "The spex could not be created"
+        success: "The spex has been created"
+        failure: "The spex could not be created"
       update:
-        notice: "The spex has been updated"
-        error: "The spex could not be updated"
+        success: "The spex has been updated"
+        failure: "The spex could not be updated"
       destroy:
-        notice: "The spex has been deleted"
-        error: "The spex could not be deleted"
+        success: "The spex has been deleted"
+        failure: "The spex could not be deleted"
     spex_categories:
       create:
-        notice: "The category has been created"
-        error: "The category could not be created"
+        success: "The category has been created"
+        failure: "The category could not be created"
       update:
-        notice: "The category has been updated"
-        error: "The category could not be updated"
+        success: "The category has been updated"
+        failure: "The category could not be updated"
       destroy:
-        notice: "The category has been deleted"
-        error: "The category could not be deleted"
+        success: "The category has been deleted"
+        failure: "The category could not be deleted"
     spexare:
       create:
-        notice: "The spexer has been created"
-        error: "The spexer could not be created"
+        success: "The spexer has been created"
+        failure: "The spexer could not be created"
       update:
-        notice: "The spexer has been updated"
-        error: "The spexer could not be updated"
+        success: "The spexer has been updated"
+        failure: "The spexer could not be updated"
       destroy:
-        notice: "The spexer has been deleted"
-        error: "The spexer could not be deleted"
+        success: "The spexer has been deleted"
+        failure: "The spexer could not be deleted"
     users:
       create:
-        notice: "The user has been created"
-        error: "The user could not be created"
+        success: "The user has been created"
+        failure: "The user could not be created"
       update:
-        notice: "The user has been updated"
-        error: "The user could not be updated"
+        success: "The user has been updated"
+        failure: "The user could not be updated"
       destroy:
-        notice: "The user has been deleted"
-        error: "The user could not be deleted"
+        success: "The user has been deleted"
+        failure: "The user could not be deleted"
     password_resets:
       create:
-        notice: "Instructions for password reset has been mailed"
-        error: "The user could not be found"
+        success: "Instructions for password reset has been mailed"
+        failure: "The user could not be found"
       update:
-        notice: "The password has been updated"
-        error: "The password could not be updated"
+        success: "The password has been updated"
+        failure: "The password could not be updated"
       token_not_found: "Your account could not be found"
     accounts:
       create:
-        notice: "The account has been created"
-        error: "The accound could not be created"
+        success: "The account has been created"
+        failure: "The accound could not be created"
       update:
-        notice: "The password has been updated"
-        error: "The password could not be updated"
+        success: "The password has been updated"
+        failure: "The password could not be updated"
     user_sessions:
       create:
-        notice: "You have been logged in"
-        error: "Invalid username and/or password"
+        success: "You have been logged in"
+        failure: "Invalid username and/or password"
       destroy:
-        notice: "You have been logged out"
+        success: "You have been logged out"
       timeout: "You have been logged out due to inactivity"
     relationships:
       create:
-        error: "The spexer has already a relation with someone else"
+        failure: "The spexer has already a relation with someone else"
       spexare_not_found: "The spexer could not be found"
 
