@@ -9,5 +9,5 @@
       include_no_circulars: "no circulars"
       include_not_published: "not published"
       show_revivals: "Show revivals"
-      index_title: "Sökresultat"
+      index_title: "Search result"
       empty_search_result: "No hits"
