@@ -1,20 +1,18 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
 
-  # Login routes
+  # Basic routes
   map.login '/login', :controller => 'user_sessions', :action => 'new'
   map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
+  map.set_locale '/locale/set', :controller => 'locale', :action => 'set', :method => :get
 
   # UI routes
   map.home '/home', :controller => 'home', :action => 'index'
-  map.change_profile '/change_profile', :controller => 'home', :action => 'change_profile'
-  map.change_password '/change_password', :controller => 'accounts', :action => 'edit'
   map.signup '/signup', :controller => 'accounts', :action => 'new'
   map.administration '/administration', :controller => 'administration', :action => 'index'
   map.help '/help', :controller => 'help', :action => 'index'
   map.in_case_of_problems '/in_case_of_problems', :controller => 'help', :action => 'in_case_of_problems'
   map.about '/about', :controller => 'help', :action => 'about'
-  map.set_locale '/locale/set', :controller => 'locale', :action => 'set', :method => :get
 
   # Restful routes
   map.resources :spex_categories
@@ -35,6 +33,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :search, :only => [:new, :index]
   map.resources :advanced_search, :only => [:new, :index]
   map.resource :account, :except => [:destroy, :show]
+  map.resource :profile, :only => [:edit, :update]
 
   map.root :controller => 'home', :action => 'index'
 

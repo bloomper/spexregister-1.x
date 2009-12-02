@@ -5,18 +5,17 @@ Short-term
 ----------
 
 - Immediate problems
-  - Get rid of annoying SASS errors (deprecation)
   - Lockdown model restrictions do not work as expected
     - spexare_myself and spexare_management should perhaps be merged
+  - Actions in search result point to administration!
 
 - Update lockdown to 1.6.x (1.6.0 does not seem to work)
 
-- Show spexare? JS?
+- Show spexare? JS? Remove?
 
 - Change my profile
 
 - Simple search
-  - Controller
   - Search result
     - actions
     - link to edit for admin and myself only

@@ -119,8 +119,8 @@ set_permission(:news_management).with_controller(:news)
 set_permission(:news_view).with_controller(:news).only_methods(:show)
 set_permission(:user_management).with_controller(:users).and_controller(:user_groups).and_controller(:spexare)
 set_permission(:spexare_management).with_controller(:spexare).and_controller(:relationships).and_controller(:memberships).and_controller(:activities)
-# set_permission(:spexare_myself).with_controller(:spexare).to_model(:spexare).where(:editable_by).includes(:current_user_id).and_controller(:relationships).and_controller(:memberships).and_controller(:activities)
 set_permission(:spexare_view).with_controller(:spexare).only_methods(:show).and_controller(:relationships).only_methods(:show).and_controller(:memberships).only_methods(:show).and_controller(:activities).only_methods(:show)
+set_permission(:profile).with_controller(:profiles).to_model(:spexare).where(:editable_by).includes(:current_user_id).and_controller(:relationships).and_controller(:memberships).and_controller(:activities)
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Built-in user groups
@@ -153,8 +153,7 @@ set_protected_access :home, :account, :search, :advanced_search, :help, :spexare
   # Define your user groups here:
 
 set_user_group(:administrators, :administration, :spexare_management, :user_management, :spex_management, :function_management, :news_management)
-set_user_group(:users)
-# set_user_group(:users, :spexare_myself)
+set_user_group(:users, :profile)
 
 # Use Authlogic's session timeout mechanism instead
 # Must be longer than Authlogic's remember me timeout

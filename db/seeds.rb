@@ -7,7 +7,7 @@
 #   Major.create(:name => 'Daley', :city => cities.first)
 
 # Users
-user = User.new :username => 'admin@chalmersspexet.se', :password => 'admin99', :password_confirmation => 'admin99', :user_groups => [ UserGroup.find_by_name('Administrators') ], :state => 'active'
+user = User.new :username => 'admin@chalmersspexet.se', :password => 'admin99', :password_confirmation => 'admin99', :user_groups => [ UserGroup.find_by_name('Administrators'), UserGroup.find_by_name('Users') ], :state => 'active'
 user.save(false)
 user = User.new :username => 'user@chalmersspexet.se', :password => 'user99', :password_confirmation => 'user99', :user_groups => [ UserGroup.find_by_name('Users') ], :state => 'active'
 user.save(false)
