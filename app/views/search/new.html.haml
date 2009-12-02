@@ -22,19 +22,19 @@
         %label= t 'activerecord.attributes.spex.spex_category'
         %br>
         = select_tag 'search[activities_spex_activity_spex_spex_category_id_equals]', options_for_select(get_available_spex_categories.insert(0, ''))
-        = observe_field 'search_activities_spex_activity_spex_spex_category_id_equals', :function => "jQuery.fetchSpexByCategory(value, (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'search_activities_spex_activity_spex_spex_id_equals', 'search_activities_spex_activity_spex_spex_title_equals', true)"
+        = observe_field 'search_activities_spex_activity_spex_spex_category_id_equals', :function => "jQuery.fetchSpexByCategory(value, (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'search_activities_spex_activity_spex_id_equals', 'dummy_title_equals', true)"
       %p
         %label= t 'views.search.show_revivals'
         = check_box_tag 'show_revivals'
-        = observe_field 'show_revivals', :function => "jQuery.fetchSpexByCategory(jQuery('#search_spex_category_id_equals').val(), (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'search_activities_spex_activity_spex_spex_id_equals', 'search_activities_spex_activity_spex_spex_title_equals', true)"
+        = observe_field 'show_revivals', :function => "jQuery.fetchSpexByCategory(jQuery('#search_spex_category_id_equals').val(), (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'search_activities_spex_activity_spex_id_equals', 'dummy_title_equals', true)"
       %p
         %label= t 'activerecord.attributes.spex.year'
         %br>
-        = select_tag 'search[activities_spex_activity_spex_spex_id_equals]', nil, { :disabled => true, :onchange => "jQuery('#search_activities_spex_activity_spex_spex_title_equals').val(jQuery('#search_activities_spex_activity_spex_spex_id_equals').val());" }
+        = select_tag 'search[activities_spex_activity_spex_id_equals]', nil, { :disabled => true, :onchange => "jQuery('#dummy_title_equals').val(jQuery('#search_activities_spex_activity_spex_id_equals').val());" }
       %p
         %label= t 'activerecord.attributes.spex.title'
         %br>
-        = select_tag 'search[activities_spex_activity_spex_spex_title_equals]', nil, { :disabled => true, :onchange => "jQuery('#search_activities_spex_activity_spex_spex_id_equals').val(jQuery('#search_activities_spex_activity_spex_spex_title_equals').val());" }
+        = select_tag 'dummy_title_equals', nil, { :disabled => true, :onchange => "jQuery('#search_activities_spex_activity_spex_id_equals').val(jQuery('#dummy_title_equals').val());" }
   .span-10
     %fieldset
       %legend= t 'activerecord.models.function'
@@ -42,11 +42,11 @@
         %label= t 'activerecord.attributes.function.function_category'
         %br>
         = select_tag 'search[activities_function_activities_function_function_category_id_equals]', options_for_select(get_available_function_categories.insert(0, ''))
-        = observe_field 'search_activities_function_activities_function_function_category_id_equals', :function => "jQuery.fetchFunctionsByCategory(value, 'search_activities_function_activities_function_function_id_equals', true)"
+        = observe_field 'search_activities_function_activities_function_function_category_id_equals', :function => "jQuery.fetchFunctionsByCategory(value, 'search_activities_function_activities_function_id_equals', true)"
       %p
         %label= t 'activerecord.attributes.function.name'
         %br>
-        = select_tag('search[activities_function_activities_function_function_id_equals]', nil, { :disabled => true })
+        = select_tag('search[activities_function_activities_function_id_equals]', nil, { :disabled => true })
   .span-10
     %fieldset
       %legend= t 'views.search.include'
