@@ -78,6 +78,13 @@ describe "Conditions" do
   end
   
   context "boolean conditions" do
+    it "should have scopes for boolean columns" do
+      female = User.create(:male => false)
+      male = User.create(:male => true)
+      User.male.all.should == [male]
+      User.not_male.all.should == [female]
+    end
+    
     it "should have null" do
       ["bjohnson", nil].each { |username| User.create(:username => username) }
       User.username_null.all.should == User.find_all_by_username(nil)
