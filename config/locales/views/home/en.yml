@@ -3,5 +3,5 @@
     home:
       title: "Home"
       latest_news: "Latest news"
-      change_profile: "Change profile"
-      change_password: "Change password"
+      change_my_profile: "Change my profile"
+      change_my_password: "Change my password"

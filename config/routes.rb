@@ -33,7 +33,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :search, :only => [:new, :index]
   map.resources :advanced_search, :only => [:new, :index]
   map.resource :account, :except => [:destroy, :show]
-  map.resource :profile, :only => [:edit, :update]
+  map.resource :profile, :only => [:edit, :show]
 
   map.root :controller => 'home', :action => 'index'
 

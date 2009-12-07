@@ -1,7 +1,7 @@
 class SpexareController < ApplicationController
   inherit_resources
   respond_to :html, :except => :destroy
-  respond_to :js, :only => [:index, :destroy, :show]
+  respond_to :js, :only => [:index, :destroy]
   defaults :collection_name => 'spexare_items', :route_collection_name => 'spexare_index'
 
   def new
