@@ -1,9 +1,8 @@
 = content_for :sub_menu do
   %ul
     = tab :latest_news, :route => 'home', :match_path => '/home', :translation_key => 'views.home.latest_news'
-    - if !current_user.spexare.nil?
-      = tab :change_my_profile, :route => 'edit_profile', :match_path => '/profile/edit', :translation_key => 'views.home.change_my_profile'
-      = tab :view_my_profile, :route => 'profile', :match_path => '/profile/show', :translation_key => 'views.home.view_my_profile'
     - if current_user_is_admin?
       = tab :spexare_index, :match_path => '/spexare', :translation_key => 'views.home.manage_profiles'
+    - elsif !current_user.spexare.nil?
+      = tab :change_my_profile, :route => 'edit_profile', :match_path => "/spexare/#{current_user.spexare.id}", :translation_key => 'views.home.change_my_profile'
     = tab :edit_account, :match_path => '/account/edit', :translation_key => 'views.home.change_my_password', :css_class => 'last' 
