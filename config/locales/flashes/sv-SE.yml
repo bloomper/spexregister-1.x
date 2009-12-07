@@ -104,6 +104,7 @@
       destroy:
         success: "Du har loggats ut"
       timeout: "Du har loggats ut på grund av inaktivitet"
+      access_denied: "Åtkomst nekad"
     relationships:
       create:
         failure: "Angiven spexare har redan en relation med någon annan"

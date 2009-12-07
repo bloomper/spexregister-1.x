@@ -161,6 +161,6 @@ set_user_group(:users, :profile_management)
 # Must be longer than Authlogic's remember me timeout
 options[:session_timeout] = 10368000
 options[:session_timeout_method] = :clear_authlogic_session
-options[:access_denied_path] = "/login"
+options[:access_denied_path] = "/access_denied"
 
 end 

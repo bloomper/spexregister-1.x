@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login '/login', :controller => 'user_sessions', :action => 'new'
   map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
   map.set_locale '/locale/set', :controller => 'locale', :action => 'set', :method => :get
+  map.access_denied_path '/access_denied', :controller => 'user_sessions', :action => 'access_denied'
 
   # UI routes
   map.home '/home', :controller => 'home', :action => 'index'

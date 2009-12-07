@@ -92,6 +92,7 @@
       destroy:
         success: "You have been logged out"
       timeout: "You have been logged out due to inactivity"
+      access_denied: "Access denied"
     relationships:
       create:
         failure: "The spexer has already a relation with someone else"

@@ -26,7 +26,12 @@ class UserSessionsController < ApplicationController
     flash[:notice] = I18n.t('flash.user_sessions.destroy.success')
     redirect_to login_path
   end
-  
+
+  def access_denied
+    flash[:warning] = I18n.t('flash.user_sessions.access_denied')
+    redirect_to home_path
+  end
+
   private
   def set_lockdown_values
     if user = @user_session.user
