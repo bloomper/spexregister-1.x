@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: e2c02f2e166c50db066830e89feba2fbff109d6f
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/iwarshak/ssl_requirement.git
