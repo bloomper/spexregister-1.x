@@ -28,8 +28,12 @@ class UserSessionsController < ApplicationController
   end
 
   def access_denied
-    flash[:warning] = I18n.t('flash.user_sessions.access_denied')
-    redirect_to home_path
+    if current_user_session
+      flash[:warning] = I18n.t('flash.user_sessions.access_denied')
+      redirect_to home_path
+    else
+      redirect_to login_path
+    end
   end
 
   private
