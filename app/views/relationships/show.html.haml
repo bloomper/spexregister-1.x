@@ -1,6 +1,6 @@
 = render :partial => 'sub_menu'
 
-= render :partial => '/spexare/spexare_tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :current_tab => 'relationship_tab'}
+= render :partial => 'tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :current_tab => 'relationship_tab'}
 
 - if !@spexare.spouse
   %p= t 'views.relationship.no_associated_relationship'

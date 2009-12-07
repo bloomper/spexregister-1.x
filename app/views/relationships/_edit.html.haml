@@ -2,7 +2,7 @@
 
 #edit-relationship
 
-  = render :partial => '/spexare/spexare_tabs', :locals => {:edit_mode => true, :current_action => t('views.base.editing_action'), :current_tab => 'relationship_tab'}
+  = render :partial => 'tabs', :locals => {:edit_mode => true, :current_action => t('views.base.editing_action'), :current_tab => 'relationship_tab'}
 
   - if !@spexare.spouse
     %p= t 'views.relationship.no_associated_relationship'
