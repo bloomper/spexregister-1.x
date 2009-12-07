@@ -20,6 +20,9 @@ module ApplicationHelper
     else
       args.include?(controller.controller_name.to_sym)
     end
+    if options[:not_match_path] && ((request.request_uri + '/').starts_with?(options[:not_match_path] + '/') || request.request_uri.starts_with?(options[:not_match_path] + '?')) 
+      selected = false
+    end
     css_classes << 'selected' if selected
     
     if options[:css_class]
