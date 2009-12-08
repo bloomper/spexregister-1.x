@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
   
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
-  
+  rescue_from ActionController::RoutingError, :with => :page_not_found
+
   before_filter :set_locale
   before_filter :check_session
   
@@ -49,6 +50,11 @@ class ApplicationController < ActionController::Base
     redirect_to home_path
   end
   
+  def page_not_found
+    flash[:warning] = t 'views.base.page_not_found'
+    redirect_to home_path
+  end
+
   private
   def current_user_session
     if defined?(@current_user_session) && !@current_user_session.nil?
