@@ -7,18 +7,18 @@ Short-term
 - Immediate problems
   - Lockdown model restrictions do not work as expected
     - spexare_myself and spexare_management should perhaps be merged
-  - Actions in search result point to administration!
 
 - Update lockdown to 1.6.x (1.6.0 does not seem to work)
 
-- Show spexare? JS? Remove?
+- ---> What happens if an unauthorized model change is attempted?
 
-- Change my profile
+- What to do with with model restrictions for activities etc?
+  - ---> Not working for relationship
 
 - Simple search
   - Search result
     - actions
-    - link to edit for admin and myself only
+      - Should links for admin edit and delete be included or just view and profile edit?
 
 - Export
   - http://github.com/purzelrakete/workling
@@ -32,9 +32,6 @@ Short-term
   - http://github.com/gunark/jasperserver-client
 
 - Advanced search
-
-- Require SSL?
-  - http://github.com/iwarshak/ssl_requirement
 
 - Tests
   - Replace fixtures with factories (Factory Girl)?
@@ -87,14 +84,5 @@ Long-term
 Problems
 --------
 
-- Lockdown
-  - http://stonean.lighthouseapp.com/projects/33317/tickets/30-error-in-functional-test
-  - http://stonean.lighthouseapp.com/projects/33317/tickets/35-issue-with-dbmigrate-some-other-plugins
-
 Goodies
 -------
-
-- http://jetpackweb.com/blog/2009/10/14/high-quality-ruby-on-rails-example-applications/
-- http://code.google.com/p/jquery-asmselect/ (for spex and functions)
-- http://www.quasipartikel.at/multiselect/
-- http://akibjorklund.com/code/multiselectable

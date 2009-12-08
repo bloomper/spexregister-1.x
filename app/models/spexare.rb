@@ -14,7 +14,6 @@ class Spexare < ActiveRecord::Base
     [first_name, nick_name.blank? ? ' ' : " '#{nick_name}' ", last_name].join
   end
   
-  protected
   def editable_by
     user_group = UserGroup.find_by_name('Administrators')
     if !self.user.nil?
@@ -24,6 +23,7 @@ class Spexare < ActiveRecord::Base
     end
   end
 
+  protected
   validates_presence_of :last_name
   validates_presence_of :first_name
   validates_format_of :social_security_number, :with => /^\d{4}$/, :if => Proc.new { |s| !s.social_security_number.blank? }
