@@ -16,11 +16,7 @@ class Spexare < ActiveRecord::Base
   
   def editable_by
     user_group = UserGroup.find_by_name('Administrators')
-    if !self.user.nil?
-      user_group.user_ids |= [self.user.id]
-    else
-      user_group.user_ids
-    end
+    return self.user.nil? ? user_group.user_ids : user_group.user_ids | [self.user.id]
   end
 
   protected
