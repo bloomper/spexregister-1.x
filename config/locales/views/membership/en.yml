@@ -4,6 +4,6 @@
       fgv_description_tab_title: "FGV memberships"
       cing_description_tab_title: "CING memberships"
       no_associated_memberships: "No associated {{kind}} memberships"
-      add_membership: "Add membership"
+      add_membership: "Add {{kind}} membership"
       available_memberships: "Available {{kind}} memberships"
       no_available_memberships_exist: "There are no available {{kind}} memberships"

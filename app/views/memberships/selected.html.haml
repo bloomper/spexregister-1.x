@@ -20,4 +20,4 @@
   #add-membership
 
   %span
-    = link_to_remote icon_tag('add') + ' ' + t('views.membership.add_membership'), { :url => new_spexare_membership_url(@spexare, :by_kind => params[:by_kind], :kind_name => params[:kind_name]), :method => :get, :update => 'add-membership' }
+    = link_to_remote icon_tag('add') + ' ' + t('views.membership.add_membership', :kind => params[:kind_name].upcase), { :url => new_spexare_membership_url(@spexare, :by_kind => params[:by_kind], :kind_name => params[:kind_name]), :method => :get, :update => 'add-membership' }

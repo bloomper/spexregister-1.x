@@ -4,6 +4,6 @@
       fgv_description_tab_title: "FGV medlemsskap"
       cing_description_tab_title: "CING medlemsskap"
       no_associated_memberships: "Inga associerade {{kind}} medlemsskap"
-      add_membership: "Lägg till medlemsskap"
+      add_membership: "Lägg till {{kind}} medlemsskap"
       available_memberships: "Tillgängliga {{kind}} medlemsskap"
       no_available_memberships_exist: "Det finns inga tillgängliga {{kind}} medlemsskap"
