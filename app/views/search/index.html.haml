@@ -19,7 +19,7 @@
           %td= h spexare.nick_name
           %td.actions
             = link_to_view_action spexare
-            = link_to_edit_action spexare
-            = link_to_delete_action spexare, { :table => 'search_result' }
+            = link_to_edit_action spexare if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare.id == spexare.id)
+            = link_to_delete_action spexare, { :table => 'search_result' } if current_user_is_admin?
 
 = will_paginate(@search_result, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
