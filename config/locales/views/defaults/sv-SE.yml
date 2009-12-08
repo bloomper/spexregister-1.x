@@ -45,3 +45,4 @@
       page_entries_showing_one: "Visar 1 {{entry_name}}"
       page_entries_showing_all: "Visar alla {{number_of_hits}} {{entry_name}}"
       page_entries_showing: "Visar {{entry_name}} {{start}} - {{end}} av totalt {{total}}"
+      record_not_found: "Ledsen men den begärda sidan kunde inte hittas"
