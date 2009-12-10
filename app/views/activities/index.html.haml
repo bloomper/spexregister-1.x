@@ -13,8 +13,14 @@
       %th.action-column= t 'views.base.action'
       - @activities.each do |activity|
         %tr{:class => cycle('even', 'odd')}
-          %td= h activity.spex.spex_category.name
           %td= h activity.spex.year
-          %td= h activity.spex.title
+          - if activity.spex.poster?
+            %td= link_to_open(activity.spex.title, activity.spex.poster.url, :class => 'fancybox-single')
+          - else
+            %td= h activity.spex.title
+          - if activity.spex.spex_category.logo?
+            %td= link_to_open(activity.spex.spex_category.name, activity.spex.spex_category.logo.url, :class => 'fancybox-single')
+          - else
+            %td= h activity.spex.spex_category.name
           %td.actions
             = link_to icon_tag('view') + ' ' + t('views.base.view_action'), spexare_activity_url(@spexare, activity), :class => 'fancybox-text'

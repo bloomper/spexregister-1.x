@@ -52,7 +52,7 @@ class ActivitiesController < ApplicationController
   end  
 
   def collection
-    @activities ||= end_of_association_chain.find(:all)
+    @activities ||= end_of_association_chain.by_spex_year
   end
 
   private 
