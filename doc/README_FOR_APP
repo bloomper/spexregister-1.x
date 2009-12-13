@@ -6,89 +6,77 @@ Denna applikation är ett webbaserat register för Chalmersspexets räkning.
 
 == Miljö
 
+(nedanstående versioner är de som har använts under utveckling, andra kan mycket väl fungera)
+
 - Apache 2.2.4
 - OpenSSL 0.9.8
-- MySQL 5.1.x
+- MySQL 5.1.41
 - JDK 6.0
 - Ant 1.7.1
 - Ruby 1.8.7
 - RubyGems 1.3.5
 - Rails 2.3.5
 - ImageMagick 6.5.3
+- Subversion 1.6.6
+- Capistrano 2.5.10 (behövs endast om man skall utföra deployment-relaterade uppgifter)
 
-config/environment.rb specifierar vilka andra gems som är nödvändiga. Kör rake gems:install för att installera dessa. 
-
-- Mongrel 1.0.1
-- Mongrel cluster 1.0.1.1
-- Slave 1.1.0
-- Subversion 1.6.x
-- (Capistrano 1.4.1)
-- (rcov 0.8.0.2)
-- (iReport 1.3.1)
-
-Capistrano behövs endast om man skall utföra deployment-relaterade uppgifter medan rcov används för att göra "code coverage"-tester. iReport används
-för att utveckla rapporter för JasperReports.
+config/environment.rb specifierar vilka andra gems som är nödvändiga.
  
 == Installationsinstruktion
 
-Instruktionerna förutsätter en Debian-baserad Linux-distribution. Men det borde vara tämligen enkelt att översätta
-dem till andra Linux-distributioner eller andra Unix-plattformar.
+Instruktionerna förutsätter en Debian-baserad Linux-distribution men det borde vara tämligen enkelt att översätta
+dem till andra *nix-plattformar.
 
 Installationen kan göras för två olika miljöer, produktions- och utvecklingsmiljö.
+
+I ett antal steg så exekverar man kommandon från utvecklingsmiljön för att sätta upp produktionsmiljön. Dessa
+kommandon kräver att utvecklingsmiljön är *nix. Det går inte att använda Windows (inte ens med Cygwin).
 
 === Produktionsmiljö
 
 (1) Ladda ner MySQL från www.mysql.com och installera enligt konstens alla regler.
 
-(2) Ladda ner Ruby 1.8.5 från ftp://ftp.ruby-lang.org/pub/ruby/ruby-1.8.5.tar.gz. Installera enligt http://www.rubywizards.com/viewtopic.php?pid=19. Glöm inte att lägga till stöd för openssl!
+(2) Ladda ner Ruby från ftp://ftp.ruby-lang.org/pub/ruby och installera enligt konstens alla regler. Glöm inte att lägga till stöd för openssl!
 
-(3) Ladda ner RubyGems 0.9.2 från http://rubyforge.org/projects/rubygems/ och installera enligt instruktion.
+(3) Ladda ner RubyGems från http://rubyforge.org/projects/rubygems/ och installera enligt instruktion.
 
-(4) Ladda ner JDK 5.0 (eller senare) från http://java.sun.com/javase/downloads/index_jdk5.jsp och installera enligt instruktion. Se till att man kan exekvera 'java' utan att behöva specifiera fullständig sökväg.
+(4) Ladda ner ImageMagick från http://www.imagemagick.org och installera enligt instruktion.
 
-(5) Installera Rails 1.2.3 genom att exekvera 'sudo gem install rails --include-dependencies --version 1.2.3'.
+(5) Ladda ner JDK från http://java.sun.com/javase/downloads och installera enligt instruktion. Se till att man kan exekvera 'java' utan att behöva specifiera fullständig sökväg.
 
-(6) Installera Gettext 1.9.0 (eller senare) genom att exekvera 'sudo gem install gettext --include-dependencies'. Välj Ruby-versionen.
+(6) Ladda ner Ant från http://ant.apache.org/ och installera enligt instruktion. Se till att man kan exekvera 'ant' utan att behöva specifiera fullständig sökväg.
 
-(7) Installera MySQL binding 2.7 (eller senare) genom att exekvera 'sudo gem install mysql --include-dependencies'. Välj Ruby-versionen.
+(7) Installera Rails genom att exekvera 'sudo gem install rails --version X.X.X' (X.X.X enligt ovan).
 
-(8) Installera Ferret 0.11.3 (eller senare) genom att exekvera 'sudo gem install ferret --include-dependencies'.
+(8) Installera OpenSSL via 'sudo apt-get install openssl'.
 
-(9) Installera Minimagick 1.2.0 (eller senare) genom att exekvera 'sudo gem install mini_magick --include-dependencies'.
+(9) Ladda ner Apache från http://httpd.apache.org/ och installera enligt instruktion (dvs kompilera). Glöm inte inkludera '--enable-ssl' när du kör 'configure'.
 
-(10) Installera Mongrel 1.0.1 (eller senare) genom att exekvera 'sudo gem install mongrel --include-dependencies'. Välj Ruby-versionen.
+(10) Ladda ner Subversion från http://subversion.tigris.org/ och installera enligt instruktion.
 
-(11) Installera Mongrel cluster 1.0.1.1 (eller senare) genom att exekvera 'sudo gem install mongrel_cluster --source http://mongrel.rubyforge.org/releases/ --include-dependencies'.
+(11) Skapa databasen i MySQL:
+     CREATE DATABASE IF NOT EXISTS spexregister CHARACTER SET utf8 COLLATE utf8_swedish_ci;
 
-(12) Installera Slave 1.2.1 (eller senare) genom att exekvera 'sudo gem install slave --include-dependencies'.
+(12) Skapa databasanvändare i MySQL:
+     GRANT DELETE, INSERT, SELECT, UPDATE, USAGE, CREATE, DROP, ALTER, INDEX, LOCK TABLES ON spexregister.* TO spex@localhost IDENTIFIED BY 'spex';
+     GRANT DELETE, INSERT, SELECT, UPDATE, USAGE, CREATE, DROP, ALTER, INDEX, LOCK TABLES ON spexregister.* TO spex@127.0.0.1 IDENTIFIED BY 'spex';
+     
+(13) Om nödvändigt, uppdatera config/deploy.rb. Filen måste inte "committas" till SVN men är troligtvis en bra idé.
 
-(13) Ladda ner ImageMagick 6.3.1 (eller senare) från http://www.imagemagick.org (ladda ner källkoden) och installera enligt instruktion (dvs kompilera).
+(14) Skapa biblioteket där applikationen skall köras ifrån (dvs den som pekas ut i deploy.rb).
 
-(14) Ladda ner Ant 1.6.5 (eller senare) från http://ant.apache.org/ och installera enligt instruktion. Se till att man kan exekvera 'ant' utan att behöva specifiera fullständig sökväg.
+(15) Exekvera 'cap deploy:setup' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
 
-(15) Installera OpenSSL 0.9.8 (eller senare) via 'sudo apt-get install openssl'.
+(16) Exekvera 'cap deploy:check' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
+     Rätta eventuella rapporterade fel.
 
-(16) Ladda ner Apache 2.2.4 från http://httpd.apache.org/ (ladda ner källkoden) och installera enligt instruktion (se länkar nedan) (dvs kompilera). Glöm inte inkludera '--enable-ssl' när du kör 'configure'.
+(17) Exekvera 'cap deploy:update' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb. Det är viktigt att produktionsmiljön inte använder sig av färgkodning (ANSI) för kommandot 'ls'.
 
-(17) Ladda ner Subversion 1.4.3 (eller senare) från http://subversion.tigris.org/ och installera enligt instruktion.
+(18) Exekvera 'cap deploy:gems:install' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb. Det är viktigt att produktionsmiljön inte använder sig av färgkodning (ANSI) för kommandot 'ls'.
 
-(18) Skapa databasen mha create_database.sql som finns i db/production (db/test och db/development för test respektive utveckling).
+(19) Exekvera 'cap deploy:migrate' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
 
-(19) Skapa databasanvändare mha create_db_user.sql som finns i db/production (db/test och db/development för test respektive utveckling).
-
-(20) Om nödvändigt, uppdatera config/mongrel_cluster.yml. OBS! Filen måste "committas" till SVN (och eventuellt skapa en ny versionstag).
-
-(21) Om nödvändigt, uppdatera config/deploy.rb. Filen måste inte "committas" till SVN men är troligtvis en bra idé.
-
-(22) Skapa biblioteket där applikationen skall köras ifrån (dvs den som pekas ut i mongrel_cluster.yml och deploy.rb).
-
-(23) Exekvera 'cap setup' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
-
-(24) Exekvera 'cap cold_deploy' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb. Det är viktigt att produktionsmiljön inte använder sig av färgkodning (ANSI) för kommandot 'ls'.
-
-(25) Exekvera 'cap migrate' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
-
-(26) Importera data från gamla spexregistret.
+(20) Importera data från gamla spexregistret. Se nedan för instruktioner.
 
 (27) Skapa '/usr/local/apache2/conf/spexregister' och kopiera dit spexregister.common, spexregister.conf, spexregister.secure.conf och spexregister.proxy_cluster.conf från config.
 
@@ -160,17 +148,33 @@ Installationen kan göras för två olika miljöer, produktions- och utvecklings
 
 === Utvecklingsmiljö
 
-(1) Installera enligt produktionsmiljö (Apache är dock inte nödvändigt).
+(1) Ladda ner Ruby från ftp://ftp.ruby-lang.org/pub/ruby och installera enligt konstens alla regler.
 
-(2) Installera Capistrano 1.4.1 (eller senare) genom att exekvera 'sudo gem install capistrano --include-dependencies'.
+(2) Ladda ner RubyGems från http://rubyforge.org/projects/rubygems/ och installera enligt instruktion.
 
-(3) Installera rcov 0.8.0.2 (eller senare) genom att exekvera 'sudo gem install rcov --include-dependencies'. Välj Ruby-versionen.
+(3) Ladda ner ImageMagick från http://www.imagemagick.org och installera enligt instruktion.
 
-(4) Ladda ner iReport 1.3.1 (eller senare) från http://www.jasperforge.org/sf/projects/ireport och installera enligt instruktion.
+(4) Ladda ner JDK från http://java.sun.com/javase/downloads och installera enligt instruktion. Se till att man kan exekvera 'java' utan att behöva specifiera fullständig sökväg.
+
+(5) Ladda ner Ant från http://ant.apache.org/ och installera enligt instruktion. Se till att man kan exekvera 'ant' utan att behöva specifiera fullständig sökväg.
+
+(6) Installera Rails genom att exekvera 'sudo gem install rails --version X.X.X' (X.X.X enligt ovan).
+
+(7) Installera Capistrano genom att exekvera 'sudo gem install capistrano'.
+
+(8) Installera Mongrel genom att exekvera 'sudo gem install mongrel'.
+
+(9) Exekvera 'rake gems:install' från roten av applikationen (dvs där app, config, db osv finns).
+
+(10) Exekvera 'rake db:migrate' från roten av applikationen (dvs där app, config, db osv finns).
+
+(11) Exekvera 'rake db:seed' från roten av applikationen (dvs där app, config, db osv finns).
+
+(12) Klart!
 
 För utveckling så kan man använda tex RadRails (http://www.radrails.org).
 
-== Import av data
+== Migrering av gamla spexregistret
 
 TODO
 
