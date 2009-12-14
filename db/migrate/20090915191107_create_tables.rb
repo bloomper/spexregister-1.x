@@ -66,61 +66,6 @@ class CreateTables < ActiveRecord::Migration
     end
     add_index :news, :publication_date
 
-    create_table :users, :force => true do |t|
-      t.string :username, :null => false
-      t.string :crypted_password, :null => false
-      t.string :password_salt, :null => false
-      t.string :persistence_token, :null => false
-      t.string :perishable_token, :null => false
-      t.integer :login_count, :null => false, :default => 0
-      t.integer :failed_login_count, :null => false, :default => 0
-      t.datetime :last_request_at
-      t.datetime :current_login_at
-      t.datetime :last_login_at
-      t.string :current_login_ip
-      t.string :last_login_ip
-      t.string :state
-      t.integer :spexare_id
-      t.integer :lock_version, :default => 0
-      t.string :created_by
-      t.string :updated_by
-      t.timestamps
-      t.foreign_key :spexare_id, :spexare, :id
-    end
-    add_index :users, :username, :unique => true
-    add_index :users, :perishable_token
-    add_index :users, :spexare_id, :unique => true
-
-    create_table :user_groups, :force => true do |t|
-      t.string :name
-      t.timestamps
-    end
-    add_index :user_groups, :name, :unique => true
-
-    create_table :user_groups_users, :force => true, :id => false do |t|
-      t.integer :user_group_id
-      t.integer :user_id
-      t.integer :lock_version, :default => 0
-      t.string :created_by
-      t.string :updated_by
-      t.timestamps
-      t.foreign_key :user_group_id, :user_groups, :id
-      t.foreign_key :user_id, :users, :id
-    end
-
-    create_table :permissions, :force => true do |t|
-      t.string :name
-      t.timestamps
-    end
-    add_index :permissions, :name, :unique => true
-
-		create_table :permissions_user_groups, :id => false do |t|
-      t.integer :permission_id
-      t.integer :user_group_id
-      t.foreign_key :permission_id, :permissions, :id
-      t.foreign_key :user_group_id, :user_groups, :id
-    end
-
     create_table :spexare, :force => true do |t|
       t.string :last_name, :null => false
       t.string :first_name, :null => false
@@ -219,6 +164,61 @@ class CreateTables < ActiveRecord::Migration
       t.foreign_key :function_activity_id, :function_activities, :id
     end
     add_index :actors, :function_activity_id
+
+    create_table :users, :force => true do |t|
+      t.string :username, :null => false
+      t.string :crypted_password, :null => false
+      t.string :password_salt, :null => false
+      t.string :persistence_token, :null => false
+      t.string :perishable_token, :null => false
+      t.integer :login_count, :null => false, :default => 0
+      t.integer :failed_login_count, :null => false, :default => 0
+      t.datetime :last_request_at
+      t.datetime :current_login_at
+      t.datetime :last_login_at
+      t.string :current_login_ip
+      t.string :last_login_ip
+      t.string :state
+      t.integer :spexare_id
+      t.integer :lock_version, :default => 0
+      t.string :created_by
+      t.string :updated_by
+      t.timestamps
+      t.foreign_key :spexare_id, :spexare, :id
+    end
+    add_index :users, :username, :unique => true
+    add_index :users, :perishable_token
+    add_index :users, :spexare_id, :unique => true
+
+    create_table :user_groups, :force => true do |t|
+      t.string :name
+      t.timestamps
+    end
+    add_index :user_groups, :name, :unique => true
+
+    create_table :user_groups_users, :force => true, :id => false do |t|
+      t.integer :user_group_id
+      t.integer :user_id
+      t.integer :lock_version, :default => 0
+      t.string :created_by
+      t.string :updated_by
+      t.timestamps
+      t.foreign_key :user_group_id, :user_groups, :id
+      t.foreign_key :user_id, :users, :id
+    end
+
+    create_table :permissions, :force => true do |t|
+      t.string :name
+      t.timestamps
+    end
+    add_index :permissions, :name, :unique => true
+
+    create_table :permissions_user_groups, :id => false do |t|
+      t.integer :permission_id
+      t.integer :user_group_id
+      t.foreign_key :permission_id, :permissions, :id
+      t.foreign_key :user_group_id, :user_groups, :id
+    end
   end
 
   def self.down
