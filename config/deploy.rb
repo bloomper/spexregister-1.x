@@ -60,5 +60,5 @@ namespace :deploy do
 
 end
 
-#after  'deploy:symlink', 'deploy:asset:packager:build_all'
-#before 'deploy:asset:packager:build_all', 'deploy:sass:update'
+after  'deploy:symlink', 'deploy:asset:packager:build_all'
+before 'deploy:asset:packager:build_all', 'deploy:sass:update'
