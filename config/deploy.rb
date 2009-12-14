@@ -13,7 +13,7 @@ set :deploy_to, "/home/users/register"
 # Needed as long as the SVN repository is not accessible from bojan
 set :deploy_via, :copy
 set :user, "register"
-set :use_sudo, false
+set :use_sudo, true
 
 namespace :deploy do
   [:start, :stop].each do |t|
