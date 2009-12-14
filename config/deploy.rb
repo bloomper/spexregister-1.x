@@ -10,6 +10,8 @@ role :app, "bojan.spexet.chalmers.se"
 role :db,  "bojan.spexet.chalmers.se", :primary => true
 
 set :deploy_to, "/home/users/register"
+# Needed as long as the SVN repository is not accessible from bojan
+set :deploy_via, :copy
 set :user, "register"
 set :use_sudo, false
 
