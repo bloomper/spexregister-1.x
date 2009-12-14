@@ -53,4 +53,4 @@ namespace :deploy do
 end
 
 after  'deploy:symlink', 'deploy:asset:packager:build_all'
-before 'deploy:package_assets', 'deploy:sass:update'
+before 'deploy:asset:packager:build_all', 'deploy:sass:update'
