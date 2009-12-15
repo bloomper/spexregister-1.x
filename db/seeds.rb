@@ -97,6 +97,7 @@ Function.create :name => 'Sufflör', :function_category => FunctionCategory.find
 Function.create :name => 'Sömmerska', :function_category => FunctionCategory.find_by_name('Kommitté')
 Function.create :name => 'Tenorsaxofon', :function_category => FunctionCategory.find_by_name('Bandet')
 Function.create :name => 'Trombon', :function_category => FunctionCategory.find_by_name('Orkester')
+Function.create :name => 'Trombon', :function_category => FunctionCategory.find_by_name('Bandet')
 Function.create :name => 'Trummor', :function_category => FunctionCategory.find_by_name('Orkester')
 Function.create :name => 'Trummor', :function_category => FunctionCategory.find_by_name('Bandet')
 Function.create :name => 'Trumpet', :function_category => FunctionCategory.find_by_name('Orkester')
