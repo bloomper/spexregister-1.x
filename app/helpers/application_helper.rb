@@ -148,11 +148,11 @@ module ApplicationHelper
   end 
   
   def remove_sub_link(name, f)
-    f.hidden_field(:_destroy) + link_to(name, 'javascript:void(0)', :class => 'remove-sub')
+    f.hidden_field(:_destroy) + link_to_open(name, 'javascript:void(0)', :class => 'remove-sub')
   end
   
   def add_sub_link(name, association)
-    link_to(name, 'javascript:void(0)', :class => 'add-sub', :'data-association' => association)
+    link_to_open(name, 'javascript:void(0)', :class => 'add-sub', :'data-association' => association)
   end
   
   def new_sub_fields_template(form_builder, association, options = {})

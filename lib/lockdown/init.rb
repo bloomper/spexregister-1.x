@@ -113,9 +113,9 @@ set_permission(:advanced_search).with_controller(:advanced_search)
 set_permission(:administration).with_controller(:administration)
 set_permission(:help).with_controller(:help)
 set_permission(:spex_management).with_controller(:spex)
-set_permission(:spex_view).with_controller(:spex).only_methods(:show)
+set_permission(:spex_view).with_controller(:spex).only_methods(:show, :index)
 set_permission(:function_management).with_controller(:functions)
-set_permission(:function_view).with_controller(:functions).only_methods(:show)
+set_permission(:function_view).with_controller(:functions).only_methods(:show, :index)
 set_permission(:news_management).with_controller(:news)
 set_permission(:news_view).with_controller(:news).only_methods(:show)
 set_permission(:user_management).with_controller(:users).and_controller(:user_groups).and_controller(:spexare)
@@ -124,7 +124,7 @@ set_permission(:spexare_myself).with_controller(:spexare).only_methods(:edit, :u
 set_permission(:spexare_relationship_myself).with_controller(:relationships).only_methods(:new, :create, :edit, :destroy).to_model(:spexare, :spexare_id).where(:editable_by).includes(:current_user_id)
 set_permission(:spexare_memberships_myself).with_controller(:memberships).only_methods(:new, :create, :selected, :destroy).to_model(:spexare, :spexare_id).where(:editable_by).includes(:current_user_id)
 set_permission(:spexare_activities_myself).with_controller(:activities).only_methods(:new, :create, :edit, :update, :selected, :destroy).to_model(:spexare, :spexare_id).where(:editable_by).includes(:current_user_id)
-set_permission(:spexare_view).with_controller(:spexare).only_methods(:show).and_controller(:relationships).only_methods(:show).and_controller(:memberships).only_methods(:index).and_controller(:activities).only_methods(:show, :index)
+set_permission(:spexare_view).with_controller(:spexare).only_methods(:show, :index).and_controller(:relationships).only_methods(:show).and_controller(:memberships).only_methods(:index).and_controller(:activities).only_methods(:show, :index)
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Built-in user groups
@@ -141,7 +141,7 @@ set_permission(:spexare_view).with_controller(:spexare).only_methods(:show).and_
   # Define the built-in user groups here:
 
 set_public_access :login, :locale, :signup, :password_reset
-set_protected_access :home, :account, :profile, :search, :advanced_search, :help, :spexare_view, :news_view, :spex_view, :function_view
+set_protected_access :home, :account, :profile, :search, :advanced_search, :help
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Define user groups
@@ -157,7 +157,7 @@ set_protected_access :home, :account, :profile, :search, :advanced_search, :help
   # Define your user groups here:
 
 set_user_group(:administrators, :administration, :spexare_management, :user_management, :spex_management, :function_management, :news_management)
-set_user_group(:users, :spexare_myself, :spexare_relationship_myself, :spexare_memberships_myself, :spexare_activities_myself)
+set_user_group(:users, :spexare_view, :news_view, :spex_view, :function_view, :spexare_myself, :spexare_relationship_myself, :spexare_memberships_myself, :spexare_activities_myself)
 
 # Use Authlogic's session timeout mechanism instead
 # Must be longer than Authlogic's remember me timeout
