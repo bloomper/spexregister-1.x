@@ -7,9 +7,9 @@
 - else
   %table.index
     %tr
-      %th= t 'activerecord.models.spex_category'
       %th= t 'activerecord.attributes.spex.year'
       %th= t 'activerecord.attributes.spex.title'
+      %th= t 'activerecord.models.spex_category'
       %th.action-column= t 'views.base.action'
       - @activities.each do |activity|
         %tr{:class => cycle('even', 'odd')}
