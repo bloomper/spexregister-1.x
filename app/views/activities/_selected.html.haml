@@ -11,6 +11,7 @@
       %tr
         %th= t 'activerecord.attributes.spex.year'
         %th= t 'activerecord.attributes.spex.title'
+        %th= t 'activerecord.models.function'
         %th= t 'activerecord.models.spex_category'
         %th.action-column= t 'views.base.action'
         - @activities.each do |activity|
@@ -20,12 +21,23 @@
               %td= link_to_open(activity.spex.title, activity.spex.poster.url, :class => 'fancybox-single')
             - else
               %td= h activity.spex.title
+            %td
+              - activity.function_activities.first(ApplicationConfig.activities_per_row).each do |function_activity|
+                = h function_activity.function.name
+                %br>
+                - if !function_activity.actors.empty?
+                  - function_activity.actors.each do |actor|
+                    - if !actor.role.empty?
+                      = whitespace(4) + t('activerecord.attributes.actor.role') + ': ' + h(actor.role)
+                      %br>
+                    = whitespace(4) + t('activerecord.attributes.actor.vocal_id') + ': ' + h(Actor.vocal(actor.vocal_id).title) unless actor.vocal.nil?
+                    %br>
+              = link_to '... ' + t('views.base.view_more'), spexare_activity_url(@spexare, activity), :class => 'fancybox-text' if activity.function_activities.size > ApplicationConfig.activities_per_row
             - if activity.spex.spex_category.logo?
               %td= link_to_open(activity.spex.spex_category.name, activity.spex.spex_category.logo.url, :class => 'fancybox-single')
             - else
               %td= h activity.spex.spex_category.name
             %td.actions
-              = link_to icon_tag('view') + ' ' + t('views.base.view_action'), spexare_activity_url(@spexare, activity), :class => 'fancybox-text'
               = link_to_remote icon_tag('edit') + ' ' + t('views.base.edit_action'), { :url => edit_spexare_activity_url(@spexare, activity, :spex_category_id => activity.spex.spex_category.id), :method => :get, :before => "jQuery('#add-activity').hide(); jQuery('#add-activity-action').hide();", :after => "jQuery('#edit-activity').show();", :update => 'edit-activity' }
               = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => spexare_activity_url(@spexare, activity), :method => :delete, :before => '', :update => 'edit-activities' }
   

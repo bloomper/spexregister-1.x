@@ -41,6 +41,7 @@
       missing_image: "Missing"
       missing_text: "Missing"
       read_more: "Read more..."
+      view_more: "View more..."
       page_entries_none_found: "No {{entry_name}} found"
       page_entries_showing_one: "Displaying 1 {{entry_name}}"
       page_entries_showing_all: "Displaying all {{number_of_hits}} {{entry_name}}"

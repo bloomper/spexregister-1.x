@@ -41,6 +41,7 @@
       missing_image: "Saknas"
       missing_text: "Saknas"
       read_more: "Läs mer..."
+      view_more: "Visa mer..."
       page_entries_none_found: "Inga {{entry_name}} kunde hittas"
       page_entries_showing_one: "Visar 1 {{entry_name}}"
       page_entries_showing_all: "Visar alla {{number_of_hits}} {{entry_name}}"
