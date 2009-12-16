@@ -167,7 +167,7 @@ jQuery(function() {
         var parentNames = context.match(/[a-z_]+_attributes/g) || [];
         var parentIds = context.match(/[0-9]+/g);
           
-        for(i = 0; i < parentNames.length; i++) {
+        for(var i = 0; i < parentNames.length; i++) {
             if(parentIds[i]) {
                 content = content.replace(new RegExp('(\\[' + parentNames[i] + '\\])\\[.+?\\]', 'g'), '$1[' + parentIds[i] + ']');
             }
@@ -198,7 +198,7 @@ jQuery.extend( {
     } else {
       jQuery(selectedAddActorLink).hide();
       var hiddenFields = jQuery(selectedAddActorLink).siblings('.fields').hide().find('input[type=hidden]');
-      for(var i = 0; i <= hiddenFields.size(); i++) {
+      for(var i = 0; i < hiddenFields.size(); i++) {
         hiddenFields[i].value = '1';
       }
     }
