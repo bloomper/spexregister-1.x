@@ -63,4 +63,13 @@ namespace :spexregister do
     puts "Importing logos..."
     import_logos
   end
+  desc "This task will delete sessions (production environment only) that have not been updated in for a configurable amount of days."
+  task :clean_sessions => :environment do
+    if RAILS_ENV == 'production'
+      ApplicationConfig.new
+      ActiveRecord::Base.connection.execute("DELETE FROM sessions WHERE updated_at < DATE_SUB(CURDATE(), INTERVAL #{ApplicationConfig.logged_in_timeout} SECOND);")
+    else
+      puts 'This task is only valid for production environment'
+    end
+  end
 end
