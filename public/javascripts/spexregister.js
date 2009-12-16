@@ -86,13 +86,15 @@ jQuery.extend( {
     nameSelect.html('').attr('disabled', 'disabled');
     if(category != '') {
       jQuery.getJSON('/functions', {'search[function_category_id_equals]': category, format: 'json', 'search[order]': 'ascend_by_name'}, function(j) {
-          if (addEmptyFirst) {
-            nameSelect.addOption('', '');
-          }
-          for (var i = 0; i < j.length; i++) {
-            nameSelect.addOption(j[i].function.id, j[i].function.name, false);
-          }
-          nameSelect.removeAttr('disabled');
+    	  if(j != null) {
+            if (addEmptyFirst) {
+              nameSelect.addOption('', '');
+            }
+            for (var i = 0; i < j.length; i++) {
+              nameSelect.addOption(j[i].id, j[i].name, false);
+            }
+            nameSelect.removeAttr('disabled');
+    	  }
       });
     }
    }
@@ -106,19 +108,21 @@ jQuery.extend( {
     titleSelect.html('').attr('disabled', 'disabled');
     if(category != '') {
       jQuery.getJSON('/spex', {'search[spex_category_id_equals]': category, 'search[is_revival_equals]': showRevivals, format: 'json', 'search[order]': 'ascend_by_title'}, function(j) {
-          if (addEmptyFirst) {
-            yearSelect.addOption('', '');
-            titleSelect.addOption('', '');
-          }
-          for (var i = 0; i < j.length; i++) {
-            yearSelect.addOption(j[i].spex.id, j[i].spex.year, false);
-          }
-          yearSelect.sortOptions();
-          for (var i = 0; i < j.length; i++) {
-            titleSelect.addOption(j[i].spex.id, j[i].spex.title, false);
-          }
-          yearSelect.removeAttr('disabled');
-          titleSelect.removeAttr('disabled');
+    	  if(j != null) {
+            if (addEmptyFirst) {
+              yearSelect.addOption('', '');
+              titleSelect.addOption('', '');
+            }
+            for (var i = 0; i < j.length; i++) {
+              yearSelect.addOption(j[i].id, j[i].year, false);
+            }
+            yearSelect.sortOptions();
+            for (var i = 0; i < j.length; i++) {
+              titleSelect.addOption(j[i].id, j[i].title, false);
+            }
+            yearSelect.removeAttr('disabled');
+            titleSelect.removeAttr('disabled');
+    	  }
       });
     }
    }
@@ -130,16 +134,18 @@ jQuery.extend( {
     yearSelect.html('').attr('disabled', 'disabled');
     if(id != '') {
       jQuery.getJSON('/spex_categories/' + id + '?format=json', function(j) {
-        var firstYear = j.spex_category.first_year;
-        var currentYear = new Date().getFullYear();
-        if(firstYear <= currentYear) {
-          for(var i = currentYear; i >= firstYear; i--) {
-            yearSelect.addOption(i, i, false);
+    	if(j != null) {
+          var firstYear = j.first_year;
+          var currentYear = new Date().getFullYear();
+          if(firstYear <= currentYear) {
+            for(var i = currentYear; i >= firstYear; i--) {
+              yearSelect.addOption(i, i, false);
+            }
+          } else {
+            yearSelect.addOption(firstYear, firstYear, true);
           }
-        } else {
-          yearSelect.addOption(firstYear, firstYear, true);
-        }
-        yearSelect.removeAttr('disabled');
+          yearSelect.removeAttr('disabled');
+    	}
       });
     }
    }
