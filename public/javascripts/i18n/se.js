@@ -20,7 +20,13 @@ jQuery(function() {
    jQuery.datepicker.setDefaults(jQuery.datepicker.regional['sv']);
 
    // jQuery Lock Submit
-   jQuery(':submit').livequery( function() {    
+   jQuery("button[type='submit']").livequery( function() {    
+       jQuery(this).lockSubmit({
+           submitText: 'Vänta...',
+           onAddCSS: 'button'
+           });
+   });
+   jQuery("input[type='submit']").livequery( function() {    
        jQuery(this).lockSubmit({
            submitText: 'Vänta...',
            onAddCSS: 'button'

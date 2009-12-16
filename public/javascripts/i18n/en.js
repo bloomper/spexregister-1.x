@@ -20,7 +20,13 @@ jQuery(function() {
    jQuery.datepicker.setDefaults(jQuery.datepicker.regional['en']);
 
    // jQuery Lock Submit
-   jQuery(':submit').livequery( function() {    
+   jQuery("button[type='submit']").livequery( function() {    
+       jQuery(this).lockSubmit({
+           submitText: 'Please wait...',
+           onAddCSS: 'button'
+           });
+   });
+   jQuery("input[type='submit']").livequery( function() {    
        jQuery(this).lockSubmit({
            submitText: 'Please wait...',
            onAddCSS: 'button'
