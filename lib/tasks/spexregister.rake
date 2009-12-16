@@ -66,10 +66,15 @@ namespace :spexregister do
   desc "This task will delete sessions (production environment only) that have not been updated in for a configurable amount of days."
   task :clean_sessions => :environment do
     if RAILS_ENV == 'production'
-      ApplicationConfig.new
       ActiveRecord::Base.connection.execute("DELETE FROM sessions WHERE updated_at < DATE_SUB(CURDATE(), INTERVAL #{ApplicationConfig.logged_in_timeout} SECOND);")
     else
       puts 'This task is only valid for production environment'
     end
+  end
+  desc "This task will refresh some cached content to be up to date"
+  task :refresh_cached_content => :environment do
+    Membership.update_fgv_years
+    Membership.update_cing_years
+    SpexCategory.update_years
   end
 end
