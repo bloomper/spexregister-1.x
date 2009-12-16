@@ -29,18 +29,19 @@ dem till andra *nix-plattformar.
 
 Installationen kan göras för två olika miljöer, produktions- och utvecklingsmiljö.
 
-I ett antal steg så exekverar man kommandon från utvecklingsmiljön för att sätta upp produktionsmiljön. Dessa
-kommandon kräver att utvecklingsmiljön är *nix. Det går inte att använda Windows (inte ens med Cygwin).
+Vid installation av produktionsmiljö så exekverar man kommandon från utvecklingsmiljön i ett antal steg för att sätta
+upp produktionsmiljön. Dessa kommandon kräver att utvecklingsmiljön är *nix-baserad. Det går inte att använda Windows
+(inte ens med Cygwin).
 
 === Produktionsmiljö
 
 (1) Ladda ner MySQL från www.mysql.com och installera enligt konstens alla regler.
 
-(2) Ladda ner Ruby från ftp://ftp.ruby-lang.org/pub/ruby och installera enligt konstens alla regler. Glöm inte att lägga till stöd för openssl!
+(2) Ladda ner Ruby från ftp://ftp.ruby-lang.org/pub/ruby och installera enligt konstens alla regler. Glöm inte att lägga till stöd för openssl, iconv och sqlite!
 
 (3) Ladda ner RubyGems från http://rubyforge.org/projects/rubygems/ och installera enligt instruktion.
 
-(4) Ladda ner ImageMagick från http://www.imagemagick.org och installera enligt instruktion.
+(4) Ladda ner ImageMagick från http://www.imagemagick.org och installera enligt instruktion. Se till att man kan exekvera 'convert' utan att behöva specifiera fullständig sökväg.
 
 (5) Ladda ner JDK från http://java.sun.com/javase/downloads och installera enligt instruktion. Se till att man kan exekvera 'java' utan att behöva specifiera fullständig sökväg.
 
@@ -58,47 +59,97 @@ kommandon kräver att utvecklingsmiljön är *nix. Det går inte att använda Wi
      CREATE DATABASE IF NOT EXISTS spexregister CHARACTER SET utf8 COLLATE utf8_swedish_ci;
 
 (12) Skapa databasanvändare i MySQL:
-     GRANT DELETE, INSERT, SELECT, UPDATE, USAGE, CREATE, DROP, ALTER, INDEX, LOCK TABLES ON spexregister.* TO spex@localhost IDENTIFIED BY 'spex';
-     GRANT DELETE, INSERT, SELECT, UPDATE, USAGE, CREATE, DROP, ALTER, INDEX, LOCK TABLES ON spexregister.* TO spex@127.0.0.1 IDENTIFIED BY 'spex';
+     GRANT ALL PRIVILEGES ON spexregister.* TO spexregister@localhost IDENTIFIED BY 'spexregister';
+     GRANT ALL PRIVILEGES ON spexregister.* TO spexregister@127.0.0.1 IDENTIFIED BY 'spexregister';
      
-(13) Om nödvändigt, uppdatera config/deploy.rb. Filen måste inte "committas" till SVN men är troligtvis en bra idé.
+(13) Om nödvändigt, uppdatera config/deploy.rb. Filen bör inte "committas" till SVN.
+     OBS! scm_user kan sättas på command line, tex 'scm_user=your_name cap deploy:setup'
 
 (14) Skapa biblioteket där applikationen skall köras ifrån (dvs den som pekas ut i deploy.rb).
 
 (15) Exekvera 'cap deploy:setup' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
+     Behöver bara göras allra första gången.
 
 (16) Exekvera 'cap deploy:check' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
      Rätta eventuella rapporterade fel.
 
-(17) Exekvera 'cap deploy:update' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb. Det är viktigt att produktionsmiljön inte använder sig av färgkodning (ANSI) för kommandot 'ls'.
+(17) Om det är allra första gången som spexregistret installeras i produktionsmiljö så måste följande två rader i config/deploy.rb
+     after  'deploy:symlink', 'deploy:asset:packager:build_all'
+     before 'deploy:asset:packager:build_all', 'deploy:sass:update'
+     kommenteras bort och "committas". Detta beror på att de kräver tillgång till ett antal gems som ännu inte är installerade (görs i steg 19).
 
-(18) Exekvera 'cap deploy:gems:install' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb. Det är viktigt att produktionsmiljön inte använder sig av färgkodning (ANSI) för kommandot 'ls'.
+(18) Exekvera 'cap deploy:update' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb. Det är viktigt att produktionsmiljön inte använder sig av färgkodning (ANSI) för kommandot 'ls'.
 
-(19) Exekvera 'cap deploy:migrate' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
+(19) Exekvera 'cap deploy:gems:install' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb. Det är viktigt att produktionsmiljön inte använder sig av färgkodning (ANSI) för kommandot 'ls'.
+     Behöver bara göras allra första gången eller om gems har lagts till.
 
-(20) Importera data från gamla spexregistret. Se nedan för instruktioner.
+(20) Exekvera 'cap deploy:migrate' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
 
-(27) Skapa '/usr/local/apache2/conf/spexregister' och kopiera dit spexregister.common, spexregister.conf, spexregister.secure.conf och spexregister.proxy_cluster.conf från config.
+(21) Exekvera 'cap deploy:db:seed'
 
-(28) Om nödvändigt, uppdatera ovanstående filer, tex sökvägar.
+(22) Om du behövde utföra steg 17, exekvera:
+     'cap deploy:sass:update'
+     'cap deploy:asset:packager:build_all'
+     Ta bort den tillfälliga ändringen och "committa".
 
-(29) Lägg till följande i '/usr/local/apache2/conf/httpd.conf' (kommentera bort den tredje raden och ta bort # på den andra för att köra HTTP istället för HTTPS):
+(21) Importera data från gamla spexregistret. Se nedan för instruktioner.
 
-  - Include conf/spexregister/spexregister.proxy_cluster.conf
-  - #Include conf/spexregister/spexregister.conf
-  - Include conf/spexregister/spexregister.secure.conf
+(22) Lägg till följande i '/usr/local/apache2/conf/extra/httpd-vhosts.conf' (se till att den filen inkluderas i '/usr/local/apache2/conf/httpd.conf'):
+     <VirtualHost *:80>
+         <Directory /home/users/register/current/public>
+            Options FollowSymLinks
+            AllowOverride None
+            Order allow,deny
+            Allow from All
+         </Directory>
 
-(30) Sätt upp IP-baserad virtual host i '/usr/local/apache2/conf/httpd.conf'.
+         DocumentRoot /home/users/register/current/public
+         ServerName register.chalmersspexet.se
 
-(31) Starta om Apache via 'sudo /etc/init.d/apache2ctl restart'.
+         ErrorLog /var/log/register/error.log
+         CustomLog /var/log/register/access.log combined
 
-(32) Ta bort användarna "admin" och "user" efter att du har skapat en korrekt administratörsanvändare.
+         # Gzip/Deflate
+         # http://fluxura.com/2006/5/19/apache-for-static-and-mongrel-for-rails-with-mod_deflate-and-capistrano-support
+         AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript text/css application/x-javascript
+         BrowserMatch ^Mozilla/4 gzip-only-text/html
+         BrowserMatch ^Mozilla/4\.0[678] no-gzip
+         BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
 
-(33) Kör 'ant compile' i biblioteket jasperreports i produktionsmiljön. 
+         # Far future expires date
+         <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+             Header set Expires "Thu, 15 Apr 2011 20:00:00 GMT"
+         </FilesMatch>
 
-(34) Kör 'ant compile-reports' i biblioteket jasperreports i produktionsmiljön. 
+         # No Etags
+         FileETag None
 
-(35) Skapa en cron trigger enligt */30 * * * * username /full/path/to/ruby /full/path/to/script/runner -e production "SessionCleaner.remove_stale_sessions". Ändra username till den korrekta användaren. Ändra /full/path/to så att den pekar till dit applikationen är installerad respektive ruby.
+         RewriteEngine On
+
+         # Rewrite from www.register.chalmersspexet.se to register.chalmersspexet.se
+         RewriteCond %{HTTP_HOST} ^w+\.register\.chalmersspexet\.se
+         RewriteRule /?(.*) http://register.chalmersspexet.se/$1 [R=301,L]
+
+         # Check for maintenance file and redirect all requests
+         RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f
+         RewriteCond %{SCRIPT_FILENAME} !maintenance.html
+         RewriteRule ^.*$ /system/maintenance.html [L]
+
+         # Static cache
+         RewriteCond %{REQUEST_METHOD} !^POST$
+         RewriteCond /home/users/register/current/tmp/cache/static$1/index.html -f
+         RewriteRule ^(.*)$ /home/users/register/current/tmp/cache/static$1/index.html [L]
+     </VirtualHost>
+
+(23) Starta om Apache via 'sudo /etc/init.d/apache2ctl restart'.
+
+(24) Ta bort användarna "admin" och "user" efter att du har skapat en korrekt administratörsanvändare.
+
+(25) Skapa en cron trigger så att följande exekveras dagligen:
+     rake RAILS_ENV=production spexregister:clean_sessions
+
+(26) Skapa en cron trigger så att följande exekveras dagligen:
+     rake RAILS_ENV=production spexregister:refresh_cached_content
 
 (36) För att rotera logfiler, lägg till följande i '/etc/logrotate.conf' (ändra /full/path/to så att den pekar till dit applikationen är installerad):
 
@@ -161,6 +212,7 @@ kommandon kräver att utvecklingsmiljön är *nix. Det går inte att använda Wi
 (6) Installera Rails genom att exekvera 'sudo gem install rails --version X.X.X' (X.X.X enligt ovan).
 
 (7) Installera Capistrano genom att exekvera 'sudo gem install capistrano'.
+    Endast nödvändigt om deployment-relaterade uppgifter skall göras (kräver *nix-baserad utvecklingsmiljö).
 
 (8) Installera Mongrel genom att exekvera 'sudo gem install mongrel'.
 
@@ -176,7 +228,13 @@ För utveckling så kan man använda tex RadRails (http://www.radrails.org).
 
 == Migrering av gamla spexregistret
 
-TODO
+(1) För över senaste datafilen i data/target till produktionsmiljön.
+
+(2) För över allt under step4 till produktionsmiljön.
+
+(3) Exekvera 'ruby import.rb prod <datafilens namn>' i produktionsmiljön.
+
+(4) Utför de ändringar som beskrivs i step5.
 
 == Kända fel
 
@@ -187,6 +245,7 @@ Inga.
 - Lägg till funktionstester
 - Lägg till integrationstester
 - Hålla koll på misslyckade inloggningar, dvs efter tre felaktiga lösenord så låses kontot
+- Snyggare/bättre "maintenance"-sida
 - Förbättra modellen för nyuppsättningar för att undvika duplicering som är fallet nu
 - Mer finkorniga rättigheter
   - Tex, en directeur skall endast kunna administrera sitt eget spex
