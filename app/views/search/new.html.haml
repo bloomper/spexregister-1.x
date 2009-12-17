@@ -52,14 +52,17 @@
       %legend= t 'views.search.include'
       %p
         %label= t 'views.search.include_deceased'
-        = check_box_tag 'search[deceased_like_any]'
+        = hidden_field_tag 'search[deceased_equals_any][]', 'f'
+        = check_box_tag 'search[deceased_equals_any][]', 't'
       %p
         %label= t 'views.search.include_no_circulars'
-        = check_box_tag 'search[want_circulars_like_any]'
+        = hidden_field_tag 'search[want_circulars_equals_any][]', 't'
+        = check_box_tag 'search[want_circulars_equals_any][]', 'f'
+      = hidden_field_tag 'search[publish_approval_equals_any][]', 't'
       - if current_user_is_admin?
         %p
           %label= t 'views.search.include_not_published'
-          = check_box_tag 'search[publish_approval_like_any]'
+          = check_box_tag 'search[publish_approval_equals_any][]', 'f'
   %p.form-buttons
     = button t('views.base.search')
   
