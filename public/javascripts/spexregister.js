@@ -129,6 +129,17 @@ jQuery.extend( {
 });
 
 jQuery.extend( {
+  toggleShowRevivals : function(showRevivals, category) {
+	var showRevivalsSelect = jQuery('#' + showRevivals);
+	if(category != '') {
+      showRevivalsSelect.removeAttr('disabled');
+	} else {
+      showRevivalsSelect.attr('disabled', 'disabled');
+	}
+  }
+});
+
+jQuery.extend( {
   populateYearsFromSpexCategory : function(id, yearElement) {
     var yearSelect = jQuery('select#' + yearElement);
     yearSelect.html('').attr('disabled', 'disabled');
@@ -148,14 +159,14 @@ jQuery.extend( {
     	}
       });
     }
-   }
+  }
 });
 
 jQuery.extend( {
   stripeTable : function(table) {
     jQuery('tbody tr:visible:even', table).removeClass().addClass('even');
     jQuery('tbody tr:visible:odd', table).removeClass().addClass('odd');
-    }
+  }
 });
 
 jQuery(function() {

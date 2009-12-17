@@ -22,11 +22,11 @@
         %label= t 'activerecord.attributes.spex.spex_category'
         %br>
         = select_tag 'search[activities_spex_activity_spex_spex_category_id_equals]', options_for_select(get_available_spex_categories.insert(0, ''))
-        = observe_field 'search_activities_spex_activity_spex_spex_category_id_equals', :function => "jQuery.fetchSpexByCategory(value, (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'search_activities_spex_activity_spex_id_equals', 'dummy_title_equals', true)"
+        = observe_field 'search_activities_spex_activity_spex_spex_category_id_equals', :function => "jQuery.fetchSpexByCategory(value, (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'search_activities_spex_activity_spex_id_equals', 'dummy_title_equals', true); jQuery.toggleShowRevivals('show_revivals', value);"
       %p
         %label= t 'views.search.show_revivals'
-        = check_box_tag 'show_revivals'
-        = observe_field 'show_revivals', :function => "jQuery.fetchSpexByCategory(jQuery('#search_spex_category_id_equals').val(), (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'search_activities_spex_activity_spex_id_equals', 'dummy_title_equals', true)"
+        = check_box_tag 'show_revivals', 1, false, { :disabled => true } 
+        = observe_field 'show_revivals', :function => "jQuery.fetchSpexByCategory(jQuery('#search_activities_spex_activity_spex_spex_category_id_equals').val(), (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'search_activities_spex_activity_spex_id_equals', 'dummy_title_equals', true)"
       %p
         %label= t 'activerecord.attributes.spex.year'
         %br>
