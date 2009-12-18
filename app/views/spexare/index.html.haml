@@ -1,12 +1,15 @@
 = render :partial => 'sub_menu'
 
+%div.left
+  %h1= t 'views.spexare.index_title', :action => t('views.base.listing_action')
+
 .toolbar
   %ul.actions
     %li
       = button_link_to_remote t('views.spexare.new_spexare'), { :url => new_resource_url, :method => :get, :update => 'new-spexare' }, :icon => 'add'
   %br.clear  
 
-%h1= t 'views.spexare.index_title', :action => t('views.base.listing_action')
+%br.clear
 
 #new-spexare
 

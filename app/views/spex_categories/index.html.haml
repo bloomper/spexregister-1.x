@@ -1,11 +1,14 @@
 = render :partial => 'sub_menu'
 
+%div.left
+  %h1= t 'views.spex_category.index_title', :action => t('views.base.listing_action')
+
 .toolbar
   %ul.actions
     %li
       = button_link_to_remote t('views.spex_category.new_spex_category'), { :url => new_resource_url, :method => :get, :update => 'new-spex-category' }, :icon => 'add'
 
-%h1= t 'views.spex_category.index_title', :action => t('views.base.listing_action')
+%br.clear
 
 #new-spex-category
 

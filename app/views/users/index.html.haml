@@ -1,11 +1,14 @@
 = render :partial => 'sub_menu'
 
+%div.left
+  %h1= t 'views.user.index_title', :action => t('views.base.listing_action')
+
 .toolbar
   %ul.actions
     %li
       = button_link_to_remote t('views.user.new_user'), { :url => new_resource_url, :method => :get, :update => 'new-user' }, :icon => 'add'
 
-%h1= t 'views.user.index_title', :action => t('views.base.listing_action')
+%br.clear
 
 #new-user
 

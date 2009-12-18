@@ -1,11 +1,14 @@
 = render :partial => 'sub_menu'
 
+%div.left
+  %h1= t 'views.function_category.index_title', :action => t('views.base.listing_action')
+
 .toolbar
   %ul.actions
     %li
       = button_link_to_remote t('views.function_category.new_function_category'), { :url => new_resource_url, :method => :get, :update => 'new-function-category' }, :icon => 'add'
 
-%h1= t 'views.function_category.index_title', :action => t('views.base.listing_action')
+%br.clear
 
 #new-function-category
 
