@@ -14,6 +14,10 @@ jQuery(document).ajaxStop(function() {
 });
 
 jQuery(function() {
+  jQuery('td:empty').html('&nbsp;');
+});
+
+jQuery(function() {
   jQuery('.datepicker').livequery(function() {
     jQuery(this).datepicker( {
       showOn : 'button',
