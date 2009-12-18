@@ -65,7 +65,7 @@
         phone_other: "Phone number (other)"
         email_address: "Email address"
         birth_date: "Birth date"
-        social_security_number: "Social security#"
+        social_security_number: "Social security number (the last four)"
         chalmers_student: "Chalmers student?"
         graduation: "Graduation"
         comment: "Comment"

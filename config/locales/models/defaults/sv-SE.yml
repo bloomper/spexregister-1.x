@@ -65,7 +65,7 @@
         phone_other: "Telefonnummer (annat)"
         email_address: "Emailadress"
         birth_date: "Födelsedatum"
-        social_security_number: "Personnummer"
+        social_security_number: "Personnummer (de sista fyra)"
         chalmers_student: "Chalmerist?"
         graduation: "Examen"
         comment: "Kommentar"
