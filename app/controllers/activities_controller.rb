@@ -40,7 +40,7 @@ class ActivitiesController < ApplicationController
 
   def destroy
     destroy! do |format|
-      @activities = @spexare.activities
+      @activities = @spexare.activities.by_spex_year.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
       flash.discard
       format.html { render :action => 'selected', :layout => false }
     end
