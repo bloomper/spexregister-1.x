@@ -4,6 +4,7 @@
   %ul.actions
     %li
       = button_link_to_remote t('views.spexare.new_spexare'), { :url => new_resource_url, :method => :get, :update => 'new-spexare' }, :icon => 'add'
+  %br.clear  
 
 %h1= t 'views.spexare.index_title', :action => t('views.base.listing_action')
 
@@ -13,6 +14,7 @@
   %p= t 'views.spexare.no_spexare_exist'
 - else
   .number-of-hits= page_entries_info @spexare_items, { :entry_translation_group_key => 'spexare' }
+  %br.clear
   %table.index#spexare
     %tr
       %th= order @search, :by => :last_name, :as => t('activerecord.attributes.spexare.last_name')
@@ -30,6 +32,8 @@
             = link_to_delete_action spexare, { :table => 'spexare' }
 
 = will_paginate(@spexare_items, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+
+%br.clear
 
 = content_for :sidebar do 
   - form_for @search do |f|

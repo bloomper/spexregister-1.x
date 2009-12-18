@@ -1,2 +1,5 @@
 "sv-SE":
   activity:
+    zero: "aktivitet"
+    one: "aktivitet"
+    other: "aktiviteter"

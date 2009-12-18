@@ -5,6 +5,8 @@
 - if @memberships.empty?
   %p= t 'views.membership.no_associated_memberships', :kind => params[:kind_name].upcase
 - else
+  .number-of-hits= page_entries_info @memberships, { :entry_translation_group_key => 'membership' }
+  %br.clear
   %table.index
     %tr
       - if @memberships.size > 24
@@ -27,3 +29,5 @@
         - @memberships.each do |membership|
           %tr{:class => cycle('even', 'odd')}
             %td= h membership.year
+
+= will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           

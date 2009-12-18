@@ -13,6 +13,7 @@
   %p= t 'views.spex.no_spex_exist'
 - else
   .number-of-hits= page_entries_info @spex_items, { :entry_translation_group_key => 'spex' }
+  %br.clear
   %table.index#spex
     %tr
       %th= order @search, :by => :year, :as => t('activerecord.attributes.spex.year')
@@ -32,6 +33,8 @@
             = link_to_delete_action spex, { :table => 'spex' }
 
 = will_paginate(@spex_items, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+
+%br.clear
 
 = content_for :sidebar do 
   - form_for @search do |f|

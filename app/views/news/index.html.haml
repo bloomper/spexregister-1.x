@@ -13,6 +13,7 @@
   %p= t 'views.news.no_news_exist'
 - else
   .number-of-hits= page_entries_info @news_items, { :entry_translation_group_key => 'news' }
+  %br.clear
   %table.index#news
     %tr
       %th= order @search, :by => :publication_date, :as => t('activerecord.attributes.news.publication_date')
@@ -30,6 +31,8 @@
             = link_to_delete_action news, { :table => 'news' }
 
 = will_paginate(@news_items, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+
+%br.clear
 
 = content_for :sidebar do 
   - form_for @search do |f|

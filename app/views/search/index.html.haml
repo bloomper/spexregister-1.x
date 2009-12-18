@@ -6,6 +6,7 @@
   %p= t 'views.search.empty_search_result'
 - else
   .number-of-hits= page_entries_info @search_result, { :entry_translation_group_key => 'spexare' }
+  %br.clear
   %table.index#search_result
     %tr
       %th= order @search, :by => :last_name, :as => t('activerecord.attributes.spexare.last_name')

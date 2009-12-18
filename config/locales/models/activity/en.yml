@@ -1,2 +1,5 @@
 "en":
   activity:
+    zero: "activity"
+    one: "activity"
+    other: "activities"

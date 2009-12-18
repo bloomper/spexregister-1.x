@@ -13,6 +13,7 @@
   %p= t 'views.user.no_users_exist'
 - else
   .number-of-hits= page_entries_info @users, { :entry_translation_group_key => 'user' }
+  %br.clear
   %table.index#users
     %tr
       %th= order @search, :by => :username, :as => t('activerecord.attributes.user.username')
@@ -28,6 +29,8 @@
             = link_to_delete_action user, { :table => 'users' }
 
 = will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+
+%br.clear
 
 = content_for :sidebar do 
   - form_for @search do |f|

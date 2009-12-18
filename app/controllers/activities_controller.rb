@@ -15,7 +15,7 @@ class ActivitiesController < ApplicationController
 
   def create
     create! do
-      @activities = @spexare.activities.by_spex_year
+      @activities = @spexare.activities.by_spex_year.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
       flash.discard
     end
   end
@@ -29,13 +29,13 @@ class ActivitiesController < ApplicationController
 
   def update
     update! do
-      @activities = @spexare.activities.by_spex_year
+      @activities = @spexare.activities.by_spex_year.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
       flash.discard
     end
   end
 
   def selected
-    @activities = @spexare.activities.by_spex_year
+    @activities = @spexare.activities.by_spex_year.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
   end
 
   def destroy
@@ -52,7 +52,7 @@ class ActivitiesController < ApplicationController
   end  
 
   def collection
-    @activities ||= end_of_association_chain.by_spex_year
+    @activities ||= end_of_association_chain.by_spex_year.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
   end
 
   private 

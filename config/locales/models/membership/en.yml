@@ -1,5 +1,8 @@
 "en":
   membership:
+    zero: "membership"
+    one: "membership"
+    other: "memberships"
     kind:
       fgv: "FGV"
       cing: "CING"

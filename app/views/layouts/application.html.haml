@@ -19,7 +19,7 @@
     .container
       = render :partial => '/shared/header'
       = render :partial => '/shared/menu'
-      #content{:class => ("with-sidebar" unless @content_for_sidebar.blank?)}
+      #content{:class => (@content_for_sidebar.blank? ? '' : 'with-sidebar ') + 'clear'}
         = render :partial => '/shared/flashes'
         = yield
         - unless @content_for_sidebar.blank?

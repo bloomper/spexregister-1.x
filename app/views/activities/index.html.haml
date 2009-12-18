@@ -5,6 +5,8 @@
 - if @activities.empty?
   %p= t 'views.activity.no_associated_activities'
 - else
+  .number-of-hits= page_entries_info @activities, { :entry_translation_group_key => 'activity' }
+  %br.clear
   %table.index
     %tr
       %th= t 'activerecord.attributes.spex.year'
@@ -34,4 +36,5 @@
             %td= link_to_open(activity.spex.spex_category.name, activity.spex.spex_category.logo.url, :class => 'fancybox-single')
           - else
             %td= h activity.spex.spex_category.name
-            
+
+= will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           

@@ -7,6 +7,8 @@
   - if @activities.empty?
     %p= t 'views.activity.no_associated_activities'
   - else
+    .number-of-hits= page_entries_info @activities, { :entry_translation_group_key => 'activity' }
+    %br.clear
     %table.index
       %tr
         %th= t 'activerecord.attributes.spex.year'
@@ -40,6 +42,8 @@
             %td.actions
               = link_to_remote icon_tag('edit') + ' ' + t('views.base.edit_action'), { :url => edit_spexare_activity_url(@spexare, activity, :spex_category_id => activity.spex.spex_category.id), :method => :get, :before => "jQuery('#add-activity').hide(); jQuery('#add-activity-action').hide();", :after => "jQuery('#edit-activity').show();", :update => 'edit-activity' }
               = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => spexare_activity_url(@spexare, activity), :method => :delete, :before => '', :update => 'edit-activities' }
+  
+    = will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
   
   #edit-activity
   
