@@ -12,6 +12,7 @@
       %br>
       = f.error_message_on :last_name
       = f.text_field :last_name, :class => 'fullwidth'
+  %br.clear
   #spexare-address
     - f.field_container :nick_name do
       = f.label :nick_name, t('activerecord.attributes.spexare.nick_name')
@@ -102,6 +103,7 @@
       = f.label :want_circulars, t('activerecord.attributes.spexare.want_circulars')
       = f.error_message_on :want_circulars
       = f.check_box :want_circulars
+  %br.clear
   #spexare-picture
     - f.field_container :picture do
       = f.label :poster, t('activerecord.attributes.spexare.picture')
