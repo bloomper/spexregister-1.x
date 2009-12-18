@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   rescue_from ActionController::RoutingError, :with => :page_not_found
+  rescue_from ActionController::InvalidAuthenticityToken, :with => :internal_error
 
   before_filter :set_locale
   before_filter :check_session
@@ -52,6 +53,11 @@ class ApplicationController < ActionController::Base
   
   def page_not_found
     flash[:warning] = t 'views.base.page_not_found'
+    redirect_to home_path
+  end
+
+  def internal_error
+    flash[:warning] = t 'views.base.internal_error'
     redirect_to home_path
   end
 
