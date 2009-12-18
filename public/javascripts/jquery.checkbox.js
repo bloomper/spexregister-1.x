@@ -77,10 +77,10 @@ $.widget("ui.checkbox", {
 				"'><v:stroke /><v:fill /></v:roundrect>");
 			this._vml = this._wrapper[0].childNodes[0];
 			var ss = this._wrapper[0].currentStyle;
-			//this._vml.style.top = "-1px";
-			//this._vml.style.left = "-1px";
-			//this._vml.style.width = parseInt(ss.width)+1+"px";
-			//this._vml.style.height = parseInt(ss.height)+1+"px";
+			this._vml.style.top = "-1px";
+			this._vml.style.left = "-1px";
+			this._vml.style.width = parseInt(ss.width)+1+"px";
+			this._vml.style.height = parseInt(ss.height)+1+"px";
 			this._doVML();
 			this._vml.style.visibility = "visible";
 			this._wrapper.css('visibility','hidden');

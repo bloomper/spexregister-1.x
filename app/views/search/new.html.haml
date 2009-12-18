@@ -58,11 +58,11 @@
         %label= t 'views.search.include_no_circulars'
         = hidden_field_tag 'search[want_circulars_equals_any][]', true
         = check_box_tag 'search[want_circulars_equals_any][]', false
-      = hidden_field_tag 'search[publish_approval_equals_any][]', true
       - if current_user_is_admin?
         %p
           %label= t 'views.search.include_not_published'
           = check_box_tag 'search[publish_approval_equals_any][]', false
+      = hidden_field_tag 'search[publish_approval_equals_any][]', true
   %p.form-buttons
     = button t('views.base.search')
   
