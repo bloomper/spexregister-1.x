@@ -5,8 +5,8 @@ class Spex < ActiveRecord::Base
   named_scope :by_category, lambda { |category, show_revivals|
     { :conditions => { :spex_category_id => category, :is_revival => show_revivals } }
   }
-  named_scope :by_category_all, lambda { |category|
-    { :conditions => { :spex_category_id => category } }
+  named_scope :by_years, lambda { |years|
+    { :conditions => { :year => years } }
   }
   named_scope :by_year, :order => 'year asc' 
   named_scope :by_year_desc, :order => 'year desc' 

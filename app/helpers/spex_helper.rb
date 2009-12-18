@@ -1,10 +1,10 @@
 module SpexHelper
 
-  def get_spex_by_category(category_id)
+  def get_spex_by_years(years)
     returning spex_items = Hash.new do
       spex_years = []
       spex_titles = []
-      Spex.by_category_all(category_id).by_title.each do |spex|
+      Spex.by_years(years).by_title.each do |spex|
         spex_years << [spex.year_with_revival, spex.id]
         spex_titles << [spex.title_with_revival, spex.id]
       end
