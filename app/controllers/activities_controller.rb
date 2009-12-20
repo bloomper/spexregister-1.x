@@ -57,9 +57,9 @@ class ActivitiesController < ApplicationController
 
   private 
   def set_available_activities(spex_category)
-    @available_activities = (spex_category.first_year.to_i..Time.now.strftime('%Y').to_i).entries.reverse
+    @available_activities = Spex.by_category_with_revivals(spex_category).map(&:id)
     @spexare.activities.by_spex_category(spex_category).each do |activity|
-      @available_activities.delete_if {|year| activity.spex.year == year.to_s}
+      @available_activities.delete_if {|available_activity| activity.spex.id == available_activity}
     end
   end
 
