@@ -3,7 +3,6 @@
 
 class ApplicationController < ActionController::Base
   include ExceptionNotifiable
-  include SslRequirement
   helper :all # include all helpers, all the time
   helper_method :current_user_session, :current_user, :logged_in?, :current_user_is_admin?
   
@@ -18,8 +17,6 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
   before_filter :check_session
-  
-  ssl_required
   
   protected
   def set_locale
