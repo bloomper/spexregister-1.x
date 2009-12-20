@@ -1,7 +1,7 @@
 %h3= t 'views.activity.new_activity', :spex_category_name => get_spex_category_name(params[:spex_category_id])
 
 - if @available_activities.empty?
-  %p= t 'views.activity.no_available_activities_exist'
+  %p= t 'views.activity.no_available_activities_exist', :spex_category_name => get_spex_category_name(params[:spex_category_id])
 - else
   - form_remote_for @activity, :url => spexare_activities_path(@spexare), :complete => evaluate_remote_response(), :html => { :method => :post } do |f|
     %fieldset
