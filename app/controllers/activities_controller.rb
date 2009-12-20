@@ -22,7 +22,7 @@ class ActivitiesController < ApplicationController
 
   def edit
     edit! do |format|
-      set_available_activities(@activity.spex.spex_category)
+      set_available_activities(@activity.spex.spex_category, @activity.spex.id.to_i)
       format.html { render :layout => false }
     end
   end
@@ -56,10 +56,10 @@ class ActivitiesController < ApplicationController
   end
 
   private 
-  def set_available_activities(spex_category)
+  def set_available_activities(spex_category, do_not_delete = nil)
     @available_activities = Spex.by_category_with_revivals(spex_category).map(&:id)
     @spexare.activities.by_spex_category(spex_category).each do |activity|
-      @available_activities.delete_if {|available_activity| activity.spex.id == available_activity}
+      @available_activities.delete_if {|available_activity| activity.spex.id == available_activity && (do_not_delete.nil? ? true : do_not_delete != available_activity)}
     end
   end
 
