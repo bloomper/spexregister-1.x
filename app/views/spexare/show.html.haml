@@ -122,6 +122,6 @@
   %tr
     %th= t 'activerecord.attributes.spexare.comment'
   %tr
-    %td= simple_format @spexare.comment
+    %td= print_textarea @spexare.comment
 
 = render :partial => '/shared/entity_details', :locals => {:entity => @spexare}

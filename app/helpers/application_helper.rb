@@ -186,4 +186,12 @@ module ApplicationHelper
     end
   end
 
+  def print_textarea(text)
+    if text.blank?
+      return t 'views.base.missing_text'
+    else
+      simple_format text
+    end
+  end
+
 end
