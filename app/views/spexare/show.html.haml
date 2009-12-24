@@ -114,7 +114,7 @@
     %th= t 'activerecord.attributes.spexare.picture'
   %tr
     - if @spexare.picture?
-      %td= link_to(image_tag(@spexare.picture.url(:thumb)), @spexare.picture.url, :class => 'fancybox-single')
+      %td= link_to_open(image_tag(@spexare.picture.url(:thumb)), @spexare.picture.url, :class => 'fancybox-single')
     - else
       %td= t 'views.base.missing_image'
 
