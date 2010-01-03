@@ -2,10 +2,11 @@
 
 %h1 Help
 
-%h2 Change my profile
-%p
-  This is a shortcut (you can of course also perform a search for yourself) to change your own profile, i.e. address,
-  phone numbers etc.
+- if !current_user_is_admin?
+  %h2 Show profiles
+  %p
+    This function offers the possibility to see all profiles, i.e. spexers. Only the spexers that have agreed
+    to be published are listed, this applies to yourself as well.
 
 - if current_user_is_admin?
   %h2 Manage profiles
@@ -13,6 +14,11 @@
     As administrator, you can view and edit all profiles. To find a specific profile, you can either use the normal
     search or use the very simple search to the right. Be very careful to delete profiles. An alternative is to set
     the profile to 'not published' and 'no circulars'.
+
+%h2 Change my profile
+%p
+  This is a shortcut (you can of course also perform a search for yourself) to change your own profile, i.e. address,
+  phone numbers etc.
 
 %h2 Change my account
 %p
@@ -24,7 +30,8 @@
   This function offers the possibility to search for other profiles, i.e. spexers. By combining the different
   search fields, you limit the search result from which you can see information about each spexer. Note that
   simple search only features AND (advanced search offers a greater flexibility). This is, for example, important
-  when searching for deceased spexers since you then also have to click 'No circulars'. 
+  when searching for deceased spexers since you then also have to click 'No circulars'. Only the spexers that have agreed
+  to be published are listed, this applies to yourself as well.
 
 %h2 Advanced search
 %p

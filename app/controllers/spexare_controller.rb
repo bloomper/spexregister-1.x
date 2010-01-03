@@ -29,7 +29,11 @@ class SpexareController < ApplicationController
   
   def collection
     base_scope = end_of_association_chain
-    @search = base_scope.search(params[:search])
+    if !current_user_is_admin?
+      @search = base_scope.search(params[:search]).publish_approval_equals(true)
+    else 
+      @search = base_scope.search(params[:search])
+    end
     @search.order ||= "ascend_by_last_name"
     
     @spexare_items ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)

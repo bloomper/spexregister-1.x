@@ -6,7 +6,7 @@
 .toolbar
   %ul.actions
     %li
-      = button_link_to_remote t('views.spexare.new_spexare'), { :url => new_resource_url, :method => :get, :update => 'new-spexare' }, :icon => 'add'
+      = button_link_to_remote t('views.spexare.new_spexare'), { :url => new_resource_url, :method => :get, :update => 'new-spexare' }, :icon => 'add' if current_user_is_admin?
   %br.clear  
 
 %br.clear
@@ -31,8 +31,8 @@
           %td= h spexare.nick_name
           %td.actions
             = link_to_view_action spexare
-            = link_to_edit_action spexare
-            = link_to_delete_action spexare, { :table => 'spexare' }
+            = link_to_edit_action spexare if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare.id == spexare.id)
+            = link_to_delete_action spexare, { :table => 'spexare' } if current_user_is_admin?
 
 = will_paginate(@spexare_items, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
 

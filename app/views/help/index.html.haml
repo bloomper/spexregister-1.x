@@ -2,10 +2,11 @@
 
 %h1 Hjälp
 
-%h2 Ändra min profil
-%p
-  Detta är en genväg (du kan naturligtvis också söka efter dig själv) till att ändra din egna profil, dvs adress,
-  telefonnummer osv. 
+- if !current_user_is_admin?
+  %h2 Visa profiler
+  %p
+    Denna funktion erbjuder möjligheten att se alla profiler, dvs spexare. Endast de spexare som har medgivit
+    publicering syns, detta gäller även dig själv. 
 
 - if current_user_is_admin?
   %h2 Hantera profiler
@@ -13,6 +14,11 @@
     Som administratör kan du se och ändra alla profiler. För att hitta en specifik profil så kan du antingen
     använda den vanliga sökningen eller den mycket enkla sökningen som du hittar till höger. Var mycket försiktig
     med att radera profiler. Ett alternativ är att sätta profilen till 'ej publicerad' och 'ej utskick'.
+
+%h2 Ändra min profil
+%p
+  Detta är en genväg (du kan naturligtvis också söka efter dig själv) till att ändra din egna profil, dvs adress,
+  telefonnummer osv. 
 
 %h2 Ändra mitt konto
 %p
@@ -24,7 +30,8 @@
   Denna funktion erbjuder möjligheten att söka efter andra profiler, dvs spexare. Genom att kombinera de olika
   sökfälten så begränsar du sökresultatet från vilket du kan se information om varje spexare. Observera att enkel
   sökning endast möjliggör OCH/AND (avancerad sökning erbjuder en större flexibilitet). Detta är till exempel viktigt
-  då man söker efter avlidna spexare eftersom man då också måste klicka i 'Ej utskick'.
+  då man söker efter avlidna spexare eftersom man då också måste klicka i 'Ej utskick'. Endast de spexare som har medgivit
+  publicering syns, detta gäller även dig själv. 
 
 %h2 Avancerad sökning
 %p
