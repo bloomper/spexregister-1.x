@@ -225,6 +225,9 @@ Inga.
 - Hålla koll på misslyckade inloggningar, dvs efter tre felaktiga lösenord så låses kontot
 - Snyggare/bättre "maintenance"-sida
 - Förbättra modellen för nyuppsättningar för att undvika duplicering som är fallet nu
+- Versionshantering av spexare och dess associerade objekt
+  - http://github.com/rich/acts_as_revisable
+  - http://withoutscope.com/2009/5/12/simple-association-versioning-with-acts_as_revisable
 - Mer finkorniga rättigheter
   - Tex, en directeur skall endast kunna administrera sitt eget spex
   - Tex, en FGV-administratör kan endast ändra spexarnas FGV-medlemskap
@@ -236,6 +239,7 @@ Inga.
 
 - Anders "Colgate" Jacobsson
 - Fredrik "Faxe" Bonde
+- Philip "BH" Larsson
 - Patrik Lampa
 
 == Copyright/upphovsrätt
