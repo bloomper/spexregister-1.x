@@ -4,7 +4,7 @@ class LocaleController < ApplicationController
     if params[:locale]
       I18n.locale = params[:locale]
       session[:locale] = params[:locale]
-      flash[:notice] = t 'views.base.language_changed'
+      flash[:success] = t 'views.base.language_changed'
     end
     redirect_to (request.env['HTTP_REFERER'] or root_path)
   end

@@ -25,36 +25,36 @@ class UsersController < ApplicationController
   def approve
     if @user && !@user.spexare.blank?
       @user.approve!
-      flash.now[:notice] = I18n.t('flash.users.approve.success')
+      flash.now[:success] = I18n.t('flash.users.approve.success')
     else
-      flash.now[:error] = I18n.t('flash.users.approve.failure')
+      flash.now[:failure] = I18n.t('flash.users.approve.failure')
     end
   end
   
   def activate
     if @user && !@user.spexare.blank?
       @user.activate!
-      flash.now[:notice] = I18n.t('flash.users.activate.success')
+      flash.now[:success] = I18n.t('flash.users.activate.success')
     else
-      flash.now[:error] = I18n.t('flash.users.activate.failure')
+      flash.now[:failure] = I18n.t('flash.users.activate.failure')
     end
   end
   
   def deactivate
     if @user
       @user.deactivate!
-      flash.now[:notice] = I18n.t('flash.users.deactivate.success')
+      flash.now[:success] = I18n.t('flash.users.deactivate.success')
     else
-      flash.now[:error] = I18n.t('flash.users.deactivate.failure')
+      flash.now[:failure] = I18n.t('flash.users.deactivate.failure')
     end
   end
   
   def reject
     if @user
       @user.reject!
-      flash.now[:notice] = I18n.t('flash.users.reject.success')
+      flash.now[:success] = I18n.t('flash.users.reject.success')
     else
-      flash.now[:error] = I18n.t('flash.users.reject.failure')
+      flash.now[:failure] = I18n.t('flash.users.reject.failure')
     end
   end
   

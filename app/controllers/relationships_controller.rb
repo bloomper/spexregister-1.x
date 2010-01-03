@@ -15,11 +15,11 @@ class RelationshipsController < ApplicationController
     @spexare = Spexare.find_by_id(params[:spexare_id])
     @spouse = Spexare.find_by_id(params[:relationship][:spouse_id])
     if !@spouse
-      flash.now[:error] = t 'flash.relationships.spexare_not_found'
+      flash.now[:failure] = t 'flash.relationships.spexare_not_found'
       return false
     end
     if !@spouse.spouse.nil?
-      flash.now[:error] = t 'flash.relationships.create.failure'
+      flash.now[:failure] = t 'flash.relationships.create.failure'
       return false
     end
     create! do
