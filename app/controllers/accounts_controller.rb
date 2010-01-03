@@ -10,6 +10,7 @@ class AccountsController < ApplicationController
       @user = User.new :username => @captcha.values[:username], :password => @captcha.values[:password], :password_confirmation => @captcha.values[:password_confirmation], :user_groups => [ UserGroup.find_by_name('Users') ]
       @user.save
       if @user.errors.size == 1 && !@user.errors.on(:spexare).nil? && !@captcha.values[:full_name].blank? && !@captcha.values[:description].blank?
+        @user.save(false)
         AdminMailer.deliver_new_account_instructions(@captcha.values[:full_name], @captcha.values[:username], @captcha.values[:description])
         flash[:success] = I18n.t('flash.accounts.create.success')
         redirect_to login_path
