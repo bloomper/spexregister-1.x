@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
   
   def approve
-    if @user
+    if @user && !@user.spexare.blank?
       @user.approve!
       flash.now[:notice] = I18n.t('flash.users.approve.success')
     else
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end
   
   def activate
-    if @user
+    if @user && !@user.spexare.blank?
       @user.activate!
       flash.now[:notice] = I18n.t('flash.users.activate.success')
     else
