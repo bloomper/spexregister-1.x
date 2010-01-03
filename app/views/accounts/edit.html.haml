@@ -1,6 +1,6 @@
 = render :partial => 'sub_menu'
 
-%h1= t 'views.account.change_my_password_title'
+%h1= t 'views.account.change_my_account'
 
 - form_for @user, :url => account_path do |f|
   = render :partial => 'form', :locals => { :f => f }

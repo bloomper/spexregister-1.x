@@ -83,8 +83,8 @@
         success: "The account has been created"
         failure: "The accound could not be created"
       update:
-        success: "The password has been updated"
-        failure: "The password could not be updated"
+        success: "The account has been updated"
+        failure: "The account could not be updated"
     user_sessions:
       create:
         success: "You have been logged in"

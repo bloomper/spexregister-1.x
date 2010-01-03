@@ -1,4 +1,10 @@
 %div
+  - f.field_container :username do
+    = f.label :username, t('activerecord.attributes.user.username')
+    %span.required= t 'views.base.mandatory_attribute'
+    %br>
+    = f.error_message_on :username
+    = f.text_field :username
   - f.field_container :password do
     = f.label :password, t('activerecord.attributes.user.password')
     %span.required= t 'views.base.mandatory_attribute'

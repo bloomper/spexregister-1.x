@@ -95,8 +95,8 @@
         success: "Kontot har skapats"
         failure: "Konto kunde inte skapas"
       update:
-        success: "Lösenordet har uppdaterats"
-        failure: "Lösenordet kunde inte uppdateras"
+        success: "Kontot har uppdaterats"
+        failure: "Kontot kunde inte uppdateras"
     user_sessions:
       create:
         success: "Du har loggats in"
