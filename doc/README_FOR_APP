@@ -102,8 +102,8 @@ upp produktionsmiljön. Dessa kommandon kräver att utvecklingsmiljön är *nix-
 
          PassengerPoolIdleTime 0
 
-         ErrorLog /var/log/register/error.log
-         CustomLog /var/log/register/access.log combined
+         ErrorLog /var/log/register/httpd-error.log
+         CustomLog /var/log/register/httpd-access.log combined
 
          # Gzip/Deflate
          # http://fluxura.com/2006/5/19/apache-for-static-and-mongrel-for-rails-with-mod_deflate-and-capistrano-support
