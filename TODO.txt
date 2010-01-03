@@ -19,9 +19,7 @@ Short-term
 13 [Colgate] Lägga in lite nyheter i systemet
 14 [Philip, Colgate] Lägga in sista omgången med ändringar från det gamla registret OCH sedan frysa det (vad är bästa sätt?)
 
-- Immediate problems
-  - When viewing someone else from search result, menu is somewhat messed up
-  - Why is Lockdown not intercepting link_to on search result page and restricting according to model?
+- Update plugins
 
 - Test different browsers
   - IE 7
@@ -37,8 +35,6 @@ Short-term
   - "script/runner 'MailQueue.process' -e production"
     # Spexregister
     */2       *       *       *       *       root   /usr/local/bin/ruby /home/users/register/current/script/runner 'MailQueue.process' -e production
-    - Check mail server configuration
-      - Mail sent to Lampa (20091220)
   - MySQL backup
 
 - Log rotation
@@ -64,12 +60,6 @@ Short-term
       RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301]
   - Update documentation when SSL certificate is available (step 22)
 
-- Versioning of spexare and its associations?
-  - http://ruby-toolbox.com/categories/activerecord_versioning.html
-  - http://slipshodfishbarrel.blogspot.com/2009/09/auditing-and-versioning.html
-  - acts_as_revisable
-    - http://withoutscope.com/2009/5/12/simple-association-versioning-with-acts_as_revisable
-
 - Export
   - http://github.com/purzelrakete/workling
   - http://www.therailsway.com/2009/7/22/do-it-later-with-delayed-job
@@ -91,9 +81,6 @@ Short-term
     - Cucumber?
     - etc
 
-Medium-term
------------
-
 - Update jQuery Fancybox JS library
 
 - Update Lockdown
@@ -102,29 +89,5 @@ Medium-term
   - https://rails.lighthouseapp.com/projects/8994/tickets/2501
   - https://rails.lighthouseapp.com/projects/8994/tickets/2365
 
-- Merge last minute changes from existing register
-
-- Add initial news
-
-Long-term
----------
-
-- Nicer maintenance page
-  - http://norbauer.com/notebooks/code/notes/custom-maintenance-pages-in-capistrano-2-0
-  - http://weblog.jamisbuck.org/2007/1/5/custom-maintenance-pages
-
 - Upload code to github or bojan (svn+ssh)
   - Update deploy.rb accordingly
-
-- Better modeling of revivals to avoid duplication
-  - Kind of tricky since the relationship with a spexare must be with the year(s)
-
-- A more fine grained permission scheme
-  - For example, a directeur should only be able to administer his/her spex
-  - FGV should only be able to administer memberships
-
-Problems
---------
-
-Goodies
--------
