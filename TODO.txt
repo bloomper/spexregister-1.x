@@ -42,7 +42,7 @@ Short-term
   - MySQL backup
 
 - Log rotation
-  - Mail sent to Lampa (20091220)
+  - /etc/newsyslog.conf
   - http://overstimulate.com/articles/logrotate-rails-passenger
 
 - Using the correct admin email address?
@@ -67,10 +67,6 @@ Short-term
 - Versioning of spexare and its associations?
   - http://ruby-toolbox.com/categories/activerecord_versioning.html
   - http://slipshodfishbarrel.blogspot.com/2009/09/auditing-and-versioning.html
-  - http://railscasts.com/episodes/177-model-versioning/
-  - vestal_versions
-  - paper_trail
-    - http://blog.airbladesoftware.com/2009/6/23/a-paper-trail-for-your-models
   - acts_as_revisable
     - http://withoutscope.com/2009/5/12/simple-association-versioning-with-acts_as_revisable
 
