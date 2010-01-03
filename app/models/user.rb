@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :user_groups
   include AASM
   aasm_column :state
-  aasm_state :pending, :after_enter => :deliver_account_created_instructions!
+  # Note: initial state cannot send mail as it does not commit to the database (using queued mails)
+  aasm_state :pending
   aasm_state :active, :after_enter => :deliver_account_approved_instructions!
   aasm_state :inactive
   aasm_state :rejected, :after_enter => :deliver_account_rejected_instructions!
