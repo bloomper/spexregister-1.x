@@ -224,6 +224,8 @@ Inga.
 - Lägg till integrationstester
 - Hålla koll på misslyckade inloggningar, dvs efter tre felaktiga lösenord så låses kontot
 - Snyggare/bättre "maintenance"-sida
+  - http://norbauer.com/notebooks/code/notes/custom-maintenance-pages-in-capistrano-2-0
+  - http://weblog.jamisbuck.org/2007/1/5/custom-maintenance-pages
 - Förbättra modellen för nyuppsättningar för att undvika duplicering som är fallet nu
 - Versionshantering av spexare och dess associerade objekt
   - http://github.com/rich/acts_as_revisable
