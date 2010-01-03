@@ -9,3 +9,5 @@
       = text_field_tag :username, nil
     %p
       = submit_tag t('views.password_reset.reset_my_password'), :class => 'button primary'
+      = t('views.base.or')
+      = link_to t('views.base.cancel_action'), login_url
