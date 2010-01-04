@@ -100,6 +100,7 @@ module JasperServer
         driver = ::SOAP::RPC::Driver.new(url, JASPER_URN)
         driver.options['protocol.http.basic_auth'] << [url, username, password]
         driver.options['receive_timeout'] = timeout
+
         
         driver.add_method('runReport', 'requestXmlString')
         return driver
