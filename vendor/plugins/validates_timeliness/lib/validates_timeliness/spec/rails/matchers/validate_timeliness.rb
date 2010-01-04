@@ -2,7 +2,7 @@ module Spec
   module Rails
     module Matchers
       class ValidateTimeliness
-   
+
         VALIDITY_TEST_VALUES = {
           :date     => {:pass => '2000-01-01', :fail => '2000-01-32'},
           :time     => {:pass => '12:00',      :fail => '25:00'},
@@ -10,7 +10,7 @@ module Spec
         }
 
         OPTION_TEST_SETTINGS = {
-          :equal_to     => { :method => :+, :modify_on => :invalid },
+          :is_at        => { :method => :+, :modify_on => :invalid },
           :before       => { :method => :-, :modify_on => :valid },
           :after        => { :method => :+, :modify_on => :valid },
           :on_or_before => { :method => :+, :modify_on => :invalid },
@@ -25,10 +25,10 @@ module Spec
         def matches?(record)
           @record = record
           @type = @options[:type]
-          
+
           valid = test_validity
 
-          valid = test_option(:equal_to)     if valid && @options[:equal_to]
+          valid = test_option(:is_at)        if valid && @options[:is_at]
           valid = test_option(:before)       if valid && @options[:before]
           valid = test_option(:after)        if valid && @options[:after]
           valid = test_option(:on_or_before) if valid && @options[:on_or_before]
@@ -37,21 +37,21 @@ module Spec
 
           return valid
         end
-      
+
         def failure_message
           "expected model to validate #{@type} attribute #{@expected.inspect} with #{@last_failure}"
         end
-        
+
         def negative_failure_message
           "expected not to validate #{@type} attribute #{@expected.inspect}"
         end
-        
+
         def description
           "have validated #{@type} attribute #{@expected.inspect}"
         end
-        
+
        private
-       
+
         def test_validity
           invalid_value = VALIDITY_TEST_VALUES[@type][:fail]
           valid_value   = parse_and_cast(VALIDITY_TEST_VALUES[@type][:pass])
@@ -62,7 +62,7 @@ module Spec
         def test_option(option)
           settings = OPTION_TEST_SETTINGS[option]
           boundary = parse_and_cast(@options[option])
-          
+
           method = settings[:method]
 
           valid_value, invalid_value = if settings[:modify_on] == :valid
@@ -70,27 +70,27 @@ module Spec
           else
             [ boundary, boundary.send(method, 1) ]
           end
-          
-          error_matching(invalid_value, option) && 
+
+          error_matching(invalid_value, option) &&
             no_error_matching(valid_value, option)
         end
 
         def test_before
           before = parse_and_cast(@options[:before])
 
-          error_matching(before - 1, :before) && 
+          error_matching(before - 1, :before) &&
             no_error_matching(before, :before)
         end
 
         def test_between
-          between = parse_and_cast(@options[:between]) 
-          
-          error_matching(between.first - 1, :between) && 
-            error_matching(between.last + 1, :between) && 
+          between = parse_and_cast(@options[:between])
+
+          error_matching(between.first - 1, :between) &&
+            error_matching(between.last + 1, :between) &&
             no_error_matching(between.first, :between) &&
             no_error_matching(between.last, :between)
         end
-       
+
         def parse_and_cast(value)
           value = @validator.class.send(:evaluate_option_value, value, @type, @record)
           @validator.class.send(:type_cast_value, value, @type)
@@ -105,7 +105,7 @@ module Spec
           @last_failure = "error matching '#{match}' when value is #{format_value(value)}" unless pass
           pass
         end
-        
+
         def no_error_matching(value, option)
           pass = !error_matching(value, option)
           unless pass
@@ -115,29 +115,28 @@ module Spec
           pass
         end
 
-        def error_message_for(option)
-          msg = @validator.error_messages[option]
-          restriction = @validator.class.send(:evaluate_option_value, @validator.configuration[option], @type, @record)
+        def error_message_for(message)
+          restriction = @validator.class.send(:evaluate_option_value, @validator.configuration[message], @type, @record)
 
-          if restriction 
-            restriction = [restriction] unless restriction.is_a?(Array)
-            restriction.map! {|r| @validator.class.send(:type_cast_value, r, @type) }
-            interpolate = @validator.send(:interpolation_values, option, restriction )
+          if restriction
+            restriction = @validator.class.send(:type_cast_value, restriction, @type)
+            interpolate = @validator.send(:interpolation_values, message, restriction)
+          end
 
-            # get I18n message if defined and has interpolation keys in msg
-            if defined?(I18n) && !@validator.send(:custom_error_messages).include?(option)
-              msg = if defined?(ActiveRecord::Error)
-                ActiveRecord::Error.new(@record, @expected, option, interpolate).message
-              else
-                @record.errors.generate_message(@expected, option, interpolate)
-              end
+          if defined?(I18n)
+            interpolate ||= {}
+            options = interpolate.merge(:default => @validator.send(:custom_error_messages)[message])
+            if defined?(ActiveRecord::Error)
+              ActiveRecord::Error.new(@record, @expected, message, options).message
             else
-              msg = msg % interpolate
+              @record.errors.generate_message(@expected, message, options)
             end
-          end 
-          msg
+          else
+            interpolate ||= nil
+            @validator.error_messages[message] % interpolate
+          end
         end
-        
+
         def format_value(value)
           return value if value.is_a?(String)
           value.strftime(@validator.class.error_value_formats[@type])
