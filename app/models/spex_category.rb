@@ -17,7 +17,7 @@ class SpexCategory < ActiveRecord::Base
   
   def before_destroy
     if spex.size > 0
-      errors.add_to_base(I18n.t('spex_category.cannot_delete_if_associated_spex_exist'))
+      errors.add(:base, I18n.t('spex_category.cannot_delete_if_associated_spex_exist'))
       false
     end
   end

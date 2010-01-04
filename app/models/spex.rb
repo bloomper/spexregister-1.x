@@ -26,7 +26,7 @@ class Spex < ActiveRecord::Base
   
   def before_destroy
     if SpexActivity.spex_id_equals(id).all.size > 0
-      errors.add_to_base(I18n.t('spex.cannot_delete_if_associated_spexare_exist'))
+      errors.add(:base, I18n.t('spex.cannot_delete_if_associated_spexare_exist'))
       false
     end
   end

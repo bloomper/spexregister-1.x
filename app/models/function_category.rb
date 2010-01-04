@@ -6,7 +6,7 @@ class FunctionCategory < ActiveRecord::Base
 
   def before_destroy
     if functions.size > 0
-      errors.add_to_base(I18n.t('function_category.cannot_delete_if_associated_functions_exist'))
+      errors.add(:base, I18n.t('function_category.cannot_delete_if_associated_functions_exist'))
       false
     end
   end
