@@ -1,6 +1,6 @@
 development: &defaults
-  site_url: www.chalmersspexet.se/register
-  admin_email_address: register@chalmersspexet.se
+  site_url: register.fgv.nu
+  admin_email_address: register@fgv.nu
   entities_per_page: 10
   latest_news_per_page: 8
   activities_per_row: 3
