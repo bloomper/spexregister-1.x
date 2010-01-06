@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: f39497b64192d3e4bf47155fc52f69f05399a593
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/plataformatec/has_scope.git
