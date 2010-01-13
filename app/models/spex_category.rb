@@ -3,7 +3,11 @@ class SpexCategory < ActiveRecord::Base
   has_attached_file :logo, :styles => { :thumb => ApplicationConfig.logo_thumbnail_size }
   attr_protected :logo_file_name, :logo_content_type, :logo_file_size
   acts_as_dropdown :value => 'id', :text => 'name', :order => 'name ASC'
-  
+
+  def get_years_til_now
+    (first_year.to_i..Time.now.strftime('%Y').to_i).entries
+  end
+
   def self.get_years
     Rails.cache.fetch('spex_category_years') { (ApplicationConfig.first_spex_category_year..Time.now.strftime('%Y').to_i).entries }
   end
