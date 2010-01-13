@@ -5,7 +5,7 @@ module SpexCategoriesHelper
   end
 
   def get_spex_category_years
-    SpexCategory.get_years.reverse
+    SpexCategory.get_years.reverse.collect! {|y| y.to_s}
   end
 
   def get_spex_category_name(id)
