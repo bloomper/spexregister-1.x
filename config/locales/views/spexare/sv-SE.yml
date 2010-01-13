@@ -6,6 +6,7 @@
       page_title: "{{action}} spexare"
       no_spexare_exist: "Det finns inga spexare"
       new_spexare: "Skapa spexare"
+      last_name_notice: "Tips: Vid byte av efternamn, skriv det gamla i kommentarsfältet"
       social_security_number_notice: "Krypterad lagring för säkerställa integritet"
       picture_format_notice:  "Tillåtna format är GIF, JPG och PNG"
       picture_size_notice:  "Max tillåten storlek är {{max_size}} Kb"

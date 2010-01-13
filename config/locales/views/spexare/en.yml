@@ -6,6 +6,7 @@
       page_title: "{{action}} spexer"
       no_spexare_exist: "There are no spexers"
       new_spexare: "Create spexer"
+      last_name_notice: "Hint: When changing last name, write the old one in the comments field"
       social_security_number_notice: "Encrypted storage to ensure integrity"
       picture_format_notice:  "Allowed formats are GIF, JPG and PNG"
       picture_size_notice:  "Maximum allowed size is {{max_size}} Kb"

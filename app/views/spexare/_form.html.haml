@@ -10,6 +10,8 @@
       = f.label :last_name, t('activerecord.attributes.spexare.last_name')
       %span.required= t 'views.base.mandatory_attribute'
       %br>
+      %small= t 'views.spexare.last_name_notice'
+      %br>
       = f.error_message_on :last_name
       = f.text_field :last_name, :class => 'fullwidth'
   %br.clear
