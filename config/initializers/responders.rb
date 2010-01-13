@@ -1,3 +1,5 @@
+require 'inherited_resources/responder'
+
 Responders::FlashResponder.flash_keys = [ :success, :failure ]
 
 class InheritedResources::Responder
