@@ -88,7 +88,7 @@ upp produktionsmiljön. Dessa kommandon kräver att utvecklingsmiljön är *nix-
 
 (21) Importera data från gamla spexregistret. Se nedan för instruktioner.
 
-(22) Lägg till följande i '/usr/local/apache2/conf/extra/httpd-vhosts.conf' (se till att den filen inkluderas i '/usr/local/apache2/conf/httpd.conf'):
+(22) Lägg till följande i Apache-konfigurationen
      <VirtualHost *:80>
          <Directory /home/users/register/current/public>
             Options FollowSymLinks
@@ -98,7 +98,7 @@ upp produktionsmiljön. Dessa kommandon kräver att utvecklingsmiljön är *nix-
          </Directory>
 
          DocumentRoot /home/users/register/current/public
-         ServerName register.chalmersspexet.se
+         ServerName register.fgv.nu
 
          PassengerPoolIdleTime 0
 
@@ -121,10 +121,6 @@ upp produktionsmiljön. Dessa kommandon kräver att utvecklingsmiljön är *nix-
          FileETag None
 
          RewriteEngine On
-
-         # Rewrite from www.register.chalmersspexet.se to register.chalmersspexet.se
-         RewriteCond %{HTTP_HOST} ^w+\.register\.chalmersspexet\.se
-         RewriteRule /?(.*) http://register.chalmersspexet.se/$1 [R=301,L]
 
          # Check for maintenance file and redirect all requests
          RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f
@@ -150,30 +146,20 @@ upp produktionsmiljön. Dessa kommandon kräver att utvecklingsmiljön är *nix-
 (27) Skapa en cron trigger så att följande exekveras varannan minut (ändra /full/path/to så att den pekar till ruby är installerad respektive registret):
      /full/path/to/ruby /full/path/to/script/runner 'MailQueue.process' -e production
 
-(28) För att rotera logfiler, lägg till följande i '/etc/logrotate.conf' (ändra /full/path/to så att den pekar till dit applikationen är installerad):
+(28) Konfigurera så att en syslog för "register" hamnar i /var/log/register/production.log.
 
-  - # Rails logs:
-     /full/path/to/log/production.log {
-     daily
-     missingok
-     rotate 14
-     compress
-     delaycompress
-     notifempty
-     copytruncate
-     create 0644 register register
-   }
-   
-(29) Skapa ett bibliotek 'db_backup' i produktionsmiljön, direkt i användarens home (tex /home/users/register/db_backup).
+(29) Rotera följande loggfiler: /var/log/register/httpd-error.log, /var/log/register/httpd-access.log och /var/log/register/production.log.
 
-(30) Ladda ner automysqlbackup.sh från http://sourceforge.net/projects/automysqlbackup/ och lägg i 'db_backup'.
+(30) Skapa ett bibliotek 'db_backup' i produktionsmiljön, direkt i användarens home (tex /home/users/register/db_backup).
 
-(31) Uppdatera automysqlbackup.sh med relevant data, tex emailadress. Glöm inte att mutt måste vara installerat.
+(31) Ladda ner automysqlbackup.sh från http://sourceforge.net/projects/automysqlbackup/ och lägg i 'db_backup'.
 
-(32) Skapa en cron trigger så att följande exekveras dagligen, tex kl 04:00 (ändra /full/path/to så att den pekar till dit automysqlbackup.sh är installerad):
+(32) Uppdatera automysqlbackup.sh med relevant data, tex emailadress. Glöm inte att mutt måste vara installerat.
+
+(33) Skapa en cron trigger så att följande exekveras dagligen, tex kl 04:00 (ändra /full/path/to så att den pekar till dit automysqlbackup.sh är installerad):
      /full/path/to/automysqlbackup.sh
 
-(33) Klart!
+(34) Klart!
 
 === Utvecklingsmiljö
 
@@ -220,6 +206,11 @@ Inga.
 
 == Förslag till framtida förbättringar
 
+- Export av spexare
+  - Adressetiketter
+  - Plutonslista
+- Avancerad sökning
+- Layoutproblem med IE6/7
 - Lägg till funktionstester
 - Lägg till integrationstester
 - Hålla koll på misslyckade inloggningar, dvs efter tre felaktiga lösenord så låses kontot
@@ -246,4 +237,4 @@ Inga.
 
 == Copyright/upphovsrätt
 
-Copyright (c) 2009 Chalmersspexet
+Copyright (c) 2010 Chalmersspexet
