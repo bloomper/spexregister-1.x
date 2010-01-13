@@ -28,3 +28,6 @@ config.action_view.cache_template_loading            = true
 # config.threadsafe!
 
 IMAGE_MAGICK_PATH = "/usr/local/bin"
+
+require 'syslog_logger'
+config.logger = SyslogLogger.new(program_name = 'register')

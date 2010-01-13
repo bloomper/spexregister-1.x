@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 216cc244dc5421af20ae18470abed578506d265c
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/cpowell/sysloglogger.git
