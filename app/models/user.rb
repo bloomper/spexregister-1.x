@@ -92,7 +92,7 @@ class User < ActiveRecord::Base
   # Authlogic validates username, password and password_confirmation
   validates_presence_of :user_groups
   validates_as_email_address :username
-  validates_presence_of :spexare
+  validates_presence_of :spexare, :unless => Proc.new { |u| u.pending? }
   validates_uniqueness_of :spexare_id, :allow_nil => true
 
 end
