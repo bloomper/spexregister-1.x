@@ -11,15 +11,13 @@
     %br>
     = f.error_message_on :spex_category
     = f.select :spex_category_id, get_available_spex_categories
-    :javascript
-      jQuery.populateYearsFromSpexCategory(jQuery('#spex_spex_category_id').val(), 'spex_year')
     = observe_field 'spex_spex_category_id', :function => "jQuery.populateYearsFromSpexCategory(value, 'spex_year')"
   - f.field_container :year do
     = f.label :year, t('activerecord.attributes.spex.year')
     %span.required= t 'views.base.mandatory_attribute'
     %br>
     = f.error_message_on :year
-    = f.select :year, [], { :disabled => true }
+    = f.select :year, []
   - f.field_container :poster do
     = f.label :poster, t('activerecord.attributes.spex.poster')
     - if @spex.poster?
@@ -38,4 +36,6 @@
     = f.label :is_revival, t('activerecord.attributes.spex.is_revival')
     = f.error_message_on :is_revival
     = f.check_box :is_revival
+  :javascript
+    jQuery.populateYearsFromSpexCategory(jQuery('#spex_spex_category_id').val(), 'spex_year')
     
