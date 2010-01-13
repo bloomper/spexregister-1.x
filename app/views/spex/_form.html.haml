@@ -17,7 +17,7 @@
     %span.required= t 'views.base.mandatory_attribute'
     %br>
     = f.error_message_on :year
-    - if f.object.new_record?
+    - if f.object.nil? || f.object.new_record?
       = f.select :year, [], { :disabled => true }
       :javascript
         jQuery.populateYearsFromSpexCategory(jQuery('#spex_spex_category_id').val(), 'spex_year')
