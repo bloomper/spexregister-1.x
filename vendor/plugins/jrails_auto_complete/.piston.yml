@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 8c273f4c15d71c1638f48e8e87edb15b02e435fc
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/bloomper/jrails_auto_complete.git

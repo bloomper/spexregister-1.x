@@ -31,6 +31,8 @@
             tokens: [],
             frequency: 0.4,
             minChars: 1,
+            multiple: false,
+            multipleSeparator: ' ',
             onShow: function(element, update) {
                 if (!update.style.position || update.style.position == 'absolute') {
                     var position = $(element).position();
@@ -249,7 +251,16 @@
         getUpdatedChoices: function() {
             this.startIndicator();
 
-            var autocomplete = this, entry = encodeURIComponent(this.options.paramName) + '=' + encodeURIComponent(this.getToken());
+            var autocomplete = this;
+            if (this.options.multiple) {
+              var entry = '';
+              var paramName = this.options.paramName;
+              $.each(this.getToken().split(this.options.multipleSeparator), function() {
+            	  entry += encodeURIComponent(paramName) + '=' + encodeURIComponent(this) + '&';
+              });
+            } else {
+              var entry = encodeURIComponent(this.options.paramName) + '=' + encodeURIComponent(this.getToken());
+            }
             this.options.data = this.options.callback ? this.options.callback(this.element, entry) : entry;
 
             if (this.options.defaultParams) this.options.data += '&' + this.options.defaultParams;
