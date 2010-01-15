@@ -4,7 +4,7 @@ TODO
 Short-term
 ----------
 
-1 [Colgate, Patrik] SSL, hur går det med certifikatet?
+1 [Colgate, Patrik] SSL certifikat
 2 [Patrik] Minne?
 3 [Patrik] Backup av databasen, filer som skall göras backup på kommer att hamna under /home/users/register/db_backup/daily, /home/users/register/db_backup/weekly och /home/users/register/db_backup/monthly. OCH backup av bilder som kommer att ligga under /home/users/register/shared/system/pictures, /home/users/register/shared/system/logos och /home/users/register/shared/system/posters.
 4 [Klart] [Patrik] Mailadress för administratör
@@ -23,25 +23,12 @@ Short-term
 - Check if SyslogLogger works
   - remove old production.log
 
-- Autocomplete does not work for last name
-  - The culprit: [first_name_like_or_last_name_like_any]
-
 - Cron triggers
   - "script/runner 'MailQueue.process' -e production"
     # Spexregister
     */2       *       *       *       *       root   /usr/local/bin/ruby /home/users/register/current/script/runner 'MailQueue.process' -e production
     Every 5 minutes perhaps?
   - MySQL backup
-
-- Test different browsers
-  - IE 7
-    - entity index pages look crap
-      - sidebar is too wide
-        - caused by #content &.with-sidebar +column(23)
-  - IE 6
-    - PNG transparency
-    - entity index pages look crap
-      - sidebar is misplaced
 
 - Backup
   - Database
@@ -59,6 +46,18 @@ Short-term
       RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301]
   - Update documentation when SSL certificate is available (step 22)
 
+- BRANCH TRUNK to 1.0-maintenance
+
+- IE problems
+  - IE 7
+    - entity index pages look crap
+      - sidebar is too wide
+        - caused by #content &.with-sidebar +column(23)
+  - IE 6
+    - PNG transparency
+    - entity index pages look crap
+      - sidebar is misplaced
+
 - Export
   - http://github.com/purzelrakete/workling
   - http://www.therailsway.com/2009/7/22/do-it-later-with-delayed-job
@@ -66,8 +65,6 @@ Short-term
   - http://github.com/jfiorato/growl4rails
   - http://webtoolkit4.me/2009/08/13/jquery-growl-likenotification-systems/
   - Skip mail batch functionality?
-
-- Reporting
   - http://github.com/gunark/jasperserver-client
 
 - Advanced search
@@ -80,13 +77,14 @@ Short-term
     - Cucumber?
     - etc
 
-- Update jQuery Fancybox JS library
-
-- Update Lockdown
-
-- Fix according to these issues when released:
-  - https://rails.lighthouseapp.com/projects/8994/tickets/2501
-  - https://rails.lighthouseapp.com/projects/8994/tickets/2365
+- Updates
+  - Rails 2.3.6?
+    - https://rails.lighthouseapp.com/projects/8994/tickets/2501
+    - https://rails.lighthouseapp.com/projects/8994/tickets/2365
+  - jQuery Fancybox JS library
+  - Lockdown
+  - Other plugins?
+  - Other JS plugins?
 
 - Upload code to github or bojan (svn+ssh)
   - Update deploy.rb accordingly
