@@ -11,8 +11,8 @@ Short-term
 5 [Borttagen] Se till att register.chalmersspexet.se (eller register.bojan.spexet.chalmers.se) kommer in i lämplig DNS
 6 [Klart] [Colgate] Kolla/fixa uppladdning av bilder
 7 [Klart] [Colgate] Skriva hjälptexter
-8 [Colgate] Diverse cron jobs för lite underhåll
-9 [Colgate] Diverse logrotationer
+8 [Klart] [Colgate] Diverse cron jobs för lite underhåll
+9 [Klart] [Colgate] Diverse logrotationer
 10 [Klart] [Colgate] Importera gamla registret
 11 [Klart] [Colgate] Importera spexaffischer
 12 [Klart] [Colgate] Importera Vera/Bob logos
@@ -20,15 +20,10 @@ Short-term
 14 [Philip, Colgate] Lägga in sista omgången med ändringar från det gamla registret OCH sedan frysa det (vad är bästa sätt?)
 15 [Klart] [Colgate] Ta bort user@chalmersspexet.se och admin@chalmersspexet.se som användare
 
-- Check if SyslogLogger works
-  - remove old production.log
-
-- Cron triggers
-  - "script/runner 'MailQueue.process' -e production"
-    # Spexregister
-    */2       *       *       *       *       root   /usr/local/bin/ruby /home/users/register/current/script/runner 'MailQueue.process' -e production
-    Every 5 minutes perhaps?
-  - MySQL backup
+- SSL
+  - Add rewrite filter
+    - RewriteCond %{HTTPS} !On
+      RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301]
 
 - Backup
   - Database
@@ -39,12 +34,6 @@ Short-term
     - /home/users/register/shared/public/system/logos
     - /home/users/register/shared/public/system/pictures
     - /home/users/register/shared/public/system/posters
-
-- SSL
-  - Add rewrite filter
-    - RewriteCond %{HTTPS} !On
-      RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301]
-  - Update documentation when SSL certificate is available (step 22)
 
 - BRANCH TRUNK to 1.0-maintenance
 

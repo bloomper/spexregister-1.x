@@ -88,8 +88,8 @@ upp produktionsmiljön. Dessa kommandon kräver att utvecklingsmiljön är *nix-
 
 (21) Importera data från gamla spexregistret. Se nedan för instruktioner.
 
-(22) Lägg till följande i Apache-konfigurationen
-     <VirtualHost *:80>
+(22) Lägg till följande i Apache-konfigurationen (byt eventuellt ut IP-adress, sökvägar etc)
+     <VirtualHost 129.16.39.147:443>
          <Directory /home/users/register/current/public>
             Options FollowSymLinks
             AllowOverride None
@@ -104,6 +104,14 @@ upp produktionsmiljön. Dessa kommandon kräver att utvecklingsmiljön är *nix-
 
          ErrorLog /var/log/register/httpd-error.log
          CustomLog /var/log/register/httpd-access.log combined
+
+         SSLEngine on
+         SSLCipherSuite ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP:+eNULL
+         SSLCertificateFile /usr/local/etc/certs/register.fgv.nu.crt
+         SSLCertificateKeyFile /usr/local/etc/certs/register.fgv.nu.key
+         SSLCertificateChainFile /usr/local/etc/certs/register.fgv.nu.crt
+         BrowserMatch ".*MSIE.*" nokeepalive ssl-unclean-shutdown downgrade-1.0 force-response-1.0
+         CustomLog /var/log/register/ssl-access.log "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
 
          # Gzip/Deflate
          # http://fluxura.com/2006/5/19/apache-for-static-and-mongrel-for-rails-with-mod_deflate-and-capistrano-support
@@ -143,12 +151,12 @@ upp produktionsmiljön. Dessa kommandon kräver att utvecklingsmiljön är *nix-
 (26) Skapa en cron trigger så att följande exekveras dagligen:
      rake RAILS_ENV=production spexregister:refresh_cached_content
 
-(27) Skapa en cron trigger så att följande exekveras varannan minut (ändra /full/path/to så att den pekar till ruby är installerad respektive registret):
+(27) Skapa en cron trigger så att följande exekveras var 10:e minut (ändra /full/path/to så att den pekar till ruby är installerad respektive registret):
      /full/path/to/ruby /full/path/to/script/runner 'MailQueue.process' -e production
 
 (28) Konfigurera så att en syslog för "register" hamnar i /var/log/register/production.log.
 
-(29) Rotera följande loggfiler: /var/log/register/httpd-error.log, /var/log/register/httpd-access.log och /var/log/register/production.log.
+(29) Rotera följande loggfiler: /var/log/register/httpd-error.log, /var/log/register/httpd-access.log, /var/log/register/ssl-access.log och /var/log/register/production.log.
 
 (30) Skapa ett bibliotek 'db_backup' i produktionsmiljön, direkt i användarens home (tex /home/users/register/db_backup).
 
