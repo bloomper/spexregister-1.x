@@ -88,8 +88,8 @@ upp produktionsmiljön. Dessa kommandon kräver att utvecklingsmiljön är *nix-
 
 (21) Importera data från gamla spexregistret. Se nedan för instruktioner.
 
-(22) Lägg till följande i Apache-konfigurationen (byt eventuellt ut IP-adress, sökvägar etc)
-     <VirtualHost 129.16.39.147:443>
+(22) Lägg till följande i Apache-konfigurationen (byt eventuellt ut sökvägar etc)
+     <VirtualHost *:443 *:80>
          <Directory /home/users/register/current/public>
             Options FollowSymLinks
             AllowOverride None
@@ -139,6 +139,9 @@ upp produktionsmiljön. Dessa kommandon kräver att utvecklingsmiljön är *nix-
          RewriteCond %{REQUEST_METHOD} !^POST$
          RewriteCond /home/users/register/current/tmp/cache/static$1/index.html -f
          RewriteRule ^(.*)$ /home/users/register/current/tmp/cache/static$1/index.html [L]
+
+         RewriteCond %{HTTPS} off
+         RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
      </VirtualHost>
 
 (23) Starta om Apache via 'sudo /etc/init.d/apache2ctl restart'.
