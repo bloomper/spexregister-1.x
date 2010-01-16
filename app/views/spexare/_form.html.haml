@@ -93,10 +93,11 @@
       = f.label :chalmers_student, t('activerecord.attributes.spexare.chalmers_student')
       = f.error_message_on :chalmers_student
       = f.check_box :chalmers_student
-    - f.field_container :deceased do
-      = f.label :deceased, t('activerecord.attributes.spexare.deceased')
-      = f.error_message_on :deceased
-      = f.check_box :deceased
+    - if current_user_is_admin?
+      - f.field_container :deceased do
+        = f.label :deceased, t('activerecord.attributes.spexare.deceased')
+        = f.error_message_on :deceased
+        = f.check_box :deceased
     - f.field_container :publish_approval do
       = f.label :publish_approval, t('activerecord.attributes.spexare.publish_approval')
       = f.error_message_on :publish_approval
