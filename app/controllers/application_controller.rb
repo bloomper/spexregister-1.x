@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   include ExceptionNotifiable
   helper :all # include all helpers, all the time
-  helper_method :current_user_session, :current_user, :logged_in?, :current_user_is_admin?
+  helper_method :current_user_session, :current_user, :logged_in?, :current_user_is_admin?, :current_protocol
   
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
@@ -81,4 +81,9 @@ class ApplicationController < ActionController::Base
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end
+  
+  def current_protocol
+    return request.ssl? ? 'https://' : 'http://'
+  end
+
 end
