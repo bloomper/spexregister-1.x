@@ -5,8 +5,6 @@ Short-term
 ----------
 
 1 [Klart] [Colgate, Patrik] SSL certifikat
-2 [Patrik] Minne?
-3 [Patrik] Backup av databasen, filer som skall göras backup på kommer att hamna under /home/users/register/db_backup/daily, /home/users/register/db_backup/weekly och /home/users/register/db_backup/monthly. OCH backup av bilder som kommer att ligga under /home/users/register/shared/system/pictures, /home/users/register/shared/system/logos och /home/users/register/shared/system/posters.
 4 [Klart] [Patrik] Mailadress för administratör
 5 [Borttagen] Se till att register.chalmersspexet.se (eller register.bojan.spexet.chalmers.se) kommer in i lämplig DNS
 6 [Klart] [Colgate] Kolla/fixa uppladdning av bilder
@@ -16,9 +14,12 @@ Short-term
 10 [Klart] [Colgate] Importera gamla registret
 11 [Klart] [Colgate] Importera spexaffischer
 12 [Klart] [Colgate] Importera Vera/Bob logos
+15 [Klart] [Colgate] Ta bort user@chalmersspexet.se och admin@chalmersspexet.se som användare
+
+2 [Patrik] Minne?
+3 [Patrik] Backup av databasen, filer som skall göras backup på kommer att hamna under /home/users/register/db_backup/daily, /home/users/register/db_backup/weekly och /home/users/register/db_backup/monthly. OCH backup av bilder som kommer att ligga under /home/users/register/shared/system/pictures, /home/users/register/shared/system/logos och /home/users/register/shared/system/posters.
 13 [Philip, Colgate] Lägga in lite nyheter i systemet
 14 [Philip, Colgate] Lägga in sista omgången med ändringar från det gamla registret OCH sedan frysa det (vad är bästa sätt?)
-15 [Klart] [Colgate] Ta bort user@chalmersspexet.se och admin@chalmersspexet.se som användare
 
 - Backup
   - Database
@@ -43,16 +44,21 @@ Short-term
       - sidebar is misplaced
 
 - Export
-  - http://github.com/purzelrakete/workling
-  - http://www.therailsway.com/2009/7/22/do-it-later-with-delayed-job
-  - http://codeforpeople.rubyforge.org/svn/bj/trunk/README
-  - http://github.com/jfiorato/growl4rails
-  - http://webtoolkit4.me/2009/08/13/jquery-growl-likenotification-systems/
-  - Skip mail batch functionality?
+  - Decision: delayed_job (http://github.com/tobi/delayed_job)
+  - 'My jobs/reports' under 'Home'
+    - Show user's jobs (reports only at this time)
+    - Automatic cleanup
+    - Growl to indicate finished job
+      - http://github.com/jfiorato/growl4rails
+      - http://webtoolkit4.me/2009/08/13/jquery-growl-likenotification-systems/
+  - Skip mail batch functionality
   - http://github.com/gunark/jasperserver-client
 
 - Advanced search
   - Needs monitoring (monit, munin)?
+  - Use background job for updating index?
+
+- Replace mail_queue with delayed_job?
 
 - Tests
   - Replace fixtures with factories (Factory Girl)?
