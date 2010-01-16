@@ -113,7 +113,7 @@
         %br>
         %small= t 'views.spexare.current_picture'
         %br>
-        = link_to(image_tag(@spexare.picture.url(:thumb)), @spexare.picture.url, :class => 'fancybox-single')
+        = link_to_open(image_tag(@spexare.picture.url(:thumb)), @spexare.picture.url, :class => 'fancybox-single')
       %br>
       %small= t 'views.spexare.picture_format_notice'
       %br>
