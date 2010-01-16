@@ -4,7 +4,7 @@ TODO
 Short-term
 ----------
 
-1 [Colgate, Patrik] SSL certifikat
+1 [Klart] [Colgate, Patrik] SSL certifikat
 2 [Patrik] Minne?
 3 [Patrik] Backup av databasen, filer som skall göras backup på kommer att hamna under /home/users/register/db_backup/daily, /home/users/register/db_backup/weekly och /home/users/register/db_backup/monthly. OCH backup av bilder som kommer att ligga under /home/users/register/shared/system/pictures, /home/users/register/shared/system/logos och /home/users/register/shared/system/posters.
 4 [Klart] [Patrik] Mailadress för administratör
@@ -16,14 +16,9 @@ Short-term
 10 [Klart] [Colgate] Importera gamla registret
 11 [Klart] [Colgate] Importera spexaffischer
 12 [Klart] [Colgate] Importera Vera/Bob logos
-13 [Colgate] Lägga in lite nyheter i systemet
+13 [Philip, Colgate] Lägga in lite nyheter i systemet
 14 [Philip, Colgate] Lägga in sista omgången med ändringar från det gamla registret OCH sedan frysa det (vad är bästa sätt?)
 15 [Klart] [Colgate] Ta bort user@chalmersspexet.se och admin@chalmersspexet.se som användare
-
-- SSL
-  - Add rewrite filter
-    - RewriteCond %{HTTPS} !On
-      RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301]
 
 - Backup
   - Database
