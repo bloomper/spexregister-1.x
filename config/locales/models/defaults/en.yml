@@ -28,7 +28,7 @@
         spexare_source: "Spexer"
         spexare_target: "Spexer"
       function:
-        name: "Name"
+        name: "Position"
         function_category: "Category"
       function_category:
         name: "Name"

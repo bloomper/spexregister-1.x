@@ -28,7 +28,7 @@
         spexare_source: "Spexare"
         spexare_target: "Spexare"
       function:
-        name: "Namn"
+        name: "Post"
         function_category: "Kategori"
       function_category:
         name: "Namn"
