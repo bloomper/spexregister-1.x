@@ -1,9 +1,6 @@
 TODO
 ----
 
-Short-term
-----------
-
 1 [Klart] [Colgate, Patrik] SSL certifikat
 4 [Klart] [Patrik] Mailadress för administratör
 5 [Borttagen] Se till att register.chalmersspexet.se (eller register.bojan.spexet.chalmers.se) kommer in i lämplig DNS
@@ -30,51 +27,3 @@ Short-term
     - /home/users/register/shared/public/system/logos
     - /home/users/register/shared/public/system/pictures
     - /home/users/register/shared/public/system/posters
-
-- BRANCH TRUNK to 1.0-maintenance
-
-- IE problems
-  - IE 7
-    - entity index pages look crap
-      - sidebar is too wide
-        - caused by #content &.with-sidebar +column(23)
-  - IE 6
-    - PNG transparency
-    - entity index pages look crap
-      - sidebar is misplaced
-
-- Export
-  - Decision: delayed_job (http://github.com/tobi/delayed_job)
-  - 'My jobs/reports' under 'Home'
-    - Show user's jobs (reports only at this time)
-    - Automatic cleanup
-    - Growl to indicate finished job
-      - http://github.com/jfiorato/growl4rails
-      - http://webtoolkit4.me/2009/08/13/jquery-growl-likenotification-systems/
-  - Skip mail batch functionality
-  - http://github.com/gunark/jasperserver-client
-
-- Advanced search
-  - Needs monitoring (monit, munin)?
-  - Use background job for updating index?
-
-- Replace mail_queue with delayed_job?
-
-- Tests
-  - Replace fixtures with factories (Factory Girl)?
-  - Functional
-    - RSpec?
-    - Cucumber?
-    - etc
-
-- Updates
-  - Rails 2.3.6?
-    - https://rails.lighthouseapp.com/projects/8994/tickets/2501
-    - https://rails.lighthouseapp.com/projects/8994/tickets/2365
-  - jQuery Fancybox JS library
-  - Lockdown
-  - Other plugins?
-  - Other JS plugins?
-
-- Upload code to github or bojan (svn+ssh)
-  - Update deploy.rb accordingly
