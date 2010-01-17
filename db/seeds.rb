@@ -120,7 +120,7 @@ chalmers_spex_category = SpexCategory.find_by_name('Chalmersspexet')
 # Spex
 Spex.create :year => '1948', :title => 'Bojan', :spex_category => chalmers_spex_category
 Spex.create :year => '1949', :title => 'Erik XIV', :spex_category => chalmers_spex_category
-Spex.create :year => '1950', :title => 'Ceasarion', :spex_category => chalmers_spex_category
+Spex.create :year => '1950', :title => 'Caesarion', :spex_category => chalmers_spex_category
 Spex.create :year => '1951', :title => 'Scheherazade', :spex_category => chalmers_spex_category
 Spex.create :year => '1952', :title => 'Anna', :spex_category => chalmers_spex_category
 Spex.create :year => '1953', :title => 'Ceasarion', :spex_category => chalmers_spex_category
