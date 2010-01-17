@@ -1,8 +1,9 @@
 class SpexareController < ApplicationController
   inherit_resources
-  respond_to :html, :except => :destroy
-  respond_to :js, :only => [:index, :destroy]
+  respond_to :html, :except => [:destroy, :destroy_picture]
+  respond_to :js, :only => [:index, :destroy, :destroy_picture]
   defaults :collection_name => 'spexare_items', :route_collection_name => 'spexare_index'
+  before_filter :resource, :only => [:destroy_picture]
 
   def new
     new! do |format|
@@ -22,6 +23,15 @@ class SpexareController < ApplicationController
     end
   end
   
+  def destroy_picture
+    @spexare.picture = nil
+    if @spexare.save
+      flash.now[:success] = I18n.t('flash.spexare.destroy_picture.success')
+    else
+      flash.now[:failure] = I18n.t('flash.spexare.destroy_picture.failure')
+    end
+  end
+
   protected
   def resource
     @spexare ||= end_of_association_chain.find_by_id(params[:id])

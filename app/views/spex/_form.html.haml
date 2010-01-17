@@ -23,13 +23,16 @@
         jQuery.populateYearsFromSpexCategory(jQuery('#spex_spex_category_id').val(), 'spex_year')
     - else
       = f.select :year, get_specific_spex_category_years(f.object.spex_category.id)
-  - f.field_container :poster do
-    = f.label :poster, t('activerecord.attributes.spex.poster')
-    - if @spex.poster?
-      %br>
-      %small= t 'views.spex.current_poster'
+  - if @spex.poster?
+    #current-poster
+      = label_tag 'existing_poster', t('views.spex.current_poster')
       %br>
       = link_to(image_tag(@spex.poster.url(:thumb)), @spex.poster.url, :class => 'fancybox-single')
+      %br>
+      = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => destroy_poster_spex_url(@spex), :method => :get, :before => '', :success => "jQuery('#current-poster').remove(); jQuery('#current-poster-separator').remove();" }
+    %br#current-poster-separator>
+  - f.field_container :poster do
+    = f.label :poster, t('activerecord.attributes.spex.poster')
     %br>
     %small= t 'views.spex.poster_format_notice'
     %br>

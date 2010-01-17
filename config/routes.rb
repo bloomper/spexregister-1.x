@@ -16,15 +16,15 @@ ActionController::Routing::Routes.draw do |map|
   map.about '/about', :controller => 'help', :action => 'about'
 
   # Restful routes
-  map.resources :spex_categories
-  map.resources :spex
+  map.resources :spex_categories, :member => { :destroy_logo => :get }
+  map.resources :spex, :member => { :destroy_poster => :get }
   map.resources :function_categories
   map.resources :functions
   map.resources :news
   map.resources :users, :member => { :approve => :put, :activate => :put, :deactivate => :put, :reject => :put } do |user|
     user.resources :user_groups, :only => [:index], :member => { :select => :get, :remove => :get}, :collection => { :available => :get, :selected => :get }
   end
-  map.resources :spexare do |spexare|
+  map.resources :spexare, :member => { :destroy_picture => :get } do |spexare|
     spexare.resource :relationship, :except => [:update]
     spexare.resources :memberships, :except => [:show, :edit, :update], :collection => { :selected => :get }
     spexare.resources :activities, :collection => { :selected => :get }

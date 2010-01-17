@@ -40,6 +40,9 @@
       destroy:
         success: "Spexet har raderats"
         failure: "Spexet kunde inte raderas"
+      destroy_poster:
+        success: "Affischen har raderats"
+        failure: "Affischen kunde inte raderas"
     spex_categories:
       create:
         success: "Kategorin har skapats"
@@ -50,6 +53,9 @@
       destroy:
         success: "Kategorin har raderats"
         failure: "Kategorin kunde inte raderas"
+      destroy_logo:
+        success: "Loggan har raderats"
+        failure: "Loggan kunde inte raderas"
     spexare:
       create:
         success: "Spexaren har skapats"
@@ -60,6 +66,9 @@
       destroy:
         success: "Spexaren har raderats"
         failure: "Spexaren kunde inte raderas"
+      destroy_picture:
+        success: "Bilden har raderats"
+        failure: "Bilden kunde inte raderas"
     users:
       create:
         success: "Användaren har skapats"

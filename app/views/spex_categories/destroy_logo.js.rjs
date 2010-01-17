@@ -1,0 +1,1 @@
+page.replace 'flash', :partial => 'shared/flashes'

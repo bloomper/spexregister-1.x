@@ -1,9 +1,10 @@
 class SpexController < ApplicationController
   inherit_resources
-  respond_to :html, :except => :destroy
-  respond_to :js, :only => :destroy
+  respond_to :html, :except => [:destroy, :destroy_poster]
+  respond_to :js, :only => [:destroy, :destroy_poster]
   respond_to :json, :only => :index
   defaults :collection_name => 'spex_items', :route_collection_name => 'spex_index'
+  before_filter :resource, :only => [:destroy_poster]
 
   def new
     new! do |format|
@@ -32,6 +33,15 @@ class SpexController < ApplicationController
   def destroy
     destroy! do |success, failure|
       failure.js { render :status => 409 }
+    end
+  end
+
+  def destroy_poster
+    @spex.poster = nil
+    if @spex.save
+      flash.now[:success] = I18n.t('flash.spex.destroy_poster.success')
+    else
+      flash.now[:failure] = I18n.t('flash.spex.destroy_poster.failure')
     end
   end
 
