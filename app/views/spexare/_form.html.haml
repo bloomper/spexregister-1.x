@@ -40,7 +40,7 @@
       = f.label :country, t('activerecord.attributes.spexare.country')
       %br>
       = f.error_message_on :country
-      = f.localized_country_select :country, [" "]
+      = f.localized_country_select :country, [" ", :SE]
     - f.field_container :uncertain_address do
       = f.label :uncertain_address, t('activerecord.attributes.spexare.uncertain_address')
       = f.error_message_on :uncertain_address
