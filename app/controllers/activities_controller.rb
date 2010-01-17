@@ -1,8 +1,8 @@
 class ActivitiesController < ApplicationController
   inherit_resources
   actions :all
-  respond_to :html, :except => [:create, :update, :show]
-  respond_to :js, :only => [:create, :update, :show]
+  respond_to :html, :except => [:show]
+  respond_to :js, :only => [:show]
   belongs_to :spexare
   before_filter :resource, :only => [:selected]
 
@@ -15,8 +15,7 @@ class ActivitiesController < ApplicationController
 
   def create
     create! do
-      @activities = @spexare.activities.by_spex_year.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
-      flash.discard
+      selected_spexare_activities_url(@spexare)
     end
   end
 
@@ -29,8 +28,7 @@ class ActivitiesController < ApplicationController
 
   def update
     update! do
-      @activities = @spexare.activities.by_spex_year.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
-      flash.discard
+      selected_spexare_activities_url(@spexare)
     end
   end
 
@@ -39,10 +37,8 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    destroy! do |format|
-      @activities = @spexare.activities.by_spex_year.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
-      flash.discard
-      format.html { render :action => 'selected', :layout => false }
+    destroy! do
+      selected_spexare_activities_url(@spexare)
     end
   end
 
