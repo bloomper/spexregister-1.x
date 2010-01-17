@@ -1,4 +1,0 @@
-page.replace 'edit-activities', :partial => 'selected'
-if flash.has_key?(:error)
-  page.replace 'flash', :partial => 'shared/flashes'
-end  

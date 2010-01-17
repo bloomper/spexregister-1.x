@@ -3,7 +3,7 @@
 - if @available_activities.empty?
   %p= t 'views.activity.no_available_activities_exist', :spex_category_name => get_spex_category_name(params[:spex_category_id])
 - else
-  - form_remote_for @activity, :url => spexare_activities_path(@spexare), :complete => evaluate_remote_response(), :html => { :method => :post } do |f|
+  - form_for @activity, :url => spexare_activities_path(@spexare), :html => { :method => :post } do |f|
     %fieldset
       = render :partial => 'form', :locals => { :f => f }
       = render :partial => '/shared/add_resource_links', :locals => { :url => selected_spexare_activities_url(@spexare) }

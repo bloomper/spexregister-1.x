@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   rescue_from ActionController::RoutingError, :with => :page_not_found
   rescue_from ActionController::InvalidAuthenticityToken, :with => :internal_error
+  rescue_from WillPaginate::InvalidPage, :with => :page_not_found
 
   before_filter :set_locale
   before_filter :check_session
