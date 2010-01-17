@@ -2,7 +2,7 @@
   views:
     spex:
       index_title: "{{action}} spex"
-      page_title: "{{action}} spex"
+      page_title: "{{action}} spex '{{description}}'"
       no_spex_exist: "There are no spex"
       new_spex: "Create spex"
       poster_format_notice:  "Allowed formats are GIF, JPG and PNG"

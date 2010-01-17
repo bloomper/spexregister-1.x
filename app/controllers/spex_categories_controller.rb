@@ -1,9 +1,10 @@
 class SpexCategoriesController < ApplicationController
   inherit_resources
-  respond_to :html, :except => :destroy
-  respond_to :js, :only => :destroy
+  respond_to :html, :except => [:destroy, :destroy_logo]
+  respond_to :js, :only => [:destroy, :destroy_logo]
   respond_to :json, :only => :show
-  
+  before_filter :resource, :only => [:destroy_logo]
+
   def new
     new! do |format|
       format.html { render :action => :new, :layout => false }
@@ -34,6 +35,15 @@ class SpexCategoriesController < ApplicationController
     end
   end
   
+  def destroy_logo
+    @spex_category.logo = nil
+    if @spex_category.save
+      flash.now[:success] = I18n.t('flash.spex_categories.destroy_logo.success')
+    else
+      flash.now[:failure] = I18n.t('flash.spex_categories.destroy_logo.failure')
+    end
+  end
+
   protected
   def resource
     @spex_category ||= end_of_association_chain.find_by_id(params[:id])

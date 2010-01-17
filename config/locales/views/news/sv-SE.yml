@@ -2,7 +2,7 @@
   views:
     news:
       index_title: "{{action}} nyheter"
-      page_title: "{{action}} nyhet"
+      page_title: "{{action}} nyhet '{{description}}'"
       no_news_exist: "Det finns inga nyheter"
       new_news: "Skapa nyhet"
       markdown_notice: "Formattera enligt {{markdown_link}}"

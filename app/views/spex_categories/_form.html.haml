@@ -11,13 +11,16 @@
     %br>
     = f.error_message_on :first_year
     = f.select :first_year, get_spex_category_years
-  - f.field_container :logo do
-    = f.label :logo, t('activerecord.attributes.spex_category.logo')
-    - if @spex_category.logo?
-      %br>
-      %small= t 'views.spex_category.current_logo'
+  - if @spex_category.logo?
+    #current-logo
+      = label_tag 'existing_logo', t('views.spex_category.current_logo')
       %br>
       = link_to(image_tag(@spex_category.logo.url(:thumb)), @spex_category.logo.url, :class => 'fancybox-single')
+      %br>
+      = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => destroy_logo_spex_category_url(@spex_category), :method => :get, :before => '', :success => "jQuery('#current-logo').remove(); jQuery('#current-logo-separator').remove();" }
+    %br#current-logo-separator>
+  - f.field_container :logo do
+    = f.label :logo, t('activerecord.attributes.spex_category.logo')
     %br>
     %small= t 'views.spex_category.logo_format_notice'
     %br>

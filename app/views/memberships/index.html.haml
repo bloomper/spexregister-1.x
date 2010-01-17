@@ -1,6 +1,6 @@
 = render :partial => 'sub_menu'
 
-= render :partial => 'tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :current_tab => "#{params[:kind_name]}_memberships_tab"}
+= render :partial => 'tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :description => @spexare.full_name, :current_tab => "#{params[:kind_name]}_memberships_tab"}
 
 - if @memberships.empty?
   %p= t 'views.membership.no_associated_memberships', :kind => params[:kind_name].upcase

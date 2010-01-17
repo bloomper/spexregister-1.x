@@ -40,6 +40,9 @@
       destroy:
         success: "The spex has been deleted"
         failure: "The spex could not be deleted"
+      destroy_poster:
+        success: "The poster has been deleted"
+        failure: "The poster could not be deleted"
     spex_categories:
       create:
         success: "The category has been created"
@@ -50,6 +53,9 @@
       destroy:
         success: "The category has been deleted"
         failure: "The category could not be deleted"
+      destroy_logo:
+        success: "The logo has been deleted"
+        failure: "The logo could not be deleted"
     spexare:
       create:
         success: "The spexer has been created"
@@ -60,6 +66,9 @@
       destroy:
         success: "The spexer has been deleted"
         failure: "The spexer could not be deleted"
+      destroy_picture:
+        success: "The picture has been deleted"
+        failure: "The picture could not be deleted"
     users:
       create:
         success: "The user has been created"

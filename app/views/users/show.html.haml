@@ -1,6 +1,6 @@
 = render :partial => 'sub_menu'
 
-= render :partial => 'user_tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :current_tab => 'user_tab'}
+= render :partial => 'tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :description => @user.username, :current_tab => 'user_tab'}
 
 %table.index
   %tr

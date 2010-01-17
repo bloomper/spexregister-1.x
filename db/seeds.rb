@@ -120,7 +120,7 @@ chalmers_spex_category = SpexCategory.find_by_name('Chalmersspexet')
 # Spex
 Spex.create :year => '1948', :title => 'Bojan', :spex_category => chalmers_spex_category
 Spex.create :year => '1949', :title => 'Erik XIV', :spex_category => chalmers_spex_category
-Spex.create :year => '1950', :title => 'Ceasarion', :spex_category => chalmers_spex_category
+Spex.create :year => '1950', :title => 'Caesarion', :spex_category => chalmers_spex_category
 Spex.create :year => '1951', :title => 'Scheherazade', :spex_category => chalmers_spex_category
 Spex.create :year => '1952', :title => 'Anna', :spex_category => chalmers_spex_category
 Spex.create :year => '1953', :title => 'Ceasarion', :spex_category => chalmers_spex_category
@@ -150,7 +150,6 @@ Spex.create :year => '1976', :title => 'Ludvig XIV', :spex_category => chalmers_
 Spex.create :year => '1977', :title => 'Nils Dacke', :spex_category => chalmers_spex_category
 Spex.create :year => '1978', :title => 'Dr Livingstone', :spex_category => chalmers_spex_category
 Spex.create :year => '1979', :title => 'Nero', :spex_category => chalmers_spex_category
-Spex.create :year => '1979', :title => 'Knappt ett Chalmersspex', :spex_category => chalmers_spex_category
 Spex.create :year => '1980', :title => 'Tutankhamon', :spex_category => chalmers_spex_category
 Spex.create :year => '1981', :title => 'Ludwig van Beethoven', :spex_category => chalmers_spex_category
 Spex.create :year => '1982', :title => 'John Ericsson', :spex_category => chalmers_spex_category
@@ -199,6 +198,7 @@ Spex.create :year => '1975', :title => 'Margareta', :is_revival => true, :spex_c
 Spex.create :year => '1976', :title => 'Charles II', :is_revival => true, :spex_category => chalmers_spex_category
 Spex.create :year => '1977', :title => 'Katarina II', :is_revival => true, :spex_category => chalmers_spex_category
 Spex.create :year => '1978', :title => 'Ceasarion', :is_revival => true, :spex_category => chalmers_spex_category
+Spex.create :year => '1979', :title => 'Knappt ett Chalmersspex', :is_revival => true, :spex_category => chalmers_spex_category
 Spex.create :year => '1980', :title => 'George Washington', :is_revival => true, :spex_category => chalmers_spex_category
 Spex.create :year => '1981', :title => 'Don Pedro', :is_revival => true, :spex_category => chalmers_spex_category
 Spex.create :year => '1982', :title => 'Lionardo da Vinci', :is_revival => true, :spex_category => chalmers_spex_category
