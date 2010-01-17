@@ -2,7 +2,7 @@
 
 #edit-activities
 
-  = render :partial => 'tabs', :locals => {:edit_mode => true, :current_action => t('views.base.editing_action'), :current_tab => "activities_tab"}
+  = render :partial => 'tabs', :locals => {:edit_mode => true, :current_action => t('views.base.editing_action'), :description => @spexare.full_name, :current_tab => "activities_tab"}
 
   - if @activities.empty?
     %p= t 'views.activity.no_associated_activities'

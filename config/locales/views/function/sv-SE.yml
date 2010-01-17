@@ -2,6 +2,6 @@
   views:
     function:
       index_title: "{{action}} funktioner"
-      page_title: "{{action}} funktion"
+      page_title: "{{action}} funktion '{{description}}'"
       no_functions_exist: "Det finns inga funktioner"
       new_function: "Skapa funktion"

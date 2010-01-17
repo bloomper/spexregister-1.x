@@ -1,6 +1,6 @@
 = render :partial => 'sub_menu'
 
-= render :partial => '/users/user_tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :current_tab => 'user_groups_tab'}
+= render :partial => 'tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :description => @user.username, :current_tab => 'user_groups_tab'}
 
 - if @user_groups.empty?
   %p= t 'views.user_group.no_associated_user_groups'

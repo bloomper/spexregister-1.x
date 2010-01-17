@@ -2,7 +2,7 @@
   views:
     spex_category:
       index_title: "{{action}} kategorier"
-      page_title: "{{action}} kategori"
+      page_title: "{{action}} kategori '{{description}}'"
       no_spex_categories_exist: "Det finns inga kategorier"
       new_spex_category: "Skapa kategori"
       logo_format_notice:  "Tillåtna format är GIF, JPG och PNG"
