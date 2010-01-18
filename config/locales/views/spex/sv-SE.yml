@@ -2,7 +2,7 @@
   views:
     spex:
       index_title: "{{action}} spex"
-      page_title: "{{action}} spex '{{description}}'"
+      page_title: "{{action}} spex &ldquo;{{description}}&rdquo;"
       no_spex_exist: "Det finns inga spex"
       new_spex: "Skapa spex"
       poster_format_notice:  "Tillåtna format är GIF, JPG och PNG"

@@ -3,7 +3,7 @@
     spexare:
       description_tab_title: "Beskrivning"
       index_title: "{{action}} spexare"
-      page_title: "{{action}} spexare '{{description}}'"
+      page_title: "{{action}} spexare &ldquo;{{description}}&rdquo;"
       no_spexare_exist: "Det finns inga spexare"
       new_spexare: "Skapa spexare"
       last_name_notice: "Tips: Vid byte av efternamn, skriv det gamla i kommentarsfältet"

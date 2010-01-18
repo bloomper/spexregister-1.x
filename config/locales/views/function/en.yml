@@ -2,6 +2,6 @@
   views:
     function:
       index_title: "{{action}} functions"
-      page_title: "{{action}} function '{{description}}'"
+      page_title: "{{action}} function &ldquo;{{description}}&rdquo;"
       no_functions_exist: "There are no functions"
       new_function: "Create function"
