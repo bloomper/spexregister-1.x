@@ -12,13 +12,13 @@ class UsersController < ApplicationController
 
   def create
     create! do |success, failure|
-      success.html { redirect_to users_url }
+      success.html { redirect_to filter_url_if_not_compatible_with(current_page, users_url) }
     end
   end
   
   def update
     update! do |success, failure|
-      success.html { redirect_to users_url }
+      success.html { redirect_back_or_default users_url }
     end
   end
   

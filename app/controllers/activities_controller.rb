@@ -51,6 +51,10 @@ class ActivitiesController < ApplicationController
     @activities ||= end_of_association_chain.by_spex_year.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
   end
 
+  def is_storeable_location?(uri)
+    false
+  end
+
   private 
   def set_available_activities(spex_category, do_not_delete = nil)
     @available_activities = Spex.by_category_with_revivals(spex_category).map(&:id)

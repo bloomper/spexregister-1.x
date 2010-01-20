@@ -23,6 +23,7 @@
       editing_action: "Editing"
       remove_action: "Remove"
       add_action: "Add"
+      back_action: "Back"
       are_you_sure: "Are you sure?"
       confirm_delete: "Confirm deletion"
       next: "Next"

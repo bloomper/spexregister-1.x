@@ -35,4 +35,9 @@ class RelationshipsController < ApplicationController
     end
   end
   
+  protected
+  def is_storeable_location?(uri)
+    false
+  end
+
 end

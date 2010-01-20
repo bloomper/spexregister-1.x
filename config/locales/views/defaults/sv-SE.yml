@@ -23,6 +23,7 @@
       editing_action: "Ändrar"
       remove_action: "Ta bort"
       add_action: "Lägg till"
+      back_action: "Tillbaka"
       are_you_sure: "Är du säker?"
       confirm_delete: "Bekräfta radering"
       next: "Nästa"

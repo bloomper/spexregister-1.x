@@ -25,3 +25,5 @@
 
     %span
       = link_to_remote icon_tag('add') + ' ' + t('views.relationship.add_spouse'), { :url => new_spexare_relationship_url(@spexare), :method => :get, :update => 'add-relationship' }
+
+  = render :partial => '/shared/show_resource_links', :locals => { :url => previous_page }

@@ -13,13 +13,13 @@ class SpexCategoriesController < ApplicationController
   
   def create
     create! do |success, failure|
-      success.html { redirect_to spex_categories_url }
+      success.html { redirect_to filter_url_if_not_compatible_with(current_page, spex_categories_url) }
     end
   end
   
   def update
     update! do |success, failure|
-      success.html { redirect_to spex_categories_url }
+      success.html { redirect_back_or_default spex_categories_url }
     end
   end
   

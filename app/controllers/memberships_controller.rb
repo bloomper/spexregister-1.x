@@ -47,7 +47,11 @@ class MembershipsController < ApplicationController
   def collection
     @memberships ||= end_of_association_chain.find(:all).paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
   end
-  
+
+  def is_storeable_location?(uri)
+    false
+  end
+
   private 
   def set_available_memberships(kind)
     @available_memberships = Membership.get_years(kind.to_i).dup

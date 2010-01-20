@@ -53,3 +53,5 @@
     - get_available_spex_categories.each do |spex_category|
       = link_to_remote icon_tag('add') + ' ' + t('views.activity.add_activity', :spex_category_name => spex_category[0]), { :url => new_spexare_activity_url(@spexare, :spex_category_id => spex_category[1]), :method => :get, :before => "jQuery('#edit-activity').hide(); jQuery(this).parent().hide();", :after => "jQuery('#add-activity').show();", :update => 'add-activity' }
       %br>
+
+= render :partial => '/shared/show_resource_links', :locals => { :url => previous_page }

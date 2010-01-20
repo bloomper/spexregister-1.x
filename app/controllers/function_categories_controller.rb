@@ -11,13 +11,13 @@ class FunctionCategoriesController < ApplicationController
 
   def create
     create! do |success, failure|
-      success.html { redirect_to function_categories_url }
+      success.html { redirect_to filter_url_if_not_compatible_with(current_page, function_categories_url) }
     end
   end
   
   def update
     update! do |success, failure|
-      success.html { redirect_to function_categories_url }
+      success.html { redirect_back_or_default function_categories_url }
     end
   end
 

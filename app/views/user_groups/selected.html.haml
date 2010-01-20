@@ -21,3 +21,7 @@
 
   %span
     = link_to_remote icon_tag('add') + ' ' + t('views.user_group.add_user_group'), { :url => available_user_user_groups_url(@user), :method => :get, :update => 'available-user-groups' }
+
+%p.form-buttons
+  = link_to t('views.base.cancel_action'), previous_page
+    

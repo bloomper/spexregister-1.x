@@ -12,13 +12,13 @@ class FunctionsController < ApplicationController
   
   def create
     create! do |success, failure|
-      success.html { redirect_to functions_url }
+      success.html { redirect_to filter_url_if_not_compatible_with(current_page, functions_url) }
     end
   end
   
   def update
     update! do |success, failure|
-      success.html { redirect_to functions_url }
+      success.html { redirect_back_or_default functions_url }
     end
   end
   

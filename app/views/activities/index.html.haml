@@ -38,3 +38,5 @@
             %td= h activity.spex.spex_category.name
 
 = will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+
+= render :partial => '/shared/show_resource_links', :locals => { :url => previous_page }
