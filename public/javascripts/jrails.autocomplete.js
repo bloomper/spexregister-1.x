@@ -26,12 +26,11 @@
         this.oldElementValue    = this.element.value;
         this.observer           = null;
         this.options = $.extend({
-            paramName: this.element.name,
+            paramNames: new Array(this.element.name),
             type: 'GET',
             tokens: [],
             frequency: 0.4,
             minChars: 1,
-            multiple: false,
             multipleSeparator: ' ',
             onShow: function(element, update) {
                 if (!update.style.position || update.style.position == 'absolute') {
@@ -252,14 +251,17 @@
             this.startIndicator();
 
             var autocomplete = this;
-            if (this.options.multiple) {
+            if (this.options.paramNames.length > 1) {
               var entry = '';
-              var paramName = this.options.paramName;
-              $.each(this.getToken().split(this.options.multipleSeparator), function() {
-            	  entry += encodeURIComponent(paramName) + '=' + encodeURIComponent(this) + '&';
+              var paramNames = this.options.paramNames;
+              $.each(this.getToken().split(this.options.multipleSeparator), function(index) {
+            	  entry += encodeURIComponent(paramNames[index]) + '=' + encodeURIComponent(this);
+            	  if(index < (paramNames.length - 1)) {
+            		  entry += '&';
+            	  }
               });
             } else {
-              var entry = encodeURIComponent(this.options.paramName) + '=' + encodeURIComponent(this.getToken());
+              var entry = encodeURIComponent(this.options.paramNames[0]) + '=' + encodeURIComponent(this.getToken());
             }
             this.options.data = this.options.callback ? this.options.callback(this.element, entry) : entry;
 
