@@ -16,6 +16,15 @@
 
 %table.index
   %tr
+    %th= t 'activerecord.models.spexare'
+  %tr
+  - if !@user.spexare.nil?
+    %td= h @user.spexare.full_name
+  - else
+    %td= t 'views.base.missing_text'
+
+%table.index
+  %tr
     %th= t 'activerecord.attributes.user.login_count'
   %tr
     %td= h @user.login_count
