@@ -55,6 +55,12 @@ class ActivitiesController < ApplicationController
     false
   end
 
+  def show_search_result_back_links?
+    if !previous_page.match('search') && !previous_page.match('advanced_search')
+      true
+    end
+  end
+
   private 
   def set_available_activities(spex_category, do_not_delete = nil)
     @available_activities = Spex.by_category_with_revivals(spex_category).map(&:id)

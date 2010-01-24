@@ -18,4 +18,4 @@
       %td.actions
         = link_to_with_icon 'view', t('views.base.view_action'), spexare_url(@spexare.spouse)
 
-= render :partial => '/shared/show_resource_links', :locals => { :url => previous_page }
+= render :partial => '/shared/back_links', :locals => { :url => previous_page }

@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   include ExceptionNotifiable
   helper :all # include all helpers, all the time
-  helper_method :current_user_session, :current_user, :logged_in?, :current_user_is_admin?, :current_protocol, :filter_url_if_not_compatible_with, :previous_page, :current_page
+  helper_method :current_user_session, :current_user, :logged_in?, :current_user_is_admin?, :current_protocol, :filter_url_if_not_compatible_with, :show_search_result_back_links?, :previous_page, :current_page, :latest_search_query_exists?, :latest_search_query, :latest_advanced_search_query_exists?, :latest_advanced_search_query
   
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
@@ -84,13 +84,16 @@ class ApplicationController < ActionController::Base
 
   def redirect_back_or_default(default)
     if session[:prevpage].nil? || session[:prevpage].blank?
-      redirect_to(default) 
+      redirect_to default
     else
-      redirect_to(filter_url_if_not_compatible_with(session[:prevpage], default))
+      redirect_to filter_url_if_not_compatible_with(session[:prevpage], default)
     end
   end
   
-  def filter_url_if_not_compatible_with(url, default)
+  def filter_url_if_not_compatible_with(url, default, allow_search_urls = false)
+    if allow_search_urls && url.match('search')
+      return url
+    end
     uri = URI.parse(url)
     default_uri = URI.parse(default)
     if uri.path == default_uri.path || (uri.path.split('/').length == default_uri.path.split('/').length && uri.path.split('/').last == default_uri.path.split('/').last)
@@ -99,7 +102,11 @@ class ApplicationController < ActionController::Base
       return default
     end
   end
-  
+
+  def show_search_result_back_links?
+    false
+  end
+
   def current_page
     session[:thispage]
   end
@@ -108,6 +115,22 @@ class ApplicationController < ActionController::Base
     session[:prevpage]
   end
   
+  def latest_search_query_exists?
+    !latest_search_query.blank?
+  end
+
+  def latest_search_query
+    session[:latest_search_query]
+  end
+
+  def latest_advanced_search_query_exists?
+    !latest_advanced_search_query.blank?
+  end
+
+  def latest_advanced_search_query
+    session[:latest_advanced_search_query]
+  end
+
   private
   def current_user_session
     if defined?(@current_user_session) && !@current_user_session.nil?

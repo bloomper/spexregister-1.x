@@ -7,7 +7,8 @@ module ApplicationHelper
       options = options.merge(args.pop)
     end
     options[:route] ||= args.first
-    destination_url = send("#{options[:route]}_path")
+    options[:url_params] ||= {}
+    destination_url = send("#{options[:route]}_path", options[:url_params])
     options[:translation_key] ||= "views.#{options[:label]}.title"
     label = t(options[:translation_key])
     link = link_to(label, destination_url)

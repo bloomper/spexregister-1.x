@@ -48,5 +48,11 @@ class SpexareController < ApplicationController
     
     @spexare_items ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
   end
-  
+
+  def show_search_result_back_links?
+    if !previous_page.match('search') && !previous_page.match('advanced_search')
+      true
+    end
+  end
+
 end

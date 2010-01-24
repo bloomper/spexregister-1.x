@@ -4,6 +4,7 @@
       title: "Search"
       page_title: "Search spexer"
       search: "Simple search"
+      latest_search_result: "Latest search result (simple)"
       include: "Include"
       include_deceased: "Deceased"
       include_no_circulars: "No circulars"
@@ -11,3 +12,4 @@
       show_revivals: "Show revivals"
       index_title: "Search result"
       empty_search_result: "No hits"
+      reset_search_result: "Reset search result"

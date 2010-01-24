@@ -4,4 +4,4 @@
 
 - form_for @spexare, :url => resource_url, :html => { :method => :put, :multipart => true } do |f|
   = render :partial => 'form', :locals => { :f => f }
-  = render :partial => '/shared/edit_resource_links', :locals => { :url => filter_url_if_not_compatible_with(previous_page, collection_url) }
+  = render :partial => '/shared/edit_resource_links', :locals => { :url => filter_url_if_not_compatible_with(previous_page, collection_url, true) }
