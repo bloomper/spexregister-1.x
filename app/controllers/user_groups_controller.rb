@@ -4,7 +4,7 @@ class UserGroupsController < ApplicationController
   actions :all, :only => [ :index ]
   belongs_to :user
   before_filter :resource, :only => [:select, :selected, :available, :remove]
-  
+
   def available
     set_available_user_groups
     render :layout => false
@@ -41,6 +41,10 @@ class UserGroupsController < ApplicationController
     @search.order ||= "ascend_by_name"
     
     @user_groups ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+  end
+
+  def is_storeable_location?(uri)
+    false
   end
 
   private 

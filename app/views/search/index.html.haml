@@ -1,12 +1,19 @@
 = render :partial => 'sub_menu'
 
-%h1= t 'views.search.index_title'
+%div.left
+  %h1= t 'views.search.index_title'
+
+.toolbar
+  %ul.actions
+    %li
+      = link_to icon_tag('reset') + ' ' + t('views.search.reset_search_result'), search_url('dummy'), :method => :delete, :class => 'button'
+
+%br.clear
 
 - if @search_result.empty?
   %p= t 'views.search.empty_search_result'
 - else
   .number-of-hits= page_entries_info @search_result, { :entry_translation_group_key => 'spexare' }
-  %br.clear
   %table.index#search_result
     %tr
       %th= order @search, :by => :last_name, :as => t('activerecord.attributes.spexare.last_name')

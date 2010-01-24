@@ -3,7 +3,11 @@ class AdvancedSearchController < ApplicationController
   def new
   end
 
-  def create
+  def index
+  end
+
+  def destroy
+    session[:latest_advanced_search_query] = nil
   end
 
 end

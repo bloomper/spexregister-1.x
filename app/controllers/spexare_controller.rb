@@ -13,13 +13,13 @@ class SpexareController < ApplicationController
 
   def create
     create! do |success, failure|
-      success.html { redirect_to spexare_index_url }
+      success.html { redirect_to filter_url_if_not_compatible_with(current_page, spexare_index_url) }
     end
   end
   
   def update
     update! do |success, failure|
-      success.html { redirect_to spexare_index_url }
+      success.html { redirect_back_or_default spexare_index_url }
     end
   end
   
@@ -48,5 +48,11 @@ class SpexareController < ApplicationController
     
     @spexare_items ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
   end
-  
+
+  def show_search_result_back_links?
+    if !previous_page.match('search') && !previous_page.match('advanced_search')
+      true
+    end
+  end
+
 end

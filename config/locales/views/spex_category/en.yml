@@ -2,7 +2,7 @@
   views:
     spex_category:
       index_title: "{{action}} categories"
-      page_title: "{{action}} category '{{description}}'"
+      page_title: "{{action}} category &ldquo;{{description}}&rdquo;"
       no_spex_categories_exist: "There are no categories"
       new_spex_category: "Create category"
       logo_format_notice:  "Allowed formats are GIF, JPG and PNG"

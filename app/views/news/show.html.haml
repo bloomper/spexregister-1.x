@@ -27,3 +27,4 @@
     %td= translate_boolean @news.is_published
 
 = render :partial => '/shared/entity_details', :locals => {:entity => @news}
+= render :partial => '/shared/back_links', :locals => { :url => filter_url_if_not_compatible_with(previous_page, collection_url) }

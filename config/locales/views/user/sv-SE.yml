@@ -3,7 +3,7 @@
     user:
       description_tab_title: "Beskrivning"
       index_title: "{{action}} användare"
-      page_title: "{{action}} användare '{{description}}'"
+      page_title: "{{action}} användare &ldquo;{{description}}&rdquo;"
       no_users_exist: "Det finns inga användare"
       new_user: "Skapa användare"
       approve_event: "Godkänn"

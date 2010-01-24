@@ -3,7 +3,7 @@
     user:
       description_tab_title: "Description"
       index_title: "{{action}} users"
-      page_title: "{{action}} user '{{description}}'"
+      page_title: "{{action}} user &ldquo;{{description}}&rdquo;"
       no_users_exist: "There are no users"
       new_user: "Create user"
       approve_event: "Approve"

@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   include ExceptionNotifiable
   helper :all # include all helpers, all the time
-  helper_method :current_user_session, :current_user, :logged_in?, :current_user_is_admin?, :current_protocol
+  helper_method :current_user_session, :current_user, :logged_in?, :current_user_is_admin?, :current_protocol, :filter_url_if_not_compatible_with, :show_search_result_back_links?, :previous_page, :current_page, :latest_search_query_exists?, :latest_search_query, :latest_advanced_search_query_exists?, :latest_advanced_search_query
   
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::RoutingError, :with => :page_not_found
   rescue_from ActionController::InvalidAuthenticityToken, :with => :internal_error
   rescue_from WillPaginate::InvalidPage, :with => :page_not_found
-
+  
   before_filter :set_locale
   before_filter :check_session
   
@@ -53,10 +53,82 @@ class ApplicationController < ActionController::Base
     flash[:warning] = t 'views.base.page_not_found'
     redirect_to home_path
   end
-
+  
   def internal_error
     flash[:warning] = t 'views.base.internal_error'
     redirect_to home_path
+  end
+  
+  def store_location
+    if is_storeable_method?(request.method) && is_xhr_storeable?(request.xhr?) && is_storeable_location?(session[:thispage])
+      session[:prevpage] = session[:thispage] || ''
+      session[:thispage] = sent_from_uri
+    end
+  end
+  
+  def is_storeable_method?(method)
+    method == :get
+  end
+  
+  def is_xhr_storeable?(xhr)
+    return xhr ? false : true
+  end
+  
+  def is_storeable_location?(uri)
+    uri != sent_from_uri
+  end
+  
+  def sent_from_uri
+    request.request_uri
+  end
+
+  def redirect_back_or_default(default)
+    if session[:prevpage].nil? || session[:prevpage].blank?
+      redirect_to default
+    else
+      redirect_to filter_url_if_not_compatible_with(session[:prevpage], default)
+    end
+  end
+  
+  def filter_url_if_not_compatible_with(url, default, allow_search_urls = false)
+    if allow_search_urls && url.match('search')
+      return url
+    end
+    uri = URI.parse(url)
+    default_uri = URI.parse(default)
+    if uri.path == default_uri.path || (uri.path.split('/').length == default_uri.path.split('/').length && uri.path.split('/').last == default_uri.path.split('/').last)
+      return url
+    else
+      return default
+    end
+  end
+
+  def show_search_result_back_links?
+    false
+  end
+
+  def current_page
+    session[:thispage]
+  end
+  
+  def previous_page
+    session[:prevpage]
+  end
+  
+  def latest_search_query_exists?
+    !latest_search_query.blank?
+  end
+
+  def latest_search_query
+    session[:latest_search_query]
+  end
+
+  def latest_advanced_search_query_exists?
+    !latest_advanced_search_query.blank?
+  end
+
+  def latest_advanced_search_query
+    session[:latest_advanced_search_query]
   end
 
   private
@@ -74,17 +146,8 @@ class ApplicationController < ActionController::Base
     @current_user = current_user_session && current_user_session.user
   end
   
-  def store_location
-    session[:return_to] = request.request_uri
-  end
-  
-  def redirect_back_or_default(default)
-    redirect_to(session[:return_to] || default)
-    session[:return_to] = nil
-  end
-  
   def current_protocol
     return request.ssl? ? 'https://' : 'http://'
   end
-
+  
 end

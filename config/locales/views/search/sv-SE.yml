@@ -4,6 +4,7 @@
       title: "Sök"
       page_title: "Sök spexare"
       search: "Enkel sökning"
+      latest_search_result: "Senaste sökresultatet (enkel)"
       include: "Inkludera"
       include_deceased: "Avlidna"
       include_no_circulars: "Ej utskick"
@@ -11,3 +12,4 @@
       show_revivals: "Visa nyuppsättningar"
       index_title: "Sökresultat"
       empty_search_result: "Inga träffar"
+      reset_search_result: "Nollställ sökresultat"

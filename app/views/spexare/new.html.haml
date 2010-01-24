@@ -1,7 +1,7 @@
 = render :partial => 'sub_menu'
 
-- form_for :spexare, :url => spexare_index_url, :html => { :multipart => true } do |f|
+- form_for :spexare, :url => collection_url, :html => { :multipart => true } do |f|
   %fieldset
     %legend= t 'views.spexare.new_spexare'
     = render :partial => 'form', :locals => { :f => f }
-    = render :partial => '/shared/new_resource_links', :locals => { :url => spexare_index_url }
+    = render :partial => '/shared/new_resource_links', :locals => { :url => filter_url_if_not_compatible_with(current_page, collection_url) }

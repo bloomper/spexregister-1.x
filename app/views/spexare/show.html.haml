@@ -129,3 +129,4 @@
     %td= print_textarea @spexare.comment
 
 = render :partial => '/shared/entity_details', :locals => {:entity => @spexare}
+= render :partial => '/shared/back_links', :locals => { :url => filter_url_if_not_compatible_with(previous_page, collection_url, true) }

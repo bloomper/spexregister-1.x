@@ -36,3 +36,4 @@
       %td= t 'views.base.missing_image'
 
 = render :partial => '/shared/entity_details', :locals => {:entity => @spex}
+= render :partial => '/shared/back_links', :locals => { :url => filter_url_if_not_compatible_with(previous_page, collection_url) }

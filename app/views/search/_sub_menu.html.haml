@@ -1,5 +1,11 @@
 = content_for :sub_menu do
   %ul
-    = tab :new_search, :match_path => '/search', :translation_key => 'views.search.search'
-    = tab :new_advanced_search, :match_path => '/advanced_search', :translation_key => 'views.advanced_search.advanced_search', :css_class => 'last'
+    = tab :new_search, :match_path => '/search/new', :translation_key => 'views.search.search'
+    - if latest_search_query_exists?
+      = tab :search_index, :match_path => '/search', :not_match_path => '/search/new', :translation_key => 'views.search.latest_search_result', :url_params => latest_search_query
+    - if latest_advanced_search_query_exists?
+      = tab :new_advanced_search, :match_path => '/advanced_search/new', :translation_key => 'views.advanced_search.advanced_search'
+      = tab :advanced_search_index, :match_path => '/advanced_search', :not_match_path => '/advanced_search/new', :translation_key => 'views.advanced_search.latest_advanced_search_result', :css_class => 'last', :url_params => latest_advanced_search_query
+    - else
+      = tab :new_advanced_search, :match_path => '/advanced_search/new', :translation_key => 'views.advanced_search.advanced_search', :css_class => 'last'
   %br.clear

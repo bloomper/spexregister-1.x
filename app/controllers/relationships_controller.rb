@@ -35,4 +35,15 @@ class RelationshipsController < ApplicationController
     end
   end
   
+  protected
+  def is_storeable_location?(uri)
+    false
+  end
+
+  def show_search_result_back_links?
+    if !previous_page.match('search') && !previous_page.match('advanced_search')
+      true
+    end
+  end
+
 end
