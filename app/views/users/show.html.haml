@@ -16,45 +16,54 @@
 
 %table.index
   %tr
+    %th= t 'activerecord.models.spexare'
+  %tr
+  - if !@user.spexare.nil?
+    %td= h @user.spexare.full_name
+  - else
+    %td= t 'views.base.missing_text'
+
+%table.index
+  %tr
     %th= t 'activerecord.attributes.user.login_count'
   %tr
-    %td= h @user.login_count
+    %td= print_text @user.login_count
 
 %table.index
   %tr
     %th= t 'activerecord.attributes.user.failed_login_count'
   %tr
-    %td= h @user.failed_login_count
+    %td= print_text @user.failed_login_count
 
 %table.index
   %tr
     %th= t 'activerecord.attributes.user.last_request_at'
   %tr
-    %td= h @user.last_request_at
+    %td= print_text @user.last_request_at
 
 %table.index
   %tr
     %th= t 'activerecord.attributes.user.current_login_at'
   %tr
-    %td= h @user.current_login_at
+    %td= print_text @user.current_login_at
 
 %table.index
   %tr
     %th= t 'activerecord.attributes.user.last_login_at'
   %tr
-    %td= h @user.last_login_at
+    %td= print_text @user.last_login_at
 
 %table.index
   %tr
     %th= t 'activerecord.attributes.user.current_login_ip'
   %tr
-    %td= h @user.current_login_ip
+    %td= print_text @user.current_login_ip
 
 %table.index
   %tr
     %th= t 'activerecord.attributes.user.last_login_ip'
   %tr
-    %td= h @user.last_login_ip
+    %td= print_text @user.last_login_ip
 
 = render :partial => '/shared/entity_details', :locals => {:entity => @user}
 = render :partial => '/shared/back_links', :locals => { :url => filter_url_if_not_compatible_with(previous_page, collection_url) }
