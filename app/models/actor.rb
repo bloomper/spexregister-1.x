@@ -5,7 +5,11 @@ class Actor < ActiveRecord::Base
     2 => {:name => :b1, :title => I18n.t('actor.vocal.b1')},
     3 => {:name => :b2, :title => I18n.t('actor.vocal.b2')},
     4 => {:name => :t1, :title => I18n.t('actor.vocal.t1')},
-    5 => {:name => :t2, :title => I18n.t('actor.vocal.t2')}
+    5 => {:name => :t2, :title => I18n.t('actor.vocal.t2')},
+    6 => {:name => :s1, :title => I18n.t('actor.vocal.s1')},
+    7 => {:name => :s2, :title => I18n.t('actor.vocal.s2')},
+    8 => {:name => :a1, :title => I18n.t('actor.vocal.a1')},
+    9 => {:name => :a2, :title => I18n.t('actor.vocal.a2')}
   }
   
   protected
