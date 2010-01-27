@@ -12,8 +12,8 @@ TODO
 10 [Klart] [Colgate] Importera gamla registret
 11 [Klart] [Colgate] Importera spexaffischer
 12 [Klart] [Colgate] Importera Vera/Bob logos
+14 [Klart] [Philip, Colgate] Lägga in sista omgången med ändringar från det gamla registret OCH sedan frysa det (vad är bästa sätt?)
 15 [Klart] [Colgate] Ta bort user@chalmersspexet.se och admin@chalmersspexet.se som användare
 
 2 [Patrik] Minne?
 13 [Philip, Colgate] Lägga in lite nyheter i systemet
-14 [Philip, Colgate] Lägga in sista omgången med ändringar från det gamla registret OCH sedan frysa det (vad är bästa sätt?)
