@@ -60,7 +60,7 @@ jQuery(function() {
 jQuery(function() {
   jQuery('a.fancybox-text').livequery(function() {
     jQuery(this).fancybox( {
-      'hideOnContentClick' : true,
+      'hideOnContentClick' : false,
       'overlayShow' : true,
       'zoomOpacity' : true,
       'zoomSpeedIn' : 500,
