@@ -11,6 +11,7 @@
       = negative_text_field_tag @captcha, :full_name
     %p
       = label_tag :username, t('activerecord.attributes.user.username')
+      %small= t('views.account.username_notice')
       %br>
       = negative_text_field_tag @captcha, :username
     %p
@@ -23,7 +24,7 @@
       = negative_password_field_tag @captcha, :password_confirmation
     %p
       = label_tag :description, t('activerecord.attributes.other.description')
-      %small= t('views.account.signup_description_note') 
+      %small= t('views.account.signup_description_notice') 
       %br>
       = negative_text_area_tag @captcha, :description
     %p
