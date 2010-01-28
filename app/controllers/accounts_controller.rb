@@ -9,7 +9,7 @@ class AccountsController < ApplicationController
     if @captcha.valid?
       @user = User.new :username => @captcha.values[:username], :password => @captcha.values[:password], :password_confirmation => @captcha.values[:password_confirmation], :user_groups => [ UserGroup.find_by_name('Users') ]
       @user.save
-      if !@captcha.values[:full_name].blank? && !@captcha.values[:description].blank?
+      if @user.errors.on(:username).nil? && @user.errors.on(:password).nil? && @user.errors.on(:password_confirmation).nil? && !@captcha.values[:full_name].blank? && !@captcha.values[:description].blank?
         @user.save(false)
         AdminMailer.deliver_new_account_instructions(@captcha.values[:full_name], @captcha.values[:username], @captcha.values[:description])
         # Must send this mail manually instead of from within a state transition
