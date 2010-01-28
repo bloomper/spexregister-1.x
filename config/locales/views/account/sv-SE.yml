@@ -3,6 +3,7 @@
     account:
       signup_title: "Skapa nytt konto"
       signup_instructions: "Fyll i nedanstående så kommer ditt konto att skapas men kan inte användas förrän det har blivit godkänt. Du får ett mail när detta sker. Observera att det är endast årets spexare och FGV-medlemmar som får behörighet."
-      signup_description_note: "(spexen du var med i och vilka poster (krävs för att undvika obehörig åtkomst))"
+      signup_description_notice: "(spexen du var med i och vilka poster (krävs för att undvika obehörig åtkomst))"
       create_my_account: "Skapa mitt konto"
       change_my_account: "Ändra mitt konto"
+      username_notice: "(måste vara en giltlig email-adress)"

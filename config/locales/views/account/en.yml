@@ -3,6 +3,7 @@
     account:
       signup_title: "Create new account"
       signup_instructions: "Enter the following and your account will be created but cannot be used until approved. You will receive an email when that happens. Note that it is only this year's spexers and FGV members that obtain access."
-      signup_description_note: "(the spex you were active in and which roles you had (required for avoiding unauthorized access))"
+      signup_description_notice: "(the spex you were active in and which roles you had (required for avoiding unauthorized access))"
       create_my_account: "Create my account"
       change_my_account: "Change my account"
+      username_notice: "(must be a valid email address)"
