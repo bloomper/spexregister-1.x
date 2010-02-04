@@ -20,7 +20,9 @@
     - if f.object.nil? || f.object.new_record?
       = f.select :year, [], { :disabled => true }
       :javascript
-        jQuery.populateYearsFromSpexCategory(jQuery('#spex_spex_category_id').val(), 'spex_year')
+        jQuery(document).ready(function(){
+          jQuery.populateYearsFromSpexCategory(jQuery('#spex_spex_category_id').val(), 'spex_year')
+        });
     - else
       = f.select :year, get_specific_spex_category_years(f.object.spex_category.id)
   - if @spex.poster?
