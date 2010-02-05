@@ -4,7 +4,10 @@
 
 = render :partial => 'tabs', :locals => {:report_title => t("views.statistics_report.#{params[:report]}.title"), :current_tab => "#{params[:report]}_tab"}
 
-= link_to_remote 'Draw graph', { :url => statistics_reports_url(:report => params[:report], :format => :js), :method => :post, :before => '', :complete => evaluate_remote_response() }
+:javascript
+  jQuery(document).ready(function(){
+    #{remote_function :url => statistics_reports_url(:report => params[:report], :format => :js), :method => :post, :before => '', :complete => evaluate_remote_response()}
+  });
 
 %div#flot-legend
 
