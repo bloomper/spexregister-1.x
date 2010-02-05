@@ -35,6 +35,7 @@ class UsersReport
     end
 
     min_y = 0 if min_y > 0
+    max_y += 1
 
     @result[:opts][:y_axis] = "
       min: #{min_y},
@@ -49,9 +50,9 @@ class UsersReport
       monthNames: [#{I18n.t('views.statistics_report.month_names')}]"
 
     @result[:opts][:series] = "
-      points: { show: false },
+      points: { show: true, radius: 5 },
       lines: { show: false },
-      bars: { show: true, barWidth: #{24 * 60 * 60 * 1000}, align: 'center' }"
+      bars: { show: false }"
   end
 
   def new_record?
