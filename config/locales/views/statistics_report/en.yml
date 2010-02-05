@@ -1,0 +1,13 @@
+"en":
+  views:
+    statistics_report:
+      users_graph:
+        title: "New & accumulated users"
+        legend:
+          new_users: "New users"
+          accumulated_users: "Accumulated users"
+      spexare_graph:
+        title: "New & accumulated spexers"
+        legend:
+          new_users: "New spexers"
+          accumulated_users: "Accumulated spexers"

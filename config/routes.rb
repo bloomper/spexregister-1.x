@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.home '/home', :controller => 'home', :action => 'index'
   map.signup '/signup', :controller => 'accounts', :action => 'new'
   map.administration '/administration', :controller => 'administration', :action => 'index'
+  map.administration_help '/administration_help', :controller => 'administration', :action => 'help'
   map.help '/help', :controller => 'help', :action => 'index'
   map.in_case_of_problems '/in_case_of_problems', :controller => 'help', :action => 'in_case_of_problems'
   map.about '/about', :controller => 'help', :action => 'about'
@@ -35,7 +36,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :advanced_search, :only => [:new, :index, :destroy]
   map.resource :account, :except => [:destroy, :show]
   map.resource :profile, :only => [:edit]
-
+  map.resource :statistics_reports, :only => [:create]
   map.root :controller => 'home', :action => 'index'
 
   # See how all your routes lay out with "rake routes"

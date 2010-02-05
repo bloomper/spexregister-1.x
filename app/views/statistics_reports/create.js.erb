@@ -1,0 +1,103 @@
+function plotAsSelected() {
+  function showTooltip(x, y, contents, css_class) {
+    jQuery('<div class="tooltip">' + contents + '</div>')
+    .css({
+      position: 'absolute',
+      display: 'none',
+      top: y + 5,
+      left: x + 15
+    })
+    .css(jQuery.support.opacity ? {opacity: 0.8} : {})
+    .addClass(css_class == undefined ? 'ui-state-highlight' : '')
+    .appendTo("body")
+    .show();
+  }
+
+  function removeTooltip()  {
+    jQuery('.tooltip').remove();
+  }
+
+  function setupTooltips(plot) {
+    var previousPoint = null;
+    plot.getPlaceholder().unbind('plothover').bind('plothover', function (event, pos, item) {
+        if (!plot.getOptions().grid.show_tooltips)  {
+          return;
+        }
+        if (item) {
+          if (previousPoint != item.datapoint) {
+            previousPoint = item.datapoint;
+            removeTooltip();
+            var val = item.datapoint[1];
+            var label = label = /-|^0/.test(val) ? val : '+'+val;
+            showTooltip(item.pageX, item.pageY, label);
+          }
+        } else {
+          removeTooltip();
+          previousPoint = null;            
+        }
+    });
+  }
+
+  function setupNavigationControls(plot) {
+    function addButton(css_class, right, top, offset) {
+      jQuery('<span class="ui-icon '+css_class+'" style="cursor: pointer; cursor:hand; position: absolute;right:' + right + 'px;top:' + top + 'px"/>')
+      .appendTo(plot.getPlaceholder())
+      .click(function (e) {
+        e.preventDefault();
+        if (offset) {
+          plot.pan(offset);
+        }
+        else  {
+          /plus/.test(css_class) ? plot.zoom() : plot.zoomOut();
+        }
+      });
+    }
+    addButton('ui-icon-circle-triangle-e', 25, 40, {left: 100});
+    addButton('ui-icon-circle-triangle-w', 55, 40, {left: -100});
+    addButton('ui-icon-circle-plus', 40, 25);
+    addButton('ui-icon-circle-minus', 40, 55);
+  }
+
+  var data = <%= @report.result[:data].to_json %>;
+  var SERIES = [];
+
+  for (series in data)  {
+    SERIES.push({
+      data: data[series],
+      label: series
+    });
+  }
+  
+  var OPTS = {
+    series: {
+	  <%= @report.result[:opts][:series] %>
+	},
+    xaxis: {
+      <%= @report.result[:opts][:x_axis] %>
+    },
+    yaxis: {
+      <%= @report.result[:opts][:y_axis] %>
+    },
+    grid: {
+      hoverable: true,
+	  show_tooltips: true
+    },
+    zoom: {
+      interactive: true
+    },
+    pan: {
+      interactive: true
+    },
+    legend: {
+      container: '#flot-legend'
+    }
+  };
+
+  var plot = jQuery.plot(jQuery('#flot-graph'), SERIES, OPTS);
+  setupTooltips(plot);
+  setupNavigationControls(plot);
+
+  return plot;
+}
+
+plotAsSelected();

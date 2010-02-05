@@ -1,0 +1,7 @@
+%h2= report_title
+
+- content_for :sidebar do
+  %ul.sidebar
+    - get_available_statistics_reports.each do |report|
+      %li{:class => ('active' if current_tab == "#{report}_tab")}
+        = link_to t("views.statistics_report.#{report}.title"), administration_url(:report => report)

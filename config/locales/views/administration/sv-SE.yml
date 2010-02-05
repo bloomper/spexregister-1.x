@@ -2,7 +2,8 @@
   views:
     administration:
       title: "Administration"
-      instructions: "Instruktioner"
+      dashboard: "Dashboard"
+      administration_help: "Hjälp"
       users: "Användare"
       functions: "Funktioner"
       function_categories: "Funktionskategorier"

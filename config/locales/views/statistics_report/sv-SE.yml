@@ -1,0 +1,13 @@
+"sv-SE":
+  views:
+    statistics_report:
+      users_report:
+        title: "Nya & ackumulerade användare"
+        legend:
+          new_users: "Nya användare"
+          accumulated_users: "Ackumulerade användare"
+      spexare_report:
+        title: "Nya & ackumulerade spexare"
+        legend:
+          new_users: "Nya spexare"
+          accumulated_users: "Ackumulerade spexare"

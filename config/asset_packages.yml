@@ -12,9 +12,21 @@ javascripts:
   - jquery.checkbox
   - jquery.multiselect
   - jquery.selectboxes
+  - jquery.colorhelpers
+  - jquery.flot
+  - jquery.flot.crosshair
+  - jquery.flot.image
+  - jquery.flot.navigate
+  - jquery.flot.selection
+  - jquery.flot.stack
+  - jquery.flot.threshold
+  - jquery.flot.fillbetween
+  - jquery.flot.pie
   - jrails
   - jrails.autocomplete
   - spexregister
+- ie:
+  - excanvas
 stylesheets:
 - screen:
   - jquery.core

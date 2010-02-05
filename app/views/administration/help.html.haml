@@ -1,0 +1,36 @@
+= render :partial => 'sub_menu'
+
+%h1= t 'views.administration.administration_help'
+
+%h2 Dashboard
+%p
+  TODO
+
+%h2 Användare
+%p
+  Här hanterar man användare, dvs det konto som en spexare använder för att logga in. När en spexare registrerar
+  sig så skapas ett konto som inte kan användas förrän det har blivit godkänt. Innan man godkänner en användare
+  så måste man knyta den till en profil, dvs en spexare. 
+
+%h2 Funktioner
+%p
+  Här hanterar man funktioner, dvs den roll som en spexare har under ett spexår. En funktion måste tillhöra en
+  funktionskategori.
+
+%h2 Funktionskategorier
+%p
+  Här hanterar man funktionskategorier. Denna kategorisering finns för att underlätta bland annat sökningar.
+
+%h2 Nyheter
+%p
+  Här hanterar man nyheter som syns på första sidan när någon loggar in. En nyhet syns endast där om den är
+  publicerad och inte har ett publiceringsdatum som ligger i framtiden.
+
+%h2 Spex
+%p
+  Här hanterar man spex. Ett spex måste tillhöra en spexkategori.
+  
+%h2 Spexkategorier
+%p
+  Här hanterar man spexkategorier. Denna kategorisering finns för att underlätta bland annat sökningar.
+  Man måste ange vilket år en spexkategori börjar.
