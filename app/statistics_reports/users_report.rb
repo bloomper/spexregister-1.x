@@ -45,7 +45,8 @@ class UsersReport
     @result[:opts][:x_axis] = "
       mode: 'time',
       zoomRange: #{[1000 * 60 * 60 * 24 * 7, max_time - min_time]},
-      panRange: #{[min_time, max_time]}"
+      panRange: #{[min_time, max_time]},
+      monthNames: [#{I18n.t('views.statistics_report.month_names')}]"
 
     @result[:opts][:series] = "
       points: { show: false },

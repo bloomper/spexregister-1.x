@@ -11,3 +11,4 @@
         legend:
           new_users: "Nya spexare"
           accumulated_users: "Ackumulerade spexare"
+      month_names: "'jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'"
