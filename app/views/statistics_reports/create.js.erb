@@ -28,7 +28,7 @@ function plotAsSelected() {
             previousPoint = item.datapoint;
             removeTooltip();
             var val = item.datapoint[1];
-            var label = label = /-|^0/.test(val) ? val : '+'+val;
+            var label = label = /-|^0/.test(val) ? val : '+'+val+'&nbsp;';
             showTooltip(item.pageX, item.pageY, label);
           }
         } else {
