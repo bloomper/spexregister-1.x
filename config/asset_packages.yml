@@ -13,15 +13,14 @@ javascripts:
   - jquery.multiselect
   - jquery.selectboxes
   - jquery.colorhelpers
+  - jquery.flot
   - jquery.flot.crosshair
-  - jquery.flot.image
   - jquery.flot.navigate
   - jquery.flot.selection
   - jquery.flot.stack
   - jquery.flot.threshold
   - jquery.flot.fillbetween
   - jquery.flot.pie
-  - jquery.flot
   - jrails
   - jrails.autocomplete
   - spexregister
