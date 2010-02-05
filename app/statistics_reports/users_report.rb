@@ -51,7 +51,7 @@ class UsersReport
 
     @result[:opts][:series] = "
       points: { show: true, radius: 5 },
-      lines: { show: false },
+      lines: { show: true, steps: true },
       bars: { show: false }"
   end
 
