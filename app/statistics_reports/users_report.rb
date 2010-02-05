@@ -48,7 +48,6 @@ class UsersReport
       panRange: #{[min_time, max_time]}"
 
     @result[:opts][:series] = "
-      stack: false,
       points: { show: false },
       lines: { show: false },
       bars: { show: true, barWidth: #{24 * 60 * 60 * 1000}, align: 'center' }"
