@@ -15,7 +15,6 @@ javascripts:
   - jquery.colorhelpers
   - jquery.flot
   - jquery.flot.crosshair
-  - jquery.flot.image
   - jquery.flot.navigate
   - jquery.flot.selection
   - jquery.flot.stack
