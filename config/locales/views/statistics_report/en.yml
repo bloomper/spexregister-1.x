@@ -9,6 +9,6 @@
       spexare_graph:
         title: "New & accumulated spexers"
         legend:
-          new_users: "New spexers"
-          accumulated_users: "Accumulated spexers"
+          new_spexare: "New spexers"
+          accumulated_spexare: "Accumulated spexers"
       month_names: "'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'"

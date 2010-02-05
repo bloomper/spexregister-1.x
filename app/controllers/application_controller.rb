@@ -156,7 +156,8 @@ class ApplicationController < ActionController::Base
       reports = []
       reports_path = Dir[File.join("#{RAILS_ROOT}", 'app', 'statistics_reports', '*.{rb}')]
       reports_path.flatten.each do |report|
-        reports << File.basename(report, File.extname(report))
+        file_name = File.basename(report, File.extname(report))
+        reports << file_name unless file_name.include? 'base' 
       end
       Rails.cache.write('statistics_reports', reports)
     end

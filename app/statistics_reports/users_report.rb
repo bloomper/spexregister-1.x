@@ -1,37 +1,32 @@
-class UsersReport
-  attr_reader :result
-
-  def initialize(params = {})
-    @result = {}
-  end
+class UsersReport < BaseReport
 
   def generate_report_data!
     @new_users = User.count(:group => 'DATETIME(created_at)')
-    @accumulated_users = get_accumulated_users(User.all(:order => 'created_at asc'))
+    @accumulated_users = get_accumulated_entities(User.all(:order => 'created_at asc'))
     max_y, min_y, min_time, max_time = nil
     @result[:data] = Hash.new { |h,k| h[k] = [] }
     @result[:opts] = Hash.new { |h,k| h[k] = {} }
 
     for new_user in @new_users
-      # The time is in a string format and must be converted
-      time_value = Time.parse new_user[0]
-      time = Time.gm(time_value.year, time_value.month, time_value.day).to_i * 1000
+      # Apparently Rails does not convert the time into a TimeZone object nor switching from UTC (as stored in database) to relevant time zone
+      time_value = DateTime.strptime(new_user[0], '%Y-%m-%d %H:%M:%S').to_time.in_time_zone
+      time = Time.gm(time_value.year, time_value.month, time_value.day, time_value.hour, time_value.min, time_value.sec).to_i * 1000
       max_time = time unless max_time && max_time > time
       min_time = time unless min_time && min_time < time
       
       @result[:data][I18n.t('views.statistics_report.users_report.legend.new_users')] << [time, new_user[1]]
-      max_y = new_user[1].to_i unless max_y && max_y > new_user[0].to_i
-      min_y = new_user[1].to_i unless min_y && min_y < new_user[0].to_i
+      max_y = new_user[1].to_i unless max_y && max_y > new_user[1].to_i
+      min_y = new_user[1].to_i unless min_y && min_y < new_user[1].to_i
     end
 
     for accumulated_user in @accumulated_users
-      time = Time.gm(accumulated_user[0].year, accumulated_user[0].month, accumulated_user[0].day).to_i * 1000
+      time = Time.gm(accumulated_user[0].year, accumulated_user[0].month, accumulated_user[0].day, accumulated_user[0].hour, accumulated_user[0].min, accumulated_user[0].sec).to_i * 1000
       max_time = time unless max_time && max_time > time
       min_time = time unless min_time && min_time < time
       
       @result[:data][I18n.t('views.statistics_report.users_report.legend.accumulated_users')] << [time, accumulated_user[1]]
-      max_y = accumulated_user[1].to_i unless max_y && max_y > accumulated_user[0].to_i
-      min_y = accumulated_user[1].to_i unless min_y && min_y < accumulated_user[0].to_i
+      max_y = accumulated_user[1].to_i unless max_y && max_y > accumulated_user[1].to_i
+      min_y = accumulated_user[1].to_i unless min_y && min_y < accumulated_user[1].to_i
     end
 
     min_y = 0 if min_y > 0
@@ -51,30 +46,8 @@ class UsersReport
 
     @result[:opts][:series] = "
       points: { show: true, radius: 5 },
-      lines: { show: true, steps: true },
+      lines: { show: false },
       bars: { show: false }"
-  end
-
-  def new_record?
-    true
-  end
-
-  private
-  def get_accumulated_users(users)
-    returning result = [] do
-      if !users.blank?
-        acculumated = 0
-        current_time = users.first.created_at
-        users.each do |user|
-          if (current_time - user.created_at) != 0
-            result << [current_time, acculumated]
-            current_time = user.created_at
-          end
-          acculumated += 1
-        end
-        result << [current_time, acculumated]
-      end
-    end  
   end
 
 end
