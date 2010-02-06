@@ -11,20 +11,20 @@
         legend:
           new_spexare: "New spexers"
           accumulated_spexare: "Accumulated spexers"
-      login_frequency_report:
-        title: "Login frequency"
+      login_distribution_report:
+        title: "Login distribution"
         other: "The rest"
-      login_frequency_excl_administrators_report:
-        title: "Login frequency (excl administrators)"
+      login_distribution_excl_administrators_report:
+        title: "Login distribution (no administrators)"
         other: "The rest"
       updates_report:
         title: "Updates"
         legend:
           update: "Update"
-      update_frequency_report:
-        title: "Update frequency"
+      update_distribution_report:
+        title: "Update distribution"
         other: "The rest"
-      update_frequency_excl_administrators_report:
-        title: "Update frequency (excl administrators)"
+      update_distribution_excl_administrators_report:
+        title: "Update distribution (no administrators)"
         other: "The rest"
       month_names: "'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'"

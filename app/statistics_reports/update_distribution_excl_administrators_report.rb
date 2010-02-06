@@ -1,4 +1,4 @@
-class UpdateFrequencyExclAdministratorsReport < UpdateFrequencyReport
+class UpdateDistributionExclAdministratorsReport < UpdateDistributionReport
   
   protected
   def user_valid?(user)

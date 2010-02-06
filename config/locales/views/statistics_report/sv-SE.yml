@@ -11,20 +11,20 @@
         legend:
           new_spexare: "Nya spexare"
           accumulated_spexare: "Ackumulerade spexare"
-      login_frequency_report:
-        title: "Inloggningsfrekvens"
+      login_distribution_report:
+        title: "Inloggningsdistribution"
         other: "Resten"
-      login_frequency_excl_administrators_report:
-        title: "Inloggningsfrekvens (exkl administratörer)"
+      login_distribution_excl_administrators_report:
+        title: "Inloggningsdistribution (ej administratörer)"
         other: "Resten"
       updates_report:
         title: "Uppdateringar"
         legend:
           update: "Uppdatering"
-      update_frequency_report:
-        title: "Uppdateringsfrekvens"
+      update_distribution_report:
+        title: "Uppdateringsdistribution"
         other: "Resten"
-      update_frequency_excl_administrators_report:
-        title: "Uppdateringsfrekvens (exkl administratörer)"
+      update_distribution_excl_administrators_report:
+        title: "Uppdateringsdistribution (ej administratörer)"
         other: "Resten"
       month_names: "'jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'"

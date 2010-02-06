@@ -1,12 +1,12 @@
-class LoginFrequencyReport < BaseReport
+class LoginDistributionReport < BaseReport
 
   def generate_report_data!
-    @login_frequencies = get_login_frequencies
+    @logins = get_login_distribution
     @result[:data] = Hash.new { |h,k| h[k] = [] }
     @result[:opts] = Hash.new { |h,k| h[k] = {} }
 
-    for login_frequency in @login_frequencies
-      @result[:data][login_frequency.username] << [1, login_frequency.login_count]
+    for login in @logins
+      @result[:data][login.username] << [1, login.login_count]
     end
 
     @result[:opts][:series] = "
@@ -22,7 +22,7 @@ class LoginFrequencyReport < BaseReport
        },
        combine: {
         threshold: 0.01,
-        label: \"#{I18n.t('views.statistics_report.login_frequency_report.other')}\"
+        label: \"#{I18n.t('views.statistics_report.login_distribution_report.other')}\"
        }
       }"
 
@@ -41,7 +41,7 @@ class LoginFrequencyReport < BaseReport
   end
 
   protected
-  def get_login_frequencies
+  def get_login_distribution
     User.find(:all, :conditions => 'login_count > 0', :order => 'login_count asc')
   end
 

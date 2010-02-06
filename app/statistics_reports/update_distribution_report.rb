@@ -1,7 +1,7 @@
-class UpdateFrequencyReport < BaseReport
+class UpdateDistributionReport < BaseReport
   
   def generate_report_data!
-    @updates = get_update_frequencies
+    @updates = get_update_distribution
     @result[:data] = Hash.new { |h,k| h[k] = [] }
     @result[:opts] = Hash.new { |h,k| h[k] = {} }
     
@@ -22,7 +22,7 @@ class UpdateFrequencyReport < BaseReport
        },
        combine: {
         threshold: 0.01,
-        label: \"#{I18n.t('views.statistics_report.update_frequency_report.other')}\"
+        label: \"#{I18n.t('views.statistics_report.update_distribution_report.other')}\"
        }
       }"
     
@@ -41,21 +41,21 @@ class UpdateFrequencyReport < BaseReport
   end
   
   protected
-  def get_update_frequencies
-    update_freqs = {}
+  def get_update_distribution
+    update_distribution = {}
     entities = Spexare.find(:all, :order => 'updated_by asc') | Activity.find(:all, :order => 'updated_by asc') | SpexActivity.find(:all, :order => 'updated_by asc') | FunctionActivity.find(:all, :order => 'updated_by asc') | Actor.find(:all, :order => 'updated_by asc')
     entities.each do |entity|
       username = get_user_name(entity.updated_by)
       if !username.nil?
-        if update_freqs.has_key?(username)
-          old_value = update_freqs.fetch(username)
-          update_freqs.store(username, old_value += 1)
+        if update_distribution.has_key?(username)
+          old_value = update_distribution.fetch(username)
+          update_distribution.store(username, old_value += 1)
         else
-          update_freqs.store(username, 1)
+          update_distribution.store(username, 1)
         end
       end
     end
-    return update_freqs
+    return update_distribution
   end
   
   @@user_cache = {}
