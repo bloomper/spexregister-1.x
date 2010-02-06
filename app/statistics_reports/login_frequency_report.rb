@@ -1,7 +1,7 @@
 class LoginFrequencyReport < BaseReport
 
   def generate_report_data!
-    @login_frequencies = User.find(:all, :conditions => 'login_count > 0', :order => 'login_count asc')
+    @login_frequencies = get_login_frequencies
     @result[:data] = Hash.new { |h,k| h[k] = [] }
     @result[:opts] = Hash.new { |h,k| h[k] = {} }
 
@@ -38,6 +38,11 @@ class LoginFrequencyReport < BaseReport
 
     @result[:opts][:legend] = "
       container: '#flot-legend'"
+  end
+
+  protected
+  def get_login_frequencies
+    User.find(:all, :conditions => 'login_count > 0', :order => 'login_count asc')
   end
 
 end
