@@ -21,4 +21,10 @@
         title: "Uppdateringar"
         legend:
           update: "Uppdatering"
+      update_frequency_report:
+        title: "Uppdateringsfrekvens"
+        other: "Resten"
+      update_frequency_excl_administrators_report:
+        title: "Uppdateringsfrekvens (exkl administratörer)"
+        other: "Resten"
       month_names: "'jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'"

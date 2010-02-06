@@ -21,4 +21,10 @@
         title: "Updates"
         legend:
           update: "Update"
+      update_frequency_report:
+        title: "Update frequency"
+        other: "The rest"
+      update_frequency_excl_administrators_report:
+        title: "Update frequency (excl administrators)"
+        other: "The rest"
       month_names: "'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'"
