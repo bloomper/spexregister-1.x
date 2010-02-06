@@ -28,7 +28,7 @@ function plotAsSelected() {
             previousPoint = item.datapoint;
             removeTooltip();
             var val = item.datapoint[1];
-            var label = label = /-|^0/.test(val) ? val : '+'+val+'&nbsp;';
+            var label = '&nbsp;' + val + '&nbsp;';
             showTooltip(item.pageX, item.pageY, label);
           }
         } else {
@@ -52,10 +52,14 @@ function plotAsSelected() {
         }
       });
     }
-    addButton('ui-icon-circle-triangle-e', 25, 40, {left: 100});
-    addButton('ui-icon-circle-triangle-w', 55, 40, {left: -100});
-    addButton('ui-icon-circle-plus', 40, 25);
-    addButton('ui-icon-circle-minus', 40, 55);
+    if (plot.getOptions().pan.interactive) {
+      addButton('ui-icon-circle-triangle-e', 25, 40, {left: 100});
+      addButton('ui-icon-circle-triangle-w', 55, 40, {left: -100});
+	}
+    if (plot.getOptions().zoom.interactive) {
+      addButton('ui-icon-circle-plus', 40, 25);
+      addButton('ui-icon-circle-minus', 40, 55);
+	}
   }
 
   var data = <%= @report.result[:data].to_json %>;
@@ -79,17 +83,16 @@ function plotAsSelected() {
       <%= @report.result[:opts][:y_axis] %>
     },
     grid: {
-      hoverable: true,
-	  show_tooltips: true
+      <%= @report.result[:opts][:grid] %>
     },
     zoom: {
-      interactive: true
+      <%= @report.result[:opts][:zoom] %>
     },
     pan: {
-      interactive: true
+      <%= @report.result[:opts][:pan] %>
     },
     legend: {
-      container: '#flot-legend'
+      <%= @report.result[:opts][:legend] %>
     }
   };
 

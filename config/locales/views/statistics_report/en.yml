@@ -11,4 +11,6 @@
         legend:
           new_spexare: "New spexers"
           accumulated_spexare: "Accumulated spexers"
+      top_logins_report:
+        title: "Most frequent users"
       month_names: "'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'"

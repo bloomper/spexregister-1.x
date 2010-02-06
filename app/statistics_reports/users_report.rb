@@ -48,6 +48,19 @@ class UsersReport < BaseReport
       points: { show: true, radius: 5 },
       lines: { show: false },
       bars: { show: false }"
+
+    @result[:opts][:grid] = "
+      hoverable: true,
+      show_tooltips: true"
+
+    @result[:opts][:zoom] = "
+      interactive: true"
+
+    @result[:opts][:pan] = "
+      interactive: true"
+
+    @result[:opts][:legend] = "
+      container: '#flot-legend'"
   end
 
 end
