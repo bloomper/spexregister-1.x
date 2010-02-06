@@ -46,7 +46,7 @@ class UsersReport < BaseReport
 
     @result[:opts][:series] = "
       points: { show: true, radius: 5 },
-      lines: { show: false },
+      lines: { show: true, lineWidth: 1, steps: true },
       bars: { show: false }"
 
     @result[:opts][:grid] = "
