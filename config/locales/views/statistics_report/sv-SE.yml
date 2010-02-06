@@ -11,6 +11,7 @@
         legend:
           new_spexare: "Nya spexare"
           accumulated_spexare: "Ackumulerade spexare"
-      top_logins_report:
-        title: "Mest frekventa användare"
+      login_frequency_report:
+        title: "Inloggningsfrekvens"
+        other: "Resten"
       month_names: "'jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'"
