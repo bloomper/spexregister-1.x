@@ -17,4 +17,8 @@
       login_frequency_excl_administrators_report:
         title: "Login frequency (excl administrators)"
         other: "The rest"
+      updates_report:
+        title: "Updates"
+        legend:
+          update: "Update"
       month_names: "'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'"

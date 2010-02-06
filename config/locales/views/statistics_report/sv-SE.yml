@@ -17,4 +17,8 @@
       login_frequency_excl_administrators_report:
         title: "Inloggningsfrekvens (exkl administratörer)"
         other: "Resten"
+      updates_report:
+        title: "Uppdateringar"
+        legend:
+          update: "Uppdatering"
       month_names: "'jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'"
