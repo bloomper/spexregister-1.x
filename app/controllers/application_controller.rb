@@ -155,7 +155,7 @@ class ApplicationController < ActionController::Base
     if reports.nil?
       reports = []
       reports_path = Dir[File.join("#{RAILS_ROOT}", 'app', 'statistics_reports', '*.{rb}')]
-      reports_path.flatten.each do |report|
+      reports_path.flatten.sort!.each do |report|
         file_name = File.basename(report, File.extname(report))
         reports << file_name unless file_name.include? 'base' 
       end
