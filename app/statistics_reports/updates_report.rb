@@ -2,7 +2,6 @@ class UpdatesReport < BaseReport
 
   def generate_report_data!
     @updates = Spexare.count(:group => 'DATETIME(updated_at)').merge(Activity.count(:group => 'DATETIME(updated_at)')).merge(SpexActivity.count(:group => 'DATETIME(updated_at)')).merge(FunctionActivity.count(:group => 'DATETIME(updated_at)')).merge(Actor.count(:group => 'DATETIME(updated_at)'))
-    puts @updates.size
     max_y, min_y, min_time, max_time = nil
     @result[:data] = Hash.new { |h,k| h[k] = [] }
     @result[:opts] = Hash.new { |h,k| h[k] = {} }
