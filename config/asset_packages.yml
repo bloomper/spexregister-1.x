@@ -21,6 +21,7 @@ javascripts:
   - jquery.flot.threshold
   - jquery.flot.fillbetween
   - jquery.flot.pie
+  - jquery.gritter
   - jrails
   - jrails.autocomplete
   - spexregister
@@ -35,6 +36,7 @@ stylesheets:
   - jquery.checkbox
   - jquery.multiselect
   - jquery.flick.theme
+  - jquery.gritter
   - compiled/screen
 - ie:
   - compiled/ie
