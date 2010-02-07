@@ -37,6 +37,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :account, :except => [:destroy, :show]
   map.resource :profile, :only => [:edit]
   map.resource :statistics_reports, :only => [:create]
+  map.resources :jobs
+  
   map.root :controller => 'home', :action => 'index'
 
   # See how all your routes lay out with "rake routes"

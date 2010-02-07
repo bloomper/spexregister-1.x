@@ -9,6 +9,7 @@
       = tab :change_my_profile, :route => 'edit_profile', :match_path => "/spexare/#{current_user.spexare.id}", :translation_key => 'views.home.change_my_profile'
     - elsif current_user_is_admin?
       = tab :spexare_index, :match_path => '/spexare', :translation_key => 'views.home.manage_profiles'
-    = tab :edit_account, :match_path => '/account/edit', :translation_key => 'views.home.change_my_account', :css_class => 'last' 
+    = tab :edit_account, :match_path => '/account/edit', :translation_key => 'views.home.change_my_account' 
+    = tab :jobs, :match_path => '/jobs', :translation_key => 'views.home.my_jobs', :css_class => 'last' 
   %br.clear
     
