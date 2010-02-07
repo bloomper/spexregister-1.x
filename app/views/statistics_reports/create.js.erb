@@ -40,7 +40,7 @@ function plotAsSelected() {
 
   function setupNavigationControls(plot) {
     function addButton(css_class, right, top, offset) {
-      jQuery('<span class="ui-icon '+css_class+'" style="cursor: pointer; cursor:hand; position: absolute;right:' + right + 'px;top:' + top + 'px"/>')
+      jQuery('<span class="'+css_class+'" style="cursor: pointer; cursor:hand; position: absolute;right:' + right + 'px;top:' + top + 'px"/>')
       .appendTo(plot.getPlaceholder())
       .click(function (e) {
         e.preventDefault();
@@ -53,12 +53,12 @@ function plotAsSelected() {
       });
     }
     if (plot.getOptions().pan.interactive) {
-      addButton('ui-icon-circle-triangle-e', 25, 40, {left: 100});
-      addButton('ui-icon-circle-triangle-w', 55, 40, {left: -100});
+      addButton('arrow-right-icon', 25, 40, {left: 100});
+      addButton('arrow-left-icon', 55, 40, {left: -100});
 	}
     if (plot.getOptions().zoom.interactive) {
-      addButton('ui-icon-circle-plus', 40, 25);
-      addButton('ui-icon-circle-minus', 40, 55);
+      addButton('plus-icon', 40, 25);
+      addButton('minus-icon', 40, 55);
 	}
   }
 
