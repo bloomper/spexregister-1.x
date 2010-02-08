@@ -63,6 +63,7 @@ Function.create :name => 'Klarinett', :function_category => FunctionCategory.fin
 Function.create :name => 'Klarinett', :function_category => FunctionCategory.find_by_name('Bandet')
 Function.create :name => 'Kommittéledamot', :function_category => FunctionCategory.find_by_name('Kommitté')
 Function.create :name => 'Kontrabas', :function_category => FunctionCategory.find_by_name('Orkester')
+Function.create :name => 'Koreograf', :function_category => FunctionCategory.find_by_name('Annat')
 Function.create :name => 'Ljudmästare', :function_category => FunctionCategory.find_by_name('Kommitté')
 Function.create :name => 'Ljusmästare', :function_category => FunctionCategory.find_by_name('Kommitté')
 Function.create :name => 'Ljudroddare', :function_category => FunctionCategory.find_by_name('Kommitté')
