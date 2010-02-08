@@ -24,96 +24,102 @@ SpexCategory.create :name => 'Bobspexet', :first_year => '2003'
 SpexCategory.create :name => 'Veraspexet', :first_year => '2003'
 SpexCategory.create :name => 'Chalmersspexet', :first_year => '1948'
 
+annat_spex_category = FunctionCategory.find_by_name('Annat')
+bandet_spex_category = FunctionCategory.find_by_name('Bandet')
+orkester_spex_category = FunctionCategory.find_by_name('Orkester')
+kommitte_spex_category = FunctionCategory.find_by_name('Kommitté')
+ensemble_spex_category = FunctionCategory.find_by_name('Ensemble')
+
 # Functions
-Function.create :name => 'Affisch', :function_category => FunctionCategory.find_by_name('Annat')
-Function.create :name => 'Altsaxofon', :function_category => FunctionCategory.find_by_name('Bandet')
-Function.create :name => 'Arkitekt', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Arrangör', :function_category => FunctionCategory.find_by_name('Annat')
-Function.create :name => 'Bas', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Bas', :function_category => FunctionCategory.find_by_name('Bandet')
-Function.create :name => 'Basklarinett', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Bastuba', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Blockflöjt', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Casseur', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Cello', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Cello 1', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Cello 2', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Dekoratör', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Designer', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Directeur', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Directeursassistent', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Elfiol', :function_category => FunctionCategory.find_by_name('Bandet')
-Function.create :name => 'Ensemblist', :function_category => FunctionCategory.find_by_name('Ensemble')
-Function.create :name => 'Exspextor', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Fagott', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Festdirecteur', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Festroddare', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Flöjt', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Fotografiker', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Författare', :function_category => FunctionCategory.find_by_name('Annat')
-Function.create :name => 'Gitarr', :function_category => FunctionCategory.find_by_name('Bandet')
-Function.create :name => 'Horn', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Info-chef', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Inspextor', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Inspextris', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Inspicient', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Inspicientassistent', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Kapellmästare', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Klarinett', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Klarinett', :function_category => FunctionCategory.find_by_name('Bandet')
-Function.create :name => 'Kommittéledamot', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Kontrabas', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Koreograf', :function_category => FunctionCategory.find_by_name('Annat')
-Function.create :name => 'Ljudmästare', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Ljusmästare', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Ljudroddare', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Ljusroddare', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Mandolin', :function_category => FunctionCategory.find_by_name('Bandet')
-Function.create :name => 'Mediamästare', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Musikproducent', :function_category => FunctionCategory.find_by_name('Annat')
-Function.create :name => 'Oboe', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Oboeflöjt', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Okänt', :function_category => FunctionCategory.find_by_name('Annat')
-Function.create :name => 'Okänt', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Okänt', :function_category => FunctionCategory.find_by_name('Bandet')
-Function.create :name => 'Organisateur', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Orkester', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'PR-chef', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'PR/Info-stab', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Panblåsare', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Pianör', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Pianör', :function_category => FunctionCategory.find_by_name('Bandet')
-Function.create :name => 'Producent', :function_category => FunctionCategory.find_by_name('Annat')
-Function.create :name => 'Regisseur', :function_category => FunctionCategory.find_by_name('Annat')
-Function.create :name => 'Saxofon', :function_category => FunctionCategory.find_by_name('Bandet')
-Function.create :name => 'Saxofon', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Scen', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Scenmästare', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Scenograf', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Scenroddare', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Sekreterare', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Skivkommitté', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Skräddare', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Slagverk', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Sopransaxofon', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Sufflör', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Sömmerska', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Tenorsaxofon', :function_category => FunctionCategory.find_by_name('Bandet')
-Function.create :name => 'Trombon', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Trombon', :function_category => FunctionCategory.find_by_name('Bandet')
-Function.create :name => 'Trummor', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Trummor', :function_category => FunctionCategory.find_by_name('Bandet')
-Function.create :name => 'Trumpet', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Trumpet', :function_category => FunctionCategory.find_by_name('Bandet')
-Function.create :name => 'Tvärflöjt', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Upplysare', :function_category => FunctionCategory.find_by_name('Kommitté')
-Function.create :name => 'Valthorn', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Viola', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Violacello', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Violin', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Violin 1', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Violin 2', :function_category => FunctionCategory.find_by_name('Orkester')
-Function.create :name => 'Vistextförfattare', :function_category => FunctionCategory.find_by_name('Annat')
+Function.create :name => 'Affisch', :function_category => annat_spex_category
+Function.create :name => 'Altsaxofon', :function_category => bandet_spex_category
+Function.create :name => 'Arkitekt', :function_category => kommitte_spex_category
+Function.create :name => 'Arrangör', :function_category => annat_spex_category
+Function.create :name => 'Bas', :function_category => orkester_spex_category
+Function.create :name => 'Bas', :function_category => bandet_spex_category
+Function.create :name => 'Basklarinett', :function_category => orkester_spex_category
+Function.create :name => 'Bastuba', :function_category => orkester_spex_category
+Function.create :name => 'Blockflöjt', :function_category => orkester_spex_category
+Function.create :name => 'Casseur', :function_category => kommitte_spex_category
+Function.create :name => 'Cello', :function_category => orkester_spex_category
+Function.create :name => 'Cello 1', :function_category => orkester_spex_category
+Function.create :name => 'Cello 2', :function_category => orkester_spex_category
+Function.create :name => 'Dekoratör', :function_category => kommitte_spex_category
+Function.create :name => 'Designer', :function_category => kommitte_spex_category
+Function.create :name => 'Directeur', :function_category => kommitte_spex_category
+Function.create :name => 'Directeursassistent', :function_category => kommitte_spex_category
+Function.create :name => 'Elfiol', :function_category => bandet_spex_category
+Function.create :name => 'Ensemblist', :function_category => ensemble_spex_category
+Function.create :name => 'Exspextor', :function_category => kommitte_spex_category
+Function.create :name => 'Fagott', :function_category => orkester_spex_category
+Function.create :name => 'Festdirecteur', :function_category => kommitte_spex_category
+Function.create :name => 'Festroddare', :function_category => kommitte_spex_category
+Function.create :name => 'Flöjt', :function_category => orkester_spex_category
+Function.create :name => 'Fotografiker', :function_category => kommitte_spex_category
+Function.create :name => 'Författare', :function_category => annat_spex_category
+Function.create :name => 'Gitarr', :function_category => bandet_spex_category
+Function.create :name => 'Horn', :function_category => orkester_spex_category
+Function.create :name => 'Info-chef', :function_category => kommitte_spex_category
+Function.create :name => 'Inspextor', :function_category => kommitte_spex_category
+Function.create :name => 'Inspextris', :function_category => kommitte_spex_category
+Function.create :name => 'Inspicient', :function_category => kommitte_spex_category
+Function.create :name => 'Inspicientassistent', :function_category => kommitte_spex_category
+Function.create :name => 'Kapellmästare', :function_category => orkester_spex_category
+Function.create :name => 'Klarinett', :function_category => orkester_spex_category
+Function.create :name => 'Klarinett', :function_category => bandet_spex_category
+Function.create :name => 'Kommittéledamot', :function_category => kommitte_spex_category
+Function.create :name => 'Kontrabas', :function_category => orkester_spex_category
+Function.create :name => 'Koreograf', :function_category => annat_spex_category
+Function.create :name => 'Ljudmästare', :function_category => kommitte_spex_category
+Function.create :name => 'Ljusmästare', :function_category => kommitte_spex_category
+Function.create :name => 'Ljudroddare', :function_category => kommitte_spex_category
+Function.create :name => 'Ljusroddare', :function_category => kommitte_spex_category
+Function.create :name => 'Mandolin', :function_category => bandet_spex_category
+Function.create :name => 'Mediamästare', :function_category => kommitte_spex_category
+Function.create :name => 'Musikproducent', :function_category => annat_spex_category
+Function.create :name => 'Oboe', :function_category => orkester_spex_category
+Function.create :name => 'Oboeflöjt', :function_category => orkester_spex_category
+Function.create :name => 'Okänt', :function_category => annat_spex_category
+Function.create :name => 'Okänt', :function_category => orkester_spex_category
+Function.create :name => 'Okänt', :function_category => bandet_spex_category
+Function.create :name => 'Organisateur', :function_category => kommitte_spex_category
+Function.create :name => 'Orkester', :function_category => orkester_spex_category
+Function.create :name => 'PR-chef', :function_category => kommitte_spex_category
+Function.create :name => 'PR/Info-stab', :function_category => kommitte_spex_category
+Function.create :name => 'Panblåsare', :function_category => orkester_spex_category
+Function.create :name => 'Pianör', :function_category => orkester_spex_category
+Function.create :name => 'Pianör', :function_category => bandet_spex_category
+Function.create :name => 'Producent', :function_category => annat_spex_category
+Function.create :name => 'Regisseur', :function_category => annat_spex_category
+Function.create :name => 'Saxofon', :function_category => bandet_spex_category
+Function.create :name => 'Saxofon', :function_category => orkester_spex_category
+Function.create :name => 'Scen', :function_category => kommitte_spex_category
+Function.create :name => 'Scenmästare', :function_category => kommitte_spex_category
+Function.create :name => 'Scenograf', :function_category => kommitte_spex_category
+Function.create :name => 'Scenroddare', :function_category => kommitte_spex_category
+Function.create :name => 'Sekreterare', :function_category => kommitte_spex_category
+Function.create :name => 'Skivkommitté', :function_category => kommitte_spex_category
+Function.create :name => 'Skräddare', :function_category => kommitte_spex_category
+Function.create :name => 'Slagverk', :function_category => orkester_spex_category
+Function.create :name => 'Sopransaxofon', :function_category => orkester_spex_category
+Function.create :name => 'Sufflör', :function_category => kommitte_spex_category
+Function.create :name => 'Sömmerska', :function_category => kommitte_spex_category
+Function.create :name => 'Tenorsaxofon', :function_category => bandet_spex_category
+Function.create :name => 'Trombon', :function_category => orkester_spex_category
+Function.create :name => 'Trombon', :function_category => bandet_spex_category
+Function.create :name => 'Trummor', :function_category => orkester_spex_category
+Function.create :name => 'Trummor', :function_category => bandet_spex_category
+Function.create :name => 'Trumpet', :function_category => orkester_spex_category
+Function.create :name => 'Trumpet', :function_category => bandet_spex_category
+Function.create :name => 'Tvärflöjt', :function_category => orkester_spex_category
+Function.create :name => 'Upplysare', :function_category => kommitte_spex_category
+Function.create :name => 'Valthorn', :function_category => orkester_spex_category
+Function.create :name => 'Viola', :function_category => orkester_spex_category
+Function.create :name => 'Violacello', :function_category => orkester_spex_category
+Function.create :name => 'Violin', :function_category => orkester_spex_category
+Function.create :name => 'Violin 1', :function_category => orkester_spex_category
+Function.create :name => 'Violin 2', :function_category => orkester_spex_category
+Function.create :name => 'Vistextförfattare', :function_category => annat_spex_category
 
 bob_spex_category = SpexCategory.find_by_name('Bobspexet')
 vera_spex_category = SpexCategory.find_by_name('Veraspexet')
