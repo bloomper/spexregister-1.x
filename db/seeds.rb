@@ -86,6 +86,7 @@ Function.create :name => 'Organisateur', :function_category => kommitte_spex_cat
 Function.create :name => 'Orkester', :function_category => orkester_spex_category
 Function.create :name => 'PR-chef', :function_category => kommitte_spex_category
 Function.create :name => 'PR/Info-stab', :function_category => kommitte_spex_category
+Function.create :name => 'PR-roddare', :function_category => kommitte_spex_category
 Function.create :name => 'Panblåsare', :function_category => orkester_spex_category
 Function.create :name => 'Pianör', :function_category => orkester_spex_category
 Function.create :name => 'Pianör', :function_category => bandet_spex_category
