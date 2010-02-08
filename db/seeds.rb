@@ -68,6 +68,7 @@ Function.create :name => 'Ljudmästare', :function_category => FunctionCategory.
 Function.create :name => 'Ljusmästare', :function_category => FunctionCategory.find_by_name('Kommitté')
 Function.create :name => 'Ljudroddare', :function_category => FunctionCategory.find_by_name('Kommitté')
 Function.create :name => 'Ljusroddare', :function_category => FunctionCategory.find_by_name('Kommitté')
+Function.create :name => 'Mandolin', :function_category => FunctionCategory.find_by_name('Bandet')
 Function.create :name => 'Mediamästare', :function_category => FunctionCategory.find_by_name('Kommitté')
 Function.create :name => 'Musikproducent', :function_category => FunctionCategory.find_by_name('Annat')
 Function.create :name => 'Oboe', :function_category => FunctionCategory.find_by_name('Orkester')
