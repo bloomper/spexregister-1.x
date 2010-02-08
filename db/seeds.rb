@@ -113,8 +113,8 @@ Function.create :name => 'Violin 1', :function_category => FunctionCategory.find
 Function.create :name => 'Violin 2', :function_category => FunctionCategory.find_by_name('Orkester')
 Function.create :name => 'Vistextförfattare', :function_category => FunctionCategory.find_by_name('Annat')
 
-bob_spex_category = SpexCategory.find_by_name('Bob')
-vera_spex_category = SpexCategory.find_by_name('Vera')
+bob_spex_category = SpexCategory.find_by_name('Bobspexet')
+vera_spex_category = SpexCategory.find_by_name('Veraspexet')
 chalmers_spex_category = SpexCategory.find_by_name('Chalmersspexet')
 
 # Spex
