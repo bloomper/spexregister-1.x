@@ -2,31 +2,15 @@ TODO
 ----
 
 - Setup 1.1 environment
-
-- Bar graph is perhaps not the most suitable
-  - Use points, change the l&f
-- Per series configuration?
+  - Why does not production mode work?
+    - Logging
+    - Dashboard gives strange errors not seen in development
 
 - Dashboard
-  - Visits/day/month
+  - Visits/time
     - Requires audit trail
-  - Users/month
-    - New and total
-  - Spexare/month
-    - New and total
-  - Updates/month
-    - Check timestamps on spexare, activity, spex_activity, function_activity, actor
-  - Top lists?
-    - Top logins
-    - Top updater
-    - Pie graphs?
-
-    @new_users = []
-    i = 100
-    100.times do
-      @new_users << [i.day.ago, rand(10)]
-      i -= 1
-    end
+      - http://groups.google.com/group/authlogic/browse_thread/thread/492369ccbfc5a331/8b9ae2dd88884fad?lnk=gst&q=callback#8b9ae2dd88884fad
+  - Login frequency should use the audit trail for better accuracy
 
 - Export
   - http://github.com/collectiveidea/delayed_job (better fork)
@@ -34,8 +18,6 @@ TODO
     - Show user's pending jobs and job results (reports only at this time)
     - Automatic cleanup of the above
     - Growl to indicate finished job
-      - http://github.com/jfiorato/growl4rails
-      - http://webtoolkit4.me/2009/08/13/jquery-growl-likenotification-systems/
   - Skip mail batch functionality for now?
   - http://github.com/gunark/jasperserver-client
   - http://helderribeiro.net/?tag=merb
