@@ -9,35 +9,37 @@ class UpdateDistributionReport < BaseReport
       @result[:data][key] << [1, value]
     }
     
-    @result[:opts][:series] = "
-      pie: {
-       show: true,
-       tilt: 0.5,
-       label: {
-        show: true,
-        radius: 0.8,
-        formatter: function(label, slice){
-          return '<div style=\"font-size:x-small;text-align:center;padding:2px;color:'+slice.color+';\">'+Math.round(slice.percent)+'%&nbsp;('+slice.data[0][1]+')</div>';
-        }
-       },
-       combine: {
-        threshold: 0.01,
-        label: \"#{I18n.t('views.statistics_report.update_distribution_report.other')}\"
-       }
-      }"
-    
-    @result[:opts][:grid] = "
-      hoverable: false,
-      show_tooltips: false"
-    
-    @result[:opts][:zoom] = "
-      interactive: false"
-    
-    @result[:opts][:pan] = "
-      interactive: false"
-    
-    @result[:opts][:legend] = "
-      container: '#flot-legend'"
+    if !@updates.empty?
+      @result[:opts][:series] = "
+        pie: {
+         show: true,
+         tilt: 0.5,
+         label: {
+          show: true,
+          radius: 0.8,
+          formatter: function(label, slice){
+            return '<div style=\"font-size:x-small;text-align:center;padding:2px;color:'+slice.color+';\">'+Math.round(slice.percent)+'%&nbsp;('+slice.data[0][1]+')</div>';
+          }
+         },
+         combine: {
+          threshold: 0.01,
+          label: \"#{I18n.t('views.statistics_report.update_distribution_report.other')}\"
+         }
+        }"
+      
+      @result[:opts][:grid] = "
+        hoverable: false,
+        show_tooltips: false"
+      
+      @result[:opts][:zoom] = "
+        interactive: false"
+      
+      @result[:opts][:pan] = "
+        interactive: false"
+      
+      @result[:opts][:legend] = "
+        container: '#flot-legend'"
+    end
   end
   
   protected
