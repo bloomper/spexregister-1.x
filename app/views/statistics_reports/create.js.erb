@@ -62,45 +62,58 @@ function plotAsSelected() {
 	}
   }
 
-  var data = <%= @report.result[:data].to_json %>;
-  var SERIES = [];
-
-  for (series in data)  {
-    SERIES.push({
-      data: data[series],
-      label: series
-    });
-  }
-  
-  var OPTS = {
-    series: {
-	  <%= @report.result[:opts][:series] %>
-	},
-    xaxis: {
-      <%= @report.result[:opts][:x_axis] %>
-    },
-    yaxis: {
-      <%= @report.result[:opts][:y_axis] %>
-    },
-    grid: {
-      <%= @report.result[:opts][:grid] %>
-    },
-    zoom: {
-      <%= @report.result[:opts][:zoom] %>
-    },
-    pan: {
-      <%= @report.result[:opts][:pan] %>
-    },
-    legend: {
-      <%= @report.result[:opts][:legend] %>
-    }
+  var isEmpty = function(obj) {
+        if(typeof(obj) == 'object') {
+            for(var i in obj) {
+                return false;
+            }
+        }
+        return true;
   };
 
-  var plot = jQuery.plot(jQuery('#flot-graph'), SERIES, OPTS);
-  setupTooltips(plot);
-  setupNavigationControls(plot);
+  var data = <%= @report.result[:data].to_json %>;
+  if (!isEmpty(data)) {
+    var SERIES = [];
 
-  return plot;
+    for (series in data)  {
+      SERIES.push({
+        data: data[series],
+        label: series
+      });
+    }
+  
+    var OPTS = {
+      series: {
+	    <%= @report.result[:opts][:series] %>
+	  },
+      xaxis: {
+        <%= @report.result[:opts][:x_axis] %>
+      },
+      yaxis: {
+        <%= @report.result[:opts][:y_axis] %>
+      },
+      grid: {
+        <%= @report.result[:opts][:grid] %>
+      },
+      zoom: {
+        <%= @report.result[:opts][:zoom] %>
+      },
+      pan: {
+        <%= @report.result[:opts][:pan] %>
+      },
+      legend: {
+        <%= @report.result[:opts][:legend] %>
+      }
+    };
+
+    var plot = jQuery.plot(jQuery('#flot-graph'), SERIES, OPTS);
+    setupTooltips(plot);
+    setupNavigationControls(plot);
+
+    return plot;
+  } else {
+    jQuery('#flot-graph').html('<%= t("views.statistics_report.no_data_found")%>');
+  }
 }
 
 plotAsSelected();

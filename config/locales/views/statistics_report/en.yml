@@ -28,3 +28,4 @@
         title: "Update distribution (no administrators)"
         other: "The rest"
       month_names: "'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'"
+      no_data_found: "No data found"

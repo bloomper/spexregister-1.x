@@ -28,3 +28,4 @@
         title: "Uppdateringsdistribution (ej administratörer)"
         other: "Resten"
       month_names: "'jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'"
+      no_data_found: "Ingen data hittades"
