@@ -45,7 +45,8 @@ class UpdateDistributionReport < BaseReport
   protected
   def get_update_distribution
     update_distribution = {}
-    entities = Spexare.find(:all, :order => 'updated_by asc') | Activity.find(:all, :order => 'updated_by asc') | SpexActivity.find(:all, :order => 'updated_by asc') | FunctionActivity.find(:all, :order => 'updated_by asc') | Actor.find(:all, :order => 'updated_by asc')
+    # Since parents are touched when a child is updated, it is sufficient to check the top parent
+    entities = Spexare.find(:all, :order => 'updated_by asc')
     entities.each do |entity|
       username = get_user_name(entity.updated_by)
       if !username.nil?
