@@ -1,14 +1,14 @@
 class LoginDistributionReport < BaseReport
-
+  
   def generate_report_data!
     @logins = get_login_distribution
     @result[:data] = Hash.new { |h,k| h[k] = [] }
     @result[:opts] = Hash.new { |h,k| h[k] = {} }
-
-    for login in @logins
-      @result[:data][login.username] << [1, login.login_count]
-    end
-
+    
+    @logins.each_pair { |key, value|
+      @result[:data][key] << [1, value]
+    }
+    
     if !@logins.empty?
       @result[:opts][:series] = "
         pie: {
@@ -26,25 +26,29 @@ class LoginDistributionReport < BaseReport
           label: \"#{I18n.t('views.statistics_report.login_distribution_report.other')}\"
          }
         }"
-  
+      
       @result[:opts][:grid] = "
         hoverable: false,
         show_tooltips: false"
-  
+      
       @result[:opts][:zoom] = "
         interactive: false"
-  
+      
       @result[:opts][:pan] = "
         interactive: false"
-  
+      
       @result[:opts][:legend] = "
         container: '#flot-legend'"
     end
   end
-
+  
   protected
   def get_login_distribution
-    User.find(:all, :conditions => 'login_count > 0', :order => 'login_count asc')
+    login_distribution = {}
+    User.find_each(:conditions => 'login_count > 0', :batch_size => 100) do |user|
+      login_distribution.store(user.username, user.login_count)
+    end
+    return login_distribution
   end
-
+  
 end

@@ -46,9 +46,8 @@ class UpdateDistributionReport < BaseReport
   def get_update_distribution
     update_distribution = {}
     # Since parents are touched when a child is updated, it is sufficient to check the top parent
-    entities = Spexare.find(:all, :order => 'updated_by asc')
-    entities.each do |entity|
-      username = get_user_name(entity.updated_by)
+    Spexare.find_each(:batch_size => 100) do |spexare|
+      username = get_user_name(spexare.updated_by)
       if !username.nil?
         if update_distribution.has_key?(username)
           old_value = update_distribution.fetch(username)
