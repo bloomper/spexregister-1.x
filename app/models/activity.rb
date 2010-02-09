@@ -1,5 +1,5 @@
 class Activity < ActiveRecord::Base
-  belongs_to :spexare
+  belongs_to :spexare, :touch => true
   has_one :spex_activity, :dependent => :destroy
   has_one :spex, :through => :spex_activity
   has_many :function_activities, :dependent => :destroy
