@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: a0f5bf4e32727c331679be7253ca7d5295075a8d
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/gunark/jasperserver-client.git
