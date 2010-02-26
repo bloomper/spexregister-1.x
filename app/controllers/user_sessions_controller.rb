@@ -21,6 +21,7 @@ class UserSessionsController < ApplicationController
   end
   
   def destroy
+    session[:latest_search_query] = nil
     current_user_session.destroy
     reset_lockdown_session
     flash[:success] = I18n.t('flash.user_sessions.destroy.success')
