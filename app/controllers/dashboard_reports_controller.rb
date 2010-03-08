@@ -1,4 +1,4 @@
-class StatisticsReportsController < ApplicationController
+class DashboardReportsController < ApplicationController
   
   def create
     @report = Object.const_get(params[:report].camelize).new

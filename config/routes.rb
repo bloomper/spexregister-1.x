@@ -36,7 +36,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :advanced_search, :only => [:new, :index, :destroy]
   map.resource :account, :except => [:destroy, :show]
   map.resource :profile, :only => [:edit]
-  map.resource :statistics_reports, :only => [:create]
+  map.resource :dashboard_reports, :only => [:create]
   map.resources :jobs
   
   map.root :controller => 'home', :action => 'index'

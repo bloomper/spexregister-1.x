@@ -1,6 +1,6 @@
 "en":
   views:
-    statistics_report:
+    dashboard_report:
       users_graph:
         title: "New & accumulated users"
         legend:

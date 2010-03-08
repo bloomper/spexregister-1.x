@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   include ExceptionNotifiable
   helper :all # include all helpers, all the time
-  helper_method :current_user_session, :current_user, :logged_in?, :current_user_is_admin?, :current_protocol, :filter_url_if_not_compatible_with, :show_search_result_back_links?, :previous_page, :current_page, :latest_search_query_exists?, :latest_search_query, :latest_advanced_search_query_exists?, :latest_advanced_search_query, :get_available_statistics_reports
+  helper_method :current_user_session, :current_user, :logged_in?, :current_user_is_admin?, :current_protocol, :filter_url_if_not_compatible_with, :show_search_result_back_links?, :previous_page, :current_page, :latest_search_query_exists?, :latest_search_query, :latest_advanced_search_query_exists?, :latest_advanced_search_query, :get_available_dashboard_reports
   
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
@@ -150,16 +150,16 @@ class ApplicationController < ActionController::Base
     return request.ssl? ? 'https://' : 'http://'
   end
 
-  def get_available_statistics_reports
-    reports = Rails.cache.read('statistics_reports')
-    if reports.nil?
+  def get_available_dashboard_reports
+    reports = Rails.cache.read('dashboard_reports')
+    if reports.nil? || Rails.env.development?
       reports = []
-      reports_path = Dir[File.join("#{RAILS_ROOT}", 'app', 'statistics_reports', '*.{rb}')]
+      reports_path = Dir[File.join("#{RAILS_ROOT}", 'app', 'dashboard_reports', '*.{rb}')]
       reports_path.flatten.sort!.each do |report|
         file_name = File.basename(report, File.extname(report))
         reports << file_name unless file_name.include? 'base' 
       end
-      Rails.cache.write('statistics_reports', reports)
+      Rails.cache.write('dashboard_reports', reports)
     end
     return reports
   end

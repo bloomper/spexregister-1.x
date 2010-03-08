@@ -1,6 +1,6 @@
 "sv-SE":
   views:
-    statistics_report:
+    dashboard_report:
       users_report:
         title: "Nya & ackumulerade användare"
         legend:
