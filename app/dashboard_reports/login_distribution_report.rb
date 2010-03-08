@@ -23,7 +23,7 @@ class LoginDistributionReport < BaseReport
          },
          combine: {
           threshold: 0.01,
-          label: \"#{I18n.t('views.statistics_report.login_distribution_report.other')}\"
+          label: \"#{I18n.t('views.dashboard_report.login_distribution_report.other')}\"
          }
         }"
       

@@ -14,7 +14,7 @@ class SpexareReport < BaseReport
       max_time = time unless max_time && max_time > time
       min_time = time unless min_time && min_time < time
       
-      @result[:data][I18n.t('views.statistics_report.spexare_report.legend.new_spexare')] << [time, new_spexare[1]]
+      @result[:data][I18n.t('views.dashboard_report.spexare_report.legend.new_spexare')] << [time, new_spexare[1]]
       max_y = new_spexare[1].to_i unless max_y && max_y > new_spexare[1].to_i
       min_y = new_spexare[1].to_i unless min_y && min_y < new_spexare[1].to_i
     end
@@ -24,7 +24,7 @@ class SpexareReport < BaseReport
       max_time = time unless max_time && max_time > time
       min_time = time unless min_time && min_time < time
       
-      @result[:data][I18n.t('views.statistics_report.spexare_report.legend.accumulated_spexare')] << [time, accumulated_spexare[1]]
+      @result[:data][I18n.t('views.dashboard_report.spexare_report.legend.accumulated_spexare')] << [time, accumulated_spexare[1]]
       max_y = accumulated_spexare[1].to_i unless max_y && max_y > accumulated_spexare[1].to_i
       min_y = accumulated_spexare[1].to_i unless min_y && min_y < accumulated_spexare[1].to_i
     end
@@ -43,7 +43,7 @@ class SpexareReport < BaseReport
         mode: 'time',
         zoomRange: #{[1000 * 60 * 60 * 24 * 7, max_time - min_time]},
         panRange: #{[min_time, max_time]},
-        monthNames: [#{I18n.t('views.statistics_report.month_names')}]"
+        monthNames: [#{I18n.t('views.dashboard_report.month_names')}]"
   
       @result[:opts][:series] = "
         points: { show: true, radius: 5 },

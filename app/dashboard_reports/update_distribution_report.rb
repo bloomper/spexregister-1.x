@@ -23,7 +23,7 @@ class UpdateDistributionReport < BaseReport
          },
          combine: {
           threshold: 0.01,
-          label: \"#{I18n.t('views.statistics_report.update_distribution_report.other')}\"
+          label: \"#{I18n.t('views.dashboard_report.update_distribution_report.other')}\"
          }
         }"
       
