@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: a00f01e282d0cfffbacb2335d01d6665c97d68d4
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/collectiveidea/delayed_job.git
