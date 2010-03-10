@@ -1,4 +1,4 @@
-class UpdateDistributionReport < BaseReport
+class UpdateDistributionReport < BaseDashboardReport
   
   def generate_report_data!
     @updates = get_update_distribution

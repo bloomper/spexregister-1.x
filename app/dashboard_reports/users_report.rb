@@ -1,4 +1,4 @@
-class UsersReport < BaseReport
+class UsersReport < BaseDashboardReport
 
   def generate_report_data!
     @new_users = User.count(:group => 'DATETIME(created_at)')

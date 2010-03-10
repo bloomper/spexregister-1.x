@@ -1,4 +1,4 @@
-class BaseReport
+class BaseDashboardReport
   attr_reader :result
 
   def initialize(params = {})

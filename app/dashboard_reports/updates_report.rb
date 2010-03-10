@@ -1,4 +1,4 @@
-class UpdatesReport < BaseReport
+class UpdatesReport < BaseDashboardReport
 
   def generate_report_data!
     # Since parents are touched when a child is updated, it is sufficient to check the top parent

@@ -1,4 +1,4 @@
-class SpexareReport < BaseReport
+class SpexareReport < BaseDashboardReport
 
   def generate_report_data!
     @new_spexare = Spexare.count(:group => 'DATETIME(created_at)')

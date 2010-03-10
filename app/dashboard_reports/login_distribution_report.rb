@@ -1,4 +1,4 @@
-class LoginDistributionReport < BaseReport
+class LoginDistributionReport < BaseDashboardReport
   
   def generate_report_data!
     @logins = get_login_distribution
