@@ -1,12 +1,12 @@
 "en":
   views:
     dashboard_report:
-      users_graph:
+      users_report:
         title: "New & accumulated users"
         legend:
           new_users: "New users"
           accumulated_users: "Accumulated users"
-      spexare_graph:
+      spexare_report:
         title: "New & accumulated spexers"
         legend:
           new_spexare: "New spexers"
