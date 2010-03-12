@@ -5,6 +5,8 @@ class SpexareController < ApplicationController
   defaults :collection_name => 'spexare_items', :route_collection_name => 'spexare_index'
   before_filter :resource, :only => [:destroy_picture]
 
+  helper_method :get_available_reports
+  
   def new
     new! do |format|
       format.html { render :action => :new, :layout => false }
@@ -53,6 +55,11 @@ class SpexareController < ApplicationController
     if !previous_page.match('search') && !previous_page.match('advanced_search')
       true
     end
+  end
+
+  private
+  def get_available_reports
+    ['detailed_summary']
   end
 
 end

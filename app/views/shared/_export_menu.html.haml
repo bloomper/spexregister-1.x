@@ -1,0 +1,11 @@
+.export-menu
+  %a.dropdown-menu.dropdown-menu-button.dropdown-menu-button-icon-right.ui-widget.ui-state-default.ui-corner-all
+    %span.ui-icon.ui-icon-triangle-1-s
+    = t 'views.report.export_action'
+  .hidden
+    %ul
+      - reports.each do |report|
+        %li
+          = link_to t("views.report.#{report}.title"), new_reports_url(:report => report, :ids => entity_ids)
+
+%br.clear

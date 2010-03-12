@@ -12,19 +12,75 @@ TODO
       - http://groups.google.com/group/authlogic/browse_thread/thread/492369ccbfc5a331/8b9ae2dd88884fad?lnk=gst&q=callback#8b9ae2dd88884fad
   - Login frequency should use the audit trail for better accuracy
 
+Inspextor
+Directeur
+Festdirecteur
+Casseur
+Upplysare
+PR-chef
+Scenmästare
+Ljusmästare
+Arkitekt
+Producent
+Skivkommitté
+Sömmerska
+Författare
+Ensemble
+Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor)
+
+- Clickable mail links in exports?
+
+- Reports
+  - Address labels
+    - Search result
+    - Possiblity to remove/merge spouse
+    - PDF, RTF, ODT, DOCX, XML
+  - "Plutonlista", note: specific order
+    - Spex edit/view
+    - Admin only
+    - According to example
+    - PDF, RTF, ODT, DOCX, XML
+  - Strecklista
+    - Spex edit/view
+    - Admin only
+    - PDF, RTF, ODT, DOCX, XLS, ODS, CSV, XML
+    - Problems
+      - DOCX, ODT, ODS, XLS, strange background colors and missing borders
+  - One pager
+    - Spexare edit/view
+    - Includes activities, memberships etc
+    - PDF, RTF, ODT, DOCX, XML
+  - List
+    - Search result
+    - Does not include activities, memberships etc
+    - PDF, XLS, ODS, CSV, XML
+  - Address list
+    - Search result
+    - Only includes address details
+    - PDF, XLS, ODS, CSV, XML
+  - Email addresses
+    - Search result
+    - PDF, XLS, ODS, CSV, XML
+
 - Export
   - http://github.com/collectiveidea/delayed_job (better fork)
-  - 'My jobs/reports' under 'Home'
+  - 'My jobs' under 'Home'
     - Show user's pending jobs and job results (reports only at this time)
     - Automatic cleanup of the above
     - Growl to indicate finished job
-  - Skip mail batch functionality for now?
   - http://github.com/gunark/jasperserver-client
-  - http://helderribeiro.net/?tag=merb
+  - Job graph
+    - http://helderribeiro.net/?tag=merb
   - http://www.magnionlabs.com/2009/2/28/background-job-processing-in-rails-with-delayed_job
   - Create job_results table?
   - http://asciicasts.com/episodes/171-delayed-job
   - Exception notifier: http://groups.google.com/group/delayed_job/browse_thread/thread/646314145a69360b#
+  - Export menu
+    - Change menu item links into ajax calls
+    - Popup for new report
+    - Is ids array correctly encoded? What about max length?
+    - Placement of export menu in search result
+    - Search result only contains current page, need all ids? Use session somehow?
 
 - Replace mail_queue with delayed_job?
 
@@ -33,6 +89,7 @@ TODO
 
 - IE problems
   - Why does 'both secure and non-secure items' pop up in IE6/7?
+    - http://weblogs.asp.net/rchartier/archive/2008/03/12/ie7-this-page-contains-both-secure-and-nonsecure-items.aspx
   - IE 7
     - entity index pages look crap
       - sidebar is too wide
@@ -60,6 +117,10 @@ TODO
   - Lockdown
   - Other plugins?
   - Other JS plugins?
+  - jQuery 1.4 and jQuery UI 1.8/1.9
+    - Replace jquery.fg.menu
 
 - Upload code to github or bojan (svn+ssh)
   - Update deploy.rb accordingly
+
+- Mail batch functionality?

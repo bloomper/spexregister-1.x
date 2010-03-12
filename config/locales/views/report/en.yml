@@ -1,0 +1,18 @@
+"en":
+  views:
+    report:
+      export_action: "Export to..."
+      address_labels:
+        title: "Address labels"
+      pluton_list:
+        title: "Platoonlist"
+      streck_list:
+        title: "Checklist"
+      detailed_summary:
+        title: "Summary"
+      detail_list:
+        title: "List"
+      email_address_detail_list:
+        title: "Emailaddresslist"
+      address_detail_list:
+        title: "Addresslist"

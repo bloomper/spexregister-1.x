@@ -3,6 +3,8 @@ class SearchController < ApplicationController
   respond_to :html, :only => [:new, :index, :destroy]
   defaults :resource_class => Spexare, :collection_name => 'search_result', :route_collection_name => 'search_index', :route_instance_name => 'spexare'
 
+  helper_method :get_available_reports
+
   def destroy
     session[:latest_search_query] = nil
     redirect_to new_search_url
@@ -17,6 +19,11 @@ class SearchController < ApplicationController
     @search_result ||= @search.find(:all, :select => 'DISTINCT spexare.id, spexare.last_name, spexare.first_name, spexare.nick_name').paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
 
     session[:latest_search_query] = params
+  end
+
+  private
+  def get_available_reports
+    ['address_labels', 'detail_list', 'email_address_detail_list', 'address_detail_list']
   end
 
 end

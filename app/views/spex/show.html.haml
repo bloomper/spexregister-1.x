@@ -1,6 +1,9 @@
 = render :partial => 'sub_menu'
 
-%h1= t 'views.spex.page_title', :action => t('views.base.viewing_action'), :description => @spex.title
+%div.left
+  %h1= t 'views.spex.page_title', :action => t('views.base.viewing_action'), :description => @spex.title
+
+= render :partial => '/shared/export_menu', :locals => { :reports => get_available_reports, :entity_ids => [@spex.id] }
 
 %table.show
   %tr

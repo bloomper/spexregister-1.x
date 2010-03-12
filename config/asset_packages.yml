@@ -22,6 +22,7 @@ javascripts:
   - jquery.flot.fillbetween
   - jquery.flot.pie
   - jquery.gritter
+  - jquery.fg.menu
   - jrails
   - jrails.autocomplete
   - spexregister
@@ -37,6 +38,7 @@ stylesheets:
   - jquery.multiselect
   - jquery.flick.theme
   - jquery.gritter
+  - jquery.fg.menu
   - compiled/screen
 - ie:
   - compiled/ie

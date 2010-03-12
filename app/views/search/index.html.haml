@@ -8,6 +8,8 @@
     %li
       = link_to icon_tag('reset') + ' ' + t('views.search.reset_search_result'), search_url('dummy'), :method => :delete, :class => 'button'
 
+= render :partial => '/shared/export_menu', :locals => { :reports => get_available_reports, :entity_ids => @search_result.map(&:id) }
+
 %br.clear
 
 - if @search_result.empty?

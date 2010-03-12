@@ -70,6 +70,17 @@ jQuery(function() {
 });
 
 jQuery(function() {
+  jQuery('a.dropdown-menu').livequery(function() {
+    jQuery(this).menu( {
+      'content': jQuery('a.dropdown-menu').next().html(),
+      'showSpeed': 100,
+      'width' : 120
+    });
+  });
+});
+
+
+jQuery(function() {
   jQuery('input[type=checkbox]').livequery(function() {
     jQuery(this).checkbox();
   });

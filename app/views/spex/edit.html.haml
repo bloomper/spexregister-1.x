@@ -1,6 +1,9 @@
 = render :partial => 'sub_menu'
 
-%h1= t 'views.spex.page_title', :action => t('views.base.editing_action'), :description => @spex.title
+%div.left
+  %h1= t 'views.spex.page_title', :action => t('views.base.editing_action'), :description => @spex.title
+
+= render :partial => '/shared/export_menu', :locals => { :reports => get_available_reports, :entity_ids => [@spex.id] }
 
 - form_for @spex, :url => resource_url, :html => { :method => :put, :multipart => true } do |f|
   = render :partial => 'form', :locals => { :f => f }

@@ -65,6 +65,8 @@
     :position relative
     .toolbar
       :margin-right 0em
+    .export-menu
+      :margin-right 4.5em
 
 #sidebar
   :position absolute
@@ -110,3 +112,43 @@
             :color #363 !important
             :margin-left -20px
             :padding-left 30px
+
+.dropdown-menu-button
+  :clear left
+  :margin 0 4px 0px 20px
+  :padding .4em 1em
+  :text-decoration none !important
+  :cursor pointer
+  :position relative
+  :text-align center
+  :zoom 1
+
+.dropdown-menu-button
+  .ui-icon
+    :position absolute
+    :top 50%
+    :margin-top -8px
+    :left 50%
+    :margin-left -8px
+
+a
+  &.dropdown-menu-button
+    :float left
+
+.dropdown-menu-button-icon-left
+  :padding-left 2.1em
+
+.dropdown-menu-button-icon-right
+  :padding-right 2.1em
+
+.dropdown-menu-button-icon-left
+  .ui-icon
+    :right auto
+    :left .2em
+    :margin-left 0
+
+.dropdown-menu-button-icon-right
+  .ui-icon
+    :left auto
+    :right .2em
+    :margin-left 0

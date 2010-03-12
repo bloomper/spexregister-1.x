@@ -1,0 +1,18 @@
+"sv-SE":
+  views:
+    report:
+      export_action: "Exportera till..."
+      address_labels:
+        title: "Adressetiketter"
+      pluton_list:
+        title: "Plutonslista"
+      streck_list:
+        title: "Strecklista"
+      detailed_summary:
+        title: "Summering"
+      detail_list:
+        title: "Lista"
+      email_address_detail_list:
+        title: "Emailadresslista"
+      address_detail_list:
+        title: "Adresslista"

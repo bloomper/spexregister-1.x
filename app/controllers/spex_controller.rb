@@ -6,6 +6,8 @@ class SpexController < ApplicationController
   defaults :collection_name => 'spex_items', :route_collection_name => 'spex_index'
   before_filter :resource, :only => [:destroy_poster]
 
+  helper_method :get_available_reports
+
   def new
     new! do |format|
       format.html { render :action => :new, :layout => false }
@@ -61,5 +63,10 @@ class SpexController < ApplicationController
       @spex_items ||= @search.all
     end
   end
-  
+
+  private
+  def get_available_reports
+    ['pluton_list', 'streck_list']
+  end
+
 end
