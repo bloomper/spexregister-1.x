@@ -30,6 +30,7 @@ class ApplicationController < ActionController::Base
     sess = current_user_session
     if sess && sess.stale?
       reset_lockdown_session
+      session[:latest_search_query] = nil
       redirect_to login_url(:stale => true)
       return false
     end
