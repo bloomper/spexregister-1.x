@@ -66,7 +66,7 @@ class SpexController < ApplicationController
 
   private
   def get_available_reports
-    ['pluton_list', 'streck_list']
+    [{:key => 'pluton_list', :title => t('views.report.pluton_list.title')}, {:key => 'streck_list', :title => t('views.report.streck_list.title')}]
   end
 
 end

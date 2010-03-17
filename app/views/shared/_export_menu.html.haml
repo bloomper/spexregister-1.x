@@ -1,11 +1,15 @@
+- entity_ids = nil if local_assigns[:entity_ids].nil? 
+
 .export-menu
   %a.dropdown-menu.dropdown-menu-button.dropdown-menu-button-icon-right.ui-widget.ui-state-default.ui-corner-all
     %span.ui-icon.ui-icon-triangle-1-s
-    = t 'views.report.export_action'
+    = icon_tag('export') + ' ' + t('views.report.export_action')
   .hidden
     %ul
-      - reports.each do |report|
+      - reports.sort{|a, b| a[:title] <=> b[:title]}.each do |report|
         %li
-          = link_to t("views.report.#{report}.title"), new_reports_url(:report => report, :ids => entity_ids)
+          = link_to_remote report[:title], { :url => new_reports_url(:report => report[:key], :ids => entity_ids ? entity_ids : nil), :method => :get, :before => '', :complete => 'jQuery("#new-export").dialog({ modal: true });' }
 
+#new-export
+  
 %br.clear

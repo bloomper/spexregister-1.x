@@ -59,7 +59,7 @@ class SpexareController < ApplicationController
 
   private
   def get_available_reports
-    ['detailed_summary']
+    [{:key => 'detailed_summary', :title => t('views.report.detailed_summary.title')}]
   end
 
 end
