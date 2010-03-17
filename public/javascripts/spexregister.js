@@ -64,7 +64,8 @@ jQuery(function() {
       'overlayShow' : true,
       'zoomOpacity' : true,
       'zoomSpeedIn' : 500,
-      'zoomSpeedOut' : 500
+      'zoomSpeedOut' : 500,
+      'titleShow' : false
     });
   });
 });
