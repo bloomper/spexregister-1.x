@@ -3,5 +3,5 @@
 - content_for :sidebar do
   %ul.sidebar
     - get_available_dashboard_reports.each do |report|
-      %li{:class => ('active' if current_tab == "#{report}_tab")}
-        = link_to t("views.dashboard_report.#{report}.title"), administration_url(:report => report)
+      %li{:class => ('active' if current_tab == "#{report[:key]}_tab")}
+        = link_to report[:title], administration_url(:report => report[:key])

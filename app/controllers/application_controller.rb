@@ -152,15 +152,16 @@ class ApplicationController < ActionController::Base
   end
 
   def get_available_dashboard_reports
-    reports = Rails.cache.read('dashboard_reports')
+    reports = Rails.cache.read("dashboard_reports_#{I18n.locale}")
     if reports.nil? || Rails.env.development?
       reports = []
       reports_path = Dir[File.join("#{RAILS_ROOT}", 'app', 'dashboard_reports', '*.{rb}')]
-      reports_path.flatten.sort!.each do |report|
+      reports_path.flatten.each do |report|
         file_name = File.basename(report, File.extname(report))
-        reports << file_name unless file_name.include? 'base' 
+        reports << {:key => file_name, :title => t("views.dashboard_report.#{file_name}.title")} unless file_name.include? 'base' 
       end
-      Rails.cache.write('dashboard_reports', reports)
+      reports.sort!{|a, b| a[:title] <=> b[:title]}
+      Rails.cache.write("dashboard_reports_#{I18n.locale}", reports)
     end
     return reports
   end
