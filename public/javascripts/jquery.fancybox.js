@@ -628,7 +628,9 @@
 				case 'image':
 					busy = false;
 
-					$.fancybox.showActivity();
+          if (selectedOpts.loadingShow) {
+					  $.fancybox.showActivity();
+					}
 
 					imgPreloader = new Image();
 
@@ -677,7 +679,9 @@
 					}
 
 					busy = false;
-					$.fancybox.showActivity();
+          if (selectedOpts.loadingShow) {
+					  $.fancybox.showActivity();
+					}
 
 					ajaxLoader = $.ajax($.extend(selectedOpts.ajax, {
 						url		: href,
@@ -1067,7 +1071,9 @@
 		onCancel			:	null,
 		onComplete			:	null,
 		onCleanup			:	null,
-		onClosed			:	null
+		onClosed			:	null,
+		
+		loadingShow   : true
 	};
 
 	$(document).ready(function() {
