@@ -7,7 +7,6 @@ javascripts:
   - jquery.alerts
   - jquery.fancybox
   - jquery.datepicker
-  - jquery.dialog
   - jquery.livequery
   - jquery.lockSubmit
   - jquery.checkbox
