@@ -1,2 +1,14 @@
-%h1
-  HEPP
+#export
+  %h2= t "views.report.#{params[:report]}.title"
+  - form_remote_tag :url => reports_url(:report => params[:report]) do
+    %p
+      %label
+        = check_box_tag :include_uncertain_addresses
+        = label_tag :include_uncertain_addresses, 'Uncertain'
+    %p
+      %label
+        = check_box_tag :include_only_one_in_a_relation
+        = label_tag :include_only_one_in_a_relation, 'Only one'
+    %p
+      = submit_tag 'Skapa', :class => 'button'
+  

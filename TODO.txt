@@ -77,9 +77,7 @@ Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor
   - Exception notifier: http://groups.google.com/group/delayed_job/browse_thread/thread/646314145a69360b#
   - Export menu
     - http://www.filamentgroup.com/lab/jquery_ipod_style_and_flyout_menus/
-    - Change menu item links into ajax calls
     - Popup for new report
-      - Use fancybox or dialog?
 
 - Replace mail_queue with delayed_job?
 

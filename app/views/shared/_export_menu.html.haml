@@ -8,8 +8,6 @@
     %ul
       - reports.sort{|a, b| a[:title] <=> b[:title]}.each do |report|
         %li
-          = link_to_remote report[:title], { :url => new_reports_url(:report => report[:key], :ids => entity_ids ? entity_ids : nil), :method => :get, :before => '', :complete => 'jQuery("#new-export").dialog({ modal: true });' }
+          = link_to report[:title], new_reports_url(:report => report[:key], :ids => entity_ids ? entity_ids : nil), :class => 'fancybox-form' 
 
-#new-export
-  
 %br.clear
