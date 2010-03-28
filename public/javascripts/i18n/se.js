@@ -40,3 +40,9 @@ jQuery(function() {
            itemsCount: 'valda'
   });
 });
+
+jQuery(function() {
+  if(isUnsupportedBrowser()) {
+    jQuery("<div id='unsupported-browser'>Din browser stöds inte. Rekommenderade browsers är Firefox 3+, Chrome 4+, Safari 4+, Opera 9+ och Internet Explorer 7+.</div>").prependTo("body");
+  }
+});

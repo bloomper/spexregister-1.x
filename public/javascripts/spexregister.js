@@ -5,6 +5,13 @@ jQuery.alerts.dialogClass = "alertDialog";
 
 jQuery.noConflict();
 
+function isUnsupportedBrowser(){
+  if(jQuery.browser.msie && parseInt(jQuery.browser.version) <= 6) {
+    return true;
+  }
+  return false;
+}
+
 jQuery(document).ajaxStart(function() {
   jQuery('#progress-indicator').fadeIn();
 });
