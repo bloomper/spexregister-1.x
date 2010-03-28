@@ -58,6 +58,22 @@ namespace :deploy do
     end
   end
 
+  namespace :web do
+    task :disable, :roles => :web do
+      # invoke with  
+      # UNTIL="16:00 CET" REASON="a database upgrade" cap deploy:web:disable
+
+      on_rollback { rm "#{shared_path}/system/maintenance.html" }
+
+      require 'haml'
+      template = File.read('./app/views/layouts/maintenance.html.haml')
+      haml_engine = Haml::Engine.new(template)
+
+      maintenance = haml_engine.render(Object.new, :deadline => ENV['UNTIL'], :reason => ENV['REASON'])
+
+      put maintenance, "#{shared_path}/system/maintenance.html", :mode => 0644
+    end
+  end
 end
 
 after 'deploy:symlink', 'deploy:asset:packager:build_all'
