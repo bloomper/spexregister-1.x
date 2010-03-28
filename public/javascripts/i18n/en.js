@@ -43,6 +43,6 @@ jQuery(function() {
 
 jQuery(function() {
   if(isUnsupportedBrowser()) {
-    jQuery("<div id='unsupported-browser'>Your browser is not supported. Recommended browsers are Firefox 3+, Chrome 4+, Safari 4+, Opera 9+ and Internet Explorer 7+.</div>").prependTo("body");
+    jQuery("<div id='unsupported-browser'>Your browser is not supported. Recommended browsers are Firefox 3+, Chrome 4+, Safari 3+, Opera 9+ and Internet Explorer 7+.</div>").prependTo("body");
   }
 });
