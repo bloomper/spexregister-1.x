@@ -1,0 +1,35 @@
+= render :partial => 'sub_menu'
+
+= render :partial => 'tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :description => @spex.spex_detail.title, :current_tab => 'revivals_tab'}
+
+- if @revivals.empty?
+  %p= t 'views.revival.no_associated_revivals'
+- else
+  .number-of-hits= page_entries_info @revivals, { :entry_translation_group_key => 'revival' }
+  %br.clear
+  %table.index
+    %tr
+      - if @revivals.size > 24
+        %th= t 'activerecord.attributes.spex.year'
+        %th= t 'activerecord.attributes.spex.year'
+        %th= t 'activerecord.attributes.spex.year'
+        - @revivals.in_groups_of(3).each do |revival_group|
+          %tr{:class => cycle('even', 'odd')}
+            - revival_group.each do |revival|
+              %td= h revival.year unless revival.nil?
+      - elsif @revivals.size > 12
+        %th= t 'activerecord.attributes.spex.year'
+        %th= t 'activerecord.attributes.spex.year'
+        - @revivals.in_groups_of(2).each do |revival_group|
+          %tr{:class => cycle('even', 'odd')}
+            - revival_group.each do |revival|
+              %td= h revival.year unless revival.nil?
+      - else
+        %th= t 'activerecord.attributes.spex.year'
+        - @revivals.each do |revival|
+          %tr{:class => cycle('even', 'odd')}
+            %td= h revival.year
+
+= will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+
+= render :partial => '/shared/back_links', :locals => { :url => previous_page }

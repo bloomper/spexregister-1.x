@@ -1,0 +1,8 @@
+"en":
+  views:
+    revival:
+      description_tab_title: "Revivals"
+      no_associated_revivals: "No associated revivals"
+      add_revival: "Add revival"
+      available_revivals: "Available revivals"
+      no_available_revivals_exist: "There are no available revivals"

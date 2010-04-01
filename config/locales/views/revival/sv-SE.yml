@@ -1,0 +1,8 @@
+"sv-SE":
+  views:
+    revival:
+      description_tab_title: "Nyuppsättningar"
+      no_associated_revivals: "Inga associerade nyuppsättningar"
+      add_revival: "Lägg till nyuppsättning"
+      available_revivals: "Tillgängliga nyuppsättningar"
+      no_available_revivals_exist: "Det finns inga tillgängliga nyuppsättningar"

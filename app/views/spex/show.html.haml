@@ -1,42 +1,34 @@
 = render :partial => 'sub_menu'
 
-%div.left
-  %h1= t 'views.spex.page_title', :action => t('views.base.viewing_action'), :description => @spex.title
+= render :partial => 'tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :description => @spex.spex_detail.title, :current_tab => 'spex_tab'}
 
-= render :partial => '/shared/export_menu', :locals => { :reports => get_available_reports, :entity_ids => [@spex.id] }
-
-%table.show
-  %tr
-    %th= t 'activerecord.attributes.spex.year'
-  %tr
-    %td= h @spex.year
-
-%table.show
-  %tr
-    %th= t 'activerecord.attributes.spex.title'
-  %tr
-    %td= h @spex.title
-
-%table.show
-  %tr
-    %th= t 'activerecord.attributes.spex.spex_category'
-  %tr
-    %td= h @spex.spex_category.name
-
-%table.show
-  %tr
-    %th= t 'activerecord.attributes.spex.is_revival'
-  %tr
-    %td= translate_boolean @spex.is_revival
-
-%table.show
-  %tr
-    %th= t 'activerecord.attributes.spex.poster'
-  %tr
-    - if @spex.poster?
-      %td= link_to(image_tag(@spex.poster.url(:thumb)), @spex.poster.url, :class => 'fancybox-single')
-    - else
-      %td= t 'views.base.missing_image'
-
-= render :partial => '/shared/entity_details', :locals => {:entity => @spex}
-= render :partial => '/shared/back_links', :locals => { :url => filter_url_if_not_compatible_with(previous_page, collection_url) }
+#spex-data
+  %table.show
+    %tr
+      %th= t 'activerecord.attributes.spex.year'
+    %tr
+      %td= h @spex.year
+  
+  %table.show
+    %tr
+      %th= t 'activerecord.attributes.spex_detail.title'
+    %tr
+      %td= h @spex.spex_detail.title
+  
+  %table.show
+    %tr
+      %th= t 'activerecord.attributes.spex_detail.spex_category'
+    %tr
+      %td= h @spex.spex_detail.spex_category.name
+  
+  %table.show
+    %tr
+      %th= t 'activerecord.attributes.spex_detail.poster'
+    %tr
+      - if @spex.spex_detail.poster?
+        %td= link_to(image_tag(@spex.spex_detail.poster.url(:thumb)), @spex.spex_detail.poster.url, :class => 'fancybox-single')
+      - else
+        %td= t 'views.base.missing_image'
+  
+  = render :partial => '/shared/entity_details', :locals => {:entity => @spex}
+  = render :partial => '/shared/back_links', :locals => { :url => filter_url_if_not_compatible_with(previous_page, collection_url) }

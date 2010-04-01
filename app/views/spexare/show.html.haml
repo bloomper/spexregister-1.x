@@ -2,131 +2,132 @@
 
 = render :partial => 'tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :description => @spexare.full_name, :current_tab => 'spexare_tab'}
 
-%table.show
-  %tr
-    %th= t 'activerecord.attributes.spexare.first_name'
-  %tr
-    %td= print_text @spexare.first_name
-
-%table.show
-  %tr
-    %th= t 'activerecord.attributes.spexare.last_name'
-  %tr
-    %td= print_text @spexare.last_name
-
-%table.show
-  %tr
-    %th= t 'activerecord.attributes.spexare.nick_name'
-  %tr
-    %td= print_text @spexare.nick_name
-
-%table.show
-  %tr
-    %th= t 'activerecord.attributes.spexare.picture'
-  %tr
-    - if @spexare.picture?
-      %td= link_to_open(image_tag(@spexare.picture.url(:thumb)), @spexare.picture.url, :class => 'fancybox-single')
-    - else
-      %td= t 'views.base.missing_image'
-
-- if !@spexare.deceased
+#spexare-data
   %table.show
     %tr
-      %th= [t('views.spexare.address'), @spexare.uncertain_address ? t('views.spexare.uncertain_address_notice') : nil].join(' ')
-    - if @spexare.street_address.blank? && @spexare.postal_code.blank? && @spexare.postal_address.blank? && @spexare.country.blank?
-      %tr
-        %td= t 'views.base.missing_text'
-    - else
-      - if !@spexare.street_address.blank?
-        %tr
-          %td= h @spexare.street_address
-      - if !@spexare.postal_code.blank?
-        %tr
-          %td= h @spexare.postal_code
-      - if !@spexare.postal_address.blank?
-        %tr
-          %td= h @spexare.postal_address
-      - if !@spexare.country.blank?
-        %tr
-          %td= h t("countries.#{@spexare.country}")
+      %th= t 'activerecord.attributes.spexare.first_name'
+    %tr
+      %td= print_text @spexare.first_name
   
   %table.show
     %tr
-      %th= t 'views.spexare.phone_numbers'
-    - if @spexare.phone_home.blank? && @spexare.phone_work.blank? && @spexare.phone_mobile.blank? && @spexare.phone_other.blank?
-      %tr
-        %td= t 'views.base.missing_text'
-    - else
-      - if !@spexare.phone_home.blank?
-        %tr
-          %td= [h(@spexare.phone_home), t('views.spexare.phone_home_notice')].join(' ')
-      - if !@spexare.phone_work.blank?
-        %tr
-          %td= [h(@spexare.phone_work), t('views.spexare.phone_work_notice')].join(' ')
-      - if !@spexare.phone_mobile.blank?
-        %tr
-          %td= [h(@spexare.phone_mobile), t('views.spexare.phone_mobile_notice')].join(' ')
-      - if !@spexare.phone_other.blank?
-        %tr
-          %td= [h(@spexare.phone_other), t('views.spexare.phone_other_notice')].join(' ')
+      %th= t 'activerecord.attributes.spexare.last_name'
+    %tr
+      %td= print_text @spexare.last_name
   
   %table.show
     %tr
-      %th= t 'activerecord.attributes.spexare.email_address'
+      %th= t 'activerecord.attributes.spexare.nick_name'
     %tr
-      %td= print_text @spexare.email_address
-
-%table.show
-  %tr
-    %th= t 'activerecord.attributes.spexare.birth_date'
-  %tr
-    %td= print_text @spexare.birth_date
-
-- if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare == @spexare)
+      %td= print_text @spexare.nick_name
+  
   %table.show
     %tr
-      %th= t 'activerecord.attributes.spexare.social_security_number'
+      %th= t 'activerecord.attributes.spexare.picture'
     %tr
-      %td= print_text @spexare.social_security_number
-
-%table.show
-  %tr
-    %th= t 'activerecord.attributes.spexare.chalmers_student'
-  %tr
-    %td= translate_boolean @spexare.chalmers_student
-
-%table.show
-  %tr
-    %th= t 'activerecord.attributes.spexare.graduation'
-  %tr
-    %td= print_text @spexare.graduation
-
-- if @spexare.deceased
+      - if @spexare.picture?
+        %td= link_to_open(image_tag(@spexare.picture.url(:thumb)), @spexare.picture.url, :class => 'fancybox-single')
+      - else
+        %td= t 'views.base.missing_image'
+  
+  - if !@spexare.deceased
+    %table.show
+      %tr
+        %th= [t('views.spexare.address'), @spexare.uncertain_address ? t('views.spexare.uncertain_address_notice') : nil].join(' ')
+      - if @spexare.street_address.blank? && @spexare.postal_code.blank? && @spexare.postal_address.blank? && @spexare.country.blank?
+        %tr
+          %td= t 'views.base.missing_text'
+      - else
+        - if !@spexare.street_address.blank?
+          %tr
+            %td= h @spexare.street_address
+        - if !@spexare.postal_code.blank?
+          %tr
+            %td= h @spexare.postal_code
+        - if !@spexare.postal_address.blank?
+          %tr
+            %td= h @spexare.postal_address
+        - if !@spexare.country.blank?
+          %tr
+            %td= h t("countries.#{@spexare.country}")
+    
+    %table.show
+      %tr
+        %th= t 'views.spexare.phone_numbers'
+      - if @spexare.phone_home.blank? && @spexare.phone_work.blank? && @spexare.phone_mobile.blank? && @spexare.phone_other.blank?
+        %tr
+          %td= t 'views.base.missing_text'
+      - else
+        - if !@spexare.phone_home.blank?
+          %tr
+            %td= [h(@spexare.phone_home), t('views.spexare.phone_home_notice')].join(' ')
+        - if !@spexare.phone_work.blank?
+          %tr
+            %td= [h(@spexare.phone_work), t('views.spexare.phone_work_notice')].join(' ')
+        - if !@spexare.phone_mobile.blank?
+          %tr
+            %td= [h(@spexare.phone_mobile), t('views.spexare.phone_mobile_notice')].join(' ')
+        - if !@spexare.phone_other.blank?
+          %tr
+            %td= [h(@spexare.phone_other), t('views.spexare.phone_other_notice')].join(' ')
+    
+    %table.show
+      %tr
+        %th= t 'activerecord.attributes.spexare.email_address'
+      %tr
+        %td= print_text @spexare.email_address
+  
   %table.show
     %tr
-      %th= t 'activerecord.attributes.spexare.deceased'
+      %th= t 'activerecord.attributes.spexare.birth_date'
     %tr
-      %td= translate_boolean @spexare.deceased
-
-- if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare == @spexare)
+      %td= print_text @spexare.birth_date
+  
+  - if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare == @spexare)
+    %table.show
+      %tr
+        %th= t 'activerecord.attributes.spexare.social_security_number'
+      %tr
+        %td= print_text @spexare.social_security_number
+  
   %table.show
     %tr
-      %th= t 'activerecord.attributes.spexare.publish_approval'
+      %th= t 'activerecord.attributes.spexare.chalmers_student'
     %tr
-      %td= translate_boolean @spexare.publish_approval
-
-- if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare == @spexare)
+      %td= translate_boolean @spexare.chalmers_student
+  
   %table.show
     %tr
-      %th= t 'activerecord.attributes.spexare.want_circulars'
+      %th= t 'activerecord.attributes.spexare.graduation'
     %tr
-      %td= translate_boolean @spexare.want_circulars
-
-%table.show
-  %tr
-    %th= t 'activerecord.attributes.spexare.comment'
-  %tr
-    %td= print_textarea @spexare.comment
-
-= render :partial => '/shared/entity_details', :locals => {:entity => @spexare}
-= render :partial => '/shared/back_links', :locals => { :url => filter_url_if_not_compatible_with(previous_page, collection_url, true) }
+      %td= print_text @spexare.graduation
+  
+  - if @spexare.deceased
+    %table.show
+      %tr
+        %th= t 'activerecord.attributes.spexare.deceased'
+      %tr
+        %td= translate_boolean @spexare.deceased
+  
+  - if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare == @spexare)
+    %table.show
+      %tr
+        %th= t 'activerecord.attributes.spexare.publish_approval'
+      %tr
+        %td= translate_boolean @spexare.publish_approval
+  
+  - if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare == @spexare)
+    %table.show
+      %tr
+        %th= t 'activerecord.attributes.spexare.want_circulars'
+      %tr
+        %td= translate_boolean @spexare.want_circulars
+  
+  %table.show
+    %tr
+      %th= t 'activerecord.attributes.spexare.comment'
+    %tr
+      %td= print_textarea @spexare.comment
+  
+  = render :partial => '/shared/entity_details', :locals => {:entity => @spexare}
+  = render :partial => '/shared/back_links', :locals => { :url => filter_url_if_not_compatible_with(previous_page, collection_url, true) }

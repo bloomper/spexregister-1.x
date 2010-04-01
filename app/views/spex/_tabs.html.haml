@@ -1,0 +1,14 @@
+%div.left
+  %h1= t 'views.spex.page_title', :action => current_action, :description => description
+
+- if current_tab == "spex_tab"
+  = render :partial => '/shared/export_menu', :locals => { :reports => get_available_reports, :entity_ids => [@spex.id] }
+- else
+  %br.clear
+
+- content_for :sidebar do
+  %ul.sidebar
+    %li{:class => ("active" if current_tab == "spex_tab")}
+      = link_to t('views.spex.description_tab_title'), (edit_mode ? edit_spex_url(@spex) : spex_url(@spex))
+    %li{:class => ("active" if current_tab == "revivals_tab")}
+      = link_to t('views.revival.description_tab_title'), (edit_mode ? selected_spex_revivals_url(@spex) : spex_revivals_url(@spex))

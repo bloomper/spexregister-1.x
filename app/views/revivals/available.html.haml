@@ -1,0 +1,14 @@
+%h3= t 'views.revival.available_revivals'
+
+- if @available_revivals.empty?
+  %p= t 'views.revival.no_available_revivals_exist'
+- else
+  %table.index
+    %tr
+      %th= t 'activerecord.attributes.spex.year'
+      %th.action-column= t 'views.base.action'
+      - @available_revivals.reverse.each do |available_revival|
+        %tr{:id => dom_id(available_revival), :class => cycle('even', 'odd')}
+          %td= h available_revival
+          %td.actions
+            = link_to_remote icon_tag('add') + ' ' + t('views.base.add_action'), { :url => select_spex_revival_url(@spex, available_revival), :method => :get, :before => '', :update => 'selected-revivals' }

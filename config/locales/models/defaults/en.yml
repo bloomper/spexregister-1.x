@@ -13,6 +13,7 @@
       news: "News"
       permission: "Permission"
       spex: "Spex"
+      spex_detail: "Spex details"
       spex_activity: "Spex activity"
       spex_category: "Spex category"
       spexare: "Spexer"
@@ -43,8 +44,9 @@
         is_published: "Published?"
       spex:
         year: "Year"
-        title: "Title"
         is_revival: "Revival?"
+      spex_detail:
+        title: "Title"
         poster: "Poster"
         spex_category: "Category"
       spex_category:

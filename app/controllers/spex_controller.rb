@@ -39,7 +39,7 @@ class SpexController < ApplicationController
   end
 
   def destroy_poster
-    @spex.poster = nil
+    @spex.spex_detail.poster = nil
     if @spex.save
       flash.now[:success] = I18n.t('flash.spex.destroy_poster.success')
     else
@@ -53,7 +53,7 @@ class SpexController < ApplicationController
   end  
   
   def collection
-    base_scope = end_of_association_chain
+    base_scope = end_of_association_chain.roots
     @search = base_scope.search(params[:search])
     @search.order ||= "ascend_by_year"
     

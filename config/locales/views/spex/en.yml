@@ -1,6 +1,8 @@
 "en":
   views:
     spex:
+      description_tab_title: "Description"
+      revivals_tab_title: "Revivals"
       index_title: "{{action}} spex"
       page_title: "{{action}} spex &ldquo;{{description}}&rdquo;"
       no_spex_exist: "There are no spex"

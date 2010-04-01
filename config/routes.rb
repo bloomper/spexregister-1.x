@@ -18,7 +18,9 @@ ActionController::Routing::Routes.draw do |map|
 
   # Restful routes
   map.resources :spex_categories, :member => { :destroy_logo => :get }
-  map.resources :spex, :member => { :destroy_poster => :get }
+  map.resources :spex, :member => { :destroy_poster => :get } do |spex|
+    spex.resources :revivals, :only => [:index], :member => { :select => :get, :remove => :get }, :collection => { :available => :get, :selected => :get } 
+  end
   map.resources :function_categories
   map.resources :functions
   map.resources :news

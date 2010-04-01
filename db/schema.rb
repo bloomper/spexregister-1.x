@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100310192411) do
+ActiveRecord::Schema.define(:version => 20100331183847) do
 
   create_table "activities", :force => true do |t|
     t.integer  "spexare_id",                  :null => false
@@ -148,22 +148,18 @@ ActiveRecord::Schema.define(:version => 20100310192411) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
 
   create_table "spex", :force => true do |t|
-    t.string   "year",                :limit => 4,                    :null => false
-    t.string   "title",                                               :null => false
-    t.boolean  "is_revival",                       :default => false
-    t.integer  "spex_category_id",                                    :null => false
-    t.string   "poster_file_name"
-    t.string   "poster_content_type"
-    t.integer  "poster_file_size"
-    t.datetime "poster_updated_at"
-    t.integer  "lock_version",                     :default => 0
+    t.string   "year",           :limit => 4,                :null => false
+    t.integer  "lock_version",                :default => 0
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "spex_detail_id"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
   end
 
-  add_index "spex", ["title"], :name => "index_spex_on_title"
   add_index "spex", ["year"], :name => "index_spex_on_year"
 
   create_table "spex_activities", :force => true do |t|
@@ -191,6 +187,22 @@ ActiveRecord::Schema.define(:version => 20100310192411) do
   end
 
   add_index "spex_categories", ["name"], :name => "index_spex_categories_on_name", :unique => true
+
+  create_table "spex_details", :force => true do |t|
+    t.string   "title",                              :null => false
+    t.integer  "spex_category_id",                   :null => false
+    t.string   "poster_file_name"
+    t.string   "poster_content_type"
+    t.integer  "poster_file_size"
+    t.datetime "poster_updated_at"
+    t.integer  "lock_version",        :default => 0
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "spex_details", ["title"], :name => "index_spex_details_on_title"
 
   create_table "spexare", :force => true do |t|
     t.string   "last_name",                                           :null => false

@@ -1,0 +1,31 @@
+= render :partial => 'sub_menu'
+
+#selected-revivals
+
+  = render :partial => 'tabs', :locals => {:edit_mode => true, :current_action => t('views.base.editing_action'), :description => @spex.spex_detail.title, :current_tab => 'revivals_tab'}
+
+  - if @revivals.empty?
+    %p= t 'views.revival.no_associated_revivals'
+  - else
+    .number-of-hits= page_entries_info @revivals, { :entry_translation_group_key => 'revival' }
+    %br.clear
+    %table.index
+      %tr
+        %th= t 'activerecord.attributes.spex.year'
+        %th.action-column= t 'views.base.action'
+        - @revivals.each do |revival|
+          %tr{:id => dom_id(revival), :class => cycle('even', 'odd')}
+            %td= h revival.year
+            %td.actions
+              = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => remove_spex_revival_url(@spex, revival), :method => :get, :before => '', :update => 'selected-revivals' }
+
+    = will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;", :params => { :by_kind => params[:by_kind], :kind_name => params[:kind_name] })           
+
+    %br.clear
+
+  #available-revivals
+
+  %span
+    = link_to_remote icon_tag('add') + ' ' + t('views.revival.add_revival'), { :url => available_spex_revivals_url(@spex), :method => :get, :update => 'available-revivals' }
+
+  = render :partial => '/shared/back_links', :locals => { :url => previous_page, :cancel_action => true }

@@ -20,16 +20,14 @@
   %table.index#spex
     %tr
       %th= order @search, :by => :year, :as => t('activerecord.attributes.spex.year')
-      %th= order @search, :by => :title, :as => t('activerecord.attributes.spex.title')
-      %th= order @search, :by => :is_revival, :as => t('activerecord.attributes.spex.is_revival')
+      %th= order @search, :by => :title, :as => t('activerecord.attributes.spex_detail.title')
       %th= order @search, :by => :spex_category_name, :as => t('activerecord.models.spex_category')
       %th.action-column= t 'views.base.action'
       - @spex_items.each do |spex|
         %tr{:id => dom_id(spex), :class => cycle('even', 'odd')}
           %td= h spex.year
-          %td= h spex.title
-          %td= translate_boolean spex.is_revival
-          %td= h spex.spex_category.name
+          %td= h spex.spex_detail.title
+          %td= h spex.spex_detail.spex_category.name
           %td.actions
             = link_to_view_action spex
             = link_to_edit_action spex
@@ -52,16 +50,12 @@
         %br>
         = f.select :year_lte, get_spex_category_years, { :include_blank => true }
       %p
-        %label= t 'activerecord.attributes.spex.title'
+        %label= t 'activerecord.attributes.spex_detail.title'
         %br>
-        = f.text_field :title_contains, :size => 15
-      %p
-        %label= t 'activerecord.attributes.spex.is_revival'
-        %br>
-        = f.select :is_revival_equals, {'' => '', t('views.base.yes') => true, t('views.base.no') => false}
+        = f.text_field :spex_detail_title_contains, :size => 15
       %p
         %label= t 'activerecord.models.spex_category'
         %br>
-        = f.select :spex_category_id_equals, get_available_spex_categories, { :include_blank => true }
+        = f.select :spex_detail_spex_category_id_equals, get_available_spex_categories, { :include_blank => true }
       %p.form-buttons
         = button t('views.base.search')

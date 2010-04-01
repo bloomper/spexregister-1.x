@@ -13,6 +13,7 @@
       news: "Nyhet"
       permission: "Rättighet"
       spex: "Spex"
+      spex_detail: "Spexdetaljer"
       spex_activity: "Spexaktivitet"
       spex_category: "Spexkategori"
       spexare: "Spexare"
@@ -43,8 +44,9 @@
         is_published: "Publicerad?"
       spex:
         year: "År"
-        title: "Titel"
         is_revival: "Nyuppsättning?"
+      spex_detail:
+        title: "Titel"
         poster: "Affisch"
         spex_category: "Kategori"
       spex_category:

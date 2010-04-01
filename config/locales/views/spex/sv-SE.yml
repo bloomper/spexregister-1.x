@@ -1,6 +1,8 @@
 "sv-SE":
   views:
     spex:
+      description_tab_title: "Beskrivning"
+      revivals_tab_title: "Nyuppsättningar"
       index_title: "{{action}} spex"
       page_title: "{{action}} spex &ldquo;{{description}}&rdquo;"
       no_spex_exist: "Det finns inga spex"

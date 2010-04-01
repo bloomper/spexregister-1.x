@@ -8,7 +8,7 @@ TODO
 
 - Dashboard
   - Visits/time
-    - Requires audit trail
+    - Requires audit/login trail
       - http://groups.google.com/group/authlogic/browse_thread/thread/492369ccbfc5a331/8b9ae2dd88884fad?lnk=gst&q=callback#8b9ae2dd88884fad
   - Login frequency should use the audit trail for better accuracy
 
@@ -82,19 +82,25 @@ Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor
 - Replace mail_queue with delayed_job?
 
 - Improve the model for revivals
-  - acts_as_tree
+  - http://toolmantim.com/thoughts/migrating_with_models
+  - http://stackoverflow.com/questions/972562/rails-wont-let-me-change-records-during-migration
+  - http://www.railsgarden.com/2008/06/25/named_scope-with-acts_as_tree/
+  - Migration
+    - Reingest posters to spex detail, done in migration?
+    - Migration fix existing data
+    - Migration rollback (low priority)
+  - error_message_on does not work on nested fields
+  - Validation in spex and spex detail
+  - spex_detail_id should have :null => false?
+  - Sorting of revivals
 
 - IE problems
-  - Why does 'both secure and non-secure items' pop up in IE6/7?
+  - Why does 'both secure and non-secure items' pop up in IE7?
     - http://weblogs.asp.net/rchartier/archive/2008/03/12/ie7-this-page-contains-both-secure-and-nonsecure-items.aspx
   - IE 7
     - entity index pages look crap
       - sidebar is too wide
         - caused by #content &.with-sidebar +column(23)
-  - IE 6
-    - PNG transparency
-    - entity index pages look crap
-      - sidebar is misplaced
 
 - Advanced search
   - Needs monitoring (monit, munin)?
