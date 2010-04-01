@@ -7,6 +7,8 @@
   - if @user_groups.empty?
     %p= t 'views.user_group.no_associated_user_groups'
   - else
+    .number-of-hits= page_entries_info @user_groups, { :entry_translation_group_key => 'user_group' }
+    %br.clear
     %table.index
       %tr
         %th= t 'activerecord.attributes.user_group.name'
@@ -16,6 +18,10 @@
             %td= h translate_user_group(user_group.name)
             %td.actions
               = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => remove_user_user_group_url(@user, user_group), :method => :get, :before => '', :update => 'selected-user-groups' }
+
+    = will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;", :params => { :by_kind => params[:by_kind], :kind_name => params[:kind_name] })           
+
+    %br.clear
 
   #available-user-groups
 

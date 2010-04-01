@@ -11,13 +11,13 @@ class UserGroupsController < ApplicationController
   end
   
   def selected 
-    @user_groups = @user.user_groups
+    @user_groups = @user.user_groups.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
   end
   
   def select
     @user.user_groups << UserGroup.find_by_id(params[:id])
     @user.save
-    @user_groups = @user.user_groups
+    @user_groups = @user.user_groups.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
     set_available_user_groups
     render :action => 'selected', :layout => false
   end
@@ -25,7 +25,7 @@ class UserGroupsController < ApplicationController
   def remove
     @user.user_groups.delete(@user_group)
     @user.save
-    @user_groups = @user.user_groups
+    @user_groups = @user.user_groups.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
     set_available_user_groups
     render :action => 'selected', :layout => false
   end
