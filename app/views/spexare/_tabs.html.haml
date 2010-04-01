@@ -1,7 +1,10 @@
 %div.left
   %h1= t 'views.spexare.page_title', :action => current_action, :description => description
 
-= render :partial => '/shared/export_menu', :locals => { :reports => get_available_reports, :entity_ids => [@spexare.id] }
+- if current_tab == "spexare_tab"
+  = render :partial => '/shared/export_menu', :locals => { :reports => get_available_reports, :entity_ids => [@spexare.id] }
+- else
+  %br.clear
 
 - content_for :sidebar do
   %ul.sidebar
