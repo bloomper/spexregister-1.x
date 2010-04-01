@@ -92,7 +92,6 @@ Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor
   - error_message_on does not work on nested fields
   - Validation in spex and spex detail
   - spex_detail_id should have :null => false?
-  - Sorting of revivals
 
 - IE problems
   - Why does 'both secure and non-secure items' pop up in IE7?

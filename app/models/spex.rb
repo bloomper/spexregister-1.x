@@ -29,10 +29,6 @@ class Spex < ActiveRecord::Base
     self.child?
   end
   
-  def sort_revivals
-    # TODO
-  end
-  
   #  def year_with_revival
   #    [year, (is_revival? ? I18n.t('spex.with_revival') : nil)].join(' ')
   #  end
