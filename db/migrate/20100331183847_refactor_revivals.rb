@@ -16,7 +16,8 @@ class RefactorRevivals < ActiveRecord::Migration
     add_index :spex_details, :title
     remove_index :spex, :title
     
-    add_column :spex, :spex_detail_id, :integer
+    add_column :spex, :spex_detail_id, :integer, :default => 1, :null => false
+    change_column :spex, :spex_detail_id, :integer, :default => nil
     add_foreign_key :spex, :spex_detail_id, :spex_details, :id
     add_column :spex, :parent_id, :integer
     add_column :spex, :lft, :integer

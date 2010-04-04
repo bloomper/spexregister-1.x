@@ -154,7 +154,7 @@ ActiveRecord::Schema.define(:version => 20100331183847) do
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "spex_detail_id"
+    t.integer  "spex_detail_id",                             :null => false
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
