@@ -3,7 +3,7 @@
     = f.label :year, t('activerecord.attributes.spex.year')
     %span.required= t 'views.base.mandatory_attribute'
     %br>
-    = f.error_message_on :year
+    = error_message_on :spex, :year
     - if f.object.nil? || f.object.new_record?
       = f.select :year, [], { :disabled => true }
       :javascript

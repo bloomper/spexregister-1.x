@@ -41,7 +41,15 @@ class ActionView::Helpers::FormBuilder
   end
 
   def nested_field_container(method, options = {}, &block)
-    @template.field_container(@object_name.gsub(/[\[]/, '_').gsub(/[\]]/, ''),method,options,&block)
+    real_object_name = @object_name.split('[')[0]
+    real_method = @object_name.gsub(/[\]]/, '').split('[')[1].gsub(/_attributes/, '') << "." << method.to_s
+    @template.field_container(real_object_name,real_method,options,&block)
+  end
+
+  def nested_error_message_on(method, &args)
+    real_object_name = @object_name.split('[')[0]
+    real_method = @object_name.gsub(/[\]]/, '').split('[')[1].gsub(/_attributes/, '') << "." << method.to_s
+    @template.error_message_on(real_object_name,real_method,&args)
   end
 
   def text_field_with_auto_complete(method, options = {}, auto_complete_options = {})

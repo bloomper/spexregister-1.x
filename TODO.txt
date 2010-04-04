@@ -89,9 +89,10 @@ Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor
     - Reingest posters to spex detail, done in migration?
     - Migration fix existing data
     - Migration rollback (low priority)
-  - error_message_on does not work on nested fields
-  - Validation in spex and spex detail
-  - spex_detail_id should have :null => false?
+  - Why not "f.fields_for :spex_detail"? Why the _attributes suffix?
+  - Verify CRUD of spex/spex_detail
+    - Update does not populate fields correctly
+    - Orphaned spex_detail entities?
 
 - IE problems
   - Why does 'both secure and non-secure items' pop up in IE7?

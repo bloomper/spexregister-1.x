@@ -3,11 +3,13 @@
     = f.label :title, t('activerecord.attributes.spex_detail.title')
     %span.required= t 'views.base.mandatory_attribute'
     %br>
+    = f.nested_error_message_on :title
     = f.text_field :title, :class => 'fullwidth'
   - f.nested_field_container :spex_category do
     = f.label :spex_category, t('activerecord.attributes.spex_detail.spex_category')
     %span.required= t 'views.base.mandatory_attribute'
     %br>
+    = f.nested_error_message_on :spex_category
     = f.select :spex_category_id, get_available_spex_categories
     = observe_field 'spex_spex_detail_attributes_spex_category_id', :function => "jQuery.populateYearsFromSpexCategory(value, 'spex_year')"
   - if @spex.spex_detail && @spex.spex_detail.poster?
@@ -25,4 +27,5 @@
     %br>
     %small= t('views.spex.poster_size_notice', :max_size => ApplicationConfig.max_upload_size)
     %br>
+    = f.nested_error_message_on :poster
     = f.file_field :poster
