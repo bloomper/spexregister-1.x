@@ -24,7 +24,7 @@ class RevivalsController < ApplicationController
         break
       end
     end
-    revival.move_to_left_of(@spex.revivals[0]) unless found_slot
+    (@spex.revivals.size > 0 ? revival.move_to_left_of(@spex.revivals[0]) : revival.move_to_child_of(@spex)) unless found_slot
     @spex.reload
     @revivals = @spex.revivals.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
     set_available_revivals
