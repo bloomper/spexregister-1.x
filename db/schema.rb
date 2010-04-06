@@ -148,13 +148,14 @@ ActiveRecord::Schema.define(:version => 20100331183847) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
 
   create_table "spex", :force => true do |t|
-    t.string   "year",           :limit => 4,                :null => false
-    t.integer  "lock_version",                :default => 0
+    t.string   "year",             :limit => 4,                :null => false
+    t.integer  "spex_category_id",                             :null => false
+    t.integer  "lock_version",                  :default => 0
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "spex_detail_id",                             :null => false
+    t.integer  "spex_detail_id",                               :null => false
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
@@ -190,7 +191,6 @@ ActiveRecord::Schema.define(:version => 20100331183847) do
 
   create_table "spex_details", :force => true do |t|
     t.string   "title",                              :null => false
-    t.integer  "spex_category_id",                   :null => false
     t.string   "poster_file_name"
     t.string   "poster_content_type"
     t.integer  "poster_file_size"

@@ -15,7 +15,7 @@ class RevivalsController < ApplicationController
   end
   
   def select
-    revival = Spex.create(:year => params[:id], :spex_detail => @spex.spex_detail)
+    revival = Spex.create(:year => params[:id], :spex_detail => @spex.spex_detail, :spex_category => @spex.spex_category)
     found_slot = false
     @spex.revivals.each do |existing_revival|
       if revival.year.to_i < existing_revival.year.to_i

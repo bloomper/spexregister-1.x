@@ -45,10 +45,10 @@
       spex:
         year: "Year"
         is_revival: "Revival?"
+        spex_category: "Category"
       spex_detail:
         title: "Title"
         poster: "Poster"
-        spex_category: "Category"
       spex_category:
         name: "Name"
         logo: "Logo"

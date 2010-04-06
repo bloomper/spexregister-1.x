@@ -45,10 +45,10 @@
       spex:
         year: "År"
         is_revival: "Nyuppsättning?"
+        spex_category: "Kategori"
       spex_detail:
         title: "Titel"
         poster: "Affisch"
-        spex_category: "Kategori"
       spex_category:
         name: "Namn"
         logo: "Logga"

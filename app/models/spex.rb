@@ -1,5 +1,6 @@
 class Spex < ActiveRecord::Base
   acts_as_nested_set
+  belongs_to :spex_category
   belongs_to :spex_detail, :touch => true, :dependent => :destroy
   accepts_nested_attributes_for :spex_detail, :allow_destroy => true, :reject_if => lambda { |a| a.values.all?(&:blank?) }
   
@@ -70,5 +71,6 @@ class Spex < ActiveRecord::Base
   validate_on_update :validate_uniqueness_on_update
   validates_presence_of :year
   validates_format_of :year, :with => /^(19|20|21)\d{2}$/, :allow_blank => true
+  validates_presence_of :spex_category
   
 end

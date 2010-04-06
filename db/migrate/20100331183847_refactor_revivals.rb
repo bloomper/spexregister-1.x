@@ -2,7 +2,6 @@ class RefactorRevivals < ActiveRecord::Migration
   def self.up
     create_table :spex_details, :force => true do |t|
       t.string :title, :null => false
-      t.integer :spex_category_id, :null => false
       t.string :poster_file_name
       t.string :poster_content_type
       t.integer :poster_file_size
@@ -11,10 +10,11 @@ class RefactorRevivals < ActiveRecord::Migration
       t.string :created_by
       t.string :updated_by
       t.timestamps
-      t.foreign_key :spex_category_id, :spex_categories, :id
     end
     add_index :spex_details, :title
     remove_index :spex, :title
+    
+    # TODO: Migrate existing data
     
     add_column :spex, :spex_detail_id, :integer, :default => 1, :null => false
     change_column :spex, :spex_detail_id, :integer, :default => nil
@@ -24,7 +24,6 @@ class RefactorRevivals < ActiveRecord::Migration
     add_column :spex, :rgt, :integer
     remove_column :spex, :title
     remove_column :spex, :is_revival
-    remove_column :spex, :spex_category_id
     remove_column :spex, :poster_file_name
     remove_column :spex, :poster_content_type
     remove_column :spex, :poster_file_size
