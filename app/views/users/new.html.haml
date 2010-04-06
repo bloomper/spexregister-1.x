@@ -1,6 +1,6 @@
 = render :partial => 'sub_menu'
 
-- form_for :user, :url => collection_url do |f|
+- form_for @user, :url => collection_url do |f|
   %fieldset
     %legend= t 'views.user.new_user'
     = render :partial => 'form', :locals => { :f => f, :show_user_groups => true }

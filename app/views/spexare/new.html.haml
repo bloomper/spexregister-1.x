@@ -1,6 +1,6 @@
 = render :partial => 'sub_menu'
 
-- form_for :spexare, :url => collection_url, :html => { :multipart => true } do |f|
+- form_for @spexare, :url => collection_url, :html => { :multipart => true } do |f|
   %fieldset
     %legend= t 'views.spexare.new_spexare'
     = render :partial => 'form', :locals => { :f => f }
