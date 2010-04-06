@@ -2,8 +2,8 @@ class Spex < ActiveRecord::Base
   acts_as_nested_set
   belongs_to :spex_category
   belongs_to :spex_detail, :touch => true, :dependent => :destroy
-  accepts_nested_attributes_for :spex_detail, :allow_destroy => true, :reject_if => lambda { |a| a.values.all?(&:blank?) }
-  
+  accepts_nested_attributes_for :spex_detail
+
   #  named_scope :by_category, lambda { |category, show_revivals|
   #    { :conditions => { :spex_category_id => category, :is_revival => show_revivals } }
   #  }
