@@ -11,7 +11,7 @@
     %br>
     = f.nested_error_message_on :spex_category
     = f.select :spex_category_id, get_available_spex_categories
-    = observe_field 'spex_spex_detail_attributes_spex_category_id', :function => "jQuery.populateYearsFromSpexCategory(value, 'spex_year')"
+    = observe_field 'spex_spex_detail_spex_category_id', :function => "jQuery.populateYearsFromSpexCategory(value, 'spex_year')"
   - if @spex.spex_detail && @spex.spex_detail.poster?
     #current-poster
       = label_tag 'existing_poster', t('views.spex.current_poster')

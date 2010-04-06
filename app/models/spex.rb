@@ -17,6 +17,11 @@ class Spex < ActiveRecord::Base
   #  named_scope :by_title, :order => 'title asc' 
   #  named_scope :by_title_desc, :order => 'title desc' 
 
+  def initialize(attributes=nil)
+    super
+    self.build_spex_detail unless self.spex_detail
+  end
+
   def get_years_til_now
    ((year.to_i + 1)..Time.now.strftime('%Y').to_i).entries
   end
