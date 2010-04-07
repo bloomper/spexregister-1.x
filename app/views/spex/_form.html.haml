@@ -18,6 +18,6 @@
           jQuery.populateYearsFromSpexCategory(jQuery('#spex_spex_category_id').val(), 'spex_year')
         });
     - else
-      = f.select :year, get_specific_spex_category_years(f.object.spex_detail.spex_category.id)
+      = f.select :year, get_specific_spex_category_years(f.object.spex_category.id)
   - f.fields_for :spex_detail do |spex_detail_form|
     = render :partial => 'spex_detail_form', :locals => { :f => spex_detail_form }

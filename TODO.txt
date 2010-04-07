@@ -10,6 +10,7 @@ TODO
   - Visits/time
     - Requires audit/login trail
       - http://groups.google.com/group/authlogic/browse_thread/thread/492369ccbfc5a331/8b9ae2dd88884fad?lnk=gst&q=callback#8b9ae2dd88884fad
+      - http://api.rubyonrails.org/classes/ActiveRecord/Observer.html
   - Login frequency should use the audit trail for better accuracy
 
 Inspextor
@@ -89,10 +90,7 @@ Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor
     - Reingest posters to spex detail, done in migration?
     - Migration fix existing data
     - Migration rollback (low priority)
-  - Why not "f.fields_for :spex_detail"? Why the _attributes suffix?
-  - Verify CRUD of spex/spex_detail
-    - Update does not populate fields correctly
-    - Orphaned spex_detail entities?
+  - Fix named scopes etc, any other part using Spex stuff
 
 - IE problems
   - Why does 'both secure and non-secure items' pop up in IE7?

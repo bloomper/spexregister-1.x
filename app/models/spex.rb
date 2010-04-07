@@ -1,9 +1,10 @@
 class Spex < ActiveRecord::Base
   acts_as_nested_set
   belongs_to :spex_category
-  belongs_to :spex_detail, :touch => true, :dependent => :destroy
+  belongs_to :spex_detail
   accepts_nested_attributes_for :spex_detail
-
+  before_destroy :destroy_spex_detail
+  
   #  named_scope :by_category, lambda { |category, show_revivals|
   #    { :conditions => { :spex_category_id => category, :is_revival => show_revivals } }
   #  }
@@ -21,6 +22,12 @@ class Spex < ActiveRecord::Base
   def initialize(attributes=nil)
     super
     self.build_spex_detail unless self.spex_detail
+  end
+  
+  def destroy_spex_detail
+    if !is_revival?
+      SpexDetail.destroy_all :id => spex_detail.id
+    end
   end
 
   def get_years_til_now
@@ -52,16 +59,16 @@ class Spex < ActiveRecord::Base
   
   protected
   def validate_uniqueness_on_create
-    if !spex_detail.spex_category.nil? && !year.nil? && !spex_detail.title.nil?
-      if Spex.find(:first, :joins => 'JOIN spex_details JOIN spex_categories', :conditions => ['spex_details.spex_category_id = spex_categories.id AND spex.year = ? AND spex_details.title = ? AND spex_categories.id = ?', year, spex_detail.title, spex_detail.spex_category.id])
+    if !spex_category.nil? && !year.nil? && !spex_detail.title.nil?
+      if Spex.find(:first, :joins => 'JOIN spex_details JOIN spex_categories', :conditions => ['spex_category_id = spex_categories.id AND spex.year = ? AND spex_details.title = ? AND spex_categories.id = ?', year, spex_detail.title, spex_category.id])
         errors.add_to_base(I18n.t('spex.invalid_combination'))
       end
     end
   end
   
   def validate_uniqueness_on_update
-    if !spex_detail.spex_category.nil? && !year.nil? && !spex_detail.title.nil?
-      if Spex.find(:first, :joins => 'JOIN spex_details JOIN spex_categories', :conditions => ['spex_details.spex_category_id = spex_categories.id AND spex.year = ? AND spex_details.title = ? AND spex_categories.id = ? AND spex.id <> ?', year, spex_detail.title, spex_detail.spex_category.id, id])
+    if !spex_category.nil? && !year.nil? && !spex_detail.title.nil?
+      if Spex.find(:first, :joins => 'JOIN spex_details JOIN spex_categories', :conditions => ['spex_category_id = spex_categories.id AND spex.year = ? AND spex_details.title = ? AND spex_categories.id = ? AND spex.id <> ?', year, spex_detail.title, spex_category.id, id])
         errors.add_to_base(I18n.t('spex.invalid_combination'))
       end
     end
