@@ -52,3 +52,4 @@
       page_not_found: "Ledsen men den begärda sidan kunde inte hittas"
       record_not_found: "Ledsen men den begärda entiteten kunde inte hittas"
       internal_error: "Internt fel, försök igen"
+      show_revivals: "Visa nyuppsättningar"

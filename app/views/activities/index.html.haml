@@ -10,16 +10,18 @@
   %table.index
     %tr
       %th= t 'activerecord.attributes.spex.year'
-      %th= t 'activerecord.attributes.spex.title'
+      %th= t 'activerecord.attributes.spex_detail.title'
+      %th= t 'activerecord.attributes.spex.is_revival'
       %th= t 'activerecord.models.function'
       %th= t 'activerecord.models.spex_category'
       - @activities.each do |activity|
         %tr{:class => cycle('even', 'odd')}
           %td= h activity.spex.year
-          - if activity.spex.poster?
-            %td= link_to_open(activity.spex.title, activity.spex.poster.url, :class => 'fancybox-single')
+          - if activity.spex.spex_detail.poster?
+            %td= link_to_open(activity.spex.spex_detail.title, activity.spex.spex_detail.poster.url, :class => 'fancybox-single')
           - else
-            %td= h activity.spex.title
+            %td= h activity.spex.spex_detail.title
+          %td= translate_boolean activity.spex.is_revival?
           %td
             - activity.function_activities.first(ApplicationConfig.activities_per_row).each do |function_activity|
               = h function_activity.function.name

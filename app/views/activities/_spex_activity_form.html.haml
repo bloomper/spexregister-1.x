@@ -5,11 +5,16 @@
     - f.nested_field_container :spex do
       = f.label :spex_id, t('activerecord.attributes.spex.year')
       %br>
-      = f.select :spex_id, available_spex_items.fetch('years'), {}, { :onchange => "jQuery('#dummy_spex_title').val(jQuery('##{form_tag_id(f.object_name, :spex_id)}').val());" }
-    = label_tag :dummy_spex_title, t('activerecord.attributes.spex.title')
-    %br>
-    = select_tag :dummy_spex_title, options_for_select(available_spex_items.fetch('titles')), { :onchange => "jQuery('##{form_tag_id(f.object_name, :spex_id)}').val(jQuery('#dummy_spex_title').val());" }
-    :javascript
-      jQuery(document).ready(function(){
-        jQuery('#dummy_spex_title').val(jQuery('##{form_tag_id(f.object_name, :spex_id)}').val());
-      });
+      = f.select :spex_id, available_spex_items.fetch('years'), {}, { :onchange => "jQuery('#dummy_spex_spex_detail_title').val(jQuery('##{form_tag_id(f.object_name, :spex_id)}').val());" }
+    %p
+      = label_tag :dummy_show_revivals, t('views.base.show_revivals')
+      = check_box_tag 'show_revivals', 1, @show_revivals 
+      = observe_field 'show_revivals', :function => "jQuery.fetchSpexByCategory('#{@current_spex_category_id.to_i}', (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'activity_spex_activity_attributes_spex_id', 'dummy_spex_spex_detail_title', false)"
+    %p
+      = label_tag :dummy_spex_spex_detail_title, t('activerecord.attributes.spex_detail.title')
+      %br>
+      = select_tag :dummy_spex_spex_detail_title, options_for_select(available_spex_items.fetch('titles')), { :onchange => "jQuery('##{form_tag_id(f.object_name, :spex_id)}').val(jQuery('#dummy_spex_spex_detail_title').val());" }
+      :javascript
+        jQuery(document).ready(function(){
+          jQuery('#dummy_spex_spex_detail_title').val(jQuery('##{form_tag_id(f.object_name, :spex_id)}').val());
+        });

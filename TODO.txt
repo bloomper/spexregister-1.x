@@ -90,7 +90,7 @@ Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor
     - Reingest posters to spex detail, done in migration?
     - Migration fix existing data
     - Migration rollback (low priority)
-  - Fix named scopes etc, any other part using Spex stuff
+    - Make sure that it works in both cases, i.e. from scratch and from 1.0
 
 - IE problems
   - Why does 'both secure and non-secure items' pop up in IE7?

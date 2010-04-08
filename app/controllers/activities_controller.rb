@@ -9,6 +9,8 @@ class ActivitiesController < ApplicationController
   def new
     new! do |format|
       set_available_activities(SpexCategory.find_by_id(params[:spex_category_id]))
+      @current_spex_category_id = params[:spex_category_id]
+      @show_revivals = false
       format.html { render :layout => false }
     end
   end
@@ -21,7 +23,9 @@ class ActivitiesController < ApplicationController
 
   def edit
     edit! do |format|
-      set_available_activities(@activity.spex.spex_category, @activity.spex.id.to_i)
+      set_available_activities(@activity.spex.spex_category, @activity.spex.id.to_i, @activity.spex.is_revival?)
+      @current_spex_category_id = @activity.spex.spex_category.id
+      @show_revivals = @activity.spex.is_revival?
       format.html { render :layout => false }
     end
   end
@@ -62,8 +66,12 @@ class ActivitiesController < ApplicationController
   end
 
   private 
-  def set_available_activities(spex_category, do_not_delete = nil)
-    @available_activities = Spex.by_category_with_revivals(spex_category).map(&:id)
+  def set_available_activities(spex_category, do_not_delete = nil, show_revivals = false)
+    if show_revivals
+      @available_activities = Spex.revivals_by_category(spex_category).map(&:id)
+    else
+      @available_activities = Spex.by_category(spex_category).map(&:id)
+    end
     @spexare.activities.by_spex_category(spex_category).each do |activity|
       @available_activities.delete_if {|available_activity| activity.spex.id == available_activity && (do_not_delete.nil? ? true : do_not_delete != available_activity)}
     end

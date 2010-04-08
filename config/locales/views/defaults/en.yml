@@ -52,3 +52,4 @@
       page_not_found: "Sorry, the requested page was not found"
       record_not_found: "Sorry, the requested entity was not found"
       internal_error: "Internal error, please try again"
+      show_revivals: "Show revivals"

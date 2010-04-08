@@ -5,20 +5,20 @@ class Spex < ActiveRecord::Base
   accepts_nested_attributes_for :spex_detail
   before_destroy :destroy_spex_detail
   
-  #  named_scope :by_category, lambda { |category, show_revivals|
-  #    { :conditions => { :spex_category_id => category, :is_revival => show_revivals } }
-  #  }
-  #  named_scope :by_category_with_revivals, lambda { |category|
-  #    { :conditions => { :spex_category_id => category } }
-  #  }
-  #  named_scope :by_ids, lambda { |ids|
-  #    { :conditions => { :id => ids } }
-  #  }
-  #  named_scope :by_year, :order => 'year asc' 
-  #  named_scope :by_year_desc, :order => 'year desc' 
-  #  named_scope :by_title, :order => 'title asc' 
-  #  named_scope :by_title_desc, :order => 'title desc' 
-
+  named_scope :by_category, lambda { |category|
+    { :conditions => ['spex.spex_category_id = ? AND spex.parent_id IS NULL', category] }
+  }
+  named_scope :revivals_by_category, lambda { |category|
+    { :conditions => ['spex.spex_category_id = ? AND spex.parent_id IS NOT NULL', category] }
+  }
+  named_scope :by_ids, lambda { |ids|
+    { :conditions => { :id => ids } }
+  }
+  named_scope :by_year, :order => 'year asc' 
+  named_scope :by_year_desc, :order => 'year desc' 
+  named_scope :by_title, :order => 'spex_details.title asc', :joins => 'left join spex_details' 
+  named_scope :by_title_desc, :order => 'spex_details.title desc', :joins => 'left join spex_details'
+  
   def initialize(attributes=nil)
     super
     self.build_spex_detail unless self.spex_detail
@@ -29,7 +29,7 @@ class Spex < ActiveRecord::Base
       SpexDetail.destroy_all :id => spex_detail.id
     end
   end
-
+  
   def get_years_til_now
    ((year.to_i + 1)..Time.now.strftime('%Y').to_i).entries
   end

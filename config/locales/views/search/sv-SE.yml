@@ -9,7 +9,6 @@
       include_deceased: "Avlidna"
       include_no_circulars: "Ej utskick"
       include_not_published: "Ej publicerade"
-      show_revivals: "Visa nyuppsättningar"
       index_title: "Sökresultat"
       empty_search_result: "Inga träffar"
       reset_search_result: "Nollställ sökresultat"
