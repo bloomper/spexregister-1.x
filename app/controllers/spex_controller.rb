@@ -28,7 +28,7 @@ class SpexController < ApplicationController
 
   def index
     index! do |format|
-      format.json { render :json => @spex_items.to_json(:only => [:id, :title, :year], :methods => [:year_with_revival, :title_with_revival]) }
+      format.json { render :json => @spex_items.to_json(:only => [:id, :year], :methods => [:title]) }
     end
   end
 
@@ -53,7 +53,11 @@ class SpexController < ApplicationController
   end  
   
   def collection
-    base_scope = end_of_association_chain.roots
+    if params[:search]
+      base_scope = end_of_association_chain
+    else
+      base_scope = end_of_association_chain.roots
+    end
     @search = base_scope.search(params[:search])
     @search.order ||= "ascend_by_year"
     

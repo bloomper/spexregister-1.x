@@ -42,13 +42,9 @@ class Spex < ActiveRecord::Base
     self.child?
   end
   
-  #  def year_with_revival
-  #    [year, (is_revival? ? I18n.t('spex.with_revival') : nil)].join(' ')
-  #  end
-  
-  #  def title_with_revival
-  #    [spex_detail.title, (is_revival? ? I18n.t('spex.with_revival') : nil)].join(' ')
-  #  end
+  def title
+    spex_detail.title
+  end
   
   def before_destroy
     if SpexActivity.spex_id_equals(id).all.size > 0

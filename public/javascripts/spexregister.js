@@ -147,7 +147,12 @@ jQuery.extend( {
     yearSelect.html('').attr('disabled', 'disabled');
     titleSelect.html('').attr('disabled', 'disabled');
     if(category != '') {
-      jQuery.getJSON('/spex', {'search[spex_category_id_equals]': category, 'search[is_revival_equals]': showRevivals, format: 'json', 'search[order]': 'ascend_by_title'}, function(j) {
+      var jsonUrl = '/spex';
+      jsonUrl += '?search[spex_category_id_equals]=' + category;
+      jsonUrl += '&search[parent_id_' + (showRevivals ? 'not_' : '') + 'null]=true';
+      jsonUrl += '&format=json';
+      jsonUrl += '&search[order]=ascend_by_spex_detail_title';
+      jQuery.getJSON(jsonUrl, function(j) {
         if(j != null) {
             if (addEmptyFirst) {
               yearSelect.addOption('', '');

@@ -32,7 +32,7 @@
         %br>
         = select_tag 'search[activities_spex_activity_spex_id_equals]', nil, { :disabled => true, :onchange => "jQuery('#dummy_title_equals').val(jQuery('#search_activities_spex_activity_spex_id_equals').val());" }
       %p
-        %label= t 'activerecord.attributes.spex.title'
+        %label= t 'activerecord.attributes.spex_detail.title'
         %br>
         = select_tag 'dummy_title_equals', nil, { :disabled => true, :onchange => "jQuery('#search_activities_spex_activity_spex_id_equals').val(jQuery('#dummy_title_equals').val());" }
   .span-10
