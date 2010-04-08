@@ -126,117 +126,225 @@ bob_spex_category = SpexCategory.find_by_name('Bobspexet')
 vera_spex_category = SpexCategory.find_by_name('Veraspexet')
 chalmers_spex_category = SpexCategory.find_by_name('Chalmersspexet')
 
-# Spex
-Spex.create :year => '1948', :title => 'Bojan', :spex_category => chalmers_spex_category
-Spex.create :year => '1949', :title => 'Erik XIV', :spex_category => chalmers_spex_category
-Spex.create :year => '1950', :title => 'Caesarion', :spex_category => chalmers_spex_category
-Spex.create :year => '1951', :title => 'Scheherazade', :spex_category => chalmers_spex_category
-Spex.create :year => '1952', :title => 'Anna', :spex_category => chalmers_spex_category
-Spex.create :year => '1953', :title => 'Ceasarion', :spex_category => chalmers_spex_category
-Spex.create :year => '1954', :title => 'Henrik VIII', :spex_category => chalmers_spex_category
-Spex.create :year => '1955', :title => 'Gustav E:son Vasa', :spex_category => chalmers_spex_category
-Spex.create :year => '1956', :title => 'Napoleon', :spex_category => chalmers_spex_category
-Spex.create :year => '1957', :title => 'Statyerna', :spex_category => chalmers_spex_category
-Spex.create :year => '1958', :title => 'Lucrezia', :spex_category => chalmers_spex_category
-Spex.create :year => '1959', :title => 'Katarina II', :spex_category => chalmers_spex_category
-Spex.create :year => '1960', :title => 'Starke August', :spex_category => chalmers_spex_category
-Spex.create :year => '1961', :title => 'Klodvig', :spex_category => chalmers_spex_category
-Spex.create :year => '1962', :title => 'Don Pedro', :spex_category => chalmers_spex_category
-Spex.create :year => '1963', :title => 'Charles II', :spex_category => chalmers_spex_category
-Spex.create :year => '1964', :title => 'Nebukadnessar', :spex_category => chalmers_spex_category
-Spex.create :year => '1965', :title => 'Sven Duva', :spex_category => chalmers_spex_category
-Spex.create :year => '1966', :title => 'Montezuma', :spex_category => chalmers_spex_category
-Spex.create :year => '1967', :title => 'Alexander', :spex_category => chalmers_spex_category
-Spex.create :year => '1968', :title => 'Richard III', :spex_category => chalmers_spex_category
-Spex.create :year => '1969', :title => 'Margareta', :spex_category => chalmers_spex_category
-Spex.create :year => '1970', :title => 'George Washington', :spex_category => chalmers_spex_category
-Spex.create :year => '1971', :title => 'Noak', :spex_category => chalmers_spex_category
-Spex.create :year => '1972', :title => 'Turandot', :spex_category => chalmers_spex_category
-Spex.create :year => '1973', :title => 'Fredrik den Store', :spex_category => chalmers_spex_category
-Spex.create :year => '1974', :title => 'Sherlock Holmes', :spex_category => chalmers_spex_category
-Spex.create :year => '1975', :title => 'Lionardo da Vinci', :spex_category => chalmers_spex_category
-Spex.create :year => '1976', :title => 'Ludvig XIV', :spex_category => chalmers_spex_category
-Spex.create :year => '1977', :title => 'Nils Dacke', :spex_category => chalmers_spex_category
-Spex.create :year => '1978', :title => 'Dr Livingstone', :spex_category => chalmers_spex_category
-Spex.create :year => '1979', :title => 'Nero', :spex_category => chalmers_spex_category
-Spex.create :year => '1980', :title => 'Tutankhamon', :spex_category => chalmers_spex_category
-Spex.create :year => '1981', :title => 'Ludwig van Beethoven', :spex_category => chalmers_spex_category
-Spex.create :year => '1982', :title => 'John Ericsson', :spex_category => chalmers_spex_category
-Spex.create :year => '1983', :title => 'Filip II', :spex_category => chalmers_spex_category
-Spex.create :year => '1984', :title => 'Lasse-Maja', :spex_category => chalmers_spex_category
-Spex.create :year => '1985', :title => 'Olof Skötkonung', :spex_category => chalmers_spex_category
-Spex.create :year => '1986', :title => 'Victoria', :spex_category => chalmers_spex_category
-Spex.create :year => '1987', :title => 'Montgomery', :spex_category => chalmers_spex_category
-Spex.create :year => '1988', :title => 'Svartskägg', :spex_category => chalmers_spex_category
-Spex.create :year => '1989', :title => 'Christina', :spex_category => chalmers_spex_category
-Spex.create :year => '1990', :title => 'Klondike', :spex_category => chalmers_spex_category
-Spex.create :year => '1991', :title => 'Gutenberg', :spex_category => chalmers_spex_category
-Spex.create :year => '1992', :title => 'Krösus', :spex_category => chalmers_spex_category
-Spex.create :year => '1993', :title => 'Stradivarius', :spex_category => chalmers_spex_category
-Spex.create :year => '1994', :title => 'Ivan den förskräcklige', :spex_category => chalmers_spex_category
-Spex.create :year => '1995', :title => 'Snorre', :spex_category => chalmers_spex_category
-Spex.create :year => '1996', :title => 'Nobel', :spex_category => chalmers_spex_category
-Spex.create :year => '1997', :title => 'Ali Baba', :spex_category => chalmers_spex_category
-Spex.create :year => '1998', :title => 'Sköna Hélena', :spex_category => chalmers_spex_category
-Spex.create :year => '1999', :title => 'Nostradamus', :spex_category => chalmers_spex_category
-Spex.create :year => '2000', :title => 'Mose', :spex_category => chalmers_spex_category
-Spex.create :year => '2001', :title => 'Marco Polo', :spex_category => chalmers_spex_category
-Spex.create :year => '2002', :title => 'Dracula', :spex_category => chalmers_spex_category
-Spex.create :year => '2003', :title => 'Gagarin', :spex_category => bob_spex_category
-Spex.create :year => '2003', :title => 'Mata Hari', :spex_category => vera_spex_category
-Spex.create :year => '2004', :title => 'Heliga Birgitta', :spex_category => bob_spex_category
-Spex.create :year => '2004', :title => 'Phileas Fogg', :spex_category => vera_spex_category
-Spex.create :year => '2005', :title => 'Gustav II Adolf', :spex_category => bob_spex_category
-Spex.create :year => '2005', :title => 'Arthur', :spex_category => vera_spex_category
-Spex.create :year => '2006', :title => 'Casanova', :spex_category => bob_spex_category
-Spex.create :year => '2006', :title => 'Amelia Earhart', :spex_category => vera_spex_category
-Spex.create :year => '2007', :title => 'Hannibal', :spex_category => bob_spex_category
-Spex.create :year => '2007', :title => 'Frankenstein', :spex_category => vera_spex_category
-Spex.create :year => '2008', :title => 'Picasso', :spex_category => bob_spex_category
-Spex.create :year => '2008', :title => 'Wyatt Earp & Doc Holiday', :spex_category => vera_spex_category
-Spex.create :year => '2009', :title => 'Newton', :spex_category => bob_spex_category
-Spex.create :year => '2009', :title => 'Taj Mahal', :spex_category => vera_spex_category
-Spex.create :year => '2010', :title => 'Kristian Tyrann', :spex_category => bob_spex_category
+# Spex and their revivals
+spex = Spex.create :year => '1948', :spex_detail_attributes => {:title => 'Bojan'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '2000', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
 
-# Revivals
-Spex.create :year => '1968', :title => 'Henrik VIII', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1971', :title => 'Montezuma', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1972', :title => 'Alexander', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1973', :title => 'Richard III', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1974', :title => 'Nebukadnessar', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1975', :title => 'Margareta', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1976', :title => 'Charles II', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1977', :title => 'Katarina II', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1978', :title => 'Ceasarion', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1979', :title => 'Knappt ett Chalmersspex', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1980', :title => 'George Washington', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1981', :title => 'Don Pedro', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1982', :title => 'Lionardo da Vinci', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1983', :title => 'Anna', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1984', :title => 'Lasse-Maja', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1985', :title => 'Napoleon', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1986', :title => 'Noak', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1987', :title => 'Nero', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1988', :title => 'Gustav E:son Vasa', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1989', :title => 'Turandot', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1990', :title => 'Nils Dacke', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1991', :title => 'Sherlock Holmes', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1992', :title => 'Ludwig van Beethoven', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1993', :title => 'Sven Duva', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1994', :title => 'Lasse-Maja', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1995', :title => 'Dr Livingstone', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1996', :title => 'Victoria', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1997', :title => 'Tutankhamon', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1998', :title => 'Henrik VIII', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1998', :title => 'Klondike', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1998', :title => 'George Washington', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1998', :title => 'Ludwig van Beethoven', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '1999', :title => 'John Ericsson', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '2000', :title => 'Bojan', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '2001', :title => 'Ludvig XIV', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '2002', :title => 'Anna', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '2005', :title => 'Montgomery', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '2006', :title => 'Stradivarius', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '2007', :title => 'Filip II', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '2008', :title => 'Svartskägg', :is_revival => true, :spex_category => chalmers_spex_category
-Spex.create :year => '2008', :title => 'Tender Bar', :is_revival => true, :spex_category => chalmers_spex_category
+Spex.create :year => '1949', :spex_detail_attributes => {:title => 'Erik XIV'}, :spex_category => chalmers_spex_category
+
+spex = Spex.create :year => '1950', :spex_detail_attributes => {:title => 'Caesarion'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1978', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+revival_2 = Spex.create(:year => '2008', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival_2.move_to_left_of(revival)
+
+Spex.create :year => '1951', :spex_detail_attributes => {:title => 'Scheherazade'}, :spex_category => chalmers_spex_category
+
+spex = Spex.create :year => '1952', :spex_detail_attributes => {:title => 'Anna'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1983', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+revival_2 = Spex.create(:year => '2002', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival_2.move_to_left_of(revival)
+
+Spex.create :year => '1953', :spex_detail_attributes => {:title => 'Ceasarion'}, :spex_category => chalmers_spex_category
+
+spex = Spex.create :year => '1954', :spex_detail_attributes => {:title => 'Henrik VIII'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1968', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+revival_2 = Spex.create(:year => '1998', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival_2.move_to_left_of(revival)
+
+spex = Spex.create :year => '1955', :spex_detail_attributes => {:title => 'Gustav E:son Vasa'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1988', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1956', :spex_detail_attributes => {:title => 'Napoleon'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1985', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+Spex.create :year => '1957', :spex_detail_attributes => {:title => 'Statyerna'}, :spex_category => chalmers_spex_category
+
+Spex.create :year => '1958', :spex_detail_attributes => {:title => 'Lucrezia'}, :spex_category => chalmers_spex_category
+
+spex = Spex.create :year => '1959', :spex_detail_attributes => {:title => 'Katarina II'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1977', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+Spex.create :year => '1960', :spex_detail_attributes => {:title => 'Starke August'}, :spex_category => chalmers_spex_category
+
+Spex.create :year => '1961', :spex_detail_attributes => {:title => 'Klodvig'}, :spex_category => chalmers_spex_category
+
+spex = Spex.create :year => '1962', :spex_detail_attributes => {:title => 'Don Pedro'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1981', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1963', :spex_detail_attributes => {:title => 'Charles II'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1976', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1964', :spex_detail_attributes => {:title => 'Nebukadnessar'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1974', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1965', :spex_detail_attributes => {:title => 'Sven Duva'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1993', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1966', :spex_detail_attributes => {:title => 'Montezuma'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1971', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1967', :spex_detail_attributes => {:title => 'Alexander'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1972', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1968', :spex_detail_attributes => {:title => 'Richard III'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1973', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1969', :spex_detail_attributes => {:title => 'Margareta'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1975', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1970', :spex_detail_attributes => {:title => 'George Washington'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1980', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+revival_2 = Spex.create(:year => '1998', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival_2.move_to_left_of(revival)
+
+spex = Spex.create :year => '1971', :spex_detail_attributes => {:title => 'Noak'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1986', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1972', :spex_detail_attributes => {:title => 'Turandot'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1989', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+Spex.create :year => '1973', :spex_detail_attributes => {:title => 'Fredrik den Store'}, :spex_category => chalmers_spex_category
+
+spex = Spex.create :year => '1974', :spex_detail_attributes => {:title => 'Sherlock Holmes'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1991', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1975', :spex_detail_attributes => {:title => 'Lionardo da Vinci'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1982', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1976', :spex_detail_attributes => {:title => 'Ludvig XIV'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '2001', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1977', :spex_detail_attributes => {:title => 'Nils Dacke'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1990', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1978', :spex_detail_attributes => {:title => 'Dr Livingstone'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1995', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1979', :spex_detail_attributes => {:title => 'Nero'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1987', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+Spex.create :year => '1979', :spex_detail_attributes => {:title => 'Knappt ett Chalmersspex'}, :spex_category => chalmers_spex_category
+
+spex = Spex.create :year => '1980', :spex_detail_attributes => {:title => 'Tutankhamon'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1997', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1981', :spex_detail_attributes => {:title => 'Ludwig van Beethoven'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1992', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+revival_2 = Spex.create(:year => '1998', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival_2.move_to_left_of(revival)
+
+spex = Spex.create :year => '1982', :spex_detail_attributes => {:title => 'John Ericsson'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1999', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1983', :spex_detail_attributes => {:title => 'Filip II'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '2007', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1984', :spex_detail_attributes => {:title => 'Lasse-Maja'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1994', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+Spex.create :year => '1985', :spex_detail_attributes => {:title => 'Olof Skötkonung'}, :spex_category => chalmers_spex_category
+
+spex = Spex.create :year => '1986', :spex_detail_attributes => {:title => 'Victoria'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1996', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1987', :spex_detail_attributes => {:title => 'Montgomery'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '2005', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+spex = Spex.create :year => '1988', :spex_detail_attributes => {:title => 'Svartskägg'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '2008', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+Spex.create :year => '1989', :spex_detail_attributes => {:title => 'Christina'}, :spex_category => chalmers_spex_category
+
+spex = Spex.create :year => '1990', :spex_detail_attributes => {:title => 'Klondike'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1998', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+Spex.create :year => '1991', :spex_detail_attributes => {:title => 'Gutenberg'}, :spex_category => chalmers_spex_category
+
+Spex.create :year => '1992', :spex_detail_attributes => {:title => 'Krösus'}, :spex_category => chalmers_spex_category
+
+Spex.create :year => '1993', :spex_detail_attributes => {:title => 'Stradivarius'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '2006', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
+
+Spex.create :year => '1994', :spex_detail_attributes => {:title => 'Ivan den förskräcklige'}, :spex_category => chalmers_spex_category
+
+Spex.create :year => '1995', :spex_detail_attributes => {:title => 'Snorre'}, :spex_category => chalmers_spex_category
+
+Spex.create :year => '1996', :spex_detail_attributes => {:title => 'Nobel'}, :spex_category => chalmers_spex_category
+
+Spex.create :year => '1997', :spex_detail_attributes => {:title => 'Ali Baba'}, :spex_category => chalmers_spex_category
+
+Spex.create :year => '1998', :spex_detail_attributes => {:title => 'Sköna Hélena'}, :spex_category => chalmers_spex_category
+
+Spex.create :year => '1999', :spex_detail_attributes => {:title => 'Nostradamus'}, :spex_category => chalmers_spex_category
+
+Spex.create :year => '2000', :spex_detail_attributes => {:title => 'Mose'}, :spex_category => chalmers_spex_category
+
+Spex.create :year => '2001', :spex_detail_attributes => {:title => 'Marco Polo'}, :spex_category => chalmers_spex_category
+
+Spex.create :year => '2002', :spex_detail_attributes => {:title => 'Dracula'}, :spex_category => chalmers_spex_category
+
+Spex.create :year => '2003', :spex_detail_attributes => {:title => 'Gagarin'}, :spex_category => bob_spex_category
+
+Spex.create :year => '2003', :spex_detail_attributes => {:title => 'Mata Hari'}, :spex_category => vera_spex_category
+
+Spex.create :year => '2004', :spex_detail_attributes => {:title => 'Heliga Birgitta'}, :spex_category => bob_spex_category
+
+Spex.create :year => '2004', :spex_detail_attributes => {:title => 'Phileas Fogg'}, :spex_category => vera_spex_category
+
+Spex.create :year => '2005', :spex_detail_attributes => {:title => 'Gustav II Adolf'}, :spex_category => bob_spex_category
+
+Spex.create :year => '2005', :spex_detail_attributes => {:title => 'Arthur'}, :spex_category => vera_spex_category
+
+Spex.create :year => '2006', :spex_detail_attributes => {:title => 'Casanova'}, :spex_category => bob_spex_category
+
+Spex.create :year => '2006', :spex_detail_attributes => {:title => 'Amelia Earhart'}, :spex_category => vera_spex_category
+
+Spex.create :year => '2007', :spex_detail_attributes => {:title => 'Hannibal'}, :spex_category => bob_spex_category
+
+Spex.create :year => '2007', :spex_detail_attributes => {:title => 'Frankenstein'}, :spex_category => vera_spex_category
+
+Spex.create :year => '2008', :spex_detail_attributes => {:title => 'Picasso'}, :spex_category => bob_spex_category
+
+Spex.create :year => '2008', :spex_detail_attributes => {:title => 'Wyatt Earp & Doc Holiday'}, :spex_category => vera_spex_category
+
+Spex.create :year => '2008', :spex_detail_attributes => {:title => 'Tender Bar'}, :spex_category => chalmers_spex_category
+
+Spex.create :year => '2009', :spex_detail_attributes => {:title => 'Newton'}, :spex_category => bob_spex_category
+
+Spex.create :year => '2009', :spex_detail_attributes => {:title => 'Taj Mahal'}, :spex_category => vera_spex_category
+
+Spex.create :year => '2010', :spex_detail_attributes => {:title => 'Kristian Tyrann'}, :spex_category => bob_spex_category
