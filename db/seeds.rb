@@ -23,6 +23,7 @@ FunctionCategory.create :name => 'Annat'
 SpexCategory.create :name => 'Bobspexet', :first_year => '2003'
 SpexCategory.create :name => 'Veraspexet', :first_year => '2003'
 SpexCategory.create :name => 'Chalmersspexet', :first_year => '1948'
+SpexCategory.create :name => 'Jubileumsspex', :first_year => '1948'
 
 annat_function_category = FunctionCategory.find_by_name('Annat')
 bandet_function_category = FunctionCategory.find_by_name('Bandet')
@@ -125,6 +126,7 @@ Function.create :name => 'Vistextförfattare', :function_category => annat_funct
 bob_spex_category = SpexCategory.find_by_name('Bobspexet')
 vera_spex_category = SpexCategory.find_by_name('Veraspexet')
 chalmers_spex_category = SpexCategory.find_by_name('Chalmersspexet')
+jubileums_spex_category = SpexCategory.find_by_name('Jubileumsspex')
 
 # Spex and their revivals
 spex = Spex.create :year => '1948', :spex_detail_attributes => {:title => 'Bojan'}, :spex_category => chalmers_spex_category
@@ -134,10 +136,14 @@ revival.move_to_child_of(spex)
 Spex.create :year => '1949', :spex_detail_attributes => {:title => 'Erik XIV'}, :spex_category => chalmers_spex_category
 
 spex = Spex.create :year => '1950', :spex_detail_attributes => {:title => 'Caesarion'}, :spex_category => chalmers_spex_category
+revival = Spex.create(:year => '1953', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival.move_to_child_of(spex)
 revival = Spex.create(:year => '1978', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
 revival.move_to_child_of(spex)
 revival_2 = Spex.create(:year => '2008', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
 revival_2.move_to_left_of(revival)
+revival_3 = Spex.create(:year => '2010', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
+revival_3.move_to_left_of(revival_2)
 
 Spex.create :year => '1951', :spex_detail_attributes => {:title => 'Scheherazade'}, :spex_category => chalmers_spex_category
 
@@ -146,8 +152,6 @@ revival = Spex.create(:year => '1983', :spex_detail => spex.spex_detail, :spex_c
 revival.move_to_child_of(spex)
 revival_2 = Spex.create(:year => '2002', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
 revival_2.move_to_left_of(revival)
-
-Spex.create :year => '1953', :spex_detail_attributes => {:title => 'Ceasarion'}, :spex_category => chalmers_spex_category
 
 spex = Spex.create :year => '1954', :spex_detail_attributes => {:title => 'Henrik VIII'}, :spex_category => chalmers_spex_category
 revival = Spex.create(:year => '1968', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
@@ -247,7 +251,7 @@ spex = Spex.create :year => '1979', :spex_detail_attributes => {:title => 'Nero'
 revival = Spex.create(:year => '1987', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
 revival.move_to_child_of(spex)
 
-Spex.create :year => '1979', :spex_detail_attributes => {:title => 'Knappt ett Chalmersspex'}, :spex_category => chalmers_spex_category
+Spex.create :year => '1979', :spex_detail_attributes => {:title => 'Knappt ett Chalmersspex'}, :spex_category => jubileums_spex_category
 
 spex = Spex.create :year => '1980', :spex_detail_attributes => {:title => 'Tutankhamon'}, :spex_category => chalmers_spex_category
 revival = Spex.create(:year => '1997', :spex_detail => spex.spex_detail, :spex_category => spex.spex_category)
@@ -341,7 +345,7 @@ Spex.create :year => '2008', :spex_detail_attributes => {:title => 'Picasso'}, :
 
 Spex.create :year => '2008', :spex_detail_attributes => {:title => 'Wyatt Earp & Doc Holiday'}, :spex_category => vera_spex_category
 
-Spex.create :year => '2008', :spex_detail_attributes => {:title => 'Tender Bar'}, :spex_category => chalmers_spex_category
+Spex.create :year => '2008', :spex_detail_attributes => {:title => 'Tender Bar'}, :spex_category => jubileums_spex_category
 
 Spex.create :year => '2009', :spex_detail_attributes => {:title => 'Newton'}, :spex_category => bob_spex_category
 
