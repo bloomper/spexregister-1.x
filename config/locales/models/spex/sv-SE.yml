@@ -3,7 +3,7 @@
     zero: "spex"
     one: "spex"
     other: "spex"
-    invalid_combination: "Kombinationen av år, titel, nyuppsättning och kategori används redan"
+    invalid_combination: "Kombinationen av år, titel och kategori används redan"
     cannot_delete_if_associated_spexare_exist: "Kan ej radera spex då den är associerad med en eller flera spexare"
   revival:
     zero: "nyuppsättning"
