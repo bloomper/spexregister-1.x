@@ -1,7 +1,7 @@
 class SpexareReport < BaseDashboardReport
 
   def generate_report_data!
-    @new_spexare = Spexare.count(:group => 'DATETIME(created_at)')
+    @new_spexare = Spexare.count(:group => 'created_at')
     @accumulated_spexare = get_accumulated_entities(Spexare.all(:order => 'created_at asc'))
     max_y, min_y, min_time, max_time = nil
     @result[:data] = Hash.new { |h,k| h[k] = [] }
@@ -9,8 +9,7 @@ class SpexareReport < BaseDashboardReport
 
     for new_spexare in @new_spexare
       # Apparently Rails does not convert the time into a TimeZone object nor switching from UTC (as stored in database) to relevant time zone
-      time_value = DateTime.strptime(new_spexare[0], '%Y-%m-%d %H:%M:%S').to_time.in_time_zone
-      time = Time.gm(time_value.year, time_value.month, time_value.day, time_value.hour, time_value.min, time_value.sec).to_i * 1000
+      time = new_spexare[0].in_time_zone.to_i * 1000
       max_time = time unless max_time && max_time > time
       min_time = time unless min_time && min_time < time
       

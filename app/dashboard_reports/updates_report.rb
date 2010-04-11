@@ -2,15 +2,14 @@ class UpdatesReport < BaseDashboardReport
 
   def generate_report_data!
     # Since parents are touched when a child is updated, it is sufficient to check the top parent
-    @updates = Spexare.count(:group => 'DATETIME(updated_at)')
+    @updates = Spexare.count(:group => 'updated_at')
     max_y, min_y, min_time, max_time = nil
     @result[:data] = Hash.new { |h,k| h[k] = [] }
     @result[:opts] = Hash.new { |h,k| h[k] = {} }
 
     for update in @updates
       # Apparently Rails does not convert the time into a TimeZone object nor switching from UTC (as stored in database) to relevant time zone
-      time_value = DateTime.strptime(update[0], '%Y-%m-%d %H:%M:%S').to_time.in_time_zone
-      time = Time.gm(time_value.year, time_value.month, time_value.day, time_value.hour, time_value.min, time_value.sec).to_i * 1000
+      time = update[0].in_time_zone.to_i * 1000
       max_time = time unless max_time && max_time > time
       min_time = time unless min_time && min_time < time
       
