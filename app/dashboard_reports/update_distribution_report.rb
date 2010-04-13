@@ -18,7 +18,7 @@ class UpdateDistributionReport < BaseDashboardReport
           show: true,
           radius: 0.8,
           formatter: function(label, slice){
-            return '<div style=\"font-size:x-small;text-align:center;padding:2px;color:'+slice.color+';\">'+Math.round(slice.percent)+'%&nbsp;('+slice.data[0][1]+')</div>';
+            return '<div style=\"font-size:x-small;text-align:center;padding:2px;color:#365c8a;\">'+Math.round(slice.percent)+'%&nbsp;('+slice.data[0][1]+')</div>';
           }
          },
          combine: {
