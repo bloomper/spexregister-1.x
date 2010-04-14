@@ -88,7 +88,7 @@ upp produktionsmiljön. Dessa kommandon kräver att utvecklingsmiljön är *nix-
 
 (21) Importera data från gamla spexregistret. Se nedan för instruktioner.
 
-(22) Lägg till följande i Apache-konfigurationen (byt eventuellt ut sökvägar etc)
+(22) Lägg till följande i Apache-konfigurationen (byt eventuellt ut sökvägar etc, måste också anpassas om den skall köras parallellt med andra virtual hosts)
      <VirtualHost *:443 *:80>
          <Directory /home/users/register/current/public>
             Options FollowSymLinks
@@ -201,7 +201,7 @@ upp produktionsmiljön. Dessa kommandon kräver att utvecklingsmiljön är *nix-
 
 För utveckling så kan man använda tex RadRails (http://www.radrails.org).
 
-== Migrering av gamla spexregistret
+== Migrering av gamla spexregistret (OBS! Fungerar endast med 1.0)
 
 (1) För över senaste datafilen i data/target till produktionsmiljön.
 
@@ -210,6 +210,10 @@ För utveckling så kan man använda tex RadRails (http://www.radrails.org).
 (3) Exekvera 'ruby import.rb prod <datafilens namn>' i produktionsmiljön.
 
 (4) Utför de ändringar som beskrivs i step5.
+
+== Uppgradering 1.0 -> 1.1
+
+(1) Exekvera 'cap deploy:migrate' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
 
 == Kända fel
 

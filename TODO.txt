@@ -1,11 +1,6 @@
 TODO
 ----
 
-- Setup 1.1 environment
-  - Why does not production mode work?
-    - Logging
-    - Dashboard gives strange errors not seen in development
-
 - Dashboard
   - Visits/time
     - Requires audit/login trail
@@ -30,6 +25,8 @@ Ensemble
 Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor)
 
 - Clickable mail links in exports?
+
+- New version of JasperReports/iReport that supports nested list components?
 
 - Reports
   - Address labels
@@ -79,18 +76,9 @@ Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor
   - Export menu
     - http://www.filamentgroup.com/lab/jquery_ipod_style_and_flyout_menus/
     - Popup for new report
+      - Format, how to present?
 
 - Replace mail_queue with delayed_job?
-
-- Improve the model for revivals
-  - http://toolmantim.com/thoughts/migrating_with_models
-  - http://stackoverflow.com/questions/972562/rails-wont-let-me-change-records-during-migration
-  - http://www.railsgarden.com/2008/06/25/named_scope-with-acts_as_tree/
-  - Migration
-    - Reingest posters to spex detail, done in migration?
-    - Migration fix existing data
-    - Migration rollback (low priority)
-    - Make sure that it works in both cases, i.e. from scratch and from 1.0
 
 - IE problems
   - Why does 'both secure and non-secure items' pop up in IE7?
@@ -123,5 +111,3 @@ Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor
 
 - Upload code to github or bojan (svn+ssh)
   - Update deploy.rb accordingly
-
-- Mail batch functionality?
