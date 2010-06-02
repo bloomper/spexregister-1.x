@@ -127,7 +127,6 @@ set_permission(:spexare_activities_myself).with_controller(:activities).only_met
 set_permission(:spexare_view).with_controller(:spexare).only_methods(:show, :index).and_controller(:relationships).only_methods(:show).and_controller(:memberships).only_methods(:index).and_controller(:activities).only_methods(:show, :index)
 set_permission(:dashboard_reports).with_controller(:dashboard_reports)
 set_permission(:reports).with_controller(:reports)
-set_permission(:jobs).with_controller(:jobs)
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Built-in user groups
@@ -144,7 +143,7 @@ set_permission(:jobs).with_controller(:jobs)
   # Define the built-in user groups here:
 
 set_public_access :login, :locale, :signup, :password_reset
-set_protected_access :home, :account, :profile, :search, :advanced_search, :help, :reports, :jobs
+set_protected_access :home, :account, :profile, :search, :advanced_search, :help, :reports
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Define user groups
