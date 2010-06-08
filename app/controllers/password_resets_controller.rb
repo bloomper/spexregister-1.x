@@ -1,6 +1,6 @@
 class PasswordResetsController < ApplicationController
   before_filter :load_user_using_perishable_token, :only => [:edit, :update]
-  
+
   def new
   end
   
@@ -24,6 +24,8 @@ class PasswordResetsController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
     if @user.save
       flash[:success] = I18n.t("flash.password_resets.update.success")
+      current_user_session.destroy
+      reset_lockdown_session
       redirect_to home_path
     else
       flash[:failure] = I18n.t("flash.password_resets.update.failure")

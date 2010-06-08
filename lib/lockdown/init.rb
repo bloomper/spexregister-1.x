@@ -104,7 +104,7 @@ Lockdown::System.configure do
 set_permission(:login).with_controller(:user_sessions)
 set_permission(:locale).with_controller(:locale)
 set_permission(:signup).with_controller(:accounts).only_methods(:new, :create)
-set_permission(:password_reset).with_controller(:password_resets)
+set_permission(:password_resets).with_controller(:password_resets)
 set_permission(:home).with_controller(:home)
 set_permission(:account).with_controller(:accounts).except_methods(:new, :create)
 set_permission(:profile).with_controller(:profiles)
@@ -140,7 +140,7 @@ set_permission(:spexare_view).with_controller(:spexare).only_methods(:show, :ind
   #
   # Define the built-in user groups here:
 
-set_public_access :login, :locale, :signup, :password_reset
+set_public_access :login, :locale, :signup, :password_resets
 set_protected_access :home, :account, :profile, :search, :advanced_search, :help
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
