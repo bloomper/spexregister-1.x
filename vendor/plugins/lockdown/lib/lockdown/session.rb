@@ -3,6 +3,9 @@ module Lockdown
 
     protected
 
+    def remember_session
+    end
+
     def add_lockdown_session_values(user = nil)
       user ||= current_user
 

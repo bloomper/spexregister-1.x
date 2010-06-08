@@ -36,6 +36,8 @@ module Lockdown
 
           klass.hide_action(:set_current_user, :configure_lockdown, :check_request_authorization, :check_model_authorization)
 
+          klass.before_filter :remember_session
+
           klass.before_filter do |c|
             c.set_current_user
             c.configure_lockdown

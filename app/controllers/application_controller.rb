@@ -25,7 +25,11 @@ class ApplicationController < ActionController::Base
     locale = AVAILABLE_LOCALES.keys.include?(locale) ? locale : I18n.default_locale
     I18n.locale = locale
   end
-  
+
+  def remember_session
+    add_lockdown_session_values(@current_user) if current_user && !session[:access_rights]
+  end
+
   def check_session
     sess = current_user_session
     if sess && sess.stale?
