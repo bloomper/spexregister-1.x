@@ -2,7 +2,7 @@
   %h1= t 'views.password_reset.forgot_my_password'
   %p
     = t 'views.password_reset.instructions'
-  - form_tag password_reset_path do
+  - form_tag password_resets_path do
     %p
       = label_tag :username, t('activerecord.attributes.user.username')
       %br>
