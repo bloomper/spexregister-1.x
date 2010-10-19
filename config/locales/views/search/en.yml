@@ -8,6 +8,7 @@
       include: "Include"
       include_deceased: "Deceased"
       include_no_circulars: "No circulars"
+      include_no_email_circulars: "No email circulars"
       include_not_published: "Not published"
       index_title: "Search result"
       empty_search_result: "No hits"

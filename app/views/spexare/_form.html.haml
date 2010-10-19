@@ -108,6 +108,10 @@
       = f.label :want_circulars, t('activerecord.attributes.spexare.want_circulars')
       = f.error_message_on :want_circulars
       = f.check_box :want_circulars
+    - f.field_container :want_email_circulars do
+      = f.label :want_circulars, t('activerecord.attributes.spexare.want_email_circulars')
+      = f.error_message_on :want_email_circulars
+      = f.check_box :want_email_circulars
   %br.clear
   #spexare-picture
     - if @spexare.picture?

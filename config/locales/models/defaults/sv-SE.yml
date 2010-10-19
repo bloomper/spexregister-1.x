@@ -74,6 +74,7 @@
         deceased: "Avliden?"
         publish_approval: "Tillåter publicering?"
         want_circulars: "Vill ha utskick?"
+        want_email_circulars: "Vill ha utskick via email?"
         uncertain_address: "Osäker adress?"
         picture: "Bild"
         spouse: "Gift/sambo med"

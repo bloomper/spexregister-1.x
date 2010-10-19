@@ -8,6 +8,7 @@
       include: "Inkludera"
       include_deceased: "Avlidna"
       include_no_circulars: "Ej utskick"
+      include_no_email_circulars: "Ej utskick via email"
       include_not_published: "Ej publicerade"
       index_title: "Sökresultat"
       empty_search_result: "Inga träffar"

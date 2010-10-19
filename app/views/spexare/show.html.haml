@@ -123,6 +123,13 @@
       %tr
         %td= translate_boolean @spexare.want_circulars
   
+  - if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare == @spexare)
+    %table.show
+      %tr
+        %th= t 'activerecord.attributes.spexare.want_email_circulars'
+      %tr
+        %td= translate_boolean @spexare.want_email_circulars
+
   %table.show
     %tr
       %th= t 'activerecord.attributes.spexare.comment'
