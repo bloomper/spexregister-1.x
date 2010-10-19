@@ -21,6 +21,8 @@ javascripts:
   - jquery.flot.threshold
   - jquery.flot.fillbetween
   - jquery.flot.pie
+  - jquery.flot.image
+  - jquery.flot.symbol
   - jquery.fg.menu
   - jrails
   - jrails.autocomplete
