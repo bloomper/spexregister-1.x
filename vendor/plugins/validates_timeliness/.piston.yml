@@ -1,8 +1,0 @@
---- 
-format: 1
-handler: 
-  commit: 59d9957ab6bb4e53b1d27a57a1f94f98de055096
-  branch: master
-lock: false
-repository_class: Piston::Git::Repository
-repository_url: git://github.com/adzap/validates_timeliness.git
