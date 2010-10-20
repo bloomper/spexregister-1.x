@@ -1,8 +1,0 @@
---- 
-format: 1
-handler: 
-  commit: bad06491d17b1fd7dfd8ed5ac8bd1bb191381a05
-  branch: master
-lock: false
-repository_class: Piston::Git::Repository
-repository_url: git://github.com/shuber/attr_encrypted.git
