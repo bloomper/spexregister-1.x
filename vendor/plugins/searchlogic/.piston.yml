@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: a9e38877ba8d20cc8c78d8ebb8666d366e91e1d0
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/binarylogic/searchlogic.git
