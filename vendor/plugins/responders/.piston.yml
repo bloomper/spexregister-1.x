@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 65533ee8fad7fb8d7a1a94b15df0f8deb81f3e6e
+  branch: v0.4
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/plataformatec/responders.git
