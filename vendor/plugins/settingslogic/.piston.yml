@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 9bcaf8e09fec1e9a11bfdd08bba6395be6372516
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/binarylogic/settingslogic.git
