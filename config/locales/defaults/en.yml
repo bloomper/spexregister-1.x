@@ -1,4 +1,4 @@
 # Not necessary as English is included in Rails
 # The file is kept for clarity, however it cannot be empty as it causes errors
 "en":
-  foo:
+  foo: "foo"
