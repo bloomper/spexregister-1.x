@@ -54,14 +54,16 @@
         %label= t 'views.search.include_deceased'
         = hidden_field_tag 'search[deceased_equals_any][]', false
         = check_box_tag 'search[deceased_equals_any][]', true
-      %p
-        %label= t 'views.search.include_no_circulars'
-        = hidden_field_tag 'search[want_circulars_equals_any][]', true
-        = check_box_tag 'search[want_circulars_equals_any][]', false
-      %p
-        %label= t 'views.search.include_no_email_circulars'
-        = hidden_field_tag 'search[want_email_circulars_equals_any][]', true
-        = check_box_tag 'search[want_email_circulars_equals_any][]', false
+      - if current_user_is_admin?
+        %p
+          %label= t 'views.search.include_no_circulars'
+          = check_box_tag 'search[want_circulars_equals_any][]', false
+      = hidden_field_tag 'search[want_circulars_equals_any][]', true
+      - if current_user_is_admin?
+        %p
+          %label= t 'views.search.include_no_email_circulars'
+          = check_box_tag 'search[want_email_circulars_equals_any][]', false
+      = hidden_field_tag 'search[want_email_circulars_equals_any][]', true
       - if current_user_is_admin?
         %p
           %label= t 'views.search.include_not_published'
