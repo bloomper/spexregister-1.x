@@ -1,8 +1,0 @@
---- 
-format: 1
-handler: 
-  commit: 4528cd3875b6488ec9924e9d44660c1c674db10f
-  branch: master
-lock: false
-repository_class: Piston::Git::Repository
-repository_url: git://github.com/toland/app_version.git
