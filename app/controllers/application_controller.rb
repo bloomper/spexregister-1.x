@@ -2,7 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  include ExceptionNotifiable
+  include ExceptionNotification::Notifiable
   helper :all # include all helpers, all the time
   helper_method :current_user_session, :current_user, :logged_in?, :current_user_is_admin?, :current_protocol, :filter_url_if_not_compatible_with, :show_search_result_back_links?, :previous_page, :current_page, :latest_search_query_exists?, :latest_search_query, :latest_advanced_search_query_exists?, :latest_advanced_search_query, :get_available_dashboard_reports
   
