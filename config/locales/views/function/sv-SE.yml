@@ -1,7 +1,7 @@
 "sv-SE":
   views:
     function:
-      index_title: "{{action}} funktioner"
-      page_title_html: "{{action}} funktion &ldquo;{{description}}&rdquo;"
+      index_title: "%{action} funktioner"
+      page_title_html: "%{action} funktion &ldquo;%{description}&rdquo;"
       no_functions_exist: "Det finns inga funktioner"
       new_function: "Skapa funktion"

@@ -1,10 +1,10 @@
 "sv-SE":
   views:
     spex_category:
-      index_title: "{{action}} kategorier"
-      page_title_html: "{{action}} kategori &ldquo;{{description}}&rdquo;"
+      index_title: "%{action} kategorier"
+      page_title_html: "%{action} kategori &ldquo;%{description}&rdquo;"
       no_spex_categories_exist: "Det finns inga kategorier"
       new_spex_category: "Skapa kategori"
       logo_format_notice:  "Tillåtna format är GIF, JPG och PNG"
-      logo_size_notice:  "Max tillåten storlek är {{max_size}} Kb"
+      logo_size_notice:  "Max tillåten storlek är %{max_size} Kb"
       current_logo: "Nuvarande logga"

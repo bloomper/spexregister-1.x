@@ -2,15 +2,15 @@
   views:
     spexare:
       description_tab_title: "Beskrivning"
-      index_title: "{{action}} spexare"
-      page_title_html: "{{action}} spexare &ldquo;{{description}}&rdquo;"
+      index_title: "%{action} spexare"
+      page_title_html: "%{action} spexare &ldquo;%{description}&rdquo;"
       no_spexare_exist: "Det finns inga spexare"
       new_spexare: "Skapa spexare"
       last_name_notice: "Tips: Vid byte av efternamn, skriv det gamla i kommentarsfältet"
       social_security_number_notice_1: "Visas endast för dig själv och administratörer"
       social_security_number_notice_2: "Krypterad lagring för säkerställa integritet"
       picture_format_notice:  "Tillåtna format är GIF, JPG och PNG"
-      picture_size_notice:  "Max tillåten storlek är {{max_size}} Kb"
+      picture_size_notice:  "Max tillåten storlek är %{max_size} Kb"
       current_picture: "Nuvarande bild"
       address: "Adress"
       uncertain_address_notice: "<i>(markerad som osäker!)</i>"

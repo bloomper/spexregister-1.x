@@ -1,10 +1,10 @@
 "en":
   views:
     spex_category:
-      index_title: "{{action}} categories"
-      page_title_html: "{{action}} category &ldquo;{{description}}&rdquo;"
+      index_title: "%{action} categories"
+      page_title_html: "%{action} category &ldquo;%{description}&rdquo;"
       no_spex_categories_exist: "There are no categories"
       new_spex_category: "Create category"
       logo_format_notice:  "Allowed formats are GIF, JPG and PNG"
-      logo_size_notice:  "Maximum allowed size is {{max_size}} Kb"
+      logo_size_notice:  "Maximum allowed size is %{max_size} Kb"
       current_logo: "Current logo"

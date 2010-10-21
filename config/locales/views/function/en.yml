@@ -1,7 +1,7 @@
 "en":
   views:
     function:
-      index_title: "{{action}} functions"
-      page_title_html: "{{action}} function &ldquo;{{description}}&rdquo;"
+      index_title: "%{action} functions"
+      page_title_html: "%{action} function &ldquo;%{description}&rdquo;"
       no_functions_exist: "There are no functions"
       new_function: "Create function"

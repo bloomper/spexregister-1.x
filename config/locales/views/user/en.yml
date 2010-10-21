@@ -2,8 +2,8 @@
   views:
     user:
       description_tab_title: "Description"
-      index_title: "{{action}} users"
-      page_title_html: "{{action}} user &ldquo;{{description}}&rdquo;"
+      index_title: "%{action} users"
+      page_title_html: "%{action} user &ldquo;%{description}&rdquo;"
       no_users_exist: "There are no users"
       new_user: "Create user"
       approve_event: "Approve"
