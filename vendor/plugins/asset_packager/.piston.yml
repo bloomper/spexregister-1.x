@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: af6c8a7422f12b354ef931b11d1f6b6d9499cdee
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/bloomper/asset_packager.git
