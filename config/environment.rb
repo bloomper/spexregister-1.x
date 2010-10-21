@@ -1,7 +1,7 @@
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.10' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -12,22 +12,23 @@ Rails::Initializer.run do |config|
   # -- all .rb files in that directory are automatically loaded.
 
   # Add additional load paths for your own custom dirs
-  # config.load_paths += %W( #{RAILS_ROOT}/extras )
-  config.load_paths += %W( #{RAILS_ROOT}/app/mailers #{RAILS_ROOT}/app/utils #{RAILS_ROOT}/app/dashboard_reports #{RAILS_ROOT}/app/reports)
+  # config.autoload_paths += %W( #{RAILS_ROOT}/extras )
+  config.autoload_paths += %W( #{RAILS_ROOT}/app/mailers #{RAILS_ROOT}/app/utils #{RAILS_ROOT}/app/dashboard_reports #{RAILS_ROOT}/app/reports)
 
   # Specify gems that this application depends on and have them installed with rake gems:install
-  config.gem "haml", :version => '2.2.15'
-  config.gem "chriseppstein-compass", :lib => 'compass', :version => '0.8.17', :source => "http://gems.github.com/"
+  config.gem "erubis", :version => '2.6.6'
+  config.gem "haml", :version => '3.0.22'
+  config.gem "compass", :version => '0.10.5'
   config.gem "hpricot", :version => '0.8.2'
-  config.gem "htmlentities", :version => '4.2.0'
+  config.gem "htmlentities", :version => '4.2.1'
   config.gem "mysql", :version => '2.8.1'
-  config.gem "piston", :version => '2.0.7'
+  config.gem "piston", :version => '2.0.10'
   config.gem "rcov", :version => '0.8.1.2.0'
-  config.gem "shuber-encryptor", :lib => 'encryptor', :version => '1.0.1', :source => "http://gems.github.com/"
-  config.gem "shuber-eigenclass", :lib => 'eigenclass', :version => '1.0.1', :source => "http://gems.github.com/"
-  config.gem "sqlite3-ruby", :lib => "sqlite3", :version => '1.2.5'
+  config.gem "encryptor", :version => '1.1.1'
+  config.gem "eigenclass", :version => '1.1.1'
+  config.gem "sqlite3-ruby", :lib => "sqlite3", :version => '1.3.1'
   config.gem "xml-simple", :lib => 'xmlsimple', :version => '1.0.12'
-  config.gem "libxml-ruby", :lib => 'libxml', :version => '1.1.3'
+  config.gem "libxml-ruby", :lib => 'libxml', :version => '1.1.4'
   config.gem 'BlueCloth', :lib => 'bluecloth', :version => '1.0.1'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
@@ -52,3 +53,5 @@ Rails::Initializer.run do |config|
 
   config.active_record.colorize_logging = false
 end
+
+Haml::Template.options[:escape_html] = true
