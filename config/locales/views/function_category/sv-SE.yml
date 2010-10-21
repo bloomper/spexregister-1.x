@@ -2,6 +2,6 @@
   views:
     function_category:
       index_title: "{{action}} kategorier"
-      page_title: "{{action}} kategori &ldquo;{{description}}&rdquo;"
+      page_title_html: "{{action}} kategori &ldquo;{{description}}&rdquo;"
       no_function_categories_exist: "Det finns inga kategorier"
       new_function_category: "Skapa kategori"

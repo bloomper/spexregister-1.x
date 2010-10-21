@@ -2,7 +2,7 @@
   views:
     news:
       index_title: "{{action}} news"
-      page_title: "{{action}} news item &ldquo;{{description}}&rdquo;"
+      page_title_html: "{{action}} news item &ldquo;{{description}}&rdquo;"
       no_news_exist: "There are no news"
       new_news: "Create news item"
       markdown_notice: "Format according to {{markdown_link}}"

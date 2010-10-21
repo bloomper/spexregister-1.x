@@ -1,6 +1,6 @@
 = render :partial => 'sub_menu'
 
-%h1= t 'views.news.page_title', :action => t('views.base.editing_action'), :description => @news.publication_date
+%h1= t 'views.news.page_title_html', :action => t('views.base.editing_action'), :description => @news.publication_date
 
 - form_for @news, :url => resource_url, :html => { :method => :put } do |f|
   = render :partial => 'form', :locals => { :f => f }
