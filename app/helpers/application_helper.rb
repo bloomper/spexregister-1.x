@@ -39,10 +39,10 @@ module ApplicationHelper
   def text_for_button_link(text, html_options)
     s = ''
     if html_options[:icon]
-      s << icon_tag(html_options.delete(:icon)) + ' &nbsp; '
+      s << icon_tag(html_options.delete(:icon)) + ' '
     end
     s << text
-    content_tag('span', s)
+    content_tag('span', raw(s))
   end
   
   def link_to_remote(name, options = {}, html_options = {})

@@ -71,7 +71,7 @@ function plotAsSelected() {
         return true;
   };
 
-  var data = <%= @report.result[:data].to_json %>;
+  var data = <%= raw(@report.result[:data].to_json) %>;
   if (!isEmpty(data)) {
     var SERIES = [];
 
@@ -84,25 +84,25 @@ function plotAsSelected() {
   
     var OPTS = {
       series: {
-	    <%= @report.result[:opts][:series] %>
+	    <%= raw(@report.result[:opts][:series]) %>
 	  },
       xaxis: {
-        <%= @report.result[:opts][:x_axis] %>
+        <%= raw(@report.result[:opts][:x_axis]) %>
       },
       yaxis: {
-        <%= @report.result[:opts][:y_axis] %>
+        <%= raw(@report.result[:opts][:y_axis]) %>
       },
       grid: {
-        <%= @report.result[:opts][:grid] %>
+        <%= raw(@report.result[:opts][:grid]) %>
       },
       zoom: {
-        <%= @report.result[:opts][:zoom] %>
+        <%= raw(@report.result[:opts][:zoom]) %>
       },
       pan: {
-        <%= @report.result[:opts][:pan] %>
+        <%= raw(@report.result[:opts][:pan]) %>
       },
       legend: {
-        <%= @report.result[:opts][:legend] %>
+        <%= raw(@report.result[:opts][:legend]) %>
       }
     };
 
