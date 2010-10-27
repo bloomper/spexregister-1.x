@@ -13,16 +13,16 @@ class BaseDashboardReport
   def get_accumulated_entities(entities)
     returning result = [] do
       if !entities.empty?
-        acculumated = 0
+        accumulated = 0
         current_time = entities.first.created_at
         entities.each do |entity|
           if (current_time - entity.created_at) != 0
-            result << [current_time, acculumated]
+            result << [current_time, accumulated]
             current_time = entity.created_at
           end
-          acculumated += 1
+          accumulated += 1
         end
-        result << [current_time, acculumated]
+        result << [current_time, accumulated]
       end
     end  
   end
