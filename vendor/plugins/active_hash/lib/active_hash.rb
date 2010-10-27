@@ -1,0 +1,6 @@
+require 'active_support'
+require 'active_hash/base'
+require 'active_file/base'
+require 'active_yaml/base'
+require 'associations/associations'
+require 'enum/enum'
