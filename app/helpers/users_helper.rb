@@ -5,7 +5,7 @@ module UsersHelper
   end
   
   def get_available_states
-    returning [] do |states|
+    [].tap do |states|
       User.aasm_states_for_select.each do |aasm_state|
         states << [translate_user_state(aasm_state.first), aasm_state.last]
       end

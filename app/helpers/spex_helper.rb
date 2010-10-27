@@ -1,7 +1,7 @@
 module SpexHelper
 
   def get_available_spex_items(ids)
-    returning available_spex_items = Hash.new do
+    Hash.new.tap do |available_spex_items|
       spex_years = []
       spex_titles = []
       Spex.by_ids(ids).by_title.each do |spex|

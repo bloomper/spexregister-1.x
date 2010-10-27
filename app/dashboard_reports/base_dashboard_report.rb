@@ -11,7 +11,7 @@ class BaseDashboardReport
 
   protected
   def get_accumulated_entities(entities)
-    returning result = [] do
+    [].tap do |result|
       if !entities.empty?
         accumulated = 0
         current_time = entities.first.created_at

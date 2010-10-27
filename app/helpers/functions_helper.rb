@@ -1,7 +1,7 @@
 module FunctionsHelper
   
   def get_functions_by_category(category_id)
-    returning function_names = [] do
+    [].tap do |function_names|
       Function.by_category(category_id).by_name.each do |function|
         function_names << [function.name, function.id]
       end
