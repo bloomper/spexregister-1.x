@@ -26,6 +26,7 @@ Rails::Initializer.run do |config|
   config.gem "rcov", :version => '0.8.1.2.0'
   config.gem "encryptor", :version => '1.1.1'
   config.gem "eigenclass", :version => '1.1.1'
+  config.gem "soap4r", :version => '1.5.8'
   config.gem "sqlite3-ruby", :lib => "sqlite3", :version => '1.3.1'
   config.gem "xml-simple", :lib => 'xmlsimple', :version => '1.0.12'
   config.gem "libxml-ruby", :lib => 'libxml', :version => '1.1.4'
