@@ -18,7 +18,7 @@ module FunctionCategoriesHelper
       options << %(<option value="#{html_escape(value.to_s)}"#{selected_attribute}#{disabled_attribute}#{has_actor_attribute}>#{html_escape(text.to_s)}</option>)
     end
     
-    options_for_select.join("\n")
+    options_for_select.join("\n").html_safe
   end
   
 end
