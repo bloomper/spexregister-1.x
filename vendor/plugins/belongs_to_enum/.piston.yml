@@ -1,8 +1,0 @@
---- 
-format: 1
-handler: 
-  commit: a154882db1b1f7ddcd07775b4cd2aa7896f0c3cc
-  branch: master
-lock: false
-repository_class: Piston::Git::Repository
-repository_url: git://github.com/bloomper/belongs_to_enum.git
