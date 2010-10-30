@@ -1,8 +1,0 @@
---- 
-format: 1
-handler: 
-  commit: 864ff9402ffb34cf266c3b8bf678c06ebab8b44b
-  branch: master
-lock: false
-repository_class: Piston::Git::Repository
-repository_url: git://github.com/zilkey/active_hash.git
