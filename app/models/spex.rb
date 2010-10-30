@@ -14,10 +14,10 @@ class Spex < ActiveRecord::Base
   named_scope :by_ids, lambda { |ids|
     { :conditions => { :id => ids } }
   }
-  named_scope :by_year, :order => 'year asc' 
-  named_scope :by_year_desc, :order => 'year desc' 
-  named_scope :by_title, :order => 'spex_details.title asc', :joins => 'left join spex_details' 
-  named_scope :by_title_desc, :order => 'spex_details.title desc', :joins => 'left join spex_details'
+  named_scope :by_year, :order => 'year asc', :include => :spex_detail
+  named_scope :by_year_desc, :order => 'year desc', :include => :spex_detail
+  named_scope :by_title, :order => 'spex_details.title asc', :include => :spex_detail 
+  named_scope :by_title_desc, :order => 'spex_details.title desc', :include => :spex_detail
   
   def initialize(attributes=nil)
     super
