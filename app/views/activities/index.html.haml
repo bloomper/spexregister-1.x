@@ -29,9 +29,9 @@
               - if !function_activity.actors.empty?
                 - function_activity.actors.each do |actor|
                   - if !actor.role.empty?
-                    = whitespace(4) + t('activerecord.attributes.actor.role') + ': ' + h(actor.role)
+                    != whitespace(4) + t('activerecord.attributes.actor.role') + ': ' + h(actor.role)
                     %br>
-                  = whitespace(4) + t('activerecord.attributes.actor.vocal_id') + ': ' + h(Actor.vocal(actor.vocal_id).title) unless actor.vocal.nil?
+                  != whitespace(4) + t('activerecord.attributes.actor.vocal_id') + ': ' + h(Actor.vocal(actor.vocal_id).title) unless actor.vocal.nil?
                   %br>
             = link_to '... ' + t('views.base.view_more'), spexare_activity_url(@spexare, activity), :class => 'fancybox-text' if activity.function_activities.size > ApplicationConfig.activities_per_row
           - if activity.spex.spex_category.logo?

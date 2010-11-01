@@ -1,6 +1,6 @@
 %table.index
   %tr
-    %th= h [@activity.spex.title, "(#{@activity.spex.year})", @activity.spex.is_revival ? t('spex.with_revival') : nil].join(' ')
+    %th= h [@activity.spex.title, "(#{@activity.spex.year})", @activity.spex.is_revival? ? t('spex.with_revival') : nil].join(' ')
   - @activity.function_activities.each do |function_activity|
     %tr
       %td
@@ -9,7 +9,7 @@
           - function_activity.actors.each do |actor|
             %br>
             - if !actor.role.empty?
-              = whitespace(4) + t('activerecord.attributes.actor.role') + ': ' + h(actor.role)
+              != whitespace(4) + t('activerecord.attributes.actor.role') + ': ' + h(actor.role)
               %br>
-            = whitespace(4) + t('activerecord.attributes.actor.vocal_id') + ': ' + h(Actor.vocal(actor.vocal_id).title) unless actor.vocal.nil?
+            != whitespace(4) + t('activerecord.attributes.actor.vocal_id') + ': ' + h(Actor.vocal(actor.vocal_id).title) unless actor.vocal.nil?
         
