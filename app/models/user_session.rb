@@ -5,4 +5,14 @@ class UserSession < Authlogic::Session::Base
   remember_me_for ApplicationConfig.remember_me_for
   consecutive_failed_logins_limit ApplicationConfig.consecutive_failed_logins_limit
   failed_login_ban_for ApplicationConfig.failed_login_ban_for
+  attr_accessor :session_id
+
+  def before_create
+    UserEvent.create(:user => self.user, :kind => UserEvent.kind(:login), :session_id => @session_id)
+  end
+
+  def before_destroy
+    UserEvent.create(:user => self.user, :kind => UserEvent.kind(:logout), :session_id => @session_id)
+  end
+
 end

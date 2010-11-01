@@ -11,6 +11,10 @@
         legend:
           new_spexare: "Nya spexare"
           accumulated_spexare: "Ackumulerade spexare"
+      logins_report:
+        title: "Inloggningar"
+        legend:
+          login: "Inloggning"
       login_distribution_report:
         title: "Inloggningsdistribution"
         other: "Resten"

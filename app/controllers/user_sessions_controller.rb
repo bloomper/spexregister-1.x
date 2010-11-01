@@ -9,6 +9,7 @@ class UserSessionsController < ApplicationController
   
   def create
     @user_session = UserSession.new(params[:user_session])
+    @user_session.session_id = request.session_options[:id]
     if @user_session.save
       flash[:success] = I18n.t('flash.user_sessions.create.success')
       redirect_to home_path
@@ -22,6 +23,7 @@ class UserSessionsController < ApplicationController
   
   def destroy
     session[:latest_search_query] = nil
+    current_user_session.session_id = request.session_options[:id]
     current_user_session.destroy
     reset_lockdown_session
     flash[:success] = I18n.t('flash.user_sessions.destroy.success')

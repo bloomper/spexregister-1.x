@@ -11,6 +11,10 @@
         legend:
           new_spexare: "New spexers"
           accumulated_spexare: "Accumulated spexers"
+      logins_report:
+        title: "Logins"
+        legend:
+          login: "Login"
       login_distribution_report:
         title: "Login distribution"
         other: "The rest"

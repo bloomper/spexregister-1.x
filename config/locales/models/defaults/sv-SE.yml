@@ -19,6 +19,7 @@
       spexare: "Spexare"
       user: "Användare"
       user_session: "Användarsession"
+      user_event: "Användarhändelse"
       
     # Translate model attribute names. Used in Model.human_attribute_name(attribute).
     attributes:
@@ -36,7 +37,7 @@
         has_actor: "Har roll/stämma?"
       membership:
         year: "År"
-        type_id: "Typ"
+        kind_id: "Typ"
       news:
         publication_date: "Publiceringsdatum"
         subject: "Ämne"
@@ -93,6 +94,8 @@
         last_login_ip: "Senaste inloggning (IP adress)"
       user_group:
         name: "Namn"
+      user_event:
+        kind_id: "Typ"
       other:
         full_name: "Fullständigt namn"
         description: "Beskrivning"
