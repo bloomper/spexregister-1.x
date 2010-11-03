@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 04583b2ba9efc649d59f0f821d66995d0e795584
+  branch: v1.0
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/plataformatec/simple_form.git
