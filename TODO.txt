@@ -1,10 +1,8 @@
 TODO
 ----
 
-- Updates
-  - Javascript libs
-
 - Incorrect listing of spex in activities, due to optimization?
+  - Also shown on search page
 
 - Remove delayed_job?
 - Replace mail_queue with delayed_job?
@@ -95,11 +93,13 @@ Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor
     - etc
 
 - Updates
-  - Lockdown
-  - Other plugins?
-  - Other JS plugins?
-  - jQuery 1.4 and jQuery UI 1.8/1.9
+  - Fancybox
+    - 1.3.2 does not work
+      - XMLHttpRequest is undefined
+      - http://groups.google.com/group/fancybox/browse_thread/thread/229aaad47a9fb166/1fd503f0b759b9ca?lnk=raot
+  - jQuery UI 1.8/1.9
     - Replace jquery.fg.menu
+  - Lockdown
 
 - Upload code to github or bojan (svn+ssh)
   - Update deploy.rb accordingly
