@@ -32,13 +32,12 @@ jQuery(function() {
            onAddCSS: 'button'
            });
    });
-
-  // jQuery Multiselect
-  jQuery.extend(jQuery.ui.multiselect.locale, {
-           addAll: 'Add all',
-           removeAll: 'Remove all',
-           itemsCount: 'items selected'
-  });
+   jQuery(":file").livequery( function() {
+	   jQuery(this).uniform({
+		   fileDefaultText: 'No file selected',
+		   fileBtnText: 'Choose file'
+		   });
+   });
 });
 
 jQuery(function() {

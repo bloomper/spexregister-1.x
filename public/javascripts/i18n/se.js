@@ -32,13 +32,12 @@ jQuery(function() {
            onAddCSS: 'button'
            });
    });
-
-  // jQuery Multiselect
-  jQuery.extend(jQuery.ui.multiselect.locale, {
-           addAll: 'Lägg till alla',
-           removeAll: 'Ta bort alla',
-           itemsCount: 'valda'
-  });
+   jQuery(":file").livequery( function() {
+	   jQuery(this).uniform({
+		   fileDefaultText: 'Ingen fil vald',
+		   fileBtnText: 'Välj fil'
+		   });
+   });
 });
 
 jQuery(function() {

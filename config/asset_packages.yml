@@ -9,8 +9,7 @@ javascripts:
   - jquery.datepicker
   - jquery.livequery
   - jquery.lockSubmit
-  - jquery.checkbox
-  - jquery.multiselect
+  - jquery.uniform
   - jquery.selectboxes
   - jquery.colorhelpers
   - jquery.flot
@@ -35,8 +34,7 @@ stylesheets:
   - jquery.alerts
   - jquery.fancybox
   - jquery.datepicker
-  - jquery.checkbox
-  - jquery.multiselect
+  - jquery.uniform
   - jquery.flick.theme
   - jquery.fg.menu
   - compiled/screen

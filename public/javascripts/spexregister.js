@@ -104,19 +104,9 @@ jQuery(function() {
   });
 });
 
-
 jQuery(function() {
-  jQuery('input[type=checkbox]').livequery(function() {
-    jQuery(this).checkbox();
-  });
-});
-
-jQuery(function() {
-  jQuery('.multiselect-usergroups').livequery(function() {
-    jQuery(this).multiselect( {
-      'searchable' : false,
-      'sortable' : false
-    });
+  jQuery('select, input:checkbox, input:radio, input:file').livequery(function() {
+    jQuery(this).uniform();
   });
 });
 
