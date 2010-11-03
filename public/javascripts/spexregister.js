@@ -124,9 +124,11 @@ jQuery.extend( {
               nameSelect.addOption(j[i].id, j[i].name, false);
             }
             nameSelect.removeAttr('disabled');
+            jQuery.uniform.update("#" + nameElement);
         }
       });
     }
+    jQuery.uniform.update("#" + nameElement);
    }
 });
 
@@ -157,9 +159,13 @@ jQuery.extend( {
             }
             yearSelect.removeAttr('disabled');
             titleSelect.removeAttr('disabled');
+            jQuery.uniform.update("#" + yearElement);
+            jQuery.uniform.update("#" + titleElement);
         }
       });
     }
+    jQuery.uniform.update("#" + yearElement);
+    jQuery.uniform.update("#" + titleElement);
    }
 });
 
@@ -171,6 +177,7 @@ jQuery.extend( {
   } else {
       showRevivalsSelect.attr('disabled', 'disabled');
   }
+  jQuery.uniform.update('#' + showRevivals);
   }
 });
 
@@ -191,9 +198,11 @@ jQuery.extend( {
             yearSelect.addOption(firstYear, firstYear, true);
           }
           yearSelect.removeAttr('disabled');
+          jQuery.uniform.update("#" + yearElement);
       }
       });
     }
+    jQuery.uniform.update("#" + yearElement);
   }
 });
 
