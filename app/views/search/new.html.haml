@@ -30,11 +30,11 @@
       %p
         %label= t 'activerecord.attributes.spex.year'
         %br>
-        = select_tag 'search[activities_spex_activity_spex_id_equals]', nil, { :disabled => true, :onchange => "jQuery('#dummy_title_equals').val(jQuery('#search_activities_spex_activity_spex_id_equals').val());" }
+        = select_tag 'search[activities_spex_activity_spex_id_equals]', nil, { :disabled => true, :onchange => "jQuery('#dummy_title_equals').val(jQuery('#search_activities_spex_activity_spex_id_equals').val()); jQuery.uniform.update('#dummy_title_equals');" }
       %p
         %label= t 'activerecord.attributes.spex_detail.title'
         %br>
-        = select_tag 'dummy_title_equals', nil, { :disabled => true, :onchange => "jQuery('#search_activities_spex_activity_spex_id_equals').val(jQuery('#dummy_title_equals').val());" }
+        = select_tag 'dummy_title_equals', nil, { :disabled => true, :onchange => "jQuery('#search_activities_spex_activity_spex_id_equals').val(jQuery('#dummy_title_equals').val()); jQuery.uniform.update('#search_activities_spex_activity_spex_id_equals');" }
   .span-10
     %fieldset
       %legend= t 'activerecord.models.function'
