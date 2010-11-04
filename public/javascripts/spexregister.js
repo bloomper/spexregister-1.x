@@ -55,12 +55,12 @@ jQuery(function() {
 jQuery(function() {
   jQuery('a.fancybox-single').livequery(function() {
     jQuery(this).fancybox( {
-      'hideOnContentClick' : true,
-      'overlayShow' : true,
-      'zoomOpacity' : true,
-      'zoomSpeedIn' : 500,
-      'zoomSpeedOut' : 500,
-      'titleShow' : false
+      hideOnContentClick : true,
+      overlayShow : true,
+      zoomOpacity : true,
+      zoomSpeedIn : 500,
+      zoomSpeedOut : 500,
+      titleShow : false
     });
   });
 });
@@ -68,13 +68,13 @@ jQuery(function() {
 jQuery(function() {
   jQuery('a.fancybox-text').livequery(function() {
     jQuery(this).fancybox( {
-      'hideOnContentClick' : false,
-      'overlayShow' : true,
-      'zoomOpacity' : true,
-      'zoomSpeedIn' : 500,
-      'zoomSpeedOut' : 500,
-      'titleShow' : false,
-      'loadingShow' : false
+      hideOnContentClick : false,
+      overlayShow : true,
+      zoomOpacity : true,
+      zoomSpeedIn : 500,
+      zoomSpeedOut : 500,
+      titleShow : false,
+      loadingShow : false
     });
   });
 });
@@ -82,14 +82,14 @@ jQuery(function() {
 jQuery(function() {
   jQuery('a.fancybox-form').livequery(function() {
     jQuery(this).fancybox( {
-      'hideOnContentClick' : false,
-      'overlayShow' : true,
-      'zoomOpacity' : true,
-      'zoomSpeedIn' : 500,
-      'zoomSpeedOut' : 500,
-      'titleShow' : false,
-      'loadingShow' : false,
-      'scrolling' : 'no',
+      hideOnContentClick : false,
+      overlayShow : true,
+      zoomOpacity : true,
+      zoomSpeedIn : 500,
+      zoomSpeedOut : 500,
+      titleShow : false,
+      loadingShow : false,
+      scrolling : 'no'
     });
   });
 });
