@@ -1,7 +1,7 @@
 class AddUserEvent < ActiveRecord::Migration
   
   def self.up
-    create_table :user_events, :force => true, :id => false do |t|
+    create_table :user_events, :force => true do |t|
       t.string :session_id
       t.integer :user_id
       t.integer :kind_id, :null => false

@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(:version => 20101101202800) do
     t.date     "publication_date",                    :null => false
     t.string   "subject",                             :null => false
     t.text     "body",                                :null => false
-    t.string   "cached_body_html"
+    t.text     "cached_body_html"
     t.boolean  "is_published",     :default => false
     t.integer  "lock_version",     :default => 0
     t.string   "created_by"
@@ -241,7 +241,7 @@ ActiveRecord::Schema.define(:version => 20101101202800) do
   add_index "spexare", ["first_name"], :name => "index_spexare_on_first_name"
   add_index "spexare", ["last_name"], :name => "index_spexare_on_last_name"
 
-  create_table "user_events", :id => false, :force => true do |t|
+  create_table "user_events", :force => true do |t|
     t.string   "session_id"
     t.integer  "user_id"
     t.integer  "kind_id",                     :null => false
