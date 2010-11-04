@@ -54,24 +54,6 @@ class Spex < ActiveRecord::Base
   end
   
   protected
-  def validate_uniqueness_on_create
-    if !spex_category.nil? && !year.nil? && !spex_detail.title.nil?
-      if Spex.find(:first, :joins => 'JOIN spex_details JOIN spex_categories', :conditions => ['spex_category_id = spex_categories.id AND spex.year = ? AND spex_details.title = ? AND spex_categories.id = ?', year, spex_detail.title, spex_category.id])
-        errors.add_to_base(I18n.t('spex.invalid_combination'))
-      end
-    end
-  end
-  
-  def validate_uniqueness_on_update
-    if !spex_category.nil? && !year.nil? && !spex_detail.title.nil?
-      if Spex.find(:first, :joins => 'JOIN spex_details JOIN spex_categories', :conditions => ['spex_category_id = spex_categories.id AND spex.year = ? AND spex_details.title = ? AND spex_categories.id = ? AND spex.id <> ?', year, spex_detail.title, spex_category.id, id])
-        errors.add_to_base(I18n.t('spex.invalid_combination'))
-      end
-    end
-  end
-  
-  validate_on_create :validate_uniqueness_on_create
-  validate_on_update :validate_uniqueness_on_update
   validates_presence_of :year
   validates_format_of :year, :with => /^(19|20|21)\d{2}$/, :allow_blank => true
   validates_presence_of :spex_category

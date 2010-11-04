@@ -3,7 +3,6 @@
     zero: "spex"
     one: "spex"
     other: "spex"
-    invalid_combination: "The combination of year, title and category already exists"
     cannot_delete_if_associated_spexare_exist: "Cannot delete spex as it is associated with one or many spexers"
   revival:
     zero: "revival"
