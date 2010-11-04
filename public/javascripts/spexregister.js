@@ -232,6 +232,9 @@ jQuery(function() {
       var newId = new Date().getTime();
       content = content.replace(regexp, newId);
       jQuery(this).parent().before(content);
+      jQuery("select[id*=" + newId + "]").each(function() {
+          jQuery.uniform.restore('#' + jQuery(this).attr('id'));
+      });
       return false;
   });
 
