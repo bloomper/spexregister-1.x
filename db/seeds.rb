@@ -352,3 +352,5 @@ Spex.create :year => '2009', :spex_detail_attributes => {:title => 'Newton'}, :s
 Spex.create :year => '2009', :spex_detail_attributes => {:title => 'Taj Mahal'}, :spex_category => vera_spex_category
 
 Spex.create :year => '2010', :spex_detail_attributes => {:title => 'Kristian Tyrann'}, :spex_category => bob_spex_category
+
+Spex.create :year => '2010', :spex_detail_attributes => {:title => 'Lucia'}, :spex_category => vera_spex_category
