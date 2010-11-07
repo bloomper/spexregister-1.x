@@ -17,7 +17,7 @@ Rails::Initializer.run do |config|
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   config.gem "erubis", :version => '2.6.6'
-  config.gem "haml", :version => '3.0.22'
+  config.gem "haml", :version => '3.0.23'
   config.gem "compass", :version => '0.10.5'
   config.gem "hpricot", :version => '0.8.2'
   config.gem "htmlentities", :version => '4.2.1'
