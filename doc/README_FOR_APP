@@ -192,6 +192,7 @@ upp produktionsmiljön. Dessa kommandon kräver att utvecklingsmiljön är *nix-
 (8) Installera Mongrel genom att exekvera 'sudo gem install mongrel'.
 
 (9) Exekvera 'rake gems:install' från roten av applikationen (dvs där app, config, db osv finns).
+    Det kan vara nödvändigt att installera vissa gems manuellt ("hönan och ägget"-syndromet).
 
 (10) Exekvera 'rake db:migrate' från roten av applikationen (dvs där app, config, db osv finns).
 
