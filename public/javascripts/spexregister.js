@@ -105,7 +105,7 @@ jQuery(function() {
 });
 
 jQuery(function() {
-  jQuery('select, input:checkbox, input:radio, input:file').livequery(function() {
+  jQuery('select:not([id*="_new_function_activities_function_id"],[id*="_new_function_activities_actors_attributes_new_actors_vocal_id"]), input:checkbox, input:radio, input:file').livequery(function() {
     jQuery(this).uniform();
   });
 });
@@ -232,9 +232,6 @@ jQuery(function() {
       var newId = new Date().getTime();
       content = content.replace(regexp, newId);
       jQuery(this).parent().before(content);
-      jQuery("select[id*=" + newId + "]").each(function() {
-          jQuery.uniform.restore('#' + jQuery(this).attr('id'));
-      });
       return false;
   });
 

@@ -1,11 +1,12 @@
 %div.fields
   %fieldset
     %legend= t 'activerecord.models.function'
-    - unique_function_category_id = "#{form_tag_id(f.object_name, :function_id)}_function_category_id"
-    - selected_function_category = get_function_by_id("#{f.object.function_id}").function_category unless f.object.new_record?
-    = label_tag unique_function_category_id, t('activerecord.attributes.function.function_category')
-    %br>
-    = select_tag unique_function_category_id, options_for_select_with_has_actor_attribute({:selected => selected_function_category.nil? ? nil : selected_function_category.id}), { :class => 'observe-function-activity-function-category-changes', :functions_field => "#{form_tag_id(f.object_name, :function_id)}", :add_actor_link => "#{form_tag_id(f.object_name, :function_id)}_add_actor_link" }
+    %p
+      - unique_function_category_id = "#{form_tag_id(f.object_name, :function_id)}_function_category_id"
+      - selected_function_category = get_function_by_id("#{f.object.function_id}").function_category unless f.object.new_record?
+      = label_tag unique_function_category_id, t('activerecord.attributes.function.function_category')
+      %br>
+      = select_tag unique_function_category_id, options_for_select_with_has_actor_attribute({:selected => selected_function_category.nil? ? nil : selected_function_category.id}), { :class => 'observe-function-activity-function-category-changes', :functions_field => "#{form_tag_id(f.object_name, :function_id)}", :add_actor_link => "#{form_tag_id(f.object_name, :function_id)}_add_actor_link" }
     - f.nested_field_container :function_id do
       = f.label :function_id, t('activerecord.attributes.function.name')
       %br>
