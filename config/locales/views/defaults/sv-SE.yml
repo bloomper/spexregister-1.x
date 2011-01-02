@@ -5,7 +5,7 @@
       logged_in_as: "Inloggad som:"
       logout: "Logga ut"
       loading: "Laddar..."
-      footer_html: "&copy; 2010 FGV"
+      footer_html: "&copy; 2010-%{end_year} FGV"
       internal_details: "Internt"
       id: "Id"
       created_at: "Skapad"

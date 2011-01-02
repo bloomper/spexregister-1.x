@@ -1,6 +1,6 @@
 #footer
   .left.span-10
-    = t 'views.base.footer_html'
+    = t 'views.base.footer_html', :end_year => Time.now.strftime('%Y').to_i
   .right.span-21
     = render :partial => 'shared/language_switcher'
     
