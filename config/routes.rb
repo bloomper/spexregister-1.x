@@ -14,6 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   map.administration_help '/administration_help', :controller => 'administration', :action => 'help'
   map.help '/help', :controller => 'help', :action => 'index'
   map.in_case_of_problems '/in_case_of_problems', :controller => 'help', :action => 'in_case_of_problems'
+  map.about_cookies '/about_cookies', :controller => 'help', :action => 'about_cookies'
   map.about '/about', :controller => 'help', :action => 'about'
 
   # Restful routes

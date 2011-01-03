@@ -44,4 +44,7 @@ jQuery(function() {
   if(isUnsupportedBrowser()) {
     jQuery("<div id='unsupported-browser'>Din browser stöds inte. Rekommenderade browsers är Firefox 3+, Chrome 4+, Safari 3+, Opera 9+ och Internet Explorer 7+.</div>").prependTo("body");
   }
+  if(!areCookiesEnabled()) {
+    jQuery("<div id='cookies-disabled'>Denna webbplats kräver kakor för att fungera.</div>").prependTo("body");
+  }
 });

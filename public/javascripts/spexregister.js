@@ -12,6 +12,16 @@ function isUnsupportedBrowser(){
   return false;
 }
 
+function areCookiesEnabled(){
+  var TEST_COOKIE = 'spexregister_test_cookie';
+  jQuery.cookie(TEST_COOKIE, true);
+  if(jQuery.cookie(TEST_COOKIE)) {
+	jQuery.cookie(TEST_COOKIE, null);
+	return true;
+  }
+  return false;
+}
+
 jQuery(document).ajaxStart(function() {
   jQuery('#progress-indicator').fadeIn();
 });

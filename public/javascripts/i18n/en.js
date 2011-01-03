@@ -44,4 +44,7 @@ jQuery(function() {
   if(isUnsupportedBrowser()) {
     jQuery("<div id='unsupported-browser'>Your browser is not supported. Recommended browsers are Firefox 3+, Chrome 4+, Safari 3+, Opera 9+ and Internet Explorer 7+.</div>").prependTo("body");
   }
+  if(!areCookiesEnabled()) {
+    jQuery("<div id='cookies-disabled'>This web site requires cookies to be function properly.</div>").prependTo("body");
+  }
 });
