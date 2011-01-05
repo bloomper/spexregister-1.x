@@ -15,7 +15,7 @@
     = f.label :body, t('activerecord.attributes.news.body')
     %span.required= t 'views.base.mandatory_attribute'
     %br>
-    %small= t('views.news.markdown_notice', :markdown_link => link_to('Markdown', 'http://daringfireball.net/projects/markdown/syntax', :popup => true))
+    %small!= t('views.news.markdown_notice', :markdown_link => link_to('Markdown', 'http://daringfireball.net/projects/markdown/syntax', :popup => true))
     %br>
     = f.error_message_on :body
     = f.text_area :body
