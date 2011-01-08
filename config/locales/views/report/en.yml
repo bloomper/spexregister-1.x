@@ -4,6 +4,8 @@
       export_action: "Export to..."
       address_labels:
         title: "Address labels"
+        include_with_missing_address: "Include spexer without address information"
+        merge_related_with_same_address: "Merge related spexers with identical addresses"
       pluton_list:
         title: "Platoonlist"
       streck_list:
@@ -14,5 +16,18 @@
         title: "List"
       email_address_detail_list:
         title: "Emailaddresslist"
+        include_with_missing_email_address: "Include spexer without email address"
       address_detail_list:
         title: "Addresslist"
+        include_with_missing_address: "Include spexer without address information"
+      conditions: "Conditions"
+      formats: "Formats"
+      format:
+        pdf: "Adobe Acrobat PDF"
+        rtf: "Microsoft Rich Text Format"
+        odt: "OpenDocument Text Document"
+        docx: "Microsoft Office Open XML"
+        xls: "Microsoft Excel Spreadsheet"
+        ods: "OpenDocument Spreadsheet"
+        csv: "Comma Separated Values"
+        xml: "XML"

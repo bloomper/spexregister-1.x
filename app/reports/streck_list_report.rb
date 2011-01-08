@@ -13,4 +13,8 @@ class StreckListReport < BaseReport
     end
   end
 
+  def formats
+    ['PDF', 'RTF', 'ODT', 'DOCX', 'XLS', 'ODS', 'CSV', 'XML']
+  end
+
 end

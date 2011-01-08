@@ -1,11 +1,26 @@
 TODO
 ----
 
-- Incorrect listing of spex in activities, due to optimization?
-  - Also shown on search page
+- Test environment
+  - Amazon EC2 cloud
+    - Fixed IP address, sync with dyndns
+    - Synchronize with production system? Probably not
+      - Database
+      - Posters
+      - Pictures
+      - Logos
 
-- Remove delayed_job?
-- Replace mail_queue with delayed_job?
+- CSS styling of export popup (applies to news popup as well)
+- Address labels condition check
+- Fix email circulars in detail_list.jrxml and detailed_summary.jrxml
+- Restrict social security number, publish approval in detail_list_report and detailed_summary_report
+- Does translate_boolean work in XML builder?
+- Serialization of detailed_summary_report
+- Serialization of pluton_list_report
+  - Order
+  - Header
+
+- New version of JasperReports/iReport that supports nested list components?
 
 Inspextor
 Directeur
@@ -23,9 +38,7 @@ Författare
 Ensemble
 Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor)
 
-- Clickable mail links in exports?
-
-- New version of JasperReports/iReport that supports nested list components?
+- Clickable mail links in PDF exports?
 
 - Reports
   - Address labels
@@ -61,20 +74,11 @@ Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor
 
 - Export
   - http://github.com/gunark/jasperserver-client
-  - http://www.magnionlabs.com/2009/2/28/background-job-processing-in-rails-with-delayed_job
-  - http://asciicasts.com/episodes/171-delayed-job
-  - Exception notifier: http://groups.google.com/group/delayed_job/browse_thread/thread/646314145a69360b#
-  - Export menu
-    - http://www.filamentgroup.com/lab/jquery_ipod_style_and_flyout_menus/
-    - Popup for new report
-      - Format, how to present?
-      - http://plugins.jquery.com/project/radiobutton-checkbox-replacement
-      - http://www.thecssninja.com/css/custom-inputs-using-css
+
+1.2
+---
 
 - IE problems
-  - [Should be solved in 1.3] Why does 'both secure and non-secure items' pop up in IE7?
-    - http://groups.google.com/group/fancybox/msg/f3f57f2389b23fdf?pli=1
-    - http://blog.madebypi.co.uk/2010/01/19/nonsecure-items-in-ie-solved/
   - IE 7
     - entity index pages look somewhat crappy
       - sidebar is too wide
@@ -85,6 +89,13 @@ Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor
   - Use delayed_job for updating index?
   - http://github.com/outoftime/sunspot
 
+- Replace mail_queue with delayed_job?
+
+- If a spexare has a relation, suggest update of the other spexare if changing address
+
+Whenever
+--------
+
 - Tests
   - Replace fixtures with factories (Factory Girl)?
   - Functional
@@ -93,10 +104,7 @@ Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor
     - etc
 
 - Updates
-  - Fancybox
-    - 1.3.2 does not work
-      - XMLHttpRequest is undefined
-      - http://groups.google.com/group/fancybox/browse_thread/thread/229aaad47a9fb166/1fd503f0b759b9ca?lnk=raot
+  - Fancybox 1.3.3
   - jQuery UI 1.8/1.9
     - Replace jquery.fg.menu
   - Lockdown

@@ -4,6 +4,8 @@
       export_action: "Exportera till..."
       address_labels:
         title: "Adressetiketter"
+        include_with_missing_address: "Inkludera spexare utan adressinformation"
+        merge_related_with_same_address: "Slå ihop relaterade spexare med identiska adresser"
       pluton_list:
         title: "Plutonslista"
       streck_list:
@@ -14,5 +16,18 @@
         title: "Lista"
       email_address_detail_list:
         title: "Emailadresslista"
+        include_with_missing_email_address: "Inkludera spexare utan emailadress"
       address_detail_list:
         title: "Adresslista"
+        include_with_missing_address: "Inkludera spexare utan adressinformation"
+      conditions: "Villkor"
+      formats: "Format"
+      format:
+        pdf: "Adobe Acrobat PDF"
+        rtf: "Microsoft Rich Text Format"
+        odt: "OpenDocument Text Document"
+        docx: "Microsoft Office Open XML"
+        xls: "Microsoft Excel Spreadsheet"
+        ods: "OpenDocument Spreadsheet"
+        csv: "Comma Separated Values"
+        xml: "XML"

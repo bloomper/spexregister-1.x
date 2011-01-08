@@ -99,7 +99,8 @@ jQuery(function() {
       zoomSpeedOut : 500,
       titleShow : false,
       loadingShow : false,
-      scrolling : 'no'
+      scrolling : 'no',
+      autoDimensions : false
     });
   });
 });
