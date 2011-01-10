@@ -7,8 +7,8 @@
       %br>
       = f.select :spex_id, available_spex_items.fetch('years'), {}, { :onchange => "jQuery('#dummy_spex_spex_detail_title').val(jQuery('##{form_tag_id(f.object_name, :spex_id)}').val()); jQuery.uniform.update('#dummy_spex_spex_detail_title');" }
     %p
-      = label_tag :dummy_show_revivals, t('views.base.show_revivals')
       = check_box_tag 'show_revivals', 1, @show_revivals 
+      = label_tag :dummy_show_revivals, t('views.base.show_revivals')
       = observe_field 'show_revivals', :function => "jQuery.fetchSpexByCategory('#{@current_spex_category_id.to_i}', (jQuery('#show_revivals:checked').val() != undefined ? true : false), 'activity_spex_activity_attributes_spex_id', 'dummy_spex_spex_detail_title', false)"
     %p
       = label_tag :dummy_spex_spex_detail_title, t('activerecord.attributes.spex_detail.title')

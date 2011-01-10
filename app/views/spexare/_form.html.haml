@@ -42,9 +42,9 @@
       = f.error_message_on :country
       = f.localized_country_select :country, [" ", :SE]
     - f.field_container :uncertain_address do
-      = f.label :uncertain_address, t('activerecord.attributes.spexare.uncertain_address')
       = f.error_message_on :uncertain_address
       = f.check_box :uncertain_address
+      = f.label :uncertain_address, t('activerecord.attributes.spexare.uncertain_address')
   #spexare-phones
     - f.field_container :phone_home do
       = f.label :phone_home, t('activerecord.attributes.spexare.phone_home')
@@ -92,26 +92,26 @@
       = f.error_message_on :graduation
       = f.text_field :graduation
     - f.field_container :chalmers_student do
-      = f.label :chalmers_student, t('activerecord.attributes.spexare.chalmers_student')
       = f.error_message_on :chalmers_student
       = f.check_box :chalmers_student
+      = f.label :chalmers_student, t('activerecord.attributes.spexare.chalmers_student')
     - if current_user_is_admin?
       - f.field_container :deceased do
-        = f.label :deceased, t('activerecord.attributes.spexare.deceased')
         = f.error_message_on :deceased
         = f.check_box :deceased
+        = f.label :deceased, t('activerecord.attributes.spexare.deceased')
     - f.field_container :publish_approval do
-      = f.label :publish_approval, t('activerecord.attributes.spexare.publish_approval')
       = f.error_message_on :publish_approval
       = f.check_box :publish_approval
+      = f.label :publish_approval, t('activerecord.attributes.spexare.publish_approval')
     - f.field_container :want_circulars do
-      = f.label :want_circulars, t('activerecord.attributes.spexare.want_circulars')
       = f.error_message_on :want_circulars
       = f.check_box :want_circulars
+      = f.label :want_circulars, t('activerecord.attributes.spexare.want_circulars')
     - f.field_container :want_email_circulars do
-      = f.label :want_circulars, t('activerecord.attributes.spexare.want_email_circulars')
       = f.error_message_on :want_email_circulars
       = f.check_box :want_email_circulars
+      = f.label :want_circulars, t('activerecord.attributes.spexare.want_email_circulars')
   %br.clear
   #spexare-picture
     - if @spexare.picture?
