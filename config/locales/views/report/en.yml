@@ -4,7 +4,7 @@
       export_action: "Export to..."
       address_labels:
         title: "Address labels"
-        include_with_missing_address: "Include spexer without address information"
+        include_with_missing_address: "Include spexers without address information"
         merge_related_with_same_address: "Merge related spexers with identical addresses"
       pluton_list:
         title: "Platoonlist"
@@ -16,10 +16,10 @@
         title: "List"
       email_address_detail_list:
         title: "Emailaddresslist"
-        include_with_missing_email_address: "Include spexer without email address"
+        include_with_missing_email_address: "Include spexers without email address"
       address_detail_list:
         title: "Addresslist"
-        include_with_missing_address: "Include spexer without address information"
+        include_with_missing_address: "Include spexers without address information"
       conditions: "Conditions"
       formats: "Formats"
       format:
