@@ -1,6 +1,28 @@
 class PlutonListReport < BaseReport
   
   def perform
+    spexare_items = Spexare.by_spex(ids[0])
+    xml = Builder::XmlMarkup.new
+    xml.instruct!
+    # TODO: Ordering
+    # TODO: Header
+    xml.SpexareItems do
+      spexare_items.each do |spexare|
+        xml.Spexare do
+          # TODO: Role
+          xml.FirstName spexare.first_name
+          xml.LastName spexare.last_name
+          xml.NickName spexare.nick_name
+          xml.StreetAddress spexare.street_address
+          xml.PostalCode spexare.postal_code
+          xml.PostalAddress spexare.postal_address
+          xml.PhoneHome spexare.phone_home
+          xml.PhoneMobile spexare.phone_mobile
+          xml.EmailAddress spexare.email_address
+          xml.BirthDate spexare.birth_date
+        end
+      end
+    end
   end
 
   def formats

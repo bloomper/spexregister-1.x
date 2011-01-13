@@ -10,27 +10,23 @@ class DetailListReport < BaseReport
           xml.FirstName spexare.first_name
           xml.LastName spexare.last_name
           xml.NickName spexare.nick_name
-          xml.StreetAddress spexare.street_address
-          xml.PostalCode spexare.postal_code
-          xml.PostalAddress spexare.postal_address
-          xml.Country I18n.t("countries.#{spexare.country}")
-          xml.PhoneHome spexare.phone_home
-          xml.PhoneWork spexare.phone_work
-          xml.PhoneMobile spexare.phone_mobile
-          xml.PhoneOther spexare.phone_other
-          xml.EmailAddress spexare.email_address
+          xml.StreetAddress spexare.street_address unless spexare.deceased
+          xml.PostalCode spexare.postal_code unless spexare.deceased
+          xml.PostalAddress spexare.postal_address unless spexare.deceased
+          xml.Country I18n.t("countries.#{spexare.country}") unless spexare.deceased
+          xml.PhoneHome spexare.phone_home unless spexare.deceased
+          xml.PhoneWork spexare.phone_work unless spexare.deceased
+          xml.PhoneMobile spexare.phone_mobile unless spexare.deceased
+          xml.PhoneOther spexare.phone_other unless spexare.deceased
+          xml.EmailAddress spexare.email_address unless spexare.deceased
           xml.BirthDate spexare.birth_date
-          # TODO: Restrict
-          xml.SocialSecurityNumber spexare.social_security_number
+          xml.SocialSecurityNumber spexare.social_security_number if allowed_to_export_restricted_info(spexare.id)
           xml.ChalmersStudent translate_boolean(spexare.chalmers_student)
           xml.Graduation spexare.graduation
           xml.Deceased translate_boolean(spexare.deceased)
-          # TODO: Restrict
-          xml.PublishApproval translate_boolean(spexare.publish_approval)
-          # TODO: Restrict
-          xml.WantCirculars translate_boolean(spexare.want_circulars)
-          # TODO: Restrict
-          xml.WantEmailCirculars translate_boolean(spexare.want_email_circulars)
+          xml.PublishApproval translate_boolean(spexare.publish_approval) if allowed_to_export_restricted_info(spexare.id)
+          xml.WantCirculars translate_boolean(spexare.want_circulars) if allowed_to_export_restricted_info(spexare.id)
+          xml.WantEmailCirculars translate_boolean(spexare.want_email_circulars) if allowed_to_export_restricted_info(spexare.id)
           xml.UncertainAddress translate_boolean(spexare.uncertain_address)
         end
       end

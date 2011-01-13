@@ -1,7 +1,7 @@
 class StreckListReport < BaseReport
   
   def perform
-    spexare_items = Spexare.find(ids)
+    spexare_items = Spexare.by_spex(ids[0])
     xml = Builder::XmlMarkup.new
     xml.instruct!
     xml.SpexareItems do
