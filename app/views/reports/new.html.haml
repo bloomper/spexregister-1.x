@@ -1,6 +1,6 @@
 #export
   %h2= t "views.report.#{params[:report]}.title"
-  - form_remote_tag :url => reports_url(:report => params[:report]) do
+  - form_remote_tag :url => reports_url(:report => params[:report], :ids => params[:ids]) do
     - if @report.has_conditions?
       %fieldset
         %legend= t 'views.report.conditions'

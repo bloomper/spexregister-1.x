@@ -10,15 +10,29 @@ TODO
       - Pictures
       - Logos
 
-- CSS styling of export popup (applies to news popup as well)
+- How to pass "ids" to report?
 - Address labels condition check
-- Fix email circulars in detail_list.jrxml and detailed_summary.jrxml
-- Restrict social security number, publish approval in detail_list_report and detailed_summary_report
-- Does translate_boolean work in XML builder?
 - Serialization of detailed_summary_report
 - Serialization of pluton_list_report
   - Order
   - Header
+
+ReportsController < ApplicationController
+  def example_report
+    output_format = "PDF" 
+    report_unit = "/example/my-report" 
+    report_params = params[:report_params] # this should be a Hash!
+
+    client = JasperServer::Client.new("http://example.com/jasperserver/services/repository",
+                                      "jasperadmin", "secret!")
+    request = JasperServer::Request.new(report_unit, output_format, report_params)
+    pdf_data = client.request_report(request)
+
+    filename = params[:action]+" on "+Time.now.iso8601+"."+format.downcase
+    send_data(data, :type => Mime::Type.lookup_by_extension(format.downcase), 
+              :disposition => 'inline', :filename => filename)
+  end
+end
 
 - New version of JasperReports/iReport that supports nested list components?
 
