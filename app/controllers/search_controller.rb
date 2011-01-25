@@ -7,11 +7,12 @@ class SearchController < ApplicationController
 
   def new
     session[:latest_search_query] = nil
-    session[:export_ids] = nil
+    session[:latest_search_query_ids] = nil
   end
 
   def destroy
     session[:latest_search_query] = nil
+    session[:latest_search_query_ids] = nil
     redirect_to new_search_url
   end
 
@@ -24,7 +25,7 @@ class SearchController < ApplicationController
     @search_result ||= @search.find(:all, :select => 'DISTINCT spexare.id, spexare.last_name, spexare.first_name, spexare.nick_name').paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
 
     session[:latest_search_query] = params
-    session[:export_ids] = @search.all.map(&:id)
+    session[:latest_search_query_ids] = @search.all.map(&:id).join(',')
   end
 
   private

@@ -1,9 +1,9 @@
 class PlutonListReport < BaseReport
   
-  def perform
-    spexare_items = Spexare.by_spex(ids[0])
+  def generate
     xml = Builder::XmlMarkup.new
     xml.instruct!
+    spexare_items = Spexare.by_spex(params[:id])
     # TODO: Ordering
     # TODO: Header
     xml.SpexareItems do

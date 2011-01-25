@@ -10,8 +10,16 @@ TODO
       - Pictures
       - Logos
 
-- How to pass "ids" to report?
+- http://weblog.rubyonrails.org/2006/12/19/using-custom-mime-types
+- http://stackoverflow.com/questions/2456219/add-a-custom-format-in-rails-that-will-work-with-respond-to
+- http://stackoverflow.com/questions/2438868/custom-formats-in-ruby-on-rails/2439008#2439008
+- http://jasper-rails.rubyforge.org
+- http://stackoverflow.com/questions/4684486/how-to-render-a-view-normally-after-using-render-to-string
+
+- Export is not showing up as attachment
+- How to close export menu after export
 - Address labels condition check
+- Handle all formats
 - Serialization of detailed_summary_report
 - Serialization of pluton_list_report
   - Order

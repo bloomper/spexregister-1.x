@@ -1,4 +1,4 @@
-- entity_ids = nil if local_assigns[:entity_ids].nil? 
+- id = nil if local_assigns[:id].nil? 
 
 .export-menu
   %a.dropdown-menu.dropdown-menu-button.dropdown-menu-button-icon-right.ui-widget.ui-state-default.ui-corner-all
@@ -8,6 +8,6 @@
     %ul
       - reports.sort{|a, b| a[:title] <=> b[:title]}.each do |report|
         %li
-          = link_to report[:title], new_reports_url(:report => report[:key], :ids => entity_ids ? entity_ids : nil), :class => 'fancybox-form' 
+          = link_to report[:title], new_reports_url(:report => report[:key], :id => id ? id : nil), :class => 'fancybox-form' 
 
 %br.clear

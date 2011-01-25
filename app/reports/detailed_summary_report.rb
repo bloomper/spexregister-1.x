@@ -1,7 +1,7 @@
 class DetailedSummaryReport < BaseReport
   
-  def perform
-    spexare_items = Spexare.find(ids[0])
+  def generate
+    spexare_item = Spexare.find(params[:id])
   end
 
   def formats

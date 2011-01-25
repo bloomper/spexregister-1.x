@@ -1,9 +1,9 @@
 class DetailListReport < BaseReport
   
-  def perform
-    spexare_items = Spexare.find(ids)
+  def generate
     xml = Builder::XmlMarkup.new
     xml.instruct!
+    spexare_items = Spexare.find(session[params[:id].to_sym].split(',').collect{ |s| s.to_i })
     xml.SpexareItems do
       spexare_items.each do |spexare|
         xml.Spexare do

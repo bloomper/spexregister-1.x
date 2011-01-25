@@ -1,12 +1,12 @@
 class AddressDetailListReport < BaseReport
   
-  def perform
-    spexare_items = Spexare.find(ids)
+  def generate
     xml = Builder::XmlMarkup.new
     xml.instruct!
+    spexare_items = Spexare.find(session[params[:id].to_sym].split(',').collect{ |s| s.to_i })
     xml.SpexareItems do
       spexare_items.each do |spexare|
-        if @conditions[:include_with_missing_address]
+        if params[:include_with_missing_address]
           go_ahead = true
         elsif spexare.street_address.empty? && spexare.postal_code.empty? && spexare.postal_address.empty?
           go_ahead = false

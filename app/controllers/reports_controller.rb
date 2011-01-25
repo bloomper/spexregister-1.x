@@ -1,17 +1,46 @@
 class ReportsController < ApplicationController
-  
+  around_filter :inject_methods
+
   def new
-    @report = Object.const_get(params[:report].camelize + 'Report').new(:ids => params[:ids])
+    @report = Object.const_get(params[:report].camelize + 'Report').new
     respond_to do |format|
       format.html { render :action => :new, :layout => false }
     end
   end
 
   def create
-    @report = Object.const_get(params[:report].camelize + 'Report').new(:ids => params[:ids])
-    @report.set_conditions([:include_with_missing_address => params[:include_with_missing_address], :merge_related_with_same_address => params[:merge_related_with_same_address], :include_with_missing_email_address => params[:include_with_missing_email_address]])
-    @report.set_permissions([:admin => current_user_is_admin?, :spexare_id => current_user.spexare.nil? ? -1 : current_user.spexare.id])
-    # set format
+    @report = Object.const_get(params[:report].camelize + 'Report').new
+    data = @report.generate
+    filename = "export." + params[:format].downcase
+    send_data(data, :type => Mime::Type.lookup_by_extension(params[:format].downcase), :disposition => 'attachment', :filename => filename)
+    # TODO Handle each format, respond_to?
   end
-  
+
+  protected
+  def current_user_is_admin
+    current_user_is_admin?
+  end
+
+  def inject_methods
+    klasses = [BaseReport, BaseReport.class]
+    methods = ["session", "params", "current_user_is_admin", "current_user"]
+
+    methods.each do |method|
+      variable = instance_variable_get(:"@_#{method}") 
+
+      klasses.each do |klass|
+        klass.send(:define_method, method, proc { variable })
+      end
+    end
+
+    yield
+
+    methods.each do |method|      
+      klasses.each do |klass|
+        klass.send :remove_method, method
+      end
+    end
+
+  end
+
 end

@@ -1,25 +1,17 @@
-class BaseReport < Struct.new(:ids)
+class BaseReport
 
-  def new_record?
-    true
-  end
-  
   def has_conditions?
     false
   end
   
-  def set_conditions(conditions)
-    @conditions = conditions
-  end
-  
-  def set_permissions(permissions)
-    @permissions = permissions
-  end
-  
   def allowed_to_export_restricted_info(id = nil)
-    @permissions[:admin] || @permissions[:spexare_id] == id
+    current_user_is_admin? || (current_user.spexare.nil? ? -1 : current_user.spexare.id) == id
   end
   
+  def set_format(format)
+    @format = format
+  end
+
   def formats
     []
   end

@@ -1,6 +1,7 @@
 #export
   %h2= t "views.report.#{params[:report]}.title"
   - form_remote_tag :url => reports_url(:report => params[:report], :ids => params[:ids]) do
+    = hidden_field_tag 'id', params[:id]
     - if @report.has_conditions?
       %fieldset
         %legend= t 'views.report.conditions'
@@ -8,7 +9,7 @@
     %fieldset
       %legend= t 'views.report.formats'
       - @report.formats.each_with_index do |format, i|
-        = radio_button_tag('report_format', "#{format.downcase}", i == 0 ? true : false)
+        = radio_button_tag('format', "#{format.downcase}", i == 0 ? true : false)
         != t("views.report.format.#{format.downcase}") + ' ' + icon_tag(format.downcase)
         %br>
     .right
