@@ -53,12 +53,7 @@ class SpexController < ApplicationController
   end  
   
   def collection
-    if params[:search]
-      base_scope = end_of_association_chain
-    else
-      base_scope = end_of_association_chain.roots
-    end
-    @search = base_scope.search(params[:search])
+    @search = end_of_association_chain.search(params[:search])
     @search.order ||= "ascend_by_year"
     
     if params[:format] != 'json'
