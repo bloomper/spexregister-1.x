@@ -11,7 +11,7 @@ class ReportsController < ApplicationController
   def create
     @report = Object.const_get(params[:report].camelize + 'Report').new
     data = @report.generate
-    filename = "export." + params[:format].downcase
+    filename = 'export_' + Time.now.strftime('%Y%m%d_%H%M%S') + '.' + params[:format].downcase
     send_data(data, :type => Mime::Type.lookup_by_extension(params[:format].downcase), :disposition => 'attachment', :filename => filename)
     # TODO Handle each format, respond_to?
   end
