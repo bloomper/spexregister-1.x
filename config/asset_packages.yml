@@ -9,7 +9,6 @@ javascripts:
   - jquery.datepicker
   - jquery.cookie
   - jquery.livequery
-  - jquery.lockSubmit
   - jquery.uniform
   - jquery.selectboxes
   - jquery.colorhelpers

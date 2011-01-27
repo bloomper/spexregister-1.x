@@ -19,19 +19,6 @@ jQuery(function() {
            isRTL: false};
    jQuery.datepicker.setDefaults(jQuery.datepicker.regional['sv']);
 
-   // jQuery Lock Submit
-   jQuery("button[type='submit']").livequery( function() {    
-       jQuery(this).lockSubmit({
-           submitText: 'Vänta...',
-           onAddCSS: 'button'
-           });
-   });
-   jQuery("input[type='submit']").livequery( function() {    
-       jQuery(this).lockSubmit({
-           submitText: 'Vänta...',
-           onAddCSS: 'button'
-           });
-   });
    jQuery(":file").livequery( function() {
 	   jQuery(this).uniform({
 		   fileDefaultText: 'Ingen fil vald',

@@ -19,19 +19,6 @@ jQuery(function() {
            isRTL: false};
    jQuery.datepicker.setDefaults(jQuery.datepicker.regional['en']);
 
-   // jQuery Lock Submit
-   jQuery("button[type='submit']").livequery( function() {    
-       jQuery(this).lockSubmit({
-           submitText: 'Please wait...',
-           onAddCSS: 'button'
-           });
-   });
-   jQuery("input[type='submit']").livequery( function() {    
-       jQuery(this).lockSubmit({
-           submitText: 'Please wait...',
-           onAddCSS: 'button'
-           });
-   });
    jQuery(":file").livequery( function() {
 	   jQuery(this).uniform({
 		   fileDefaultText: 'No file selected',
