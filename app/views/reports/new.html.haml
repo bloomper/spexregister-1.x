@@ -1,6 +1,7 @@
 #export
   %h2= t "views.report.#{params[:report]}.title"
-  - form_remote_tag :url => reports_url(:report => params[:report], :ids => params[:ids]) do
+  - form_tag reports_path do
+    = hidden_field_tag 'report', params[:report]
     = hidden_field_tag 'id', params[:id]
     - if @report.has_conditions?
       %fieldset
@@ -13,5 +14,6 @@
         != t("views.report.format.#{format.downcase}") + ' ' + icon_tag(format.downcase)
         %br>
     .right
-      = submit_tag 'Skapa', :class => 'button'
+      = submit_tag t('views.base.create_action'), :class => 'button'
+      = button_to_function t('views.base.cancel_action'), 'jQuery.fancybox.close()', :class => 'button'
 .span-10
