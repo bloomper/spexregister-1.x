@@ -10,39 +10,19 @@ TODO
       - Pictures
       - Logos
 
-- http://weblog.rubyonrails.org/2006/12/19/using-custom-mime-types
-- http://stackoverflow.com/questions/2456219/add-a-custom-format-in-rails-that-will-work-with-respond-to
-- http://stackoverflow.com/questions/2438868/custom-formats-in-ruby-on-rails/2439008#2439008
-- http://jasper-rails.rubyforge.org
-- http://stackoverflow.com/questions/4684486/how-to-render-a-view-normally-after-using-render-to-string
+- Settings
+  - Fix default settings
+  - Edit
+  - Update
 
-- Export is not showing up as attachment
-- How to close export menu after export
 - Address labels condition check
-- Handle all formats
 - Serialization of detailed_summary_report
 - Serialization of pluton_list_report
   - Order
   - Header
 
-ReportsController < ApplicationController
-  def example_report
-    output_format = "PDF" 
-    report_unit = "/example/my-report" 
-    report_params = params[:report_params] # this should be a Hash!
-
-    client = JasperServer::Client.new("http://example.com/jasperserver/services/repository",
-                                      "jasperadmin", "secret!")
-    request = JasperServer::Request.new(report_unit, output_format, report_params)
-    pdf_data = client.request_report(request)
-
-    filename = params[:action]+" on "+Time.now.iso8601+"."+format.downcase
-    send_data(data, :type => Mime::Type.lookup_by_extension(format.downcase), 
-              :disposition => 'inline', :filename => filename)
-  end
-end
-
 - New version of JasperReports/iReport that supports nested list components?
+  - 4.0.0?
 
 Inspextor
 Directeur
@@ -93,9 +73,6 @@ Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor
   - Email addresses
     - Search result
     - PDF, XLS, ODS, CSV, XML
-
-- Export
-  - http://github.com/gunark/jasperserver-client
 
 1.2
 ---

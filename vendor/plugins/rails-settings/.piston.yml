@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 21f4789f42528bbb9dc850572e7eff4c15bb66af
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/ledermann/rails-settings.git

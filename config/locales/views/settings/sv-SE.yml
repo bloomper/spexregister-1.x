@@ -1,0 +1,12 @@
+"sv-SE":
+  views:
+    settings:
+      page_title: "%{type}inställningar"
+      general_settings_tab_title: "Allmänna"
+      membership_settings_tab_title: "Medlemsskap"
+      spex_settings_tab_title: "Spex"
+      report_settings_tab_title: "Rapporter"
+      general_settings_prefix: "Allmänna "
+      membership_settings_prefix: "Medlems"
+      report_settings_prefix: "Rapport"
+      spex_settings_prefix: "Spex"

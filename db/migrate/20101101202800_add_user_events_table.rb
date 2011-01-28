@@ -1,4 +1,4 @@
-class AddUserEvent < ActiveRecord::Migration
+class AddUserEventsTable < ActiveRecord::Migration
   
   def self.up
     create_table :user_events, :force => true do |t|

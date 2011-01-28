@@ -41,6 +41,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :profile, :only => [:edit]
   map.resource :dashboard_reports, :only => [:create]
   map.resource :reports, :only => [:new, :create]
+  map.resource :settings, :only => [:show, :edit, :update]
   
   map.root :controller => 'home', :action => 'index'
 
