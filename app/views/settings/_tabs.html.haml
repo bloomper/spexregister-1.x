@@ -5,11 +5,11 @@
 
 - content_for :sidebar do
   %ul.sidebar
-    %li{:class => ("active" if current_tab == "general_settings_tab")}
-      = link_to t('views.settings.general_settings_tab_title'), edit_settings_url(:type => 'general_settings')
-    %li{:class => ("active" if current_tab == "membership_settings_tab")}
-      = link_to t('views.settings.membership_settings_tab_title'), edit_settings_url(:type => 'membership_settings')
-    %li{:class => ("active" if current_tab == "spex_settings_tab")}
-      = link_to t('views.settings.spex_settings_tab_title'), edit_settings_url(:type => 'spex_settings')
-    %li{:class => ("active" if current_tab == "report_settings_tab")}
-      = link_to t('views.settings.report_settings_tab_title'), edit_settings_url(:type => 'report_settings')
+    %li{:class => ("active" if current_tab == "all_tab")}
+      = link_to t('views.settings.all.tab_title'), settings_url
+    %li{:class => ("active" if current_tab == "general_tab")}
+      = link_to t('views.settings.general.tab_title'), edit_settings_url(:type => 'general')
+    %li{:class => ("active" if current_tab == "spex_categories_tab")}
+      = link_to t('views.settings.spex_categories.tab_title'), edit_settings_url(:type => 'spex_categories')
+    %li{:class => ("active" if current_tab == "reports_tab")}
+      = link_to t('views.settings.reports.tab_title'), edit_settings_url(:type => 'reports')

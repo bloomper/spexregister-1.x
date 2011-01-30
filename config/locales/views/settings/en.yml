@@ -2,11 +2,22 @@
   views:
     settings:
       page_title: "%{type} settings"
-      general_settings_tab_title: "General"
-      membership_settings_tab_title: "Memberships"
-      spex_settings_tab_title: "Spex"
-      report_settings_tab_title: "Reports"
-      general_settings_prefix: "General"
-      membership_settings_prefix: "Membership"
-      report_settings_prefix: "Report"
-      spex_settings_prefix: "Spex"
+      all_prefix: "All "
+      general:
+        tab_title: "General"
+        prefix: "General"
+        site_url: "URL to the roster"
+        admin_email_address: "Mail address to the administrator"
+      spex_categories:
+        tab_title: "Spex categories"
+        prefix: "Spex category"
+        first_year: "Starting year"
+      reports:
+        tab_title: "Reports"
+        prefix: "Report"
+        pluton_list:
+          header_title: "Title in header"
+          header_supplemental_line_1: "Row 1 in header"
+          header_supplemental_line_2: "Row 2 in header"
+          header_supplemental_line_3: "Row 3 in header"
+          order: "Order"

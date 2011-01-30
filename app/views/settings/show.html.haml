@@ -1,0 +1,67 @@
+= render :partial => 'sub_menu'
+
+= render :partial => 'tabs', :locals => {:current_type => t('views.settings.all.prefix'), :current_tab => 'all_settings_tab'}
+
+%h2= t 'views.settings.page_title', :type => t('views.settings.general.prefix')
+
+%table.show
+  %tr
+    %th= t 'views.settings.general.site_url'
+  %tr
+    %td= h Settings['general.site_url']
+
+%table.show
+  %tr
+    %th= t 'views.settings.general.admin_email_address'
+  %tr
+    %td= h Settings['general.admin_email_address']
+
+%p
+  = link_to_with_icon('edit', t('views.base.edit_action'), edit_settings_url(:type => 'general'))
+
+%h2= t 'views.settings.page_title', :type => t('views.settings.spex_categories.prefix')
+
+%table.show
+  %tr
+    %th= t 'views.settings.spex_categories.first_year'
+  %tr
+    %td= h Settings['spex_categories.first_year']
+
+%p
+  = link_to_with_icon('edit', t('views.base.edit_action'), edit_settings_url(:type => 'spex_categories'))
+
+%h2= t 'views.settings.page_title', :type => t('views.settings.reports.prefix')
+
+%table.show
+  %tr
+    %th= t 'views.settings.reports.pluton_list.header_title'
+  %tr
+    %td= h Settings['reports.pluton_list.header_title']
+
+%table.show
+  %tr
+    %th= t 'views.settings.reports.pluton_list.header_supplemental_line_1'
+  %tr
+    %td= h Settings['reports.pluton_list.header_supplemental_line_1']
+
+%table.show
+  %tr
+    %th= t 'views.settings.reports.pluton_list.header_supplemental_line_2'
+  %tr
+    %td= h Settings['reports.pluton_list.header_supplemental_line_2']
+
+%table.show
+  %tr
+    %th= t 'views.settings.reports.pluton_list.header_supplemental_line_3'
+  %tr
+    %td= h Settings['reports.pluton_list.header_supplemental_line_3']
+
+%table.show
+  %tr
+    %th= t 'views.settings.reports.pluton_list.order'
+  %tr
+    %td= h Settings['reports.pluton_list.order']
+
+%p
+  = link_to_with_icon('edit', t('views.base.edit_action'), edit_settings_url(:type => 'reports'))
+
