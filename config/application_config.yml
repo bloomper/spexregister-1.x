@@ -1,6 +1,4 @@
 development: &defaults
-  site_url: register.fgv.nu
-  admin_email_address: register@fgv.nu
   entities_per_page: 10
   latest_news_per_page: 8
   activities_per_row: 3
@@ -14,7 +12,6 @@ development: &defaults
   remember_me_for: <%= 3.months.to_i %>
   consecutive_failed_logins_limit: 5
   failed_login_ban_for: <%= 2.hours.to_i %>
-  first_spex_category_year: 1900
   first_fgv_year: 1987
   first_cing_year: 1907
 test:

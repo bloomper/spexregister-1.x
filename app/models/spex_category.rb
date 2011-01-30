@@ -9,7 +9,7 @@ class SpexCategory < ActiveRecord::Base
   end
 
   def self.get_years
-    Rails.cache.fetch('spex_category_years') { (ApplicationConfig.first_spex_category_year..Time.now.strftime('%Y').to_i).entries }
+    Rails.cache.fetch('spex_category_years') { (Settings['spex_categories.first_year']..Time.now.strftime('%Y').to_i).entries }
   end
   
   def self.update_years
