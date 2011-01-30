@@ -18,7 +18,7 @@
   %tr
     %th= t 'activerecord.attributes.news.body'
   %tr
-    %td= @news.cached_body_html
+    %td!= @news.cached_body_html
 
 %table.show
   %tr
