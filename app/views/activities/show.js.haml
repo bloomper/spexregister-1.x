@@ -1,4 +1,4 @@
-%table.index
+%table.show
   %tr
     %th= h [@activity.spex.title, "(#{@activity.spex.year})", @activity.spex.is_revival? ? t('spex.with_revival') : nil].join(' ')
   - @activity.function_activities.each do |function_activity|
