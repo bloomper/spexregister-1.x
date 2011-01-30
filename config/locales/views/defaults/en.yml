@@ -16,6 +16,7 @@
       create_action: "Create"
       view_action: "Show"
       edit_action: "Edit"
+      update_action: "Update"
       delete_action: "Delete"
       cancel_action: "Cancel"
       listing_action: "Listing"

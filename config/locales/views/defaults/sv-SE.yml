@@ -16,6 +16,7 @@
       create_action: "Skapa"
       view_action: "Visa"
       edit_action: "Ändra"
+      update_action: "Uppdatera"
       delete_action: "Radera"
       cancel_action: "Avbryt"
       listing_action: "Listar"
