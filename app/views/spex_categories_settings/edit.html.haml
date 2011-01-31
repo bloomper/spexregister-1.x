@@ -1,0 +1,13 @@
+= render :partial => 'sub_menu'
+
+= render :partial => 'tabs', :locals => {:current_type => t('views.settings.spex_categories.prefix'), :current_tab => 'spex_categories_tab'}
+
+- form_tag settings_path, :method => :put do
+  %p
+    %label= t 'views.settings.spex_categories.first_year'
+    %br>
+    %small= t 'views.settings.spex_categories.first_year_notice'
+    %br>
+    = text_field_tag 'settings[spex_categories][first_year]', Settings['spex_categories.first_year'], :class => 'fullwidth'
+  %p
+    = button t('views.base.update_action')

@@ -1,0 +1,64 @@
+= render :partial => 'sub_menu'
+
+= render :partial => 'tabs', :locals => {:current_type => t('views.settings.reports.prefix'), :current_tab => 'reports_tab'}
+
+- form_tag settings_path, :method => :put do
+  %h2= t 'views.report.pluton_list.title'
+  - get_all_spex_categories.each do |spex_category|
+    %div
+      %h4= spex_category.name
+      %p
+        %label= t 'views.settings.reports.pluton_list.header_title'
+        %br>
+        = text_field_tag "settings[reports][pluton_list_header_title_#{spex_category.id}]", Settings["reports.pluton_list_header_title_#{spex_category.id}"], :class => 'fullwidth'
+      %p
+        %label= t 'views.settings.reports.pluton_list.header_supplemental_line_1'
+        %br>
+        = text_field_tag "settings[reports][pluton_list_header_supplemental_line_1_#{spex_category.id}]", Settings["reports.pluton_list_header_supplemental_line_1_#{spex_category.id}"], :class => 'fullwidth'
+      %p
+        %label= t 'views.settings.reports.pluton_list.header_supplemental_line_2'
+        %br>
+        = text_field_tag "settings[reports][pluton_list_header_supplemental_line_2_#{spex_category.id}]", Settings["reports.pluton_list_header_supplemental_line_2_#{spex_category.id}"], :class => 'fullwidth'
+      %p
+        %label= t 'views.settings.reports.pluton_list.header_supplemental_line_3'
+        %br>
+        = text_field_tag "settings[reports][pluton_list_header_supplemental_line_3_#{spex_category.id}]", Settings["reports.pluton_list_header_supplemental_line_3_#{spex_category.id}"], :class => 'fullwidth'
+      %p
+        %label= t 'views.settings.reports.pluton_list.order'
+        %br>
+        %small= t 'views.settings.reports.pluton_list.order_notice'
+        %br>
+        %ul{:id => "pluton-list-order-#{spex_category.id}-source", :class => 'report-list-order'}
+          %li.title
+            = t 'views.settings.available'
+          - get_non_selected_functions(Settings["reports.pluton_list_order_#{spex_category.id}"]).each do |function|
+            %li{:id => function.id, :class => "ui-state-default", :title => function.function_category.name}
+              = function.name
+        %ul{:id => "pluton-list-order-#{spex_category.id}-target", :class => 'report-list-order'}
+          %li.title
+            = t 'views.settings.selected_order'
+          - get_selected_functions(Settings["reports.pluton_list_order_#{spex_category.id}"]).each do |function|
+            %li{:id => function.id, :class => "ui-state-default", :title => function.function_category.name}
+              = function.name
+        = hidden_field_tag "settings[reports][pluton_list_order_#{spex_category.id}]", Settings["reports.pluton_list_order_#{spex_category.id}"]
+        :javascript
+          jQuery(document).ready(function(){
+            jQuery("#pluton-list-order-#{spex_category.id}-source").sortable({
+              connectWith: "#pluton-list-order-#{spex_category.id}-target",
+              items: 'li:not(.title)'
+            }).disableSelection();
+            jQuery("#pluton-list-order-#{spex_category.id}-target").sortable({
+              connectWith: "#pluton-list-order-#{spex_category.id}-source",
+              items: 'li:not(.title)',
+              receive: function(event, ui) {
+                jQuery("#settings_reports_pluton_list_order_#{spex_category.id}").val(jQuery("#pluton-list-order-#{spex_category.id}-target").sortable('toArray'));
+              },
+              remove: function(event, ui) {
+                jQuery("#settings_reports_pluton_list_order_#{spex_category.id}").val(jQuery("#pluton-list-order-#{spex_category.id}-target").sortable('toArray'));
+              }
+            }).disableSelection();
+          });
+    %br.clear
+    %br
+  %p
+    = button t('views.base.update_action')

@@ -11,9 +11,8 @@ TODO
       - Logos
 
 - Settings
-  - Fix default settings
-  - Edit
-  - Update
+  - Fix pluton list order
+    - Grid to save space?
 
 - Address labels condition check
 - Serialization of detailed_summary_report

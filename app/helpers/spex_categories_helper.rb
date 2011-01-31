@@ -4,6 +4,10 @@ module SpexCategoriesHelper
     SpexCategory.to_dropdown
   end
 
+  def get_all_spex_categories
+    SpexCategory.all
+  end
+
   def get_spex_category_years
     SpexCategory.get_years.reverse.collect! {|y| y.to_s}
   end

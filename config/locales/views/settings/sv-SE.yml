@@ -2,6 +2,8 @@
   views:
     settings:
       page_title: "%{type}inställningar"
+      available: "Tillgängliga"
+      selected_order: "Vald ordning"
       all:
         tab_title: "Alla"
         prefix: "Alla "
@@ -14,6 +16,7 @@
         tab_title: "Spexkategorier"
         prefix: "Spexkategori"
         first_year: "Startår"
+        first_year_notice: "Det kan ta upp till 24 timmar innan ändringen slår igenom"
       reports:
         tab_title: "Rapporter"
         prefix: "Rapport"
@@ -23,4 +26,5 @@
           header_supplemental_line_2: "Rad 2 i sidhuvud"
           header_supplemental_line_3: "Rad 3 i sidhuvud"
           order: "Ordning"
+          order_notice: "Dra och släpp i önskad ordning"
 

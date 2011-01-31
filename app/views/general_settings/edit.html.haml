@@ -2,4 +2,14 @@
 
 = render :partial => 'tabs', :locals => {:current_type => t('views.settings.general.prefix'), :current_tab => 'general_tab'}
 
-TODO
+- form_tag settings_path, :method => :put do
+  %p
+    %label= t 'views.settings.general.site_url'
+    %br>
+    = text_field_tag 'settings[general][site_url]', Settings['general.site_url'], :class => 'fullwidth'
+  %p
+    %label= t 'views.settings.general.admin_email_address'
+    %br>
+    = text_field_tag 'settings[general][admin_email_address]', Settings['general.admin_email_address'], :class => 'fullwidth'
+  %p
+    = button t('views.base.update_action')

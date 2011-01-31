@@ -1,3 +1,5 @@
+- current_tab = nil if local_assigns[:current_tab].nil? 
+
 %div.leftWide
   %h1= t 'views.settings.page_title', :type => current_type
 
@@ -5,7 +7,7 @@
 
 - content_for :sidebar do
   %ul.sidebar
-    %li{:class => ("active" if current_tab == "all_tab")}
+    %li{:class => ("active" if current_tab.nil?)}
       = link_to t('views.settings.all.tab_title'), settings_url
     %li{:class => ("active" if current_tab == "general_tab")}
       = link_to t('views.settings.general.tab_title'), edit_settings_url(:type => 'general')

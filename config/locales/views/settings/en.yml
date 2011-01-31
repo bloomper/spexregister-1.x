@@ -2,7 +2,11 @@
   views:
     settings:
       page_title: "%{type} settings"
-      all_prefix: "All "
+      available: "Available"
+      selected_order: "Selected order"
+      all:
+        tab_title: "All"
+        prefix: "All "
       general:
         tab_title: "General"
         prefix: "General"
@@ -12,6 +16,7 @@
         tab_title: "Spex categories"
         prefix: "Spex category"
         first_year: "Starting year"
+        first_year_notice: "It can take up to 24 hours before a change is in effect"
       reports:
         tab_title: "Reports"
         prefix: "Report"
@@ -21,3 +26,4 @@
           header_supplemental_line_2: "Row 2 in header"
           header_supplemental_line_3: "Row 3 in header"
           order: "Order"
+          order_notice: "Drag and drop in desired order"

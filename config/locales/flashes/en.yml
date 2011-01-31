@@ -106,4 +106,7 @@
       create:
         failure: "The spexer has already a relation with someone else"
       spexare_not_found: "The spexer could not be found"
-
+    settings:
+      update:
+        success: "The settings have been updated"
+        failure: "The settings could not be updated"

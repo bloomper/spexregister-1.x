@@ -118,5 +118,7 @@
       create:
         failure: "Angiven spexare har redan en relation med någon annan"
       spexare_not_found: "Spexaren kunde inte hittas"
-
-
+    settings:
+      update:
+        success: "Inställningarna har uppdaterats"
+        failure: "Inställningar kunde inte uppdateras"
