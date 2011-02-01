@@ -10,10 +10,6 @@ TODO
       - Pictures
       - Logos
 
-- Settings
-  - Fix pluton list order
-    - Grid to save space?
-
 - Address labels condition check
 - Serialization of detailed_summary_report
 - Serialization of pluton_list_report
