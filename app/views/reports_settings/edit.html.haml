@@ -4,9 +4,13 @@
 
 - form_tag settings_path, :method => :put do
   %h2= t 'views.report.pluton_list.title'
-  - get_all_spex_categories.each do |spex_category|
-    %div
-      %h4= spex_category.name
+  %p
+    %label= t 'activerecord.models.spex_category'
+    %br>
+    = select_tag 'spex_category', options_for_select(get_available_spex_categories)
+    = observe_field 'spex_category', :function => "jQuery('.toggable:visible:first').toggle();jQuery('#pluton-list-' + value).toggle();"
+  - get_all_spex_categories.each_with_index do |spex_category, index|
+    %div{:id => "pluton-list-#{spex_category.id}", :style => index != 0 ? 'display:none' : '', :class => 'toggable'}
       %p
         %label= t 'views.settings.reports.pluton_list.header_title'
         %br>
@@ -27,7 +31,6 @@
         %label= t 'views.settings.reports.pluton_list.order'
         %br>
         %small= t 'views.settings.reports.pluton_list.order_notice'
-        %br>
         %ul{:id => "pluton-list-order-#{spex_category.id}-source", :class => 'report-list-order'}
           %li.title
             = t 'views.settings.available'
@@ -58,7 +61,6 @@
               }
             }).disableSelection();
           });
-    %br.clear
+  %p.clear
     %br
-  %p
     = button t('views.base.update_action')

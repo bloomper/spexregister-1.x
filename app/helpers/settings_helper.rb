@@ -1,19 +1,11 @@
 module SettingsHelper
   
   def get_non_selected_functions(ids)
-    if ids.blank?
-      Function.all
-    else
-      Function.find(:all, :conditions => ['id not in (?)', ids.split(',').collect{ |s| s.to_i }])
-    end
+    ids.blank? ? Function.all : Function.find(:all, :conditions => ['id not in (?)', ids.split(',').collect{ |s| s.to_i }]) 
   end
   
   def get_selected_functions(ids)
-    if ids.blank?
-      []
-    else
-      Function.find(ids.split(',').collect{ |s| s.to_i })
-    end
+    ids.blank? ? [] : Function.find(ids.split(',').collect{ |s| s.to_i })
   end
 
 end
