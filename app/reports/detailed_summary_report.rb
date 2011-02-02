@@ -11,7 +11,7 @@ class DetailedSummaryReport < BaseReport
       xml.StreetAddress spexare.street_address
       xml.PostalCode spexare.postal_code
       xml.PostalAddress spexare.postal_address
-      xml.Country I18n.t("countries.#{spexare.country}") unless spexare.country.blank?
+      xml.Country spexare.country.blank? ? '' : I18n.t("countries.#{spexare.country}") 
       xml.PhoneHome spexare.phone_home
       xml.PhoneWork spexare.phone_work
       xml.PhoneMobile spexare.phone_mobile
@@ -53,8 +53,8 @@ class DetailedSummaryReport < BaseReport
                   xml.Actors do
                     activity.actors.each do |actor|
                       xml.Actor do
-                        xml.Role actor.role unless actor.role.blank?
-                        xml.Vocal Actor.vocal(actor.vocal_id).title unless actor.vocal.nil?
+                        xml.Role actor.role.blank? ? '' : actor.role 
+                        xml.Vocal actor.vocal.nil? ? '' : Actor.vocal(actor.vocal_id).title 
                       end
                     end
                   end

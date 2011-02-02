@@ -18,7 +18,7 @@ class AddressLabelsReport < BaseReport
           xml.FullName spexare.full_name
           xml.PostalCode spexare.postal_code
           xml.PostalAddress spexare.postal_address
-          xml.Country I18n.t("countries.#{spexare.country}") unless spexare.country = "SV" || spexare.country.blank?
+          xml.Country spexare.country.blank? || spexare.country = "SV" ? '' : I18n.t("countries.#{spexare.country}") 
         end if go_ahead
       end
     end

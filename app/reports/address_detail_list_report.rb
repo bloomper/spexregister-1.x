@@ -20,7 +20,7 @@ class AddressDetailListReport < BaseReport
           xml.StreetAddress spexare.street_address
           xml.PostalCode spexare.postal_code
           xml.PostalAddress spexare.postal_address
-          xml.Country I18n.t("countries.#{spexare.country}") unless spexare.country.blank?
+          xml.Country spexare.country.blank? ? '' : I18n.t("countries.#{spexare.country}") 
           xml.PhoneHome spexare.phone_home
           xml.PhoneWork spexare.phone_work
           xml.PhoneMobile spexare.phone_mobile
