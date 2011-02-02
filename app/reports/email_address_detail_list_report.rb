@@ -1,7 +1,7 @@
 class EmailAddressDetailListReport < BaseReport
   
   def generate
-    xml = Builder::XmlMarkup.new
+    xml = Builder::XmlMarkup.new(:indent => 2)
     xml.instruct!
     spexare_items = Spexare.find(session[params[:id].to_sym].split(',').collect{ |s| s.to_i })
     xml.SpexareItems do

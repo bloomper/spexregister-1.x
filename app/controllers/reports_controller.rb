@@ -3,6 +3,7 @@ class ReportsController < ApplicationController
 
   def new
     @report = Object.const_get(params[:report].camelize + 'Report').new
+    @report.set_user(current_user, current_user_is_admin?)
     respond_to do |format|
       format.html { render :action => :new, :layout => false }
     end
@@ -10,6 +11,7 @@ class ReportsController < ApplicationController
 
   def create
     @report = Object.const_get(params[:report].camelize + 'Report').new
+    @report.set_user(current_user, current_user_is_admin?)
     xml_data = @report.generate
     if params[:format].downcase != 'xml'
       # TODO: Invoke JasperServer
@@ -25,7 +27,7 @@ class ReportsController < ApplicationController
 
   def inject_methods
     klasses = [BaseReport, BaseReport.class]
-    methods = ["session", "params", "current_user_is_admin", "current_user"]
+    methods = ['session', 'params', 'current_user_is_admin', 'current_user']
 
     methods.each do |method|
       variable = instance_variable_get(:"@_#{method}") 

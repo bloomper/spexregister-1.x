@@ -1,7 +1,7 @@
 class PlutonListReport < BaseReport
   
   def generate
-    xml = Builder::XmlMarkup.new
+    xml = Builder::XmlMarkup.new(:indent => 2)
     xml.instruct!
     spex = Spex.find(params[:id])
     xml.Header do

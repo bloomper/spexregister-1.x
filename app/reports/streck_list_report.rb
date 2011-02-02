@@ -1,7 +1,7 @@
 class StreckListReport < BaseReport
   
   def generate
-    xml = Builder::XmlMarkup.new
+    xml = Builder::XmlMarkup.new(:indent => 2)
     xml.instruct!
     spexare_items = Spexare.by_spex(params[:id])
     xml.SpexareItems do

@@ -1,7 +1,7 @@
 class AddressDetailListReport < BaseReport
   
   def generate
-    xml = Builder::XmlMarkup.new
+    xml = Builder::XmlMarkup.new(:indent => 2)
     xml.instruct!
     spexare_items = Spexare.find(session[params[:id].to_sym].split(',').collect{ |s| s.to_i })
     xml.SpexareItems do
@@ -20,7 +20,7 @@ class AddressDetailListReport < BaseReport
           xml.StreetAddress spexare.street_address
           xml.PostalCode spexare.postal_code
           xml.PostalAddress spexare.postal_address
-          xml.Country I18n.t("countries.#{spexare.country}")
+          xml.Country I18n.t("countries.#{spexare.country}") unless spexare.country.blank?
           xml.PhoneHome spexare.phone_home
           xml.PhoneWork spexare.phone_work
           xml.PhoneMobile spexare.phone_mobile

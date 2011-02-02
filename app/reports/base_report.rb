@@ -5,13 +5,14 @@ class BaseReport
   end
   
   def allowed_to_export_restricted_info(id = nil)
-    current_user_is_admin? || (current_user.spexare.nil? ? -1 : current_user.spexare.id) == id
+    @is_admin || (@user.spexare.nil? ? -1 : @user.spexare.id) == id
   end
   
-  def set_format(format)
-    @format = format
+  def set_user(user, is_admin)
+    @user = user
+    @is_admin = is_admin
   end
-
+  
   def formats
     []
   end

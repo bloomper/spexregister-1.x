@@ -1,7 +1,7 @@
 class DetailListReport < BaseReport
   
   def generate
-    xml = Builder::XmlMarkup.new
+    xml = Builder::XmlMarkup.new(:indent => 2)
     xml.instruct!
     spexare_items = Spexare.find(session[params[:id].to_sym].split(',').collect{ |s| s.to_i })
     xml.SpexareItems do
@@ -10,15 +10,15 @@ class DetailListReport < BaseReport
           xml.FirstName spexare.first_name
           xml.LastName spexare.last_name
           xml.NickName spexare.nick_name
-          xml.StreetAddress spexare.street_address unless spexare.deceased
-          xml.PostalCode spexare.postal_code unless spexare.deceased
-          xml.PostalAddress spexare.postal_address unless spexare.deceased
-          xml.Country I18n.t("countries.#{spexare.country}") unless spexare.deceased
-          xml.PhoneHome spexare.phone_home unless spexare.deceased
-          xml.PhoneWork spexare.phone_work unless spexare.deceased
-          xml.PhoneMobile spexare.phone_mobile unless spexare.deceased
-          xml.PhoneOther spexare.phone_other unless spexare.deceased
-          xml.EmailAddress spexare.email_address unless spexare.deceased
+          xml.StreetAddress spexare.street_address
+          xml.PostalCode spexare.postal_code
+          xml.PostalAddress spexare.postal_address
+          xml.Country I18n.t("countries.#{spexare.country}") unless spexare.country.blank?
+          xml.PhoneHome spexare.phone_home
+          xml.PhoneWork spexare.phone_work
+          xml.PhoneMobile spexare.phone_mobile
+          xml.PhoneOther spexare.phone_other
+          xml.EmailAddress spexare.email_address
           xml.BirthDate spexare.birth_date
           xml.SocialSecurityNumber spexare.social_security_number if allowed_to_export_restricted_info(spexare.id)
           xml.ChalmersStudent translate_boolean(spexare.chalmers_student)
