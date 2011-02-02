@@ -27,7 +27,7 @@ class ReportsController < ApplicationController
 
   def inject_methods
     klasses = [BaseReport, BaseReport.class]
-    methods = ['session', 'params', 'current_user_is_admin', 'current_user']
+    methods = ['session', 'params', 'request']
 
     methods.each do |method|
       variable = instance_variable_get(:"@_#{method}") 

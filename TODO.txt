@@ -9,38 +9,17 @@ TODO
   - Email circulars
   - Rails upgrade
   - Libs upgrade
-  - Minor UI updates
+  - Various UI updates
+  - Bug fixes
 
 - Test environment
-  - Amazon EC2 cloud
-    - Fixed IP address, sync with dyndns
-    - Synchronize with production system? Probably not
-      - Database
-      - Posters
-      - Pictures
-      - Logos
+  - Amazon EC2
 
-- Address labels condition check
-- Serialization of detailed_summary_report
-
-- New version of JasperReports/iReport that supports nested list components?
+- AddressLabelsReport
+  - Merge spouses with identical addresses
+- JasperServer
+  - New version of JasperReports/iReport that supports nested list components?
   - 4.0.0?
-
-Inspextor
-Directeur
-Festdirecteur
-Casseur
-Upplysare
-PR-chef
-Scenmästare
-Ljusmästare
-Arkitekt
-Producent
-Skivkommitté
-Sömmerska
-Författare
-Ensemble
-Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor)
 
 - Clickable mail links in PDF exports?
 
@@ -54,6 +33,22 @@ Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor
     - Admin only
     - According to example
     - PDF, RTF, ODT, DOCX, XML
+    - Order
+      Inspextor
+      Directeur
+      Festdirecteur
+      Casseur
+      Upplysare
+      PR-chef
+      Scenmästare
+      Ljusmästare
+      Arkitekt
+      Producent
+      Skivkommitté
+      Sömmerska
+      Författare
+      Ensemble
+      Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor)
   - Strecklista
     - Spex edit/view
     - Admin only

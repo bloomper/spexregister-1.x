@@ -28,7 +28,7 @@ class DetailedSummaryReport < BaseReport
       xml.UncertainAddress translate_boolean(spexare.uncertain_address)
       xml.Spouse spexare.spouse.full_name unless !spexare.spouse
       xml.Comment spexare.comment
-      # TODO: Picture
+      xml.Picture spexare.picture? ? (request.ssl? ? 'https://' : 'http://') + Settings['general.site_url'] + spexare.picture.url : ''
       xml.Memberships do
         spexare.memberships.each do |membership|
           xml.Membership(:kind => Membership.kind(membership.kind_id).title) do
