@@ -1,6 +1,16 @@
 TODO
 ----
 
+- Highlights
+  - Dashboard reports
+  - Settings
+  - Reports
+  - Revivals
+  - Email circulars
+  - Rails upgrade
+  - Libs upgrade
+  - Minor UI updates
+
 - Test environment
   - Amazon EC2 cloud
     - Fixed IP address, sync with dyndns
@@ -12,9 +22,6 @@ TODO
 
 - Address labels condition check
 - Serialization of detailed_summary_report
-- Serialization of pluton_list_report
-  - Order
-  - Header
 
 - New version of JasperReports/iReport that supports nested list components?
   - 4.0.0?
