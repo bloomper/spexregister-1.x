@@ -11,5 +11,7 @@
             - if !actor.role.empty?
               != whitespace(4) + t('activerecord.attributes.actor.role') + ': ' + h(actor.role)
               %br>
-            != whitespace(4) + t('activerecord.attributes.actor.vocal_id') + ': ' + h(Actor.vocal(actor.vocal_id).title) unless actor.vocal.nil?
+            - if !actor.vocal.nil?
+              != whitespace(4) + t('activerecord.attributes.actor.vocal_id') + ': ' + h(Actor.vocal(actor.vocal_id).title) unless actor.vocal.nil?
+              %br>
         
