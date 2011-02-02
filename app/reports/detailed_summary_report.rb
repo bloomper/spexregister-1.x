@@ -31,7 +31,7 @@ class DetailedSummaryReport < BaseReport
       # TODO: Picture
       xml.Memberships do
         spexare.memberships.each do |membership|
-          xml.Membership(:kind => Membership.kind(membership.kind_id)) do
+          xml.Membership(:kind => Membership.kind(membership.kind_id).title) do
             xml.Year membership.year
           end unless membership.kind.nil?
         end
