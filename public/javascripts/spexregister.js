@@ -30,6 +30,11 @@ jQuery(document).ajaxStop(function() {
   jQuery('#progress-indicator').fadeOut();
 });
 
+jQuery(document).ajaxSend(function(e, xhr, options) {
+  var token = jQuery("meta[name='csrf-token']").attr('content');
+  xhr.setRequestHeader("X-CSRF-Token", token);
+});
+
 jQuery(function() {
   jQuery('td:empty').html('&nbsp;');
 });

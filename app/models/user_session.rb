@@ -5,6 +5,7 @@ class UserSession < Authlogic::Session::Base
   remember_me_for ApplicationConfig.remember_me_for
   consecutive_failed_logins_limit ApplicationConfig.consecutive_failed_logins_limit
   failed_login_ban_for ApplicationConfig.failed_login_ban_for
+  cookie_key '_spexregister_credentials'
   attr_accessor :session_id
 
   def before_create

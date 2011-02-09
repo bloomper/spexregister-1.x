@@ -136,6 +136,11 @@ class ApplicationController < ActionController::Base
     session[:latest_advanced_search_query]
   end
 
+  def handle_unverified_request
+    super
+    cookies.delete(UserSession.cookie_key)
+  end
+
   private
   def current_user_session
     if defined?(@current_user_session) && !@current_user_session.nil?
