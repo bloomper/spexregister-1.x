@@ -8,8 +8,7 @@ class UsersReport < BaseDashboardReport
     @result[:opts] = Hash.new { |h,k| h[k] = {} }
 
     for new_user in @new_users
-      # Apparently Rails does not convert the time into a TimeZone object nor switching from UTC (as stored in database) to relevant time zone
-      time = new_user[0].in_time_zone.to_i * 1000
+      time = new_user[0].in_time_zone.to_i * 1000 + Time.zone.utc_offset * 1000
       max_time = time unless max_time && max_time > time
       min_time = time unless min_time && min_time < time
       
