@@ -28,4 +28,8 @@ class EmailAddressDetailListReport < BaseReport
     ['PDF', 'XLS', 'ODS', 'CSV', 'XML']
   end
 
+  def initial_select
+    '/SpexareItems/Spexare'
+  end
+
 end

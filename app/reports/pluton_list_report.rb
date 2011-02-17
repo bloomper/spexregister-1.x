@@ -38,4 +38,8 @@ class PlutonListReport < BaseReport
     ['PDF', 'RTF', 'ODT', 'DOCX', 'XML']
   end
 
+  def initial_select
+    '/PlutonList/Header'
+  end
+
 end

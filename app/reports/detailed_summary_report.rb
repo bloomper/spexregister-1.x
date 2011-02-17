@@ -71,4 +71,8 @@ class DetailedSummaryReport < BaseReport
     ['PDF', 'RTF', 'ODT', 'DOCX', 'XML']
   end
 
+  def initial_select
+    '/Spexare'
+  end
+
 end

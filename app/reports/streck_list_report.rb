@@ -17,4 +17,8 @@ class StreckListReport < BaseReport
     ['PDF', 'RTF', 'ODT', 'DOCX', 'XLS', 'ODS', 'CSV', 'XML']
   end
 
+  def initial_select
+    '/SpexareItems/Spexare'
+  end
+
 end
