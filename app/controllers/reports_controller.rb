@@ -1,5 +1,3 @@
-require 'net/http'
-
 class ReportsController < ApplicationController
   around_filter :inject_methods
 
