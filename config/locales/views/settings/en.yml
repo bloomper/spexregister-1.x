@@ -20,6 +20,7 @@
       reports:
         tab_title: "Reports"
         prefix: "Report"
+        generator_url: "Generator URL"
         pluton_list:
           header_title: "Title in header"
           header_supplemental_line_1: "Row 1 in header"

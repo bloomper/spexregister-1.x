@@ -20,6 +20,7 @@
       reports:
         tab_title: "Rapporter"
         prefix: "Rapport"
+        generator_url: "URL till generator"
         pluton_list:
           header_title: "Titel i sidhuvud"
           header_supplemental_line_1: "Rad 1 i sidhuvud"

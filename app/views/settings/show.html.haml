@@ -32,6 +32,12 @@
 
 %h2= t 'views.settings.page_title', :type => t('views.settings.reports.prefix')
 
+%table.show
+  %tr
+    %th= t 'views.settings.reports.generator_url'
+  %tr
+    %td= h Settings['reports.generator_url']
+
 %h4= t 'views.report.pluton_list.title'
 
 %p

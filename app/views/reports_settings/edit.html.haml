@@ -3,6 +3,10 @@
 = render :partial => 'tabs', :locals => {:current_type => t('views.settings.reports.prefix'), :current_tab => 'reports_tab'}
 
 - form_tag settings_path, :method => :put do
+  %p
+    %label= t 'views.settings.reports.generator_url'
+    %br>
+    = text_field_tag 'settings[reports][generator_url]', Settings['reports.generator_url'], :class => 'fullwidth'
   %h2= t 'views.report.pluton_list.title'
   %p
     %label= t 'activerecord.models.spex_category'
