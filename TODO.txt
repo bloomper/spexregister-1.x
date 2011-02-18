@@ -1,27 +1,20 @@
 TODO
 ----
 
-- Highlights
-  - Dashboard reports
-  - Settings
-  - Reports
-  - Revivals
-  - Email circulars
-  - Rails upgrade
-  - Libs upgrade
-  - Various UI updates
-  - Bug fixes
+- Patrik
+  - Tomcat 7.0.6
+  - JDK 1.6
+  - Firewall for port 8080
 
-- Test environment
-  - Amazon EC2
-
-- AddressLabelsReport
-  - Merge spouses with identical addresses
-- JasperServer
-  - New version of JasperReports/iReport that supports nested list components?
-  - 4.0.0?
-
+- Error handling
+- Subreports -> nested list components?
+- Fix detailed summary report
+  - Activities
+  - Picture
+- HTML export?
 - Clickable mail links in PDF exports?
+
+- Log level in report generator
 
 - Reports
   - Address labels
@@ -80,6 +73,8 @@ TODO
       - sidebar is too wide
         - caused by #content &.with-sidebar +column(23)
 
+- Better XmlDataSource implementation?
+
 - Advanced search
   - Needs monitoring (monit, munin)?
   - Use delayed_job for updating index?
@@ -88,6 +83,7 @@ TODO
 - Replace mail_queue with delayed_job?
 
 - If a spexare has a relation, suggest update of the other spexare if changing address
+  - A checkbox?
 
 Whenever
 --------
@@ -103,7 +99,8 @@ Whenever
   - Fancybox 1.3.3
   - jQuery UI 1.8/1.9
     - Replace jquery.fg.menu
-  - Lockdown
+  - Lockdown, replace with Devise?
+  - Rails 3.0
 
 - Upload code to github or bojan (svn+ssh)
   - Update deploy.rb accordingly
