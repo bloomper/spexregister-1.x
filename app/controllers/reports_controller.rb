@@ -57,8 +57,8 @@ class ReportsController < ApplicationController
     end
     conn = Faraday::Connection.new(:url => Settings['reports.generator_url'])
     resp = conn.post do |req|
-      req.url 'generate', :report => report, :format => format, :selectCriteria => xpath_select
-      req["Content-Type"] = 'application/xml'
+      req.url 'generate', :report => report, :format => format, :locale => I18n.locale, :selectCriteria => xpath_select
+      req['Content-Type'] = 'application/xml'
       req.body = xml_data
     end
     # TODO: Error handling
