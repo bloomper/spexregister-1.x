@@ -27,9 +27,10 @@ class AddressLabelsReport < BaseReport
         end
         xml.Spexare do
           xml.FullName params[:merge_related_with_same_address] && !combined_full_name.blank? ? combined_full_name : spexare.full_name
+          xml.StreetAddress spexare.street_address
           xml.PostalCode spexare.postal_code
           xml.PostalAddress spexare.postal_address
-          xml.Country((spexare.country.blank? || spexare.country == 'SV') ? '' : I18n.t("countries.#{spexare.country}")) 
+          xml.Country((spexare.country.blank? || spexare.country == 'SE') ? '' : I18n.t("countries.#{spexare.country}")) 
         end if go_ahead
       end
     end
