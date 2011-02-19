@@ -11,7 +11,7 @@ TODO
 - Fix detailed summary report
   - Activities
   - Picture
-- HTML export?
+  - Email address is missing
 - Clickable mail links in PDF exports?
 
 - Log level in report generator

@@ -41,7 +41,7 @@ class AddressLabelsReport < BaseReport
   end
 
   def formats
-    ['PDF', 'RTF', 'ODT', 'DOCX', 'XML']
+    ['PDF', 'RTF', 'ODT', 'DOCX', 'HTML', 'XML']
   end
 
   def initial_select

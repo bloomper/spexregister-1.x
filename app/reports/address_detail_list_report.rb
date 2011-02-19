@@ -36,7 +36,7 @@ class AddressDetailListReport < BaseReport
   end
 
   def formats
-    ['PDF', 'XLS', 'ODS', 'CSV', 'XML']
+    ['PDF', 'XLS', 'ODS', 'CSV', 'HTML', 'XML']
   end
 
   def initial_select

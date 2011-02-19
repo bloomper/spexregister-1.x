@@ -30,4 +30,5 @@
         xls: "Microsoft Excel Spreadsheet"
         ods: "OpenDocument Spreadsheet"
         csv: "Comma Separated Values"
+        html: "HTML"
         xml: "XML"

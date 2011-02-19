@@ -14,7 +14,7 @@ class StreckListReport < BaseReport
   end
 
   def formats
-    ['PDF', 'RTF', 'ODT', 'DOCX', 'XLS', 'ODS', 'CSV', 'XML']
+    ['PDF', 'RTF', 'ODT', 'DOCX', 'XLS', 'ODS', 'CSV', 'HTML', 'XML']
   end
 
   def initial_select
