@@ -38,23 +38,25 @@ class DetailedSummaryReport < BaseReport
       end
       xml.Activities do
         spexare.activities.each do |activity|
-          xml.Spex do
-            xml.Year activity.spex.year
-            xml.Title activity.spex.spex_detail.title
-            xml.Revival translate_boolean(activity.spex.is_revival?)
-            xml.Category activity.spex.spex_category.name
-          end
-          xml.Functions do
-            activity.functions.each do |function|
-              xml.Function do
-                xml.Name function.name
-                xml.Category function.function_category.name
-                if function.function_category.has_actor
-                  xml.Actors do
-                    activity.actors.each do |actor|
-                      xml.Actor do
-                        xml.Role actor.role.blank? ? '' : actor.role 
-                        xml.Vocal actor.vocal.nil? ? '' : Actor.vocal(actor.vocal_id).title 
+          xml.Activity do
+            xml.Spex do
+              xml.Year activity.spex.year
+              xml.Title activity.spex.spex_detail.title
+              xml.Revival translate_boolean(activity.spex.is_revival?)
+              xml.Category activity.spex.spex_category.name
+            end
+            xml.Functions do
+              activity.functions.each do |function|
+                xml.Function do
+                  xml.Name function.name
+                  xml.Category function.function_category.name
+                  if function.function_category.has_actor
+                    xml.Actors do
+                      activity.actors.each do |actor|
+                        xml.Actor do
+                          xml.Role actor.role.blank? ? '' : actor.role 
+                          xml.Vocal actor.vocal.nil? ? '' : Actor.vocal(actor.vocal_id).title 
+                        end
                       end
                     end
                   end
