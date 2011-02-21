@@ -110,3 +110,6 @@
       update:
         success: "The settings have been updated"
         failure: "The settings could not be updated"
+    report:
+      create:
+        failure: "The report could not be created due to internal error"

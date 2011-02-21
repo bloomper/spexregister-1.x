@@ -14,7 +14,13 @@ class ReportsController < ApplicationController
     @report.set_user(current_user, current_user_is_admin?)
     xml_data = @report.generate
     if params[:format].downcase != 'xml'
-      data = generate_report(xml_data, @report.initial_select, params[:report], params[:format].downcase)
+      begin
+        data = generate_report(xml_data, @report.initial_select, params[:report], params[:format].downcase)
+      rescue
+        flash[:failure] = I18n.t('flash.report.create.failure')
+        redirect_to home_path
+        return
+      end
     end
     filename = 'export_' + Time.now.strftime('%Y%m%d_%H%M%S') + '.' + params[:format].downcase
     send_data(params[:format].downcase != 'xml' ? data : xml_data, :type => Mime::Type.lookup_by_extension(params[:format].downcase), :disposition => 'attachment', :filename => filename)
@@ -61,8 +67,10 @@ class ReportsController < ApplicationController
       req['Content-Type'] = 'application/xml'
       req.body = xml_data
     end
-    # TODO: Error handling
+    raise ReportGenerationError unless resp.success?
     resp.body
   end
 
+  class ReportGenerationError < StandardError
+  end
 end

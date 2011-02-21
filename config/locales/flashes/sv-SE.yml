@@ -122,3 +122,6 @@
       update:
         success: "Inställningarna har uppdaterats"
         failure: "Inställningar kunde inte uppdateras"
+    report:
+      create:
+        failure: "Rapporten kunde inte skapas pga internt fel"

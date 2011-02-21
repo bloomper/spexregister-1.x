@@ -6,27 +6,8 @@ TODO
   - JDK 1.6
   - Firewall for port 8080
 
-- Error handling
-- Subreports -> nested list components?
-- Fix detailed summary report
-  - Activities
-  - Picture
-  - Email address is missing
-- Clickable mail links in PDF exports?
-
-- Log level in report generator
-
 - Reports
-  - Address labels
-    - Search result
-    - Possiblity to remove/merge spouse
-    - PDF, RTF, ODT, DOCX, XML
-  - "Plutonlista", note: specific order
-    - Spex edit/view
-    - Admin only
-    - According to example
-    - PDF, RTF, ODT, DOCX, XML
-    - Order
+  - "Plutonlista"
       Inspextor
       Directeur
       Festdirecteur
@@ -42,27 +23,6 @@ TODO
       Författare
       Ensemble
       Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor)
-  - Strecklista
-    - Spex edit/view
-    - Admin only
-    - PDF, RTF, ODT, DOCX, XLS, ODS, CSV, XML
-    - Problems
-      - DOCX, ODT, ODS, XLS, strange background colors and missing borders
-  - One pager
-    - Spexare edit/view
-    - Includes activities, memberships etc
-    - PDF, RTF, ODT, DOCX, XML
-  - List
-    - Search result
-    - Does not include activities, memberships etc
-    - PDF, XLS, ODS, CSV, XML
-  - Address list
-    - Search result
-    - Only includes address details
-    - PDF, XLS, ODS, CSV, XML
-  - Email addresses
-    - Search result
-    - PDF, XLS, ODS, CSV, XML
 
 1.2
 ---
@@ -73,7 +33,7 @@ TODO
       - sidebar is too wide
         - caused by #content &.with-sidebar +column(23)
 
-- Better XmlDataSource implementation?
+- More efficient XmlDataSource implementation?
 
 - Advanced search
   - Needs monitoring (monit, munin)?
