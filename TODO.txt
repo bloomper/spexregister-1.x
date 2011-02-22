@@ -6,6 +6,11 @@ TODO
   - JDK 1.6
   - Firewall for port 8080
 
+- Do not forget to bump version
+- Release spexregister.reports?
+  - Use repository on mynas?
+- Create branch 1.1-maintenance
+
 - Reports
   - "Plutonlista"
       Inspextor
@@ -39,11 +44,11 @@ TODO
   - Needs monitoring (monit, munin)?
   - Use delayed_job for updating index?
   - http://github.com/outoftime/sunspot
+  - http://techbot.me/2011/01/full-text-search-in-in-rails-with-sunspot-and-solr/
+  - http://www.elasticsearch.org/
 
 - Replace mail_queue with delayed_job?
-
-- If a spexare has a relation, suggest update of the other spexare if changing address
-  - A checkbox?
+  - Only if delayed_job is needed for advanced search
 
 Whenever
 --------
