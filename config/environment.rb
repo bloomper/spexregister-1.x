@@ -16,6 +16,7 @@ Rails::Initializer.run do |config|
   config.autoload_paths += %W( #{RAILS_ROOT}/app/mailers #{RAILS_ROOT}/app/utils #{RAILS_ROOT}/app/dashboard_reports #{RAILS_ROOT}/app/reports)
 
   # Specify gems that this application depends on and have them installed with rake gems:install
+  config.gem "sunspot_rails", :lib => 'sunspot/rails'
   config.gem "erubis", :version => '2.6.6'
   config.gem "haml", :version => '3.0.23'
   config.gem "compass", :version => '0.10.5'
