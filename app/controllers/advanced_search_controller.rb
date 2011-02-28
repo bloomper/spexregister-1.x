@@ -10,7 +10,7 @@ class AdvancedSearchController < ApplicationController
       keywords(params[:query])
       paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
     end 
-    session[:latest_search_query] = params[:query]
+    session[:latest_advanced_search_query] = params[:query]
   end
 
   def destroy
