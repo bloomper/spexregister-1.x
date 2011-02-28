@@ -48,11 +48,13 @@ namespace :spexregister do
       import_posters(spex_category)
     end
   end
+
   desc 'Import spex category logos'
   task :import_logos => :environment do
     puts "Importing logos..."
     import_logos
   end
+
   desc "This task will delete sessions (production environment only) that have not been updated in for a configurable amount of days."
   task :clean_sessions => :environment do
     if RAILS_ENV == 'production'
@@ -61,10 +63,47 @@ namespace :spexregister do
       puts 'This task is only valid for production environment'
     end
   end
+
   desc "This task will refresh some cached content to be up to date"
   task :refresh_cached_content => :environment do
     Membership.update_fgv_years
     Membership.update_cing_years
     SpexCategory.update_years
   end
+
+  desc "Reindex all solr models that are located in the application's models directory."
+  # This task depends on the standard Rails file naming \
+  # conventions, in that the file name matches the defined class name. \
+  # By default the indexing system works in batches of 50 records, you can \
+  # set your own value for this by using the batch_size argument. You can \
+  # also optionally define a list of models to separated by a forward slash '/'
+  # 
+  # $ rake spexregister:reindex                # reindex all models
+  # $ rake spexregister:reindex[1000]          # reindex in batches of 1000
+  # $ rake spexregister:reindex[false]         # reindex without batching
+  # $ rake spexregister:reindex[,Spexare]      # reindex only the Spexare model
+  # $ rake spexregister:reindex[1000,Spexare]  # reindex only the Spexare model in batches of 1000
+  # $ rake spexregister:reindex[,Spexare+User]  # reindex Spexare and User model
+  task :reindex, :batch_size, :models, :needs => :environment do |t, args|
+    puts "Reindexing..."
+    reindex_options = {:batch_commit => false}
+    case args[:batch_size]
+    when 'false'
+      reindex_options[:batch_size] = nil
+    when /^\d+$/ 
+      reindex_options[:batch_size] = args[:batch_size].to_i if args[:batch_size].to_i > 0
+    end
+    unless args[:models]
+      all_files = Dir.glob(Rails.root.join('app', 'models', '*.rb'))
+      all_models = all_files.map { |path| File.basename(path, '.rb').camelize.constantize }
+      sunspot_models = all_models.select { |m| m < ActiveRecord::Base and m.searchable? }
+    else
+      sunspot_models = args[:models].split('+').map{|m| m.constantize}
+    end
+    Sunspot.config.solr.url = Settings['advanced_search.search_engine_url']    
+    sunspot_models.each do |model|
+      model.solr_reindex reindex_options
+    end
+  end
+
 end
