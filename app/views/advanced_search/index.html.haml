@@ -1,0 +1,32 @@
+= render :partial => 'sub_menu'
+
+%div.left
+  %h1= t 'views.advanced_search.index_title'
+
+%div.right
+  = link_to icon_tag('reset') + ' ' + t('views.advanced_search.reset_search_result'), search_url('dummy'), :method => :delete, :class => 'button small'
+  = render :partial => '/shared/export_menu', :locals => { :reports => get_available_reports, :id => 'latest_advanced_search_query_ids' }
+
+%br.clear
+
+- if @search_result.total == 0
+  %p= t 'views.advanced_search.empty_search_result'
+- else
+  .number-of-hits= page_entries_info @search_result.results, { :entry_translation_group_key => 'spexare' }
+  %table.index#search_result
+    %tr
+      %th= t('activerecord.attributes.spexare.last_name')
+      %th= t('activerecord.attributes.spexare.first_name')
+      %th= t('activerecord.attributes.spexare.nick_name')
+      %th.action-column= t 'views.base.action'
+      - @search_result.each_hit_with_result do |hit, spexare|
+        %tr{:id => dom_id(spexare), :class => cycle('even', 'odd')}
+          %td= h spexare.last_name
+          %td= h spexare.first_name
+          %td= h spexare.nick_name
+          %td.actions
+            //= link_to_view_action spexare
+            //= link_to_edit_action spexare if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare.id == spexare.id)
+            //= link_to_delete_action spexare, { :table => 'search_result' } if current_user_is_admin?
+
+= will_paginate(@search_result.results, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           

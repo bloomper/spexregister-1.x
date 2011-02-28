@@ -25,6 +25,11 @@ class Spexare < ActiveRecord::Base
     :conditions => ['functions.id = ?', function_id] }
   }
 
+  searchable do
+    text :last_name
+    text :first_name
+  end
+
   def full_name
     [first_name, nick_name.blank? ? ' ' : " '#{nick_name}' ", last_name].join
   end

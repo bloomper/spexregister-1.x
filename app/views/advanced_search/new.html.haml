@@ -1,6 +1,9 @@
 = render :partial => 'sub_menu'
 
-%h1= t 'views.advanced_search.title'
+%h1= t 'views.advanced_search.page_title'
 
-%p{:align => 'center'}
-  = image_tag 'under_construction.png'
+- form_tag advanced_search_index_path, :method => :get do
+  %p
+    = text_field_tag 'query', nil, :class => 'fullwidth'
+  %p.form-buttons
+    = button t('views.base.search')
