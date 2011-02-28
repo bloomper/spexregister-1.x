@@ -28,3 +28,7 @@
           header_supplemental_line_3: "Row 3 in header"
           order: "Order"
           order_notice: "Drag and drop in desired order"
+      advanced_search:
+        tab_title: "Advanced search"
+        prefix: "Advanced search"
+        search_engine_url: "Search engine URL"

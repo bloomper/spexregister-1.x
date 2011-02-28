@@ -28,4 +28,9 @@
           header_supplemental_line_3: "Rad 3 i sidhuvud"
           order: "Ordning"
           order_notice: "Dra och släpp i önskad ordning"
+      advanced_search:
+        tab_title: "Avancerad sökning"
+        prefix: "Avancerad sök"
+        search_engine_url: "URL till sökmotor"
+        
 
