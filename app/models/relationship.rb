@@ -1,4 +1,5 @@
 class Relationship < ActiveRecord::Base
+  set_primary_key :spexare_id
   belongs_to :spexare, :touch => true
   belongs_to :spouse, :class_name => 'Spexare', :touch => true
 
