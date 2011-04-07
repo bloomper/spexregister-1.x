@@ -15,7 +15,7 @@ class PlutonListReport < BaseReport
       xml.SpexareItems do
         order.split(',').each do |function_id|
           function = Function.find(function_id)
-          spexare_items = Spexare.by_spex(params[:id]).by_function(function_id)
+          spexare_items = Spexare.by_spex_and_function(params[:id], function_id)
           spexare_items.each do |spexare|
             xml.Spexare do
               xml.Role function.name

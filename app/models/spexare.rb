@@ -14,15 +14,15 @@ class Spexare < ActiveRecord::Base
   after_update :synchronize_address
   
   named_scope :by_spex, lambda { |spex_id|{
-    :select => 'spexare.*',
-    :joins => 'left join activities a1 on a1.spexare_id = spexare.id left join spex_activities on spex_activities.activity_id = a1.id left join spex on spex.id = spex_activities.spex_id',
+    :select => 'distinct spexare.*',
+    :joins => 'left join activities on activities.spexare_id = spexare.id left join spex_activities on spex_activities.activity_id = activities.id left join spex on spex.id = spex_activities.spex_id',
     :conditions => ['spex.id = ?', spex_id] }
   }
 
-  named_scope :by_function, lambda { |function_id|{
-    :select => 'spexare.*',
-    :joins => 'left join activities a2 on a2.spexare_id = spexare.id left join function_activities on function_activities.activity_id = a2.id left join functions on functions.id = function_activities.function_id',
-    :conditions => ['functions.id = ?', function_id] }
+  named_scope :by_spex_and_function, lambda { |spex_id, function_id|{
+    :select => 'distinct spexare.*',
+    :joins => 'left join activities on activities.spexare_id = spexare.id left join spex_activities on spex_activities.activity_id = activities.id left join spex on spex.id = spex_activities.spex_id left join function_activities on function_activities.activity_id = activities.id left join functions on functions.id = function_activities.function_id',
+    :conditions => ['spex.id = ? and functions.id = ?', spex_id, function_id] }
   }
 
   def full_name
