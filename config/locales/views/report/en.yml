@@ -7,7 +7,7 @@
         include_with_missing_address: "Include spexers without address information"
         merge_related_with_same_address: "Merge related spexers with identical addresses"
       pluton_list:
-        title: "Platoonlist"
+        title: "Platoon list"
       streck_list:
         title: "Checklist"
       detailed_summary:
@@ -15,10 +15,10 @@
       detail_list:
         title: "List"
       email_address_detail_list:
-        title: "Emailaddresslist"
+        title: "Email address list"
         include_with_missing_email_address: "Include spexers without email address"
       address_detail_list:
-        title: "Addresslist"
+        title: "Address list"
         include_with_missing_address: "Include spexers without address information"
       conditions: "Conditions"
       formats: "Formats"
