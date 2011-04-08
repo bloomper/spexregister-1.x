@@ -19,14 +19,14 @@ class AddressLabelsReport < BaseReport
           if spouses.include? spexare.id
             go_ahead = false
           elsif spexare.spouse && spexare.street_address == spexare.spouse.street_address && spexare.postal_code == spexare.spouse.postal_code && spexare.postal_address == spexare.spouse.postal_address
-            combined_full_name = spexare.full_name + ' & ' + spexare.spouse.full_name
+            combined_full_name = spexare.full_name_without_nickname + ' & ' + spexare.spouse.full_name_without_nickname
             spouses.push spexare.spouse.id
           else
             combined_full_name = ''
           end
         end
         xml.Spexare do
-          xml.FullName params[:merge_related_with_same_address] && !combined_full_name.blank? ? combined_full_name : spexare.full_name
+          xml.FullName params[:merge_related_with_same_address] && !combined_full_name.blank? ? combined_full_name : spexare.full_name_without_nickname
           xml.StreetAddress spexare.street_address
           xml.PostalCode spexare.postal_code
           xml.PostalAddress spexare.postal_address

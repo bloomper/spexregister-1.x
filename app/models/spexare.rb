@@ -29,6 +29,10 @@ class Spexare < ActiveRecord::Base
     [first_name, nick_name.blank? ? ' ' : " '#{nick_name}' ", last_name].join
   end
 
+  def full_name_without_nickname
+    [first_name, ' ', last_name].join
+  end
+
   def editable_by
     user_group = UserGroup.find_by_name('Administrators')
     return self.user.nil? ? user_group.user_ids : user_group.user_ids | [self.user.id]
