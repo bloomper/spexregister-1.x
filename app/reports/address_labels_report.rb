@@ -30,7 +30,7 @@ class AddressLabelsReport < BaseReport
           xml.StreetAddress spexare.street_address
           xml.PostalCode spexare.postal_code
           xml.PostalAddress spexare.postal_address
-          xml.Country((spexare.country.blank? || spexare.country == 'SE') ? '' : I18n.t("countries.#{spexare.country}")) 
+          xml.Country((spexare.country.blank? || spexare.country == ApplicationConfig.default_country) ? '' : I18n.t("countries.#{spexare.country}")) 
         end if go_ahead
       end
     end

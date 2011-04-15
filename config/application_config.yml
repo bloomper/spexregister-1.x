@@ -14,6 +14,7 @@ development: &defaults
   failed_login_ban_for: <%= 2.hours.to_i %>
   first_fgv_year: 1987
   first_cing_year: 1907
+  default_country: 'SE'
 test:
   <<: *defaults
 production:
