@@ -3,7 +3,7 @@ class EmailAddressDetailListReport < BaseReport
   def generate
     xml = Builder::XmlMarkup.new(:indent => 2)
     xml.instruct!
-    spexare_items = Spexare.find(session[params[:id].to_sym].split(',').collect{ |s| s.to_i }).sort_by { |s| s.email_address }
+    spexare_items = Spexare.find(session[params[:id].to_sym].split(',').collect{ |s| s.to_i }).sort_by { |s| s.email_address || '' }
     xml.SpexareItems do
       spexare_items.each do |spexare|
         if params[:include_with_missing_email_address]
