@@ -8,7 +8,7 @@ class AddressDetailListReport < BaseReport
       spexare_items.each do |spexare|
         if params[:include_with_missing_address]
           go_ahead = true
-        elsif spexare.street_address.empty? && spexare.postal_code.empty? && spexare.postal_address.empty?
+        elsif spexare.street_address.blank? && spexare.postal_code.blank? && spexare.postal_address.blank?
           go_ahead = false
         else
           go_ahead = true

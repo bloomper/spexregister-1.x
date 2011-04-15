@@ -8,7 +8,7 @@ class EmailAddressDetailListReport < BaseReport
       spexare_items.each do |spexare|
         if params[:include_with_missing_email_address]
           go_ahead = true
-        elsif spexare.email_address.empty?
+        elsif spexare.email_address.blank?
           go_ahead = false
         else
           go_ahead = true
