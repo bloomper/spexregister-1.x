@@ -28,6 +28,8 @@ class DetailListReport < BaseReport
           xml.WantCirculars translate_boolean(spexare.want_circulars) if allowed_to_export_restricted_info(spexare.id)
           xml.WantEmailCirculars translate_boolean(spexare.want_email_circulars) if allowed_to_export_restricted_info(spexare.id)
           xml.UncertainAddress translate_boolean(spexare.uncertain_address)
+          xml.InfoSpexMember translate_boolean(spexare.info_spex_member)
+          xml.PratSpexMember translate_boolean(spexare.prat_spex_member)
         end
       end
     end

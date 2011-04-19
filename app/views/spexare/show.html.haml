@@ -130,6 +130,18 @@
 
   %table.show
     %tr
+      %th= t 'activerecord.attributes.spexare.info_spex_member'
+    %tr
+      %td= translate_boolean @spexare.info_spex_member
+
+  %table.show
+    %tr
+      %th= t 'activerecord.attributes.spexare.prat_spex_member'
+    %tr
+      %td= translate_boolean @spexare.prat_spex_member
+
+  %table.show
+    %tr
       %th= t 'activerecord.attributes.spexare.comment'
     %tr
       %td= print_textarea @spexare.comment

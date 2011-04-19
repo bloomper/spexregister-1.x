@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110128201719) do
+ActiveRecord::Schema.define(:version => 20110419054511) do
 
   create_table "activities", :force => true do |t|
     t.integer  "spexare_id",                  :null => false
@@ -247,6 +247,8 @@ ActiveRecord::Schema.define(:version => 20110128201719) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "want_email_circulars",             :default => false
+    t.boolean  "info_spex_member",                 :default => false
+    t.boolean  "prat_spex_member",                 :default => false
   end
 
   add_index "spexare", ["first_name"], :name => "index_spexare_on_first_name"

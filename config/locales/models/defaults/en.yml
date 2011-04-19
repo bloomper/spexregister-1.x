@@ -79,6 +79,8 @@
         uncertain_address: "Uncertain address?"
         picture: "Picture"
         spouse: "Spouse"
+        info_spex_member: "Member of info-spex?"
+        prat_spex_member: "Member of prat-spex?"
       user:
         username: "Username"
         password: "Password"

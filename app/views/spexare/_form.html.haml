@@ -75,6 +75,14 @@
       %br>
       = f.error_message_on :email_address
       = f.text_field :email_address
+    - f.field_container :info_spex_member do
+      = f.error_message_on :info_spex_member
+      = f.check_box :info_spex_member
+      = f.label :info_spex_member, t('activerecord.attributes.spexare.info_spex_member')
+    - f.field_container :prat_spex_member do
+      = f.error_message_on :prat_spex_member
+      = f.check_box :prat_spex_member
+      = f.label :prat_spex_member, t('activerecord.attributes.spexare.prat_spex_member')
   #spexare-tickboxes
     - f.field_container :birth_date do
       = f.label :birth_date, t('activerecord.attributes.spexare.birth_date')
