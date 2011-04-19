@@ -60,13 +60,9 @@ class UpdateDistributionReport < BaseDashboardReport
     return update_distribution
   end
   
-  @@user_cache = {}
-  
   def get_user_name(id)
-    return @@user_cache.fetch(id) if @@user_cache.has_key?(id)
     user = User.find_by_id(id)
     if !user.nil? && user_valid?(user)
-      @@user_cache.store(id, user.username)
       return user.username
     else
       return nil
