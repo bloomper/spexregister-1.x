@@ -14,6 +14,7 @@ class EmailAddressDetailListReport < BaseReport
           go_ahead = true
         end
         xml.Spexare do
+          xml.FullName spexare.full_name
           xml.EmailAddress spexare.email_address
         end if go_ahead
       end
