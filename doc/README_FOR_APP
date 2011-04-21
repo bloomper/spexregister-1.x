@@ -230,14 +230,13 @@ Inga.
 
 == Förslag till framtida förbättringar
 
-- Avancerad sökning
-- Layoutproblem med IE7
-- Lägg till funktionstester
-- Lägg till integrationstester
+- Använd tag clouds för informell information  
 - Hålla koll på misslyckade inloggningar, dvs efter tre felaktiga lösenord så låses kontot
 - Mer finkorniga rättigheter
   - Tex, en directeur skall endast kunna administrera sitt eget spex
   - Tex, en FGV-administratör kan endast ändra spexarnas FGV-medlemskap
+- Lägg till funktionstester
+- Lägg till integrationstester
 - Lägg till prestandatester (om nödvändigt)
 - Lägg till Selenium-tester (om nödvändigt)
 - Lägg till caching (om nödvändigt)
