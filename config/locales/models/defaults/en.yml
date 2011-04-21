@@ -76,7 +76,6 @@
         publish_approval: "Allows publishing?"
         want_circulars: "Wants circulars?"
         want_email_circulars: "Wants email circulars?"
-        uncertain_address: "Uncertain address?"
         picture: "Picture"
         spouse: "Spouse"
         info_spex_member: "Member of info-spex?"

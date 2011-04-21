@@ -13,7 +13,6 @@
       picture_size_notice:  "Max tillåten storlek är %{max_size} Kb"
       current_picture: "Nuvarande bild"
       address: "Adress"
-      uncertain_address_notice: "<i>(markerad som osäker!)</i>"
       phone_numbers: "Telefonnummer"
       phone_home_notice: "(hem)"
       phone_work_notice: "(arbete)"

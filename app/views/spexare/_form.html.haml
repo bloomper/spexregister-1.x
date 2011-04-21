@@ -41,10 +41,6 @@
       %br>
       = f.error_message_on :country
       = f.localized_country_select :country, [" ", :SE]
-    - f.field_container :uncertain_address do
-      = f.error_message_on :uncertain_address
-      = f.check_box :uncertain_address
-      = f.label :uncertain_address, t('activerecord.attributes.spexare.uncertain_address')
     - if !f.object.nil? && !f.object.new_record? && @spexare.spouse
       - f.field_container :synchronize_spouse_address do
         = f.check_box :synchronize_spouse_address, {}, true, false

@@ -33,7 +33,7 @@
   - if !@spexare.deceased
     %table.show
       %tr
-        %th= [t('views.spexare.address'), @spexare.uncertain_address ? t('views.spexare.uncertain_address_notice') : nil].join(' ')
+        %th= t 'views.spexare.address'
       - if @spexare.street_address.blank? && @spexare.postal_code.blank? && @spexare.postal_address.blank? && @spexare.country.blank?
         %tr
           %td= t 'views.base.missing_text'

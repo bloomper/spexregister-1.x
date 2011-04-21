@@ -13,7 +13,6 @@
       picture_size_notice:  "Maximum allowed size is %{max_size} Kb"
       current_picture: "Current picture"
       address: "Address"
-      uncertain_address_notice: "<red>(marked as uncertain!)</red>"
       phone_numbers: "Phone numbers"
       phone_home_notice: "(home)"
       phone_work_notice: "(work)"
