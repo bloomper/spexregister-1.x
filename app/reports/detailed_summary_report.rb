@@ -23,8 +23,8 @@ class DetailedSummaryReport < BaseReport
       xml.Graduation spexare.graduation
       xml.Deceased translate_boolean(spexare.deceased)
       xml.PublishApproval translate_boolean(spexare.publish_approval) if allowed_to_export_restricted_info(spexare.id)
-      xml.WantCirculars translate_boolean(spexare.want_circulars) if allowed_to_export_restricted_info(spexare.id)
-      xml.WantEmailCirculars translate_boolean(spexare.want_email_circulars) if allowed_to_export_restricted_info(spexare.id)
+      xml.WantCirculars translate_boolean(spexare.want_circulars)
+      xml.WantEmailCirculars translate_boolean(spexare.want_email_circulars)
       xml.UncertainAddress translate_boolean(spexare.uncertain_address)
       xml.InfoSpexMember translate_boolean(spexare.info_spex_member)
       xml.PratSpexMember translate_boolean(spexare.prat_spex_member)
