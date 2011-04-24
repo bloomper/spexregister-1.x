@@ -27,4 +27,4 @@
           header_supplemental_line_2: "Row 2 in header"
           header_supplemental_line_3: "Row 3 in header"
           order: "Order"
-          order_notice: "Drag and drop in desired order"
+          order_notice: "Drag and drop in desired order (duplicates mean the same function exists in multiple categories, hover the mouse pointer to see which one belongs where)"
