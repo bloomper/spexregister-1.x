@@ -29,3 +29,4 @@
           order: "Order"
           order_notice1: "The order is defined for all spex categories (only those functions that a particular spex category uses will be shown in the report)" 
           order_notice2: "Drag and drop in desired order (duplicates mean the same function exists in multiple categories, hover the mouse pointer to see which one belongs where)"
+          placeholder_notice: "The following magic words can be used in the following fields: %year and %title"

@@ -6,10 +6,10 @@ class PlutonListReport < BaseReport
     spex = Spex.find(params[:id])
     xml.PlutonList do
       xml.Header do
-        xml.Title Settings["reports.pluton_list_header_title_#{spex.spex_category.id}"]
-        xml.SupplementalLine1 Settings["reports.pluton_list_header_supplemental_line_1_#{spex.spex_category.id}"]
-        xml.SupplementalLine2 Settings["reports.pluton_list_header_supplemental_line_2_#{spex.spex_category.id}"]
-        xml.SupplementalLine3 Settings["reports.pluton_list_header_supplemental_line_3_#{spex.spex_category.id}"]
+        xml.Title Settings["reports.pluton_list_header_title_#{spex.spex_category.id}"].gsub('%year', spex.year).gsub('%title', spex.title)
+        xml.SupplementalLine1 Settings["reports.pluton_list_header_supplemental_line_1_#{spex.spex_category.id}"].gsub('%year', spex.year).gsub('%title', spex.title)
+        xml.SupplementalLine2 Settings["reports.pluton_list_header_supplemental_line_2_#{spex.spex_category.id}"].gsub('%year', spex.year).gsub('%title', spex.title)
+        xml.SupplementalLine3 Settings["reports.pluton_list_header_supplemental_line_3_#{spex.spex_category.id}"].gsub('%year', spex.year).gsub('%title', spex.title)
       end
       order = Settings["reports.pluton_list_order"]
       xml.SpexareItems do

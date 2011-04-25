@@ -16,6 +16,8 @@
   - get_all_spex_categories.each_with_index do |spex_category, index|
     %div{:id => "pluton-list-#{spex_category.id}", :style => index != 0 ? 'display:none' : '', :class => 'toggable'}
       %p
+        %small= t 'views.settings.reports.pluton_list.placeholder_notice'
+      %p
         %label= t 'views.settings.reports.pluton_list.header_title'
         %br>
         = text_field_tag "settings[reports][pluton_list_header_title_#{spex_category.id}]", Settings["reports.pluton_list_header_title_#{spex_category.id}"], :class => 'fullwidth'
