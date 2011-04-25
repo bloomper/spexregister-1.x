@@ -57,10 +57,7 @@
             jQuery("#pluton-list-order-#{spex_category.id}-target").sortable({
               connectWith: "#pluton-list-order-#{spex_category.id}-source",
               items: 'li:not(.title)',
-              receive: function(event, ui) {
-                jQuery("#settings_reports_pluton_list_order_#{spex_category.id}").val(jQuery("#pluton-list-order-#{spex_category.id}-target").sortable('toArray'));
-              },
-              remove: function(event, ui) {
+              update: function(event, ui) {
                 jQuery("#settings_reports_pluton_list_order_#{spex_category.id}").val(jQuery("#pluton-list-order-#{spex_category.id}-target").sortable('toArray'));
               }
             }).disableSelection();
