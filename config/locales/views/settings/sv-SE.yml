@@ -27,5 +27,6 @@
           header_supplemental_line_2: "Rad 2 i sidhuvud"
           header_supplemental_line_3: "Rad 3 i sidhuvud"
           order: "Ordning"
-          order_notice: "Dra och släpp i önskad ordning (dubletter betyder att samma funktion finns i flera kategorier, håll muspekaren över för att se vilken som är vilken)"
+          order_notice1: "Ordningen definieras för samtliga spexkategorier (endast de funktioner som en spexkategori använder sig av kommer att synas i rapporten)" 
+          order_notice2: "Dra och släpp i önskad ordning (dubletter betyder att samma funktion finns i flera kategorier, håll muspekaren över för att se vilken som är vilken)"
 

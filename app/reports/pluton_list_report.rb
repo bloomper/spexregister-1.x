@@ -11,7 +11,7 @@ class PlutonListReport < BaseReport
         xml.SupplementalLine2 Settings["reports.pluton_list_header_supplemental_line_2_#{spex.spex_category.id}"]
         xml.SupplementalLine3 Settings["reports.pluton_list_header_supplemental_line_3_#{spex.spex_category.id}"]
       end
-      order = Settings["reports.pluton_list_order_#{spex.spex_category.id}"]
+      order = Settings["reports.pluton_list_order"]
       xml.SpexareItems do
         order.split(',').each do |function_id|
           function = Function.find(function_id)
