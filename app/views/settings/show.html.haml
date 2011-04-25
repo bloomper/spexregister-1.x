@@ -45,38 +45,39 @@
   %br>
   = select_tag 'spex_category', options_for_select(get_available_spex_categories)
   = observe_field 'spex_category', :function => "jQuery('.toggable:visible:first').toggle();jQuery('#pluton-list-' + value).toggle();"
-- get_all_spex_categories.each_with_index do |spex_category, index|
-  %div{:id => "pluton-list-#{spex_category.id}", :style => index != 0 ? 'display:none' : '', :class => 'toggable'}
-    %table.show
-      %tr
-        %th= t 'views.settings.reports.pluton_list.header_title'
-      %tr
-        %td= h Settings["reports.pluton_list_header_title_#{spex_category.id}"]
+  - get_all_spex_categories.each_with_index do |spex_category, index|
+    %div{:id => "pluton-list-#{spex_category.id}", :style => index != 0 ? 'display:none' : '', :class => 'toggable'}
+      %table.show
+        %tr
+          %th= t 'views.settings.reports.pluton_list.header_title'
+        %tr
+          %td= h Settings["reports.pluton_list_header_title_#{spex_category.id}"]
+      
+      %table.show
+        %tr
+          %th= t 'views.settings.reports.pluton_list.header_supplemental_line_1'
+        %tr
+          %td= h Settings["reports.pluton_list_header_supplemental_line_1_#{spex_category.id}"]
+      
+      %table.show
+        %tr
+          %th= t 'views.settings.reports.pluton_list.header_supplemental_line_2'
+        %tr
+          %td= h Settings["reports.pluton_list_header_supplemental_line_2_#{spex_category.id}"]
+      
+      %table.show
+        %tr
+          %th= t 'views.settings.reports.pluton_list.header_supplemental_line_3'
+        %tr
+          %td= h Settings["reports.pluton_list_header_supplemental_line_3_#{spex_category.id}"]
     
-    %table.show
-      %tr
-        %th= t 'views.settings.reports.pluton_list.header_supplemental_line_1'
-      %tr
-        %td= h Settings["reports.pluton_list_header_supplemental_line_1_#{spex_category.id}"]
-    
-    %table.show
-      %tr
-        %th= t 'views.settings.reports.pluton_list.header_supplemental_line_2'
-      %tr
-        %td= h Settings["reports.pluton_list_header_supplemental_line_2_#{spex_category.id}"]
-    
-    %table.show
-      %tr
-        %th= t 'views.settings.reports.pluton_list.header_supplemental_line_3'
-      %tr
-        %td= h Settings["reports.pluton_list_header_supplemental_line_3_#{spex_category.id}"]
-    
+  %div
     %table.show
       %tr
         %th= t 'views.settings.reports.pluton_list.order'
       %tr
         %td
-          != get_selected_functions(Settings["reports.pluton_list_order_#{spex_category.id}"]).collect {|i| i.name}.join(' &rArr; ')
+          != get_selected_functions(Settings["reports.pluton_list_order"]).collect {|i| i.name}.join(' &rArr; ')
 
 %p
   = link_to_with_icon('edit', t('views.base.edit_action'), edit_settings_url(:type => 'reports'))
