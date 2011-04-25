@@ -7,6 +7,10 @@
       %fieldset
         %legend= t 'views.report.conditions'
         = render :partial => "#{params[:report]}_conditions"
+    - if @report.has_sort_order?
+      %fieldset
+        %legend= t 'views.report.sort_order'
+        = render :partial => "#{params[:report]}_sort_order"
     %fieldset
       %legend= t 'views.report.formats'
       - @report.formats.each_with_index do |format, i|

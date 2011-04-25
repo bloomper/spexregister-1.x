@@ -1,0 +1,16 @@
+= radio_button_tag 'sort_order', 'first_name', true
+= t 'activerecord.attributes.spexare.first_name'
+%br>
+= radio_button_tag 'sort_order', 'last_name', false
+= t 'activerecord.attributes.spexare.last_name'
+%br>
+= radio_button_tag 'sort_order', 'nick_name', false
+= t 'activerecord.attributes.spexare.nick_name'
+%br>
+= radio_button_tag 'sort_order', 'email_address', false
+= t 'activerecord.attributes.spexare.email_address'
+%br>
+%br>
+= check_box_tag 'sort_order_descending', false, false
+= t 'views.report.sort_order_descending'
+%br>

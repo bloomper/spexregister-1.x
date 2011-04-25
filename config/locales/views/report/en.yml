@@ -21,6 +21,8 @@
         title: "Address list"
         include_with_missing_address: "Include spexers without address information"
       conditions: "Conditions"
+      sort_order: "Sort order"
+      sort_order_descending: "Descending order (not selected results in ascending order)"
       formats: "Formats"
       format:
         pdf: "Adobe Acrobat PDF"

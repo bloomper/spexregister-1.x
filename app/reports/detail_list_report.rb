@@ -4,6 +4,7 @@ class DetailListReport < BaseReport
     xml = Builder::XmlMarkup.new(:indent => 2)
     xml.instruct!
     spexare_items = Spexare.find(session[params[:id].to_sym].split(',').collect{ |s| s.to_i }).sort_by { |s| s.first_name || '' }
+    spexare_items.reverse! if params[:sort_order_descending]
     xml.SpexareItems do
       spexare_items.each do |spexare|
         xml.Spexare do
@@ -32,6 +33,10 @@ class DetailListReport < BaseReport
         end
       end
     end
+  end
+
+  def has_sort_order?
+    true
   end
 
   def formats

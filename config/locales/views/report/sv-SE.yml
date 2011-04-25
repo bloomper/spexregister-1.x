@@ -21,6 +21,8 @@
         title: "Adresslista"
         include_with_missing_address: "Inkludera spexare utan adressinformation"
       conditions: "Villkor"
+      sort_order: "Sortering"
+      sort_order_descending: "Fallande ordning (ej vald ger stigande ordning)"
       formats: "Format"
       format:
         pdf: "Adobe Acrobat PDF"

@@ -4,6 +4,10 @@ class BaseReport
     false
   end
   
+  def has_sort_order?
+    false
+  end
+
   def allowed_to_export_restricted_info(id = nil)
     @is_admin || (@user.spexare.nil? ? -1 : @user.spexare.id) == id
   end
