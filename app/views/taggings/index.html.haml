@@ -1,0 +1,35 @@
+= render :partial => 'sub_menu'
+
+= render :partial => 'tabs', :locals => {:edit_mode => false, :current_action => t('views.base.viewing_action'), :description => @spexare.full_name, :current_tab => "taggings_tab"}
+
+- if @taggings.empty?
+  %p= t 'views.tagging.no_associated_taggings'
+- else
+  .number-of-hits= page_entries_info @taggings, { :entry_translation_group_key => 'tagging' }
+  %br.clear
+  %table.index
+    %tr
+      - if @taggings.size > 24
+        %th= t 'activerecord.attributes.tag.name'
+        %th= t 'activerecord.attributes.tag.name'
+        %th= t 'activerecord.attributes.tag.name'
+        - @taggings.in_groups_of(3).each do |tagging_group|
+          %tr{:class => cycle('even', 'odd')}
+            - tagging_group.each do |tagging|
+              %td= h tagging.tag.name unless tagging.nil?
+      - elsif @taggings.size > 12
+        %th= t 'activerecord.attributes.tag.name'
+        %th= t 'activerecord.attributes.tag.name'
+        - @taggings.in_groups_of(2).each do |tagging_group|
+          %tr{:class => cycle('even', 'odd')}
+            - tagging_group.each do |tagging|
+              %td= h tagging.tag.name unless tagging.nil?
+      - else
+        %th= t 'activerecord.attributes.tag.name'
+        - @taggings.each do |tagging|
+          %tr{:class => cycle('even', 'odd')}
+            %td= h tagging.tag.name
+
+= will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+
+= render :partial => '/shared/back_links', :locals => { :url => previous_page }

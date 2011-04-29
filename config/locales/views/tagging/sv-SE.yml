@@ -1,0 +1,8 @@
+"sv-SE":
+  views:
+    tagging:
+      description_tab_title: "Taggning"
+      no_associated_taggings: "Inga associerade taggningar"
+      add_tagging: "Lägg till taggning"
+      available_tags: "Tillgängliga taggar"
+      no_available_tags_exist: "Det finns inga tillgängliga taggar"

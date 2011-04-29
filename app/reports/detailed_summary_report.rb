@@ -25,8 +25,6 @@ class DetailedSummaryReport < BaseReport
       xml.PublishApproval translate_boolean(spexare.publish_approval) if allowed_to_export_restricted_info(spexare.id)
       xml.WantCirculars translate_boolean(spexare.want_circulars)
       xml.WantEmailCirculars translate_boolean(spexare.want_email_circulars)
-      xml.InfoSpexMember translate_boolean(spexare.info_spex_member)
-      xml.PratSpexMember translate_boolean(spexare.prat_spex_member)
       xml.Spouse spexare.spouse.full_name unless !spexare.spouse
       xml.Comment spexare.comment
       xml.Picture spexare.picture? ? (request.ssl? ? 'https://' : 'http://') + Settings['general.site_url'] + spexare.picture.url : ''
@@ -35,6 +33,13 @@ class DetailedSummaryReport < BaseReport
           xml.Membership(:kind => Membership.kind(membership.kind_id).title) do
             xml.Year membership.year
           end unless membership.kind.nil?
+        end
+      end
+      xml.Taggings do
+        spexare.taggings.each do |tagging|
+          xml.Tagging do
+            xml.Tag tagging.tag.name
+          end unless tagging.tag.nil?
         end
       end
       xml.Activities do

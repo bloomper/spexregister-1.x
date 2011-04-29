@@ -32,6 +32,7 @@ ActionController::Routing::Routes.draw do |map|
     spexare.resource :relationship, :except => [:update]
     spexare.resources :memberships, :except => [:show, :edit, :update], :collection => { :selected => :get }
     spexare.resources :activities, :collection => { :selected => :get }
+    spexare.resources :taggings, :except => [:show, :edit, :update], :collection => { :selected => :get }
   end 
   map.resource :user_session, :except => [:show, :edit, :update]
   map.resources :password_resets, :except => [:show, :destroy]
@@ -42,6 +43,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :dashboard_reports, :only => [:create]
   map.resource :reports, :only => [:new, :create]
   map.resource :settings, :only => [:show, :edit, :update]
+  map.resources :tags
   
   map.root :controller => 'home', :action => 'index'
 

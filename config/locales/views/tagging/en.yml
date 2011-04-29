@@ -1,0 +1,8 @@
+"en":
+  views:
+    tagging:
+      description_tab_title: "Tagging"
+      no_associated_taggings: "No associated taggings"
+      add_tagging: "Add tagging"
+      available_tags: "Available tags"
+      no_available_tags_exist: "There are no available tags"

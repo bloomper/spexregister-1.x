@@ -1,0 +1,45 @@
+= render :partial => 'sub_menu'
+
+%div.left
+  %h1= t 'views.tag.index_title', :action => t('views.base.listing_action')
+
+.toolbar
+  %ul.actions
+    %li
+      = button_link_to_remote t('views.tag.new_tag'), { :url => new_resource_url, :method => :get, :update => 'new-tag' }, :icon => 'add'
+
+%br.clear
+
+#new-tag
+
+- if @tags.empty?
+  %p= t 'views.tag.no_tags_exist'
+- else
+  .number-of-hits= page_entries_info @tags, { :entry_translation_group_key => 'tag' }
+  %br.clear
+  %table.index#tags
+    %tr
+      %th= order @search, :by => :name, :as => t('activerecord.attributes.tag.name')
+      %th.action-column= t 'views.base.action'
+      - @tags.each do |tag|
+        %tr{:id => dom_id(tag), :class => cycle('even', 'odd')}
+          %td= h tag.name
+          %td.actions
+            = link_to_view_action tag
+            = link_to_edit_action tag
+            = link_to_delete_action tag, { :table => 'tags' }
+
+= will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+
+%br.clear
+
+= content_for :sidebar do 
+  - form_for @search do |f|
+    .box
+      %h3= t 'views.base.search'
+      %p
+        %label= t 'activerecord.attributes.tag.name'
+        %br>
+        = f.text_field :name_contains, :size => 15
+      %p.form-buttons
+        = button t('views.base.search')

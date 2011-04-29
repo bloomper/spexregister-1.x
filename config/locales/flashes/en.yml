@@ -113,3 +113,13 @@
     report:
       create:
         failure: "The report could not be created due to internal error"
+    tags:
+      create:
+        success: "The tag has been created"
+        failure: "The tag could not be created"
+      update:
+        success: "The tag has been updated"
+        failure: "The tag could not be updated"
+      destroy:
+        success: "The tag has been deleted"
+        failure: "The tag could not be deleted"

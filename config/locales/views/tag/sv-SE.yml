@@ -1,0 +1,7 @@
+"sv-SE":
+  views:
+    tag:
+      index_title: "%{action} taggar"
+      page_title_html: "%{action} tagg &ldquo;%{description}&rdquo;"
+      no_tags_exist: "Det finns inga taggar"
+      new_tag: "Skapa tagg"

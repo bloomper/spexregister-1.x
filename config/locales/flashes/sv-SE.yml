@@ -125,3 +125,13 @@
     report:
       create:
         failure: "Rapporten kunde inte skapas pga internt fel"
+    tags:
+      create:
+        success: "Taggen har skapats"
+        failure: "Taggen kunde inte skapas"
+      update:
+        success: "Taggen har uppdaterats"
+        failure: "Taggen kunde inte uppdateras"
+      destroy:
+        success: "Taggen har raderats"
+        failure: "Taggen kunde inte raderas"

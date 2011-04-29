@@ -1,0 +1,16 @@
+%h3= t 'views.tagging.available_tags'
+
+- if @available_tags.empty?
+  %p= t 'views.tagging.no_available_tags_exist'
+- else
+  %table.index
+    %tr
+      %th= t 'activerecord.attributes.tag.name'
+      %th.action-column= t 'views.base.action'
+      - @available_tags.each do |available_tag|
+        %tr{:id => dom_id(available_tag), :class => cycle('even', 'odd')}
+          %td
+            = hidden_field_tag 'tagging[tag_id]', available_tag.id
+            = available_tag.name
+          %td.actions
+            = link_to_remote icon_tag('add') + ' ' + t('views.base.add_action'), { :url => spexare_taggings_url(@spexare), :method => :post, :submit => dom_id(available_tag), :before => '', :update => 'edit-taggings' }

@@ -12,6 +12,10 @@ user.save(false)
 user = User.new :username => 'user@chalmersspexet.se', :password => 'user99', :password_confirmation => 'user99', :user_groups => [ UserGroup.find_by_name('Users') ], :state => 'active'
 user.save(false)
 
+# Tags
+Tag.create :name => 'Info-spex'
+Tag.create :name => 'Prat-spex'
+
 # Function categories
 FunctionCategory.create :name => 'Kommitté'
 FunctionCategory.create :name => 'Orkester'

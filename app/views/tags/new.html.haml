@@ -1,0 +1,7 @@
+= render :partial => 'sub_menu'
+
+- form_for @tag, :url => collection_url do |f|
+  %fieldset
+    %legend= t 'views.tag.new_tag'
+    = render :partial => 'form', :locals => { :f => f }
+    = render :partial => '/shared/new_resource_links', :locals => { :url => filter_url_if_not_compatible_with(current_page, collection_url) }

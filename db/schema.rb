@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110419054511) do
+ActiveRecord::Schema.define(:version => 20110428191858) do
 
   create_table "activities", :force => true do |t|
     t.integer  "spexare_id",                  :null => false
@@ -236,7 +236,6 @@ ActiveRecord::Schema.define(:version => 20110419054511) do
     t.boolean  "deceased",                         :default => false
     t.boolean  "publish_approval",                 :default => true
     t.boolean  "want_circulars",                   :default => true
-    t.boolean  "uncertain_address",                :default => false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
@@ -247,12 +246,34 @@ ActiveRecord::Schema.define(:version => 20110419054511) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "want_email_circulars",             :default => false
-    t.boolean  "info_spex_member",                 :default => false
-    t.boolean  "prat_spex_member",                 :default => false
   end
 
   add_index "spexare", ["first_name"], :name => "index_spexare_on_first_name"
   add_index "spexare", ["last_name"], :name => "index_spexare_on_last_name"
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id",                      :null => false
+    t.integer  "spexare_id",                  :null => false
+    t.integer  "lock_version", :default => 0
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taggings", ["spexare_id"], :name => "index_taggings_on_spexare_id"
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.integer  "lock_version", :default => 0
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
   create_table "user_events", :force => true do |t|
     t.string   "session_id"

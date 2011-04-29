@@ -6,6 +6,7 @@ class Spexare < ActiveRecord::Base
   has_one :relationship
   has_one :spouse, :through => :relationship
   has_one :user, :dependent => :nullify
+  has_many :taggings, :dependent => :destroy
   has_attached_file :picture, :styles => { :thumb => ApplicationConfig.picture_thumbnail_size }
   attr_protected :picture_file_name, :picture_content_type, :picture_file_size
   attr_encrypted :social_security_number, :key => 'A8AD3BC66E66FC6C255312D70FFA547E1CE8FB8A4382BE961DFFBED0DD45B340', :encode => true

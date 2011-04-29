@@ -17,6 +17,8 @@
       spex_activity: "Spexaktivitet"
       spex_category: "Spexkategori"
       spexare: "Spexare"
+      tag: "Tagg"
+      tagging: "Taggning"
       user: "Användare"
       user_session: "Användarsession"
       user_event: "Användarhändelse"
@@ -78,8 +80,8 @@
         want_email_circulars: "Vill ha utskick via email?"
         picture: "Bild"
         spouse: "Gift/sambo med"
-        info_spex_member: "Medlem i info-spex?"
-        prat_spex_member: "Medlem i prat-spex?"
+      tag:
+        name: "Namn"
       user:
         username: "Användarnamn"
         password: "Lösenord"

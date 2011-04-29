@@ -17,6 +17,7 @@
       spex_activity: "Spex activity"
       spex_category: "Spex category"
       spexare: "Spexer"
+      tag: "Tag"
       user: "User"
       user_session: "User session"
       user_event: "User event"
@@ -78,8 +79,8 @@
         want_email_circulars: "Wants email circulars?"
         picture: "Picture"
         spouse: "Spouse"
-        info_spex_member: "Member of info-spex?"
-        prat_spex_member: "Member of prat-spex?"
+      tag:
+        name: "Name"
       user:
         username: "Username"
         password: "Password"

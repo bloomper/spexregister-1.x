@@ -1,0 +1,7 @@
+"en":
+  views:
+    function:
+      index_title: "%{action} tags"
+      page_title_html: "%{action} tag &ldquo;%{description}&rdquo;"
+      no_tags_exist: "There are no tags"
+      new_tag: "Create tag"

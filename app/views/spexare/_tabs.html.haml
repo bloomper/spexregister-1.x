@@ -18,3 +18,5 @@
       = link_to t('views.membership.cing_description_tab_title'), (edit_mode ? selected_spexare_memberships_url(@spexare, :by_kind => Membership.kind(:cing).id, :kind_name => Membership.kind(:cing).name) : spexare_memberships_url(@spexare, :by_kind => Membership.kind(:cing).id, :kind_name => Membership.kind(:cing).name))
     %li{:class => ("active" if current_tab == "relationship_tab")}
       = link_to t('views.relationship.description_tab_title'), (edit_mode ? edit_spexare_relationship_url(@spexare) : spexare_relationship_url(@spexare))
+    %li{:class => ("active" if current_tab == "taggings_tab")}
+      = link_to t('views.tagging.description_tab_title'), (edit_mode ? selected_spexare_taggings_url(@spexare) : spexare_taggings_url(@spexare))

@@ -119,7 +119,7 @@ set_permission(:function_view).with_controller(:functions).only_methods(:show, :
 set_permission(:news_management).with_controller(:news)
 set_permission(:news_view).with_controller(:news).only_methods(:show)
 set_permission(:user_management).with_controller(:users).and_controller(:user_groups).and_controller(:spexare)
-set_permission(:spexare_management).with_controller(:spexare).and_controller(:relationships).and_controller(:memberships).and_controller(:activities)
+set_permission(:spexare_management).with_controller(:spexare).and_controller(:relationships).and_controller(:memberships).and_controller(:activities).and_controller(:taggings)
 set_permission(:spexare_myself).with_controller(:spexare).only_methods(:edit, :update).to_model(:spexare, :id).where(:editable_by).includes(:current_user_id)
 set_permission(:spexare_relationship_myself).with_controller(:relationships).only_methods(:new, :create, :edit, :destroy).to_model(:spexare, :spexare_id).where(:editable_by).includes(:current_user_id)
 set_permission(:spexare_memberships_myself).with_controller(:memberships).only_methods(:new, :create, :selected, :destroy).to_model(:spexare, :spexare_id).where(:editable_by).includes(:current_user_id)
@@ -128,6 +128,8 @@ set_permission(:spexare_view).with_controller(:spexare).only_methods(:show, :ind
 set_permission(:dashboard_reports).with_controller(:dashboard_reports)
 set_permission(:reports).with_controller(:reports)
 set_permission(:settings).with_controller(:settings)
+set_permission(:tag_management).with_controller(:tags)
+set_permission(:spexare_taggings_myself).with_controller(:taggings).only_methods(:new, :create, :selected, :destroy).to_model(:spexare, :spexare_id).where(:editable_by).includes(:current_user_id)
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Built-in user groups
@@ -159,8 +161,8 @@ set_protected_access :home, :account, :profile, :search, :advanced_search, :help
   # 
   # Define your user groups here:
 
-set_user_group(:administrators, :administration, :spexare_management, :user_management, :spex_management, :function_management, :news_management, :dashboard_reports, :settings)
-set_user_group(:users, :spexare_view, :news_view, :spex_view, :function_view, :spexare_myself, :spexare_relationship_myself, :spexare_memberships_myself, :spexare_activities_myself)
+set_user_group(:administrators, :administration, :spexare_management, :user_management, :spex_management, :function_management, :news_management, :dashboard_reports, :settings, :tag_management)
+set_user_group(:users, :spexare_view, :news_view, :spex_view, :function_view, :spexare_myself, :spexare_relationship_myself, :spexare_memberships_myself, :spexare_activities_myself, :spexare_taggings_myself)
 
 # Use Authlogic's session timeout mechanism instead
 # Must be longer than Authlogic's remember me timeout
