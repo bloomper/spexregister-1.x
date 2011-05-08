@@ -1,36 +1,27 @@
 TODO
 ----
 
-- Patrik
-  - Tomcat 7.0.6
-  - JDK 1.6
-  - Firewall for port 8080
+- JasperReports 4.0.2
 
+- Tag implementation
+  - Which legacy data should be migrated to tags?
+
+- Info/prat-spex membership
+  - Synch with mailman
+    - rake tasks
+    - Direct synchronization?
+    - If offline, how to handle removals?
+
+- Remove views on bojan
 - Do not forget to bump version
-- Release spexregister.reports?
-  - Use repository on mynas?
+- Release spexregister.reports
+  - Use repository on mynas
 - Create branch 1.1-maintenance
-
-- Reports
-  - "Plutonlista"
-      Inspextor
-      Directeur
-      Festdirecteur
-      Casseur
-      Upplysare
-      PR-chef
-      Scenmästare
-      Ljusmästare
-      Arkitekt
-      Producent
-      Skivkommitté
-      Sömmerska
-      Författare
-      Ensemble
-      Orkester (pianör först följd av stråkinstrument, blåsinstrument och sist trummor)
 
 1.2
 ---
+
+- Mailman integration?
 
 - IE problems
   - IE 7
@@ -38,14 +29,15 @@ TODO
       - sidebar is too wide
         - caused by #content &.with-sidebar +column(23)
 
-- More efficient XmlDataSource implementation?
-
 - Advanced search
   - Needs monitoring (monit, munin)?
   - Use delayed_job for updating index?
   - http://github.com/outoftime/sunspot
   - http://techbot.me/2011/01/full-text-search-in-in-rails-with-sunspot-and-solr/
   - http://www.elasticsearch.org/
+  - Must be able to search for empty fields (think "uncertain" addresses)
+  - Tag cloud
+    - http://www.medihack.org/2011/03/19/index-external-models-with-sunspotsolr/xi
 
 - Replace mail_queue with delayed_job?
   - Only if delayed_job is needed for advanced search

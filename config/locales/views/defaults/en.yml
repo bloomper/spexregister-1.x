@@ -26,6 +26,7 @@
       add_action: "Add"
       back_action: "Back"
       back_to_search_result_action: "Back to latest search result (simple)"
+      back_to_tag_search_result_action: "Back to latest search result (tag)"
       back_to_advanced_search_result_action: "Back to latest search result (advanced)"
       are_you_sure: "Are you sure?"
       confirm_delete: "Confirm deletion"

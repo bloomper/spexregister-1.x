@@ -1,0 +1,11 @@
+"sv-SE":
+  views:
+    tag_search:
+      title: "Sök"
+      page_title: "Sök spexare"
+      search: "Taggsökning"
+      latest_search_result: "Senaste sökresultatet (tagg)"
+      index_title: "Sökresultat"
+      empty_search_result: "Inga träffar"
+      reset_search_result: "Nollställ sökresultat"
+      no_of_taggings: "Taggningar: %{count}"

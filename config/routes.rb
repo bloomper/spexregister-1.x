@@ -37,6 +37,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :user_session, :except => [:show, :edit, :update]
   map.resources :password_resets, :except => [:show, :destroy]
   map.resources :search, :only => [:new, :index, :destroy]
+  map.resources :tag_search, :only => [:new, :index, :destroy]
   map.resources :advanced_search, :only => [:new, :index, :destroy]
   map.resource :account, :except => [:destroy, :show]
   map.resource :profile, :only => [:edit]

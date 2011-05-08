@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   include ExceptionNotification::Notifiable
   helper :all # include all helpers, all the time
-  helper_method :current_user_session, :current_user, :logged_in?, :current_user_is_admin?, :current_protocol, :filter_url_if_not_compatible_with, :show_search_result_back_links?, :previous_page, :current_page, :latest_search_query_exists?, :latest_search_query, :latest_advanced_search_query_exists?, :latest_advanced_search_query, :get_available_dashboard_reports
+  helper_method :current_user_session, :current_user, :logged_in?, :current_user_is_admin?, :current_protocol, :filter_url_if_not_compatible_with, :show_search_result_back_links?, :previous_page, :current_page, :latest_search_query_exists?, :latest_search_query, :latest_tag_search_query_exists?, :latest_tag_search_query, :latest_advanced_search_query_exists?, :latest_advanced_search_query, :get_available_dashboard_reports
   
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
@@ -35,6 +35,8 @@ class ApplicationController < ActionController::Base
     if sess && sess.stale?
       reset_lockdown_session
       session[:latest_search_query] = nil
+      session[:latest_tag_search_query] = nil
+      session[:latest_advanced_search_query] = nil
       redirect_to login_url(:stale => true)
       return false
     end
@@ -126,6 +128,14 @@ class ApplicationController < ActionController::Base
 
   def latest_search_query
     session[:latest_search_query]
+  end
+
+  def latest_tag_search_query_exists?
+    !latest_tag_search_query.blank?
+  end
+
+  def latest_tag_search_query
+    session[:latest_tag_search_query]
   end
 
   def latest_advanced_search_query_exists?
