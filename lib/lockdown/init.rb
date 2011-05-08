@@ -130,6 +130,7 @@ set_permission(:reports).with_controller(:reports)
 set_permission(:settings).with_controller(:settings)
 set_permission(:tag_management).with_controller(:tags)
 set_permission(:spexare_taggings_myself).with_controller(:taggings).only_methods(:new, :create, :selected, :destroy).to_model(:spexare, :spexare_id).where(:editable_by).includes(:current_user_id)
+set_permission(:tag_search).with_controller(:tag_search)
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Built-in user groups
@@ -146,7 +147,7 @@ set_permission(:spexare_taggings_myself).with_controller(:taggings).only_methods
   # Define the built-in user groups here:
 
 set_public_access :login, :locale, :signup, :password_resets
-set_protected_access :home, :account, :profile, :search, :advanced_search, :help, :reports
+set_protected_access :home, :account, :profile, :search, :tag_search, :advanced_search, :help, :reports
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Define user groups

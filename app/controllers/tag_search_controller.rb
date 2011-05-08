@@ -20,7 +20,7 @@ class TagSearchController < ApplicationController
   protected
   def collection
     params[:tag_search] ||= 'last_name'
-    @tag_search_result = Spexare.find(:all, :select => 'DISTINCT spexare.id, spexare.last_name, spexare.first_name, spexare.nick_name', :conditions => ['taggings.tag_id = ?', params[:id]], :joins => 'left join taggings on taggings.spexare_id = spexare.id', :order => params[:order]).paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @tag_search_result = Spexare.find(:all, :select => 'DISTINCT spexare.id, spexare.last_name, spexare.first_name, spexare.nick_name', :conditions => ['taggings.tag_id = ? and (spexare.publish_approval = ? or spexare.publish_approval = ?)', params[:id], true, current_user_is_admin? ? false : true], :joins => 'left join taggings on taggings.spexare_id = spexare.id', :order => params[:order]).paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
 
     session[:latest_tag_search_query] = params
     session[:latest_tag_search_query_ids] = @tag_search_result.map(&:id).join(',')
