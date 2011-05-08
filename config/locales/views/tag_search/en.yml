@@ -9,3 +9,4 @@
       empty_search_result: "No hits"
       reset_search_result: "Reset search result"
       no_of_taggings: "Taggings: %{count}"
+      no_tags_exist: "There are no tags"

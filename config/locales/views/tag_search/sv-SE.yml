@@ -9,3 +9,4 @@
       empty_search_result: "Inga träffar"
       reset_search_result: "Nollställ sökresultat"
       no_of_taggings: "Taggningar: %{count}"
+      no_tags_exist: "Det finns inga taggar"
