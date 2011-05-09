@@ -3,15 +3,6 @@ TODO
 
 - JasperReports 4.0.2
 
-- Tag implementation
-  - Which legacy data should be migrated to tags?
-
-- Info/prat-spex membership
-  - Synch with mailman
-    - rake tasks
-    - Direct synchronization?
-    - If offline, how to handle removals?
-
 - Remove views on bojan
 - Do not forget to bump version
 - Release spexregister.reports
@@ -53,7 +44,6 @@ Whenever
     - etc
 
 - Updates
-  - Fancybox 1.3.3
   - jQuery UI 1.8/1.9
     - Replace jquery.fg.menu
   - Lockdown, replace with Devise?
