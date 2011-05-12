@@ -23,11 +23,11 @@ function areCookiesEnabled(){
 }
 
 jQuery(document).ajaxStart(function() {
-  jQuery('#progress-indicator').fadeIn();
+  jQuery('#progress-indicator').show();
 });
 
 jQuery(document).ajaxStop(function() {
-  jQuery('#progress-indicator').fadeOut();
+  jQuery('#progress-indicator').hide();
 });
 
 jQuery(document).ajaxSend(function(e, xhr, options) {
@@ -89,10 +89,7 @@ jQuery(function() {
       zoomSpeedIn : 500,
       zoomSpeedOut : 500,
       titleShow : false,
-      loadingShow : false,
-      onComplete : function() {
-    	  jQuery('#progress-indicator').hide();
-      }
+      loadingShow : false
     });
   });
 });
@@ -107,10 +104,7 @@ jQuery(function() {
       zoomSpeedOut : 500,
       titleShow : false,
       loadingShow : false,
-      scrolling : 'no',
-      onComplete : function() {
-    	  jQuery('#progress-indicator').hide();
-      }
+      scrolling : 'no'
     });
   });
 });
