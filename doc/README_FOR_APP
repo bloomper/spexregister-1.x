@@ -230,7 +230,6 @@ Inga.
 
 == Förslag till framtida förbättringar
 
-- Använd tag clouds för informell information  
 - Hålla koll på misslyckade inloggningar, dvs efter tre felaktiga lösenord så låses kontot
 - Mer finkorniga rättigheter
   - Tex, en directeur skall endast kunna administrera sitt eget spex
