@@ -16,7 +16,7 @@ function areCookiesEnabled(){
   var TEST_COOKIE = 'spexregister_test_cookie';
   jQuery.cookie(TEST_COOKIE, true);
   if(jQuery.cookie(TEST_COOKIE)) {
-  jQuery.cookie(TEST_COOKIE, null);
+    jQuery.cookie(TEST_COOKIE, null);
   return true;
   }
   return false;
@@ -89,7 +89,10 @@ jQuery(function() {
       zoomSpeedIn : 500,
       zoomSpeedOut : 500,
       titleShow : false,
-      loadingShow : false
+      loadingShow : false,
+      onComplete : function() {
+    	  jQuery('#progress-indicator').hide();
+      }
     });
   });
 });
@@ -104,7 +107,10 @@ jQuery(function() {
       zoomSpeedOut : 500,
       titleShow : false,
       loadingShow : false,
-      scrolling : 'no'
+      scrolling : 'no',
+      onComplete : function() {
+    	  jQuery('#progress-indicator').hide();
+      }
     });
   });
 });
@@ -279,6 +285,6 @@ jQuery(function() {
   jQuery('select.observe-function-activity-function-category-changes').livequery('change', function() {
     jQuery.fetchFunctionsByCategory(jQuery('option:selected', this).val(), jQuery(this).attr('functions_field'), false);
     jQuery.toggleDisplayOfActor(jQuery(this).attr('add_actor_link'), jQuery('option:selected', this).attr('has_actor'));
-      return false;
+    return false;
   });
 });
