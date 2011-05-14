@@ -1,12 +1,6 @@
 TODO
 ----
 
-- JasperReports 4.0.2
-
-- Remove views on bojan
-- Do not forget to bump version
-- Release spexregister.reports
-  - Use repository on mynas
 - Create branch 1.1-maintenance
 
 1.2
