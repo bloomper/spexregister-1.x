@@ -1,5 +1,5 @@
 body
-  :background-color = $background_color
+  :background-color $background_color
   :margin-top 10px
   div.left
     +leftie
@@ -23,7 +23,7 @@ body
     +column(14)
     h1
       :font-size 3em
-      :color = $header_text_color
+      :color $header_text_color
   #details
     +column(8)
     :float right
@@ -34,8 +34,8 @@ body
 
 #progress-indicator
   :display none
-  :background = $progress_background_color "url(/images/tab_back.png)" "repeat-x" "scroll" "left" "top"
-  :color = $progress_text_color
+  :background $progress_background_color "url(/images/tab_back.png)" "repeat-x" "scroll" "left" "top"
+  :color $progress_text_color
   :font-size 170%
   :height 25px
   :left 33%
@@ -53,8 +53,8 @@ body
 #content
   +column(31)
   :padding 1em
-  :background = $content_background_color
-  :color = $content_color
+  :background $content_background_color
+  :color $content_color
   :min-height 500px
   a
     :color #3C7DFB
