@@ -4,7 +4,7 @@
   :padding .4em 0 .4em 38px
   :margin 0 2em 1em 0
   :border 1px solid #c00
-  +round_corners
+  @include round_corners
   &.failure
     :background #FDE4E4 url(/images/error.png) 10px center no-repeat
     :color #c00
@@ -26,7 +26,7 @@
 .errorExplanation
   :margin 0 2.5em 1em 0
   :padding 0.8em
-  +round_corners
+  @include round_corners
   +message_box(#F4B4B4, #000, #000)
   p
     :margin 0px

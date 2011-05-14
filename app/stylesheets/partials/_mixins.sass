@@ -1,24 +1,24 @@
-= no_margin_or_padding
+@mixin no_margin_or_padding
   :margin 0
   :padding 0
-= leftie
+@mixin leftie
   :float left
   :width 49%
-= leftieWide
+@mixin leftieWide
   :float left
   :width 75%
-= rightie
+@mixin rightie
   :float right
   :width 49%
   :text-align right
-= rightieWide
+@mixin rightieWide
   :float right
   :width 75%
   :text-align right
-= round_corners($radius: 5px)
+@mixin round_corners($radius: 5px)
   :-moz-border-radius $radius
   :-webkit-border-radius $radius
-= message_box($bg_color, $color, $border_color)
+@mixin message_box($bg_color, $color, $border_color)
   :background-color $bg_color
   :color $color
   :border 1px "solid" $border_color
