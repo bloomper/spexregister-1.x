@@ -218,11 +218,13 @@ För utveckling så kan man använda tex RadRails (http://www.radrails.org).
 
 (2) Avinstallera tidigare version av Rails genom att exekvera 'gem uninstall rails' och välj sedan rätt alternativ.
 
-(3) Exekvera 'cap deploy:gems:install' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
+(3) Exekvera 'cap deploy:update' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb. Det är viktigt att produktionsmiljön inte använder sig av färgkodning (ANSI) för kommandot 'ls'.
 
-(4) Logga in i produktionsmiljö och avinstallera oanvända versioner av gems genom att exekvera 'gem uninstall <gem>'.
+(4) Exekvera 'cap deploy:gems:install' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
 
-(5) Exekvera 'cap deploy:migrate' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
+(5) Logga in i produktionsmiljö och avinstallera oanvända versioner av gems genom att exekvera 'gem uninstall <gem>'.
+
+(6) Exekvera 'cap deploy:migrate' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
 
 == Kända fel
 
