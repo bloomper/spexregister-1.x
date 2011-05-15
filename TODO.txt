@@ -2,6 +2,9 @@ TODO
 ----
 
 - Create branch 1.1-maintenance
+- Fix libxml-ruby on Windows
+- Upload posters
+  - Tender Bar must be manually uploaded
 
 1.2
 ---
