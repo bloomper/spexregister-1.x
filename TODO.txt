@@ -4,18 +4,26 @@ TODO
 - Create branch 1.1-maintenance
 - Fix libxml-ruby on Windows
 - Upload posters
-  - Tender Bar must be manually uploaded
+- Capistrano problem 
+- Clean up old gems on bojan
 
 1.2
 ---
 
-- Mailman integration?
+- Dashboard report (first page)
+  - Total number of spexers
+  - Total number of spex
+  - Total number of functions
+  - Total number of spex categories
+  - Total number of function categories
+  - Total number of users
+  - Total number of updates
+  - Total number of logins
+  - Total number of news items
+  - Total number of tags
+  - Uptime?
 
-- IE problems
-  - IE 7
-    - entity index pages look somewhat crappy
-      - sidebar is too wide
-        - caused by #content &.with-sidebar +column(23)
+- Mailman integration?
 
 - Advanced search
   - Needs monitoring (monit, munin)?
@@ -24,11 +32,11 @@ TODO
   - http://techbot.me/2011/01/full-text-search-in-in-rails-with-sunspot-and-solr/
   - http://www.elasticsearch.org/
   - Must be able to search for empty fields (think "uncertain" addresses)
-  - Tag cloud
-    - http://www.medihack.org/2011/03/19/index-external-models-with-sunspotsolr/xi
 
 - Replace mail_queue with delayed_job?
   - Only if delayed_job is needed for advanced search
+  - If not used, remove script/delayed_job and from deploy.rb
+  - If used, fix "undefined local variable or method 'stage'" in deploy.rb
 
 Whenever
 --------
