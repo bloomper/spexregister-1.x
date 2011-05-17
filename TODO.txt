@@ -3,9 +3,6 @@ TODO
 
 - Create branch 1.1-maintenance
 - Fix libxml-ruby on Windows
-- Upload posters
-- Capistrano problem 
-- Clean up old gems on bojan
 
 1.2
 ---
@@ -21,7 +18,6 @@ TODO
   - Total number of logins
   - Total number of news items
   - Total number of tags
-  - Uptime?
 
 - Mailman integration?
 
@@ -35,8 +31,6 @@ TODO
 
 - Replace mail_queue with delayed_job?
   - Only if delayed_job is needed for advanced search
-  - If not used, remove script/delayed_job and from deploy.rb
-  - If used, fix "undefined local variable or method 'stage'" in deploy.rb
 
 Whenever
 --------
