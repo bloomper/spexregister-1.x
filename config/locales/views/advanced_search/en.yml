@@ -2,5 +2,9 @@
   views:
     advanced_search:
       title: "Advanced search"
+      page_title: "Advanced search"
       advanced_search: "Advanced search"
       latest_advanced_search_result: "Latest search result (advanced)"
+      index_title: "Search result"
+      empty_search_result: "No hits"
+      reset_search_result: "Reset search result"

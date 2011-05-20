@@ -26,6 +26,27 @@ class Spexare < ActiveRecord::Base
     :conditions => ['spex.id = ? and functions.id = ?', spex_id, function_id] }
   }
 
+  searchable do
+    string :last_name
+    string :first_name
+    string :nick_name
+    string :street_address
+    string :postal_code
+    string :postal_address
+    string :country
+    string :phone_home
+    string :phone_work
+    string :phone_mobile
+    string :phone_other
+    string :email_address
+    date :birth_date
+    boolean :chalmers_student
+    text :comment
+    boolean :deceased
+    boolean :publish_approval
+    boolean :want_circulars
+    boolean :want_email_circulars
+  end
   def full_name
     [first_name, nick_name.blank? ? ' ' : " '#{nick_name}' ", last_name].join
   end

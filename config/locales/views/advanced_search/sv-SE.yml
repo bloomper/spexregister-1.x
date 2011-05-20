@@ -2,5 +2,9 @@
   views:
     advanced_search:
       title: "Avancerad sökning"
+      page_title: "Avancerad sökning"
       advanced_search: "Avancerad sökning"
       latest_advanced_search_result: "Senaste sökresultatet (avancerad)"
+      index_title: "Sökresultat"
+      empty_search_result: "Inga träffar"
+      reset_search_result: "Nollställ sökresultat"
