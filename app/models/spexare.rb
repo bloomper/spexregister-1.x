@@ -28,25 +28,110 @@ class Spexare < ActiveRecord::Base
 
   searchable do
     string :last_name
+    string :efternamn, :using => :last_name
     string :first_name
+    string :förnamn, :using => :first_name
     string :nick_name
+    string :smeknamn, :using => :nick_name
     string :street_address
+    string :gatuadress, :using => :street_address
     string :postal_code
+    string :postkod, :using => :postal_code
     string :postal_address
+    string :postadress, :using => :postal_address
     string :country
+    string :land, :using => :country
     string :phone_home
+    string :telefon_hem, :using => :phone_home
     string :phone_work
+    string :telefon_arbete, :using => :phone_work
     string :phone_mobile
+    string :telefon_mobil, :using => :phone_mobile
     string :phone_other
+    string :telefon_annat, :using => :phone_other
     string :email_address
+    string :emailadress, :using => :email_address
     date :birth_date
+    date :födelsedatum, :using => :birth_date
+    integer :social_security_number
+    integer :personnummer, :using => :social_security_number
     boolean :chalmers_student
+    boolean :chalmerist, :using => :chalmers_student
+    string :graduation
+    string :examen, :using => :graduation
     text :comment
-    boolean :deceased
-    boolean :publish_approval
-    boolean :want_circulars
-    boolean :want_email_circulars
+    text :kommentar, :using => :comment
+    string :deceased do
+      deceased ? I18n.t('views.base.yes', :locale => 'en') : I18n.t('views.base.no', :locale => 'en')
+    end
+    string :avliden do
+      deceased ? I18n.t('views.base.yes', :locale => 'sv-SE') : I18n.t('views.base.no', :locale => 'sv-SE')
+    end
+    string :publish_approval do
+      publish_approval ? I18n.t('views.base.yes', :locale => 'en') : I18n.t('views.base.no', :locale => 'en')
+    end
+    string :tillåter_publicering do
+      publish_approval ? I18n.t('views.base.yes', :locale => 'sv-SE') : I18n.t('views.base.no', :locale => 'sv-SE')
+    end
+    string :want_circulars do
+      want_circulars ? I18n.t('views.base.yes', :locale => 'en') : I18n.t('views.base.no', :locale => 'en')
+    end
+    string :vill_ha_utskick do
+      want_circulars ? I18n.t('views.base.yes', :locale => 'sv-SE') : I18n.t('views.base.no', :locale => 'sv-SE')
+    end
+    string :want_email_circulars do
+      want_email_circulars ? I18n.t('views.base.yes', :locale => 'en') : I18n.t('views.base.no', :locale => 'en')
+    end
+    string :vill_ha_email_utskick do
+      want_email_circulars ? I18n.t('views.base.yes', :locale => 'sv-SE') : I18n.t('views.base.no', :locale => 'sv-SE')
+    end
+    string :fgv_memberships, :multiple => true do
+      memberships.by_kind(Membership.kind(:fgv).id).map { |membership| membership.year }
+    end
+    string :fgv_medlemsskap, :multiple => true do
+      memberships.by_kind(Membership.kind(:fgv).id).map { |membership| membership.year }
+    end
+    string :cing_memberships, :multiple => true do
+      memberships.by_kind(Membership.kind(:cing).id).map { |membership| membership.year }
+    end
+    string :cing_medlemsskap, :multiple => true do
+      memberships.by_kind(Membership.kind(:cing).id).map { |membership| membership.year }
+    end
+    string :taggings, :multiple => true do
+      taggings.map { |tagging| tagging.tag.name }
+    end
+    string :taggningar, :multiple => true do
+      taggings.map { |tagging| tagging.tag.name }
+    end
+    string :related_to do
+      !spouse.blank? ? spouse.full_name_without_nickname : nil
+    end
+    string :relaterad_till do
+      !spouse.blank? ? spouse.full_name_without_nickname : nil
+    end
+    string :spex_years, :multiple => true do
+      activities.map { |activity| activity.spex.year }
+    end
+    string :spex_titles, :multiple => true do
+      activities.map { |activity| activity.spex.spex_detail.title }
+    end
+    string :spex_categories, :multiple => true do
+      activities.map { |activity| activity.spex.spex_category.name }
+    end
+    string :function_names, :multiple => true do
+      activities.map { |activity| activity.functions.map { |function| function.name } }
+    end
+    string :function_categories, :multiple => true do
+      activities.map { |activity| activity.functions.map { |function| function.function_category.name } }
+    end
+    string :actor_roles, :multiple => true do
+      activities.map { |activity| activity.actors.map { |actor| actor.role } }
+    end
+    string :actor_vocals, :multiple => true do
+      activities.map { |activity| activity.actors.map { |actor| !actor.vocal.nil? ? Actor.vocal(actor.vocal_id).title : nil } }
+    end
   end
+
   def full_name
     [first_name, nick_name.blank? ? ' ' : " '#{nick_name}' ", last_name].join
   end

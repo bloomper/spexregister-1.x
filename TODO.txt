@@ -1,11 +1,17 @@
 TODO
 ----
 
-- Create branch 1.1-maintenance
-- Fix libxml-ruby on Windows
+- Impl
+  - N-gram (can only be done for text fields!)
+  - edismax instead of dismax?
+  - Swedish characters in fields? Does it work?
+    - Necessary to have Swedish fields?
+      - How to handle "boolean" fields in that case?
 
-1.2
----
+- Advanced search
+  - http://github.com/outoftime/sunspot
+  - http://techbot.me/2011/01/full-text-search-in-in-rails-with-sunspot-and-solr/
+  - Must be able to search for empty fields (think "uncertain" addresses)
 
 - Dashboard report (first page)
   - Total number of spexers
@@ -18,19 +24,11 @@ TODO
   - Total number of logins
   - Total number of news items
   - Total number of tags
+  - The above since your last login?
 
 - Mailman integration?
 
-- Advanced search
-  - Needs monitoring (monit, munin)?
-  - Use delayed_job for updating index?
-  - http://github.com/outoftime/sunspot
-  - http://techbot.me/2011/01/full-text-search-in-in-rails-with-sunspot-and-solr/
-  - http://www.elasticsearch.org/
-  - Must be able to search for empty fields (think "uncertain" addresses)
-
-- Replace mail_queue with delayed_job?
-  - Only if delayed_job is needed for advanced search
+- Upgrade Tomcat on bojan to 7.0.14
 
 Whenever
 --------
