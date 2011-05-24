@@ -226,6 +226,18 @@ För utveckling så kan man använda tex RadRails (http://www.radrails.org).
 
 (6) Exekvera 'cap deploy:migrate' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
 
+(7) Installera rapportdelen (spexregister.reports) av registret i en Tomcat.
+
+== Uppgradering 1.1 -> 1.2
+
+(1) Exekvera 'cap deploy:update' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb. Det är viktigt att produktionsmiljön inte använder sig av färgkodning (ANSI) för kommandot 'ls'.
+
+(2) Exekvera 'cap deploy:gems:install' från roten av applikationen (dvs där app, config, db osv finns) i utvecklingsmiljön. Ange lösenordet för den användare som definierats i deploy.rb.
+
+(3) Logga in i produktionsmiljö och avinstallera oanvända versioner av gems genom att exekvera 'gem uninstall <gem>'.
+
+(4) Installera sökdelen (spexregister.search) av registret i en Tomcat.
+
 == Kända fel
 
 Inga.
