@@ -6,3 +6,5 @@
       login: "Logga in"
       create_new_account: "Skapa nytt konto"
       forgot_my_password: "Glömt mitt lösenord"
+      new_account_notice: "Endast FGV-medlemmar har tillgång till registret. Är du inte det? Bli <a href=\"%{become_fgv_member_url}\">medlem</a>."
+      updated_contact_details_notice: "Har du nya kontaktuppgifter kan du maila dem till <a href=\"mailto:%{fgv_address_update_email_address}\">%{fgv_address_update_email_address}</a>."

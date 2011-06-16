@@ -15,7 +15,7 @@ Denna applikation är ett webbaserat register för Chalmersspexets räkning.
 - Ant 1.7.1
 - Ruby 1.8.7
 - RubyGems 1.3.5
-- Rails 2.3.11
+- Rails 2.3.12
 - ImageMagick 6.5.3
 - Subversion 1.6.6
 - Capistrano 2.5.19 (behövs endast om man skall utföra deployment-relaterade uppgifter)
@@ -214,7 +214,7 @@ För utveckling så kan man använda tex RadRails (http://www.radrails.org).
 
 == Uppgradering 1.0 -> 1.1
 
-(1) Uppgradera Rails genom att exekvera 'gem install rails --version 2.3.11'.
+(1) Uppgradera Rails genom att exekvera 'gem install rails --version 2.3.12'.
 
 (2) Avinstallera tidigare version av Rails genom att exekvera 'gem uninstall rails' och välj sedan rätt alternativ.
 

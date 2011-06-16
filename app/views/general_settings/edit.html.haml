@@ -12,4 +12,12 @@
     %br>
     = text_field_tag 'settings[general][admin_email_address]', Settings['general.admin_email_address'], :class => 'fullwidth'
   %p
+    %label= t 'views.settings.general.become_fgv_member_url'
+    %br>
+    = text_field_tag 'settings[general][become_fgv_member_url]', Settings['general.become_fgv_member_url'], :class => 'fullwidth'
+  %p
+    %label= t 'views.settings.general.fgv_address_update_email_address'
+    %br>
+    = text_field_tag 'settings[general][fgv_address_update_email_address]', Settings['general.fgv_address_update_email_address'], :class => 'fullwidth'
+  %p
     = button t('views.base.update_action')

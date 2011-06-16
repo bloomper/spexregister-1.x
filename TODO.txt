@@ -1,30 +1,30 @@
 TODO
 ----
 
+- SWITCH TO LINUX and elasticsearch
+
 - Impl
+  - How to support wildcard searches
   - N-gram (can only be done for text fields!)
   - edismax instead of dismax?
   - Swedish characters in fields? Does it work?
     - Necessary to have Swedish fields?
       - How to handle "boolean" fields in that case?
+  - Must be able to search for empty fields (think "uncertain" addresses)
+  - Fix search form
+    - Must support full text search AND query syntax
+  - Fix search results page
+  - Fix facets
+  - Add help popup
+
+- http://outofti.me/page/3
+
+- Add edit shortcut on show page for all entities
+  - Does it mess up history trail?
 
 - Advanced search
   - http://github.com/outoftime/sunspot
   - http://techbot.me/2011/01/full-text-search-in-in-rails-with-sunspot-and-solr/
-  - Must be able to search for empty fields (think "uncertain" addresses)
-
-- Dashboard report (first page)
-  - Total number of spexers
-  - Total number of spex
-  - Total number of functions
-  - Total number of spex categories
-  - Total number of function categories
-  - Total number of users
-  - Total number of updates
-  - Total number of logins
-  - Total number of news items
-  - Total number of tags
-  - The above since your last login?
 
 - Mailman integration?
 

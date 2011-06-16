@@ -6,3 +6,5 @@
       login: "Log in"
       create_new_account: "Create new account"
       forgot_my_password: "Forgot my password"
+      new_account_notice: "Only FGV members have access to this roster. Are you not a member? Become <a href=\"%{become_fgv_member_url}\">one</a>."
+      updated_contact_details_notice: " If you have new contact details, you can mail those to <a href=\"mailto:%{fgv_address_update_email_address}\">%{fgv_address_update_email_address}</a>."

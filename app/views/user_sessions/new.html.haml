@@ -19,4 +19,7 @@
     = link_to t('views.user_session.create_new_account'), signup_path
     |
     = link_to t('views.user_session.forgot_my_password'), new_password_reset_path
-  
+  %p
+    != t 'views.user_session.new_account_notice', :become_fgv_member_url => Settings['general.become_fgv_member_url']
+    %br>
+    != t 'views.user_session.updated_contact_details_notice', :fgv_address_update_email_address => Settings['general.fgv_address_update_email_address']    
