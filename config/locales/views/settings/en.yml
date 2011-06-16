@@ -12,6 +12,8 @@
         prefix: "General"
         site_url: "URL to the roster"
         admin_email_address: "Mail address to the administrator"
+        become_fgv_member_url: "URL to information page about FGV membership"
+        fgv_address_update_email_address: "Mail address to address update at FGV"
       spex_categories:
         tab_title: "Spex categories"
         prefix: "Spex category"

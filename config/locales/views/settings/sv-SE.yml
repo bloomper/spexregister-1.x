@@ -12,6 +12,8 @@
         prefix: "Allmänna "
         site_url: "URL till registret"
         admin_email_address: "Mailadress till administratör"
+        become_fgv_member_url: "URL till informationssida om medlemsskap i FGV"
+        fgv_address_update_email_address: "Mailadress till adressuppdatering hos FGV"
       spex_categories:
         tab_title: "Spexkategorier"
         prefix: "Spexkategori"
