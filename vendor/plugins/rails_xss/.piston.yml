@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 3b9afae5600f1e4c71cc3e945792710fcc6002f2
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: https://github.com/rails/rails_xss.git
