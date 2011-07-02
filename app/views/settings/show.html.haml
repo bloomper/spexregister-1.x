@@ -2,7 +2,7 @@
 
 = render :partial => 'tabs', :locals => {:current_type => t('views.settings.all.prefix')}
 
-%h2= t 'views.settings.page_title', :type => t('views.settings.general.prefix')
+%h2!= t('views.settings.page_title', :type => t('views.settings.general.prefix')) + ' ' + link_to(icon_tag('edit'), edit_settings_url(:type => 'general'))
 
 %table.show
   %tr
@@ -28,10 +28,7 @@
   %tr
     %td= h Settings['general.fgv_address_update_email_address']
 
-%p
-  = link_to_with_icon('edit', t('views.base.edit_action'), edit_settings_url(:type => 'general'))
-
-%h2= t 'views.settings.page_title', :type => t('views.settings.spex_categories.prefix')
+%h2!= t('views.settings.page_title', :type => t('views.settings.spex_categories.prefix')) + ' ' + link_to(icon_tag('edit'), edit_settings_url(:type => 'spex_categories'))
 
 %table.show
   %tr
@@ -39,10 +36,7 @@
   %tr
     %td= h Settings['spex_categories.first_year']
 
-%p
-  = link_to_with_icon('edit', t('views.base.edit_action'), edit_settings_url(:type => 'spex_categories'))
-
-%h2= t 'views.settings.page_title', :type => t('views.settings.reports.prefix')
+%h2!= t('views.settings.page_title', :type => t('views.settings.reports.prefix')) + ' ' + link_to(icon_tag('edit'), edit_settings_url(:type => 'reports'))
 
 %table.show
   %tr
@@ -90,7 +84,4 @@
       %tr
         %td
           != get_selected_functions(Settings["reports.pluton_list_order"]).collect {|i| i.name}.join(' &rArr; ')
-
-%p
-  = link_to_with_icon('edit', t('views.base.edit_action'), edit_settings_url(:type => 'reports'))
 

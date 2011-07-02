@@ -1,6 +1,6 @@
 = render :partial => 'sub_menu'
 
-%h1= t 'views.function_category.page_title_html', :action => t('views.base.viewing_action'), :description => @function_category.name
+%h1= t('views.function_category.page_title_html', :action => t('views.base.viewing_action'), :description => @function_category.name) + ' ' + link_to(icon_tag('edit'), edit_resource_url(@function_category))
 
 %table.show
   %tr
