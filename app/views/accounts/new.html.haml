@@ -28,6 +28,9 @@
       %br>
       != negative_text_area_tag @captcha, :description
     %p
+      = check_box_tag :accept_cookies, true, false 
+      %label= t 'views.account.accept_cookies'
+    %p
       = submit_tag t('views.account.create_my_account'), :class => 'button'
       = t('views.base.or')
       = link_to t('views.base.cancel_action'), login_url
