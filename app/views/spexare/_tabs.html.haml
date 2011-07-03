@@ -1,5 +1,5 @@
 %div.leftWide
-  %h1= t('views.spexare.page_title_html', :action => current_action, :description => description) + ' ' + ((!edit_mode && current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare.id == spexare.id)) ? link_to(icon_tag('edit'), edit_resource_url(@spexare)) : '')
+  %h1= t('views.spexare.page_title_html', :action => current_action, :description => description) + ' ' + ((!edit_mode && current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare.id == @spexare.id)) ? link_to(icon_tag('edit'), edit_resource_url(@spexare)) : '')
 
 - if current_tab == "spexare_tab"
   = render :partial => '/shared/export_menu', :locals => { :reports => get_available_reports, :id => @spexare.id }
