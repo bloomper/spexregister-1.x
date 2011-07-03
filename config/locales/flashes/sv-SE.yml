@@ -103,6 +103,7 @@
       create:
         success: "Kontot har skapats men är ännu inte godkänt"
         failure: "Kontot kunde inte skapas"
+        accept_cookies_error_message: "Du måste acceptera kakor (cookies) för att kunna använda denna webbplats"
       update:
         success: "Kontot har uppdaterats"
         failure: "Kontot kunde inte uppdateras"

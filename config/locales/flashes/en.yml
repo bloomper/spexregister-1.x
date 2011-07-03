@@ -91,6 +91,7 @@
       create:
         success: "The account has been created but not yet approved"
         failure: "The account could not be created"
+        accept_cookies_error_message: "You must accept cookies to be able to use this web site"
       update:
         success: "The account has been updated"
         failure: "The account could not be updated"
