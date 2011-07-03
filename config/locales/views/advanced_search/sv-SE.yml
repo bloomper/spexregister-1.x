@@ -2,7 +2,7 @@
   views:
     advanced_search:
       title: "Avancerad sökning"
-      page_title: "Avancerad sökning"
+      page_title: "Sök spexare"
       advanced_search: "Avancerad sökning"
       latest_advanced_search_result: "Senaste sökresultatet (avancerad)"
       index_title: "Sökresultat"

@@ -28,85 +28,46 @@ class Spexare < ActiveRecord::Base
 
   searchable do
     string :last_name
-    string :efternamn, :using => :last_name
     string :first_name
-    string :förnamn, :using => :first_name
     string :nick_name
-    string :smeknamn, :using => :nick_name
     string :street_address
-    string :gatuadress, :using => :street_address
     string :postal_code
-    string :postkod, :using => :postal_code
     string :postal_address
-    string :postadress, :using => :postal_address
     string :country
-    string :land, :using => :country
     string :phone_home
-    string :telefon_hem, :using => :phone_home
     string :phone_work
-    string :telefon_arbete, :using => :phone_work
     string :phone_mobile
-    string :telefon_mobil, :using => :phone_mobile
     string :phone_other
-    string :telefon_annat, :using => :phone_other
     string :email_address
-    string :emailadress, :using => :email_address
     date :birth_date
-    date :födelsedatum, :using => :birth_date
     integer :social_security_number
-    integer :personnummer, :using => :social_security_number
-    boolean :chalmers_student
-    boolean :chalmerist, :using => :chalmers_student
+    string :chalmers_student, :multiple => true do
+      AVAILABLE_LOCALES.map { |locale| chalmers_student ? I18n.t('views.base.yes', :locale => locale[0]) : I18n.t('views.base.no', :locale => locale[0]) }
+    end
     string :graduation
-    string :examen, :using => :graduation
     text :comment
-    text :kommentar, :using => :comment
-    string :deceased do
-      deceased ? I18n.t('views.base.yes', :locale => 'en') : I18n.t('views.base.no', :locale => 'en')
+    string :deceased, :multiple => true do
+      AVAILABLE_LOCALES.map { |locale| deceased ? I18n.t('views.base.yes', :locale => locale[0]) : I18n.t('views.base.no', :locale => locale[0]) }
     end
-    string :avliden do
-      deceased ? I18n.t('views.base.yes', :locale => 'sv-SE') : I18n.t('views.base.no', :locale => 'sv-SE')
+    string :publish_approval, :multiple => true do
+      AVAILABLE_LOCALES.map { |locale| publish_approval ? I18n.t('views.base.yes', :locale => locale[0]) : I18n.t('views.base.no', :locale => locale[0]) }
     end
-    string :publish_approval do
-      publish_approval ? I18n.t('views.base.yes', :locale => 'en') : I18n.t('views.base.no', :locale => 'en')
+    string :want_circulars, :multiple => true do
+      AVAILABLE_LOCALES.map { |locale| want_circulars ? I18n.t('views.base.yes', :locale => locale[0]) : I18n.t('views.base.no', :locale => locale[0]) }
     end
-    string :tillåter_publicering do
-      publish_approval ? I18n.t('views.base.yes', :locale => 'sv-SE') : I18n.t('views.base.no', :locale => 'sv-SE')
-    end
-    string :want_circulars do
-      want_circulars ? I18n.t('views.base.yes', :locale => 'en') : I18n.t('views.base.no', :locale => 'en')
-    end
-    string :vill_ha_utskick do
-      want_circulars ? I18n.t('views.base.yes', :locale => 'sv-SE') : I18n.t('views.base.no', :locale => 'sv-SE')
-    end
-    string :want_email_circulars do
-      want_email_circulars ? I18n.t('views.base.yes', :locale => 'en') : I18n.t('views.base.no', :locale => 'en')
-    end
-    string :vill_ha_email_utskick do
-      want_email_circulars ? I18n.t('views.base.yes', :locale => 'sv-SE') : I18n.t('views.base.no', :locale => 'sv-SE')
+    string :want_email_circulars, :multiple => true do
+      AVAILABLE_LOCALES.map { |locale| want_email_circulars ? I18n.t('views.base.yes', :locale => locale[0]) : I18n.t('views.base.no', :locale => locale[0]) }
     end
     string :fgv_memberships, :multiple => true do
-      memberships.by_kind(Membership.kind(:fgv).id).map { |membership| membership.year }
-    end
-    string :fgv_medlemsskap, :multiple => true do
       memberships.by_kind(Membership.kind(:fgv).id).map { |membership| membership.year }
     end
     string :cing_memberships, :multiple => true do
       memberships.by_kind(Membership.kind(:cing).id).map { |membership| membership.year }
     end
-    string :cing_medlemsskap, :multiple => true do
-      memberships.by_kind(Membership.kind(:cing).id).map { |membership| membership.year }
-    end
     string :taggings, :multiple => true do
       taggings.map { |tagging| tagging.tag.name }
     end
-    string :taggningar, :multiple => true do
-      taggings.map { |tagging| tagging.tag.name }
-    end
     string :related_to do
-      !spouse.blank? ? spouse.full_name_without_nickname : nil
-    end
-    string :relaterad_till do
       !spouse.blank? ? spouse.full_name_without_nickname : nil
     end
     string :spex_years, :multiple => true do

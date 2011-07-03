@@ -19,9 +19,6 @@ TODO
 
 - http://outofti.me/page/3
 
-- Add edit shortcut on show page for all entities
-  - Does it mess up history trail?
-
 - Advanced search
   - http://github.com/outoftime/sunspot
   - http://techbot.me/2011/01/full-text-search-in-in-rails-with-sunspot-and-solr/
