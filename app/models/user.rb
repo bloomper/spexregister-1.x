@@ -83,6 +83,11 @@ class User < ActiveRecord::Base
     end
   end
   
+  def before_destroy
+    # Keeping events for now
+    #UserEvent.destroy_all(:user_id => self.id)
+  end
+
   def after_destroy
     if User.count.zero?
       raise I18n.t('user.cannot_delete_all_users')
