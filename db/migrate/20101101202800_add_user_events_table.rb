@@ -9,7 +9,6 @@ class AddUserEventsTable < ActiveRecord::Migration
       t.string :created_by
       t.string :updated_by
       t.timestamps
-      t.foreign_key :user_id, :users, :id
     end
     add_index :user_events, :user_id
     add_index :user_events, :kind_id
