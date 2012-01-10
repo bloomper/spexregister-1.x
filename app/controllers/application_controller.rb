@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   rescue_from ActionController::RoutingError, :with => :page_not_found
+  rescue_from ActionController::MethodNotAllowed, :with => :page_not_found
   rescue_from ActionController::InvalidAuthenticityToken, :with => :internal_error
   rescue_from WillPaginate::InvalidPage, :with => :page_not_found
   
