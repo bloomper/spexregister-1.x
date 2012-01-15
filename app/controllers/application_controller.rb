@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
   
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+  rescue_from ActiveRecord::StaleObjectError, :with => :stale_object
   rescue_from ActionController::RoutingError, :with => :page_not_found
   rescue_from ActionController::MethodNotAllowed, :with => :page_not_found
   rescue_from ActionController::InvalidAuthenticityToken, :with => :internal_error
@@ -54,6 +55,11 @@ class ApplicationController < ActionController::Base
   
   def record_not_found
     flash[:warning] = t 'views.base.record_not_found'
+    redirect_to home_path
+  end
+  
+  def stale_object
+    flash[:warning] = t 'views.base.stale_object'
     redirect_to home_path
   end
   

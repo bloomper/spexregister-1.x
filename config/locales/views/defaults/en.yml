@@ -53,5 +53,6 @@
       page_entries_showing: "Displaying %{entry_name} %{start} - %{end} of %{total} in total"
       page_not_found: "Sorry, the requested page was not found"
       record_not_found: "Sorry, the requested entity was not found"
+      stale_object: "The entity could not be updated as it has already been updated by some other user. Please reload the entity and retry."
       internal_error: "Internal error, please try again"
       show_revivals: "Show revivals"
