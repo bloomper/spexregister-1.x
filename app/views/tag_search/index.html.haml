@@ -4,7 +4,7 @@
   %h1= t 'views.tag_search.index_title'
 
 %div.right
-  = link_to icon_tag('reset') + ' ' + t('views.tag_search.reset_search_result'), search_url('dummy'), :method => :delete, :class => 'button small'
+  = link_to icon_tag('reset') + ' ' + t('views.tag_search.reset_search_result'), tag_search_url('dummy'), :method => :delete, :class => 'button small'
   = render :partial => '/shared/export_menu', :locals => { :reports => get_available_reports, :id => 'latest_tag_search_query_ids' }
 
 %br.clear
