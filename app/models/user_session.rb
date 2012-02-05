@@ -8,6 +8,7 @@ class UserSession < Authlogic::Session::Base
   cookie_key '_spexregister_credentials'
   attr_accessor :session_id
 
+  protected
   def before_create
     UserEvent.create(:user => self.user, :kind => UserEvent.kind(:login), :session_id => @session_id)
   end

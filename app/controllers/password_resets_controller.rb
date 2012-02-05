@@ -24,7 +24,7 @@ class PasswordResetsController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
     if @user.save
       flash[:success] = I18n.t("flash.password_resets.update.success")
-      current_user_session.destroy
+      current_user_session.destroy unless current_user_session.nil?
       reset_lockdown_session
       redirect_to home_path
     else
