@@ -120,7 +120,10 @@
         %br>
         = link_to_open(image_tag(@spexare.picture.url(:thumb)), @spexare.picture.url, :class => 'fancybox-single')
         %br>
-        = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => destroy_picture_spexare_url(@spexare), :method => :get, :before => '', :success => "jQuery('#current-picture').remove(); jQuery('#current-picture-separator').remove();" }
+        - if !@spexare.new_record?
+          = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => destroy_picture_spexare_url(@spexare), :method => :get, :before => '', :success => "jQuery('#current-picture').remove(); jQuery('#current-picture-separator').remove();" }
+        - elsif
+          = link_to_function icon_tag('remove') + ' ' + t('views.base.remove_action'), "jQuery('#current-picture').remove(); jQuery('#current-picture-separator').remove();"
       %br#current-picture-separator>
     - f.field_container :picture do
       = f.label :poster, t('activerecord.attributes.spexare.picture')

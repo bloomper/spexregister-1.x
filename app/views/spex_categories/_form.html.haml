@@ -17,7 +17,10 @@
       %br>
       = link_to(image_tag(@spex_category.logo.url(:thumb)), @spex_category.logo.url, :class => 'fancybox-single')
       %br>
-      = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => destroy_logo_spex_category_url(@spex_category), :method => :get, :before => '', :success => "jQuery('#current-logo').remove(); jQuery('#current-logo-separator').remove();" }
+      - if !@spex_category.new_record?
+        = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => destroy_logo_spex_category_url(@spex_category), :method => :get, :before => '', :success => "jQuery('#current-logo').remove(); jQuery('#current-logo-separator').remove();" }
+      - elsif
+        = link_to_function icon_tag('remove') + ' ' + t('views.base.remove_action'), "jQuery('#current-logo').remove(); jQuery('#current-logo-separator').remove();"
     %br#current-logo-separator>
   - f.field_container :logo do
     = f.label :logo, t('activerecord.attributes.spex_category.logo')
