@@ -11,7 +11,10 @@
       %br>
       = link_to(image_tag(@spex.spex_detail.poster.url(:thumb)), @spex.spex_detail.poster.url, :class => 'fancybox-single')
       %br>
-      = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => destroy_poster_spex_url(@spex), :method => :get, :before => '', :success => "jQuery('#current-poster').remove(); jQuery('#current-poster-separator').remove();" }
+      - if !@spex.new_record?
+        = link_to_remote icon_tag('remove') + ' ' + t('views.base.remove_action'), { :url => destroy_poster_spex_url(@spex), :method => :get, :before => '', :success => "jQuery('#current-poster').remove(); jQuery('#current-poster-separator').remove();" }
+      - elsif
+        = link_to_function icon_tag('remove') + ' ' + t('views.base.remove_action'), "jQuery('#current-poster').remove(); jQuery('#current-poster-separator').remove();"
     %br#current-poster-separator>
   - f.nested_field_container :poster do
     = f.label :poster, t('activerecord.attributes.spex_detail.poster')
