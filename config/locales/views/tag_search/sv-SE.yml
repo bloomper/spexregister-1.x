@@ -8,5 +8,5 @@
       index_title: "Sökresultat"
       empty_search_result: "Inga träffar"
       reset_search_result: "Nollställ sökresultat"
-      no_of_taggings: "Taggningar: %{count}"
+      no_of_taggings: "Taggningar: %{occurrence}"
       no_tags_exist: "Det finns inga taggar"
