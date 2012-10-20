@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20110428191858) do
     t.datetime "updated_at"
   end
 
+  add_index "activities", ["spexare_id"], :name => "spexare_id"
+
   create_table "actors", :force => true do |t|
     t.string   "role"
     t.integer  "vocal_id"
@@ -58,6 +60,9 @@ ActiveRecord::Schema.define(:version => 20110428191858) do
     t.datetime "updated_at"
   end
 
+  add_index "function_activities", ["function_id"], :name => "function_id"
+  add_index "function_activities", ["activity_id"], :name => "activity_id"
+
   create_table "function_categories", :force => true do |t|
     t.string   "name",                            :null => false
     t.boolean  "has_actor",    :default => false
@@ -80,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20110428191858) do
     t.datetime "updated_at"
   end
 
+  add_index "functions", ["function_category_id"], :name => "function_category_id"
   add_index "functions", ["name"], :name => "index_functions_on_name"
 
   create_table "memberships", :force => true do |t|
@@ -123,6 +129,9 @@ ActiveRecord::Schema.define(:version => 20110428191858) do
     t.integer "user_group_id"
   end
 
+  add_index "permissions_user_groups", ["permission_id"], :name => "permission_id"
+  add_index "permissions_user_groups", ["user_group_id"], :name => "user_group_id"
+
   create_table "queued_mails", :force => true do |t|
     t.text   "object"
     t.string "mailer"
@@ -137,6 +146,9 @@ ActiveRecord::Schema.define(:version => 20110428191858) do
     t.datetime "updated_at"
   end
 
+  add_index "relationships", ["spexare_id"], :name => "spexare_id"
+  add_index "relationships", ["spouse_id"], :name => "spouse_id"
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
@@ -144,8 +156,8 @@ ActiveRecord::Schema.define(:version => 20110428191858) do
     t.datetime "updated_at"
   end
 
-  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "settings", :force => true do |t|
     t.string   "var",                       :null => false
@@ -172,7 +184,9 @@ ActiveRecord::Schema.define(:version => 20110428191858) do
     t.integer  "rgt"
   end
 
+  add_index "spex", ["spex_category_id"], :name => "spex_category_id"
   add_index "spex", ["year"], :name => "index_spex_on_year"
+  add_index "spex", ["spex_detail_id"], :name => "spex_detail_id"
 
   create_table "spex_activities", :force => true do |t|
     t.integer  "spex_id",                     :null => false
@@ -183,6 +197,9 @@ ActiveRecord::Schema.define(:version => 20110428191858) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "spex_activities", ["spex_id"], :name => "spex_id"
+  add_index "spex_activities", ["activity_id"], :name => "activity_id"
 
   create_table "spex_categories", :force => true do |t|
     t.string   "name",                                          :null => false
@@ -248,8 +265,8 @@ ActiveRecord::Schema.define(:version => 20110428191858) do
     t.boolean  "want_email_circulars",             :default => false
   end
 
-  add_index "spexare", ["first_name"], :name => "index_spexare_on_first_name"
   add_index "spexare", ["last_name"], :name => "index_spexare_on_last_name"
+  add_index "spexare", ["first_name"], :name => "index_spexare_on_first_name"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id",                      :null => false
@@ -261,8 +278,8 @@ ActiveRecord::Schema.define(:version => 20110428191858) do
     t.datetime "updated_at"
   end
 
-  add_index "taggings", ["spexare_id"], :name => "index_taggings_on_spexare_id"
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["spexare_id"], :name => "index_taggings_on_spexare_id"
 
   create_table "tags", :force => true do |t|
     t.string   "name"
@@ -286,8 +303,8 @@ ActiveRecord::Schema.define(:version => 20110428191858) do
     t.datetime "updated_at"
   end
 
-  add_index "user_events", ["kind_id"], :name => "index_user_events_on_kind_id"
   add_index "user_events", ["user_id"], :name => "index_user_events_on_user_id"
+  add_index "user_events", ["kind_id"], :name => "index_user_events_on_kind_id"
 
   create_table "user_groups", :force => true do |t|
     t.string   "name"
@@ -306,6 +323,9 @@ ActiveRecord::Schema.define(:version => 20110428191858) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "user_groups_users", ["user_group_id"], :name => "user_group_id"
+  add_index "user_groups_users", ["user_id"], :name => "user_id"
 
   create_table "users", :force => true do |t|
     t.string   "username",                          :null => false
@@ -329,8 +349,41 @@ ActiveRecord::Schema.define(:version => 20110428191858) do
     t.datetime "updated_at"
   end
 
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
   add_index "users", ["spexare_id"], :name => "index_users_on_spexare_id", :unique => true
   add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
-  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
+
+  add_foreign_key "activities", ["spexare_id"], "spexare", ["id"], :name => "activities_ibfk_1"
+
+  add_foreign_key "actors", ["function_activity_id"], "function_activities", ["id"], :name => "actors_ibfk_1"
+
+  add_foreign_key "function_activities", ["function_id"], "functions", ["id"], :name => "function_activities_ibfk_1"
+  add_foreign_key "function_activities", ["activity_id"], "activities", ["id"], :name => "function_activities_ibfk_2"
+
+  add_foreign_key "functions", ["function_category_id"], "function_categories", ["id"], :name => "functions_ibfk_1"
+
+  add_foreign_key "memberships", ["spexare_id"], "spexare", ["id"], :name => "memberships_ibfk_1"
+
+  add_foreign_key "permissions_user_groups", ["permission_id"], "permissions", ["id"], :name => "permissions_user_groups_ibfk_1"
+  add_foreign_key "permissions_user_groups", ["user_group_id"], "user_groups", ["id"], :name => "permissions_user_groups_ibfk_2"
+
+  add_foreign_key "relationships", ["spexare_id"], "spexare", ["id"], :name => "relationships_ibfk_1"
+  add_foreign_key "relationships", ["spouse_id"], "spexare", ["id"], :name => "relationships_ibfk_2"
+
+  add_foreign_key "spex", ["spex_category_id"], "spex_categories", ["id"], :name => "spex_ibfk_1"
+  add_foreign_key "spex", ["spex_detail_id"], "spex_details", ["id"], :name => "spex_ibfk_2"
+
+  add_foreign_key "spex_activities", ["spex_id"], "spex", ["id"], :name => "spex_activities_ibfk_1"
+  add_foreign_key "spex_activities", ["activity_id"], "activities", ["id"], :name => "spex_activities_ibfk_2"
+
+  add_foreign_key "taggings", ["spexare_id"], "spexare", ["id"], :name => "taggings_ibfk_1"
+  add_foreign_key "taggings", ["tag_id"], "tags", ["id"], :name => "taggings_ibfk_2"
+
+  add_foreign_key "user_events", ["user_id"], "users", ["id"], :name => "user_events_ibfk_1"
+
+  add_foreign_key "user_groups_users", ["user_group_id"], "user_groups", ["id"], :name => "user_groups_users_ibfk_1"
+  add_foreign_key "user_groups_users", ["user_id"], "users", ["id"], :name => "user_groups_users_ibfk_2"
+
+  add_foreign_key "users", ["spexare_id"], "spexare", ["id"], :name => "users_ibfk_1"
 
 end
