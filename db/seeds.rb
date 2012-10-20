@@ -360,3 +360,9 @@ Spex.create :year => '2010', :spex_detail_attributes => {:title => 'Kristian Tyr
 Spex.create :year => '2010', :spex_detail_attributes => {:title => 'Lucia'}, :spex_category => vera_spex_category
 
 Spex.create :year => '2011', :spex_detail_attributes => {:title => 'Marie Curie'}, :spex_category => bob_spex_category
+
+Spex.create :year => '2011', :spex_detail_attributes => {:title => 'Karl XII'}, :spex_category => vera_spex_category
+
+Spex.create :year => '2012', :spex_detail_attributes => {:title => 'Christofer Columbus'}, :spex_category => bob_spex_category
+
+Spex.create :year => '2012', :spex_detail_attributes => {:title => 'Bröderna Lumière'}, :spex_category => vera_spex_category
