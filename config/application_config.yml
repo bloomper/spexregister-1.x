@@ -15,7 +15,7 @@ development: &defaults
   first_fgv_year: 1987
   first_cing_year: 1907
   default_country: 'SE'
-  google_analytics_account_id: 'UA-29896366-1'
+  google_analytics_account_id: 'UA-35742612-1'
 test:
   <<: *defaults
 production:
