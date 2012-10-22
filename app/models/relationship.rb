@@ -1,7 +1,7 @@
 class Relationship < ActiveRecord::Base
   set_primary_key :spexare_id
-  belongs_to :spexare, :touch => true
-  belongs_to :spouse, :class_name => 'Spexare', :touch => true
+  belongs_to :spexare
+  belongs_to :spouse, :class_name => 'Spexare'
 
   after_create :create_other_side  
   after_destroy :delete_both_sides 
