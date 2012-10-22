@@ -1,5 +1,5 @@
 class Tagging < ActiveRecord::Base
-  belongs_to :spexare, :touch => true
+  belongs_to :spexare
   belongs_to :tag
 
   protected

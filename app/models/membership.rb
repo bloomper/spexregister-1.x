@@ -1,5 +1,5 @@
 class Membership < ActiveRecord::Base
-  belongs_to :spexare, :touch => true
+  belongs_to :spexare
   belongs_to_enum :kind,
   { 1 => {:name => :fgv, :title => I18n.t('membership.kind.fgv') },
     2 => {:name => :cing, :title => I18n.t('membership.kind.cing')}
