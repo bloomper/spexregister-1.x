@@ -1,0 +1,10 @@
+"sv-SE":
+  views:
+    full_text_search:
+      title: "Fritextsökning"
+      page_title: "Sök spexare"
+      full_text_search: "Fritextsökning"
+      latest_full_text_search_result: "Senaste sökresultatet (fritext)"
+      index_title: "Sökresultat"
+      empty_search_result: "Inga träffar"
+      reset_search_result: "Nollställ sökresultat"

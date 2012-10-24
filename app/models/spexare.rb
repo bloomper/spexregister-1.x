@@ -27,24 +27,24 @@ class Spexare < ActiveRecord::Base
   }
 
   searchable do
-    string :last_name
-    string :first_name
-    string :nick_name
-    string :street_address
-    string :postal_code
-    string :postal_address
-    string :country
-    string :phone_home
-    string :phone_work
-    string :phone_mobile
-    string :phone_other
-    string :email_address
-    date :birth_date
-    integer :social_security_number
+    text :last_name, :stored => true
+    text :first_name, :stored => true
+    text :nick_name, :stored => true
+    text :street_address
+    text :postal_code
+    text :postal_address
+    text :country
+    text :phone_home
+    text :phone_work
+    text :phone_mobile
+    text :phone_other
+    text :email_address
+    text :birth_date
+    #text :social_security_number
     string :chalmers_student, :multiple => true do
       AVAILABLE_LOCALES.map { |locale| chalmers_student ? I18n.t('views.base.yes', :locale => locale[0]) : I18n.t('views.base.no', :locale => locale[0]) }
     end
-    string :graduation
+    text :graduation
     text :comment
     string :deceased, :multiple => true do
       AVAILABLE_LOCALES.map { |locale| deceased ? I18n.t('views.base.yes', :locale => locale[0]) : I18n.t('views.base.no', :locale => locale[0]) }
@@ -58,38 +58,38 @@ class Spexare < ActiveRecord::Base
     string :want_email_circulars, :multiple => true do
       AVAILABLE_LOCALES.map { |locale| want_email_circulars ? I18n.t('views.base.yes', :locale => locale[0]) : I18n.t('views.base.no', :locale => locale[0]) }
     end
-    string :fgv_memberships, :multiple => true do
+    text :fgv_memberships do
       memberships.by_kind(Membership.kind(:fgv).id).map { |membership| membership.year }
     end
-    string :cing_memberships, :multiple => true do
+    text :cing_memberships do
       memberships.by_kind(Membership.kind(:cing).id).map { |membership| membership.year }
     end
-    string :taggings, :multiple => true do
+    text :taggings do
       taggings.map { |tagging| tagging.tag.name }
     end
-    string :related_to do
+    text :related_to do
       !spouse.blank? ? spouse.full_name_without_nickname : nil
     end
-    string :spex_years, :multiple => true do
-      activities.map { |activity| activity.spex.year }
+    text :spex_years do
+      activities.map { |activity| activity.spex.year unless activity.spex.nil? }
     end
-    string :spex_titles, :multiple => true do
-      activities.map { |activity| activity.spex.spex_detail.title }
+    text :spex_titles do
+      activities.map { |activity| activity.spex.spex_detail.title unless activity.spex.nil? || activity.spex.spex_detail.nil? }
     end
-    string :spex_categories, :multiple => true do
-      activities.map { |activity| activity.spex.spex_category.name }
+    text :spex_categories do
+      activities.map { |activity| activity.spex.spex_category.name unless activity.spex.nil? || activity.spex.spex_detail.nil? }
     end
-    string :function_names, :multiple => true do
-      activities.map { |activity| activity.functions.map { |function| function.name } }
+    text :function_names do
+      activities.map { |activity| activity.functions.map { |function| function.name } unless activity.functions.empty? }
     end
-    string :function_categories, :multiple => true do
-      activities.map { |activity| activity.functions.map { |function| function.function_category.name } }
+    text :function_categories do
+      activities.map { |activity| activity.functions.map { |function| function.function_category.name unless function.function_category.nil? } unless activity.functions.empty? }
     end
-    string :actor_roles, :multiple => true do
-      activities.map { |activity| activity.actors.map { |actor| actor.role } }
+    text :actor_roles do
+      activities.map { |activity| activity.actors.map { |actor| actor.role } unless activity.actors.empty? }
     end
-    string :actor_vocals, :multiple => true do
-      activities.map { |activity| activity.actors.map { |actor| !actor.vocal.nil? ? Actor.vocal(actor.vocal_id).title : nil } }
+    text :actor_vocals do
+      activities.map { |activity| activity.actors.map { |actor| !actor.vocal.nil? ? Actor.vocal(actor.vocal_id).title : nil } unless activity.actors.empty? }
     end
   end
 

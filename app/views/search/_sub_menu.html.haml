@@ -6,6 +6,9 @@
     = tab :new_tag_search, :match_path => '/tag_search/new', :translation_key => 'views.tag_search.search'
     - if latest_tag_search_query_exists?
       = tab :tag_search_index, :match_path => '/tag_search', :not_match_path => '/tag_search/new', :translation_key => 'views.tag_search.latest_search_result', :url_params => latest_tag_search_query
+    = tab :new_full_text_search, :match_path => '/full_text_search/new', :translation_key => 'views.full_text_search.full_text_search'
+    - if latest_full_text_search_query_exists?
+      = tab :full_text_search_index, :match_path => '/full_text_search', :not_match_path => '/full_text_search/new', :translation_key => 'views.full_text_search.latest_full_text_search_result', :url_params => latest_full_text_search_query
     - if latest_advanced_search_query_exists?
       = tab :new_advanced_search, :match_path => '/advanced_search/new', :translation_key => 'views.advanced_search.advanced_search'
       = tab :advanced_search_index, :match_path => '/advanced_search', :not_match_path => '/advanced_search/new', :translation_key => 'views.advanced_search.latest_advanced_search_result', :css_class => 'last', :url_params => latest_advanced_search_query

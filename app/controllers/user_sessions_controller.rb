@@ -24,6 +24,7 @@ class UserSessionsController < ApplicationController
   def destroy
     session[:latest_search_query] = nil
     session[:latest_tag_search_query] = nil
+    session[:latest_full_text_search_query] = nil
     session[:latest_advanced_search_query] = nil
     current_user_session.session_id = request.session_options[:id] unless current_user_session.nil?
     current_user_session.destroy unless current_user_session.nil?

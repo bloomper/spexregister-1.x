@@ -109,6 +109,7 @@ set_permission(:home).with_controller(:home)
 set_permission(:account).with_controller(:accounts).except_methods(:new, :create)
 set_permission(:profile).with_controller(:profiles)
 set_permission(:search).with_controller(:search)
+set_permission(:full_text_search).with_controller(:full_text_search)
 set_permission(:advanced_search).with_controller(:advanced_search)
 set_permission(:administration).with_controller(:administration)
 set_permission(:help).with_controller(:help)
@@ -147,7 +148,7 @@ set_permission(:tag_search).with_controller(:tag_search)
   # Define the built-in user groups here:
 
 set_public_access :login, :locale, :signup, :password_resets
-set_protected_access :home, :account, :profile, :search, :tag_search, :advanced_search, :help, :reports
+set_protected_access :home, :account, :profile, :search, :tag_search, :full_text_search, :advanced_search, :help, :reports
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Define user groups

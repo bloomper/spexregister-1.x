@@ -32,9 +32,9 @@
           order_notice1: "Ordningen definieras för samtliga spexkategorier (endast de funktioner som en spexkategori använder sig av kommer att synas i rapporten)" 
           order_notice2: "Dra och släpp i önskad ordning (dubletter betyder att samma funktion finns i flera kategorier, håll muspekaren över för att se vilken som är vilken)"
           placeholder_notice: "Följande magiska ord kan användas i nedanstående fält: %year och %title"
-      advanced_search:
-        tab_title: "Avancerad sökning"
-        prefix: "Avancerad sök"
+      full_text_and_advanced_search:
+        tab_title: "Fritext och avancerad sökning"
+        prefix: "Fritext och avancerad sök"
         search_engine_url: "URL till sökmotor"
         
 

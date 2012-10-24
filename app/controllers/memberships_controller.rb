@@ -53,7 +53,7 @@ class MembershipsController < ApplicationController
   end
 
   def show_search_result_back_links?
-    if !previous_page.match('search') && !previous_page.match('advanced_search')
+    if !previous_page.match('search') && !previous_page.match('tag_search') && !previous_page.match('full_text_search') && !previous_page.match('advanced_search')
       true
     end
   end

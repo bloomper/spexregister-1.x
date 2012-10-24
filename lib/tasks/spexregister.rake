@@ -100,9 +100,9 @@ namespace :spexregister do
     else
       sunspot_models = args[:models].split('+').map{|m| m.constantize}
     end
-    Sunspot.config.solr.url = Settings['advanced_search.search_engine_url']    
+    Sunspot.config.solr.url = Settings['full_text_and_advanced_search.search_engine_url']    
     sunspot_models.each do |model|
-      model.solr_reindex reindex_options
+      model.reindex reindex_options
     end
   end
 

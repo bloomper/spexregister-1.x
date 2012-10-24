@@ -13,6 +13,9 @@
     - if latest_tag_search_query_exists?
       %br>
       = link_to t('views.base.back_to_tag_search_result_action'), latest_tag_search_query
+    - if latest_full_text_search_query_exists?
+      %br>
+      = link_to t('views.base.back_to_full_text_search_result_action'), latest_full_text_search_query
     - if latest_advanced_search_query_exists?
       %br>
       = link_to t('views.base.back_to_advanced_search_result_action'), latest_advanced_search_query

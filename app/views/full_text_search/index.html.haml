@@ -1,16 +1,16 @@
 = render :partial => 'sub_menu'
 
 %div.left
-  %h1= t 'views.advanced_search.index_title'
+  %h1= t 'views.full_text_search.index_title'
 
 %div.right
-  = link_to icon_tag('reset') + ' ' + t('views.advanced_search.reset_search_result'), advanced_search_url('dummy'), :method => :delete, :class => 'button small'
-  = render :partial => '/shared/export_menu', :locals => { :reports => get_available_reports, :id => 'latest_advanced_search_query_ids' }
+  = link_to icon_tag('reset') + ' ' + t('views.full_text_search.reset_search_result'), full_text_search_url('dummy'), :method => :delete, :class => 'button small'
+  = render :partial => '/shared/export_menu', :locals => { :reports => get_available_reports, :id => 'latest_full_text_search_query_ids' }
 
 %br.clear
 
 - if @search_result.total == 0
-  %p= t 'views.advanced_search.empty_search_result'
+  %p= t 'views.full_text_search.empty_search_result'
 - else
   .number-of-hits= page_entries_info @search_result.results, { :entry_translation_group_key => 'spexare' }
   %table.index#search_result

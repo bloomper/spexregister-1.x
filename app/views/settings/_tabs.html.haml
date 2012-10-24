@@ -11,8 +11,8 @@
       = link_to t('views.settings.all.tab_title'), settings_url
     %li{:class => ("active" if current_tab == "general_tab")}
       = link_to t('views.settings.general.tab_title'), edit_settings_url(:type => 'general')
-    %li{:class => ("active" if current_tab == "advanced_search_tab")}
-      = link_to t('views.settings.advanced_search.tab_title'), edit_settings_url(:type => 'advanced_search')
+    %li{:class => ("active" if current_tab == "full_text_advanced_search_tab")}
+      = link_to t('views.settings.full_text_and_advanced_search.tab_title'), edit_settings_url(:type => 'full_text_and_advanced_search')
     %li{:class => ("active" if current_tab == "spex_categories_tab")}
       = link_to t('views.settings.spex_categories.tab_title'), edit_settings_url(:type => 'spex_categories')
     %li{:class => ("active" if current_tab == "reports_tab")}

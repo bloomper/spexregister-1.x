@@ -1,0 +1,9 @@
+= render :partial => 'sub_menu'
+
+%h1= t 'views.full_text_search.page_title'
+
+- form_tag full_text_search_index_path, :method => :get do
+  %p
+    = text_field_tag 'query', nil, :class => 'fullwidth'
+  %p.form-buttons
+    = button t('views.base.search')

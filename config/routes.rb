@@ -39,6 +39,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :search, :only => [:new, :index, :destroy]
   map.resources :tag_search, :only => [:new, :index, :destroy]
   map.resources :advanced_search, :only => [:new, :index, :destroy]
+  map.resources :full_text_search, :only => [:new, :index, :destroy]
   map.resource :account, :except => [:destroy, :show]
   map.resource :profile, :only => [:edit]
   map.resource :dashboard_reports, :only => [:create]

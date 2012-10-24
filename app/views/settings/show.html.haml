@@ -36,13 +36,13 @@
   %tr
     %td= h Settings['spex_categories.first_year']
 
-%h2!= t 'views.settings.page_title', :type => t('views.settings.advanced_search.prefix') + ' ' + link_to(icon_tag('edit'), edit_settings_url(:type => 'advanced_search'))
+%h2!= t('views.settings.page_title', :type => t('views.settings.full_text_and_advanced_search.prefix')) + ' ' + link_to(icon_tag('edit'), edit_settings_url(:type => 'full_text_and_advanced_search'))
 
 %table.show
   %tr
-    %th= t 'views.settings.advanced_search.search_engine_url'
+    %th= t 'views.settings.full_text_and_advanced_search.search_engine_url'
   %tr
-    %td= h Settings['advanced_search.search_engine_url']
+    %td= h Settings['full_text_and_advanced_search.search_engine_url']
 
 %h2!= t('views.settings.page_title', :type => t('views.settings.reports.prefix')) + ' ' + link_to(icon_tag('edit'), edit_settings_url(:type => 'reports'))
 

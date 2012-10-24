@@ -1,0 +1,10 @@
+"en":
+  views:
+    full_text_search:
+      title: "Full text search"
+      page_title: "Search spexer"
+      full_text_search: "Full text  search"
+      latest_full_text_search_result: "Latest search result (full text)"
+      index_title: "Search result"
+      empty_search_result: "No hits"
+      reset_search_result: "Reset search result"

@@ -1,0 +1,11 @@
+= render :partial => 'sub_menu'
+
+= render :partial => 'tabs', :locals => {:current_type => t('views.settings.full_text_and_advanced_search.prefix'), :current_tab => 'full_text_and_advanced_search_tab'}
+
+- form_tag settings_path, :method => :put do
+  %p
+    %label= t 'views.settings.full_text_and_advanced_search.search_engine_url'
+    %br>
+    = text_field_tag 'settings[full_text_and_advanced_search][search_engine_url]', Settings['full_text_and_advanced_search.search_engine_url'], :class => 'fullwidth'
+  %p
+    = button t('views.base.update_action')
