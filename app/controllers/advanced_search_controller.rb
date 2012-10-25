@@ -7,10 +7,12 @@ class AdvancedSearchController < ApplicationController
 
   def index
     @search_result = Sunspot.search(Spexare) do 
-      keywords(params[:query])
-      paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+      adjust_solr_params do |p|
+        p[:q] = params[:query]
+      end
+      paginate :page => params[:page], :per_page => ApplicationConfig.entities_per_page
     end 
-    session[:latest_advanced_search_query] = params[:query]
+    session[:latest_advanced_search_query] = params
   end
 
   def destroy

@@ -7,10 +7,10 @@ class FullTextSearchController < ApplicationController
 
   def index
     @search_result = Sunspot.search(Spexare) do 
-      keywords(params[:query])
-      paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+      fulltext params[:query], :highlight => true
+      paginate :page => params[:page], :per_page => ApplicationConfig.entities_per_page
     end 
-    session[:latest_full_text_search_query] = params[:query]
+    session[:latest_full_text_search_query] = params
   end
 
   def destroy
