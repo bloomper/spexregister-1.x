@@ -1,6 +1,6 @@
 "en":
   views:
-    search:
+    tag_search:
       title: "Search"
       page_title: "Search spexer"
       search: "Tag search"
