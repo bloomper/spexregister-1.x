@@ -12,21 +12,23 @@
 - if @search_result.total == 0
   %p= t 'views.full_text_search.empty_search_result'
 - else
-  .number-of-hits= page_entries_info @search_result.results, { :entry_translation_group_key => 'spexare' }
+  .number-of-hits= page_entries_info @search_result.hits, { :entry_translation_group_key => 'spexare' }
   %table.index#search_result
     %tr
-      %th= t('activerecord.attributes.spexare.last_name')
-      %th= t('activerecord.attributes.spexare.first_name')
-      %th= t('activerecord.attributes.spexare.nick_name')
+      %th.score-column= order_full_text params[:order], :by => :score, :as => t('views.full_text_search.score'), :params => {:controller => :full_text_search, :action => :index, :query => params[:query] }
+      %th= order_full_text params[:order], :by => :last_name, :as => t('activerecord.attributes.spexare.last_name'), :params => {:controller => :full_text_search, :action => :index, :query => params[:query] }
+      %th= order_full_text params[:order], :by => :first_name, :as => t('activerecord.attributes.spexare.first_name'), :params => {:controller => :full_text_search, :action => :index, :query => params[:query] }
+      %th= order_full_text params[:order], :by => :nick_name, :as => t('activerecord.attributes.spexare.nick_name'), :params => {:controller => :full_text_search, :action => :index, :query => params[:query] }
       %th.action-column= t 'views.base.action'
-      - @search_result.each_hit_with_result do |hit, spexare|
-        %tr{:id => dom_id(spexare), :class => cycle('even', 'odd')}
-          %td= h spexare.last_name
-          %td= h spexare.first_name
-          %td= h spexare.nick_name
+      - @search_result.hits.each do |hit|
+        %tr{:id => dom_id(hit), :class => cycle('even', 'odd')}
+          %td= h hit.score.round(2)
+          %td= h hit.stored(:last_name)
+          %td= h hit.stored(:first_name)
+          %td= h hit.stored(:nick_name)
           %td.actions
-            //= link_to_view_action spexare
-            //= link_to_edit_action spexare if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare.id == spexare.id)
-            //= link_to_delete_action spexare, { :table => 'search_result' } if current_user_is_admin?
+            //= link_to_view_action hit
+            //= link_to_edit_action hit if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare.id == hit.id)
+            //= link_to_delete_action hit, { :table => 'search_result' } if current_user_is_admin?
 
-= will_paginate(@search_result.results, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+= will_paginate(@search_result.hits, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           

@@ -27,9 +27,12 @@ class Spexare < ActiveRecord::Base
   }
 
   searchable do
-    text :last_name, :stored => true
-    text :first_name, :stored => true
-    text :nick_name, :stored => true
+    string :last_name #Needed for ordering
+    text :last_name, :stored => true, :boost => 2.0
+    string :first_name #Needed for ordering
+    text :first_name, :stored => true, :boost => 2.0
+    string :nick_name #Needed for ordering
+    text :nick_name, :stored => true, :boost => 2.0
     text :street_address
     text :postal_code
     text :postal_address
@@ -90,6 +93,14 @@ class Spexare < ActiveRecord::Base
     end
     text :actor_vocals do
       activities.map { |activity| activity.actors.map { |actor| !actor.vocal.nil? ? Actor.vocal(actor.vocal_id).title : nil } unless activity.actors.empty? }
+    end
+    time :created_at
+    time :updated_at
+    string :created_by do
+      User.find_by_id(:created_by)
+    end
+    string :updated_by do
+      User.find_by_id(:updated_by)
     end
   end
 
