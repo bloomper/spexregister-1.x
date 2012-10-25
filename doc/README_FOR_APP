@@ -238,6 +238,8 @@ För utveckling så kan man använda tex RadRails (http://www.radrails.org).
 
 (4) Installera sökdelen (spexregister.search) av registret i en Tomcat.
 
+(5) Sätt URIEncoding till UTF-8 i server.xml i Tomcat.
+
 == Kända fel
 
 Inga.
