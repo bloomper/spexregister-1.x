@@ -27,8 +27,8 @@
           %td= h hit.stored(:first_name)
           %td= h hit.stored(:nick_name)
           %td.actions
-            //= link_to_view_action hit
-            //= link_to_edit_action hit if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare.id == hit.id)
-            //= link_to_delete_action hit, { :table => 'search_result' } if current_user_is_admin?
+            = link_to_view_action_with_url spexare_url(hit.primary_key)
+            = link_to_edit_action_with_url edit_spexare_url(hit.primary_key) if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare.id == hit.primary_key)
+            = link_to_delete_action_with_url hit.primary_key, spexare_url(hit.primary_key), { :table => 'search_result' } if current_user_is_admin?
 
 = will_paginate(@search_result.hits, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           

@@ -66,12 +66,40 @@ module ApplicationHelper
     link_to(icon_tag(icon_name) + ' ' + text, url, options)
   end
   
+  def link_to_view_action_with_url(url)
+    link_to_with_icon('view', t('views.base.view_action'), url)
+  end
+
   def link_to_view_action(resource)
     link_to_with_icon('view', t('views.base.view_action'), resource_url(resource))
   end
   
+  def link_to_edit_action_with_url(url)
+    link_to_with_icon('edit', t('views.base.edit_action'), url)
+  end
+
   def link_to_edit_action(resource)
     link_to_with_icon('edit', t('views.base.edit_action'), edit_resource_url(resource))
+  end
+  
+  def link_to_delete_action_with_url(id, url, options = {})
+    options.assert_valid_keys(:url, :caption, :title, :table)
+    
+    options.reverse_merge! :url => url unless options.key? :url
+    options.reverse_merge! :caption => t('views.base.are_you_sure')
+    options.reverse_merge! :title => t('views.base.confirm_delete')
+    
+    link_to_function icon_tag('delete') + ' ' + t('views.base.delete_action'), "jConfirm('#{options[:caption]}', '#{options[:title]}', function(r) { 
+      if(r){ 
+        jQuery.ajax({
+          type: 'POST',
+          url: '#{options[:url]}',
+          data: ({_method: 'delete', authenticity_token: AUTH_TOKEN}),
+          success: function(r){ jQuery('##{id}').fadeOut('fast', function () { #{options[:table] ? 'jQuery.stripeTable(\'#' + options[:table] + '\');' : ''} }); },
+          complete: function(r){ eval(r.responseText); } 
+        });
+      }
+    });"
   end
   
   def link_to_delete_action(resource, options = {})
@@ -93,7 +121,7 @@ module ApplicationHelper
       }
     });"
   end
-  
+
   def translate_boolean(value)
     value ? t('views.base.yes') : t('views.base.no')
   end
