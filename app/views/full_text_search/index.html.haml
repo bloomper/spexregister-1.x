@@ -21,7 +21,7 @@
       %th= order_full_text params[:order], :by => :nick_name, :as => t('activerecord.attributes.spexare.nick_name'), :params => {:controller => :full_text_search, :action => :index, :query => params[:query] }
       %th.action-column= t 'views.base.action'
       - @search_result.hits.each do |hit|
-        %tr{:id => dom_id(hit), :class => cycle('even', 'odd')}
+        %tr{:id => hit.primary_key, :class => cycle('even', 'odd')}
           %td= h hit.score.round(2)
           %td= h hit.stored(:last_name)
           %td= h hit.stored(:first_name)
