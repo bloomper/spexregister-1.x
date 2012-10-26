@@ -5,5 +5,16 @@
 - form_tag full_text_search_index_path, :method => :get do
   %p
     = text_field_tag 'query', nil, :class => 'fullwidth'
+  %p
+    %fieldset
+      %legend= t 'views.full_text_search.include'
+      %p
+        = check_box_tag 'include_deceased', true, false
+        %label= t 'views.full_text_search.include_deceased'
+      - if current_user_is_admin?
+        = check_box_tag 'include_not_published', true, false
+        %label= t 'views.full_text_search.include_not_published'
+      - else
+        = hidden_field_tag 'include_not_published', t('views.base.yes')
   %p.form-buttons
     = button t('views.base.search')

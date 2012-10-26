@@ -9,3 +9,6 @@
       empty_search_result: "No hits"
       reset_search_result: "Reset search result"
       score: "Score"
+      include: "Include"
+      include_deceased: "Deceased"
+      include_not_published: "Not published"

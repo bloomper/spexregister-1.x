@@ -9,3 +9,6 @@
       empty_search_result: "Inga träffar"
       reset_search_result: "Nollställ sökresultat"
       score: "Poäng"
+      include: "Inkludera"
+      include_deceased: "Avlidna"
+      include_not_published: "Ej publicerade"
