@@ -15,7 +15,7 @@ class AdvancedSearchController < ApplicationController
       with(:publish_approval, YES) unless current_user_is_admin?
       order_by params[:order].split(' ').first.to_sym, params[:order].split(' ').last.to_sym
       paginate :page => params[:page], :per_page => ApplicationConfig.entities_per_page
-    end 
+    end
     session[:latest_advanced_search_query] = params
   end
 
