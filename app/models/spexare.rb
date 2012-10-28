@@ -83,16 +83,40 @@ class Spexare < ActiveRecord::Base
       activities.map { |activity| activity.spex.spex_category.name unless activity.spex.nil? || activity.spex.spex_detail.nil? }
     end
     text :function_names do
-      activities.map { |activity| activity.functions.map { |function| function.name } unless activity.functions.empty? }
+      [].tap do |function_names|
+        activities.each do |activity|
+          activity.functions.each do |function|
+            function_names << function.name unless function.nil?
+          end
+        end
+      end
     end
     text :function_categories do
-      activities.map { |activity| activity.functions.map { |function| function.function_category.name unless function.function_category.nil? } unless activity.functions.empty? }
+      [].tap do |function_categories|
+        activities.each do |activity|
+          activity.functions.each do |function|
+            function_categories << function.function_category.name unless function.nil? || function.function_category.nil?
+          end
+        end
+      end
     end
     text :actor_roles do
-      activities.map { |activity| activity.actors.map { |actor| actor.role } unless activity.actors.empty? }
+      [].tap do |actor_roles|
+        activities.each do |activity|
+          activity.actors.each do |actor|
+            actor_roles << actor.role unless actor.nil?
+          end
+        end
+      end
     end
     text :actor_vocals do
-      activities.map { |activity| activity.actors.map { |actor| !actor.vocal.nil? ? Actor.vocal(actor.vocal_id).title : nil } unless activity.actors.empty? }
+      [].tap do |actor_vocals|
+        activities.each do |activity|
+          activity.actors.each do |actor|
+            actor_vocals << Actor.vocal(actor.vocal_id).title unless actor.nil? || actor.vocal_id.nil?
+          end
+        end
+      end
     end
     time :created_at
     time :updated_at
@@ -113,10 +137,22 @@ class Spexare < ActiveRecord::Base
       activities.map { |activity| activity.spex.spex_category.name unless activity.spex.nil? || activity.spex.spex_detail.nil? }
     end
     string :facet_function_names, :multiple => true do
-      activities.map { |activity| activity.functions.map { |function| function.name } unless activity.functions.empty? }
+      [].tap do |function_names|
+        activities.each do |activity|
+          activity.functions.each do |function|
+            function_names << function.name unless function.nil?
+          end
+        end
+      end
     end
     string :facet_function_categories, :multiple => true do
-      activities.map { |activity| activity.functions.map { |function| function.function_category.name unless function.function_category.nil? } unless activity.functions.empty? }
+      [].tap do |function_categories|
+        activities.each do |activity|
+          activity.functions.each do |function|
+            function_categories << function.function_category.name unless function.nil? || function.function_category.nil?
+          end
+        end
+      end
     end
   end
 
