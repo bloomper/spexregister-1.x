@@ -240,6 +240,8 @@ För utveckling så kan man använda tex RadRails (http://www.radrails.org).
 
 (5) Sätt URIEncoding till UTF-8 i server.xml i Tomcat.
 
+(6) Exekvera 'rake spexregister:reindex' i produktionsmiljön. Sökdelen måste vara igång när detta görs.
+
 == Kända fel
 
 Inga.
