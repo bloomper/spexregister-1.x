@@ -102,6 +102,22 @@ class Spexare < ActiveRecord::Base
     string :updated_by do
       User.find_by_id(:updated_by)
     end
+    # Facets
+    string :facet_spex_years, :multiple => true do
+      activities.map { |activity| activity.spex.year unless activity.spex.nil? }
+    end
+    string :facet_spex_titles, :multiple => true do
+      activities.map { |activity| activity.spex.spex_detail.title unless activity.spex.nil? || activity.spex.spex_detail.nil? }
+    end
+    string :facet_spex_categories, :multiple => true do
+      activities.map { |activity| activity.spex.spex_category.name unless activity.spex.nil? || activity.spex.spex_detail.nil? }
+    end
+    string :facet_function_names, :multiple => true do
+      activities.map { |activity| activity.functions.map { |function| function.name } unless activity.functions.empty? }
+    end
+    string :facet_function_categories, :multiple => true do
+      activities.map { |activity| activity.functions.map { |function| function.function_category.name unless function.function_category.nil? } unless activity.functions.empty? }
+    end
   end
 
   def full_name

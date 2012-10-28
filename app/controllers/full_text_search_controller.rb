@@ -17,7 +17,27 @@ class FullTextSearchController < ApplicationController
       with(:deceased, deceased)
       with(:publish_approval, include_not_published)
       order_by params[:order].split(' ').first.to_sym, params[:order].split(' ').last.to_sym
-    end 
+      facet(:facet_spex_categories, :sort => :index)
+      facet(:facet_spex_years, :sort => :index)
+      facet(:facet_spex_titles, :sort => :index)
+      facet(:facet_function_categories, :sort => :index)
+      facet(:facet_function_names, :sort => :index)
+      if params[:facet_spex_categories].present?
+        with(:facet_spex_categories).all_of(params[:facet_spex_categories])
+      end
+      if params[:facet_spex_years].present?
+        with(:facet_spex_years).all_of(params[:facet_spex_years])
+      end
+      if params[:facet_spex_titles].present?
+        with(:facet_spex_titles).all_of(params[:facet_spex_titles])
+      end
+      if params[:facet_function_categories].present?
+        with(:facet_function_categories).all_of(params[:facet_function_categories])
+      end
+      if params[:facet_function_names].present?
+        with(:facet_function_names).all_of(params[:facet_function_names])
+      end
+    end
     session[:latest_full_text_search_query] = params
   end
 
