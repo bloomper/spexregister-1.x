@@ -136,3 +136,6 @@
       destroy:
         success: "Taggen har raderats"
         failure: "Taggen kunde inte raderas"
+    advanced_search:
+      create:
+        failure: "Sökningen kunde inte genomföras pga internt fel. Säkerställ att sökfrasen använder korrekt syntax."

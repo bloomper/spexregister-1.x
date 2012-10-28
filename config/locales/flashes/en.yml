@@ -124,3 +124,6 @@
       destroy:
         success: "The tag has been deleted"
         failure: "The tag could not be deleted"
+    advanced_search:
+      create:
+        failure: "Search could not be performed due to internal error. Ensure that the search phrase is using the correct syntax."
