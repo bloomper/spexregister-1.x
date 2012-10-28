@@ -31,49 +31,50 @@
 
 = will_paginate(@search_result.hits, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
 
-%div.facets
-  %h2= t 'views.advanced_search.facets_title'
-  %small= t 'views.advanced_search.facet_notice'
-
-  - if !@search_result.facet(:facet_spex_categories).nil?
-    %div.facet
-      %h2= t 'views.advanced_search.facet_spex_categories_title' 
-      %ul
-        - @search_result.facet(:facet_spex_categories).rows.each do |row|
-          %li== #{link_to_unless((params[:facet_spex_categories] || []).include?(row.value), row.value, params.merge(:facet_spex_categories => ((params[:facet_spex_categories] || []) + [row.value])).except(:page))} (#{row.count})
+- if @search_result.total > 0
+  %div.facets
+    %h2= t 'views.advanced_search.facets_title'
+    %small= t 'views.advanced_search.facet_notice'
   
-  %br.clear
-  
-  - if !@search_result.facet(:facet_spex_years).nil?
-    %div.facet
-      %h2= t 'views.advanced_search.facet_spex_years_title' 
-      %ul
-        - @search_result.facet(:facet_spex_years).rows.each do |row|
-          %li== #{link_to_unless((params[:facet_spex_years] || []).include?(row.value), row.value, params.merge(:facet_spex_years => ((params[:facet_spex_years] || []) + [row.value])).except(:page))} (#{row.count})
-  
-  %br.clear
-  
-  - if !@search_result.facet(:facet_spex_titles).nil?
-    %div.facet
-      %h2= t 'views.advanced_search.facet_spex_titles_title' 
-      %ul
-        - @search_result.facet(:facet_spex_titles).rows.each do |row|
-          %li== #{link_to_unless((params[:facet_spex_titles] || []).include?(row.value), row.value, params.merge(:facet_spex_titles => ((params[:facet_spex_titles] || []) + [row.value])).except(:page))} (#{row.count})
-  
-  %br.clear
-  
-  - if !@search_result.facet(:facet_function_categories).nil?
-    %div.facet
-      %h2= t 'views.advanced_search.facet_function_categories_title' 
-      %ul
-        - @search_result.facet(:facet_function_categories).rows.each do |row|
-          %li== #{link_to_unless((params[:facet_function_categories] || []).include?(row.value), row.value, params.merge(:facet_function_categories => ((params[:facet_function_categories] || []) + [row.value])).except(:page))} (#{row.count})
-  
-  %br.clear
-  
-  - if !@search_result.facet(:facet_function_names).nil?
-    %div.facet
-      %h2= t 'views.advanced_search.facet_function_names_title' 
-      %ul
-        - @search_result.facet(:facet_function_names).rows.each do |row|
-          %li== #{link_to_unless((params[:facet_function_names] || []).include?(row.value), row.value, params.merge(:facet_function_names => ((params[:facet_function_names] || []) + [row.value])).except(:page))} (#{row.count})
+    - if !@search_result.facet(:facet_spex_categories).nil?
+      %div.facet
+        %h2= t 'views.advanced_search.facet_spex_categories_title' 
+        %ul
+          - @search_result.facet(:facet_spex_categories).rows.each do |row|
+            %li== #{link_to_unless((params[:facet_spex_categories] || []).include?(row.value), row.value, params.merge(:facet_spex_categories => ((params[:facet_spex_categories] || []) + [row.value])).except(:page))} (#{row.count})
+    
+    %br.clear
+    
+    - if !@search_result.facet(:facet_spex_years).nil?
+      %div.facet
+        %h2= t 'views.advanced_search.facet_spex_years_title' 
+        %ul
+          - @search_result.facet(:facet_spex_years).rows.each do |row|
+            %li== #{link_to_unless((params[:facet_spex_years] || []).include?(row.value), row.value, params.merge(:facet_spex_years => ((params[:facet_spex_years] || []) + [row.value])).except(:page))} (#{row.count})
+    
+    %br.clear
+    
+    - if !@search_result.facet(:facet_spex_titles).nil?
+      %div.facet
+        %h2= t 'views.advanced_search.facet_spex_titles_title' 
+        %ul
+          - @search_result.facet(:facet_spex_titles).rows.each do |row|
+            %li== #{link_to_unless((params[:facet_spex_titles] || []).include?(row.value), row.value, params.merge(:facet_spex_titles => ((params[:facet_spex_titles] || []) + [row.value])).except(:page))} (#{row.count})
+    
+    %br.clear
+    
+    - if !@search_result.facet(:facet_function_categories).nil?
+      %div.facet
+        %h2= t 'views.advanced_search.facet_function_categories_title' 
+        %ul
+          - @search_result.facet(:facet_function_categories).rows.each do |row|
+            %li== #{link_to_unless((params[:facet_function_categories] || []).include?(row.value), row.value, params.merge(:facet_function_categories => ((params[:facet_function_categories] || []) + [row.value])).except(:page))} (#{row.count})
+    
+    %br.clear
+    
+    - if !@search_result.facet(:facet_function_names).nil?
+      %div.facet
+        %h2= t 'views.advanced_search.facet_function_names_title' 
+        %ul
+          - @search_result.facet(:facet_function_names).rows.each do |row|
+            %li== #{link_to_unless((params[:facet_function_names] || []).include?(row.value), row.value, params.merge(:facet_function_names => ((params[:facet_function_names] || []) + [row.value])).except(:page))} (#{row.count})
