@@ -43,6 +43,7 @@ class AdvancedSearchController < ApplicationController
       return
     end
     session[:latest_advanced_search_query] = params
+    session[:latest_advanced_search_query_ids] = @search_result.hits.map(&:primary_key).join(',')
   end
 
   def destroy

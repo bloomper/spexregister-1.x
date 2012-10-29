@@ -39,6 +39,7 @@ class FullTextSearchController < ApplicationController
       end
     end
     session[:latest_full_text_search_query] = params
+    session[:latest_full_text_search_query_ids] = @search_result.hits.map(&:primary_key).join(',')
   end
 
   def destroy
