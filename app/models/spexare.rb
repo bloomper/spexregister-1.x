@@ -43,6 +43,7 @@ class Spexare < ActiveRecord::Base
     text :phone_other
     text :email_address
     text :birth_date
+    time :birth_date, :trie => true
     #text :social_security_number
     string :chalmers_student, :multiple => true do
       AVAILABLE_LOCALES.map { |locale| chalmers_student ? I18n.t('views.base.yes', :locale => locale[0]) : I18n.t('views.base.no', :locale => locale[0]) }
