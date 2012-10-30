@@ -36,7 +36,7 @@
     %h2= t 'views.advanced_search.facets_title'
     %small= t 'views.advanced_search.facet_notice'
   
-    - if !@search_result.facet(:facet_spex_categories).nil?
+    - if !@search_result.facet(:facet_spex_categories).nil? && !@search_result.facet(:facet_spex_categories).rows.empty?
       %div.facet
         %h2= t 'views.advanced_search.facet_spex_categories_title' 
         %ul
@@ -45,7 +45,7 @@
     
     %br.clear
     
-    - if !@search_result.facet(:facet_spex_years).nil?
+    - if !@search_result.facet(:facet_spex_years).nil? && !@search_result.facet(:facet_spex_years).rows.empty?
       %div.facet
         %h2= t 'views.advanced_search.facet_spex_years_title' 
         %ul
@@ -54,7 +54,7 @@
     
     %br.clear
     
-    - if !@search_result.facet(:facet_spex_titles).nil?
+    - if !@search_result.facet(:facet_spex_titles).nil? && !@search_result.facet(:facet_spex_titles).rows.empty?
       %div.facet
         %h2= t 'views.advanced_search.facet_spex_titles_title' 
         %ul
@@ -63,7 +63,7 @@
     
     %br.clear
     
-    - if !@search_result.facet(:facet_function_categories).nil?
+    - if !@search_result.facet(:facet_function_categories).nil? && !@search_result.facet(:facet_function_categories).rows.empty?
       %div.facet
         %h2= t 'views.advanced_search.facet_function_categories_title' 
         %ul
@@ -72,7 +72,7 @@
     
     %br.clear
     
-    - if !@search_result.facet(:facet_function_names).nil?
+    - if !@search_result.facet(:facet_function_names).nil? && !@search_result.facet(:facet_function_names).rows.empty?
       %div.facet
         %h2= t 'views.advanced_search.facet_function_names_title' 
         %ul
