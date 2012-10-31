@@ -22,15 +22,15 @@
       %th.action-column= t 'views.base.action'
       - @search_result.hits.each do |hit|
         %tr{:id => hit.primary_key, :class => cycle('even', 'odd')}
-          %td= h hit.score.round(2)
-          %td= h hit.stored(:last_name)
-          %td= h hit.stored(:first_name)
-          %td= h hit.stored(:nick_name)
+          %td{ :data => {:link => spexare_url(hit.primary_key)} }= h hit.score.round(2)
+          %td{ :data => {:link => spexare_url(hit.primary_key)} }= h hit.stored(:last_name)
+          %td{ :data => {:link => spexare_url(hit.primary_key)} }= h hit.stored(:first_name)
+          %td{ :data => {:link => spexare_url(hit.primary_key)} }= h hit.stored(:nick_name)
           %td.actions
             = link_to_view_action_with_url spexare_url(hit.primary_key)
             = link_to_edit_action_with_url edit_spexare_url(hit.primary_key) if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare.id == hit.primary_key)
             = link_to_delete_action_with_url hit.primary_key, spexare_url(hit.primary_key), { :table => 'search_result' } if current_user_is_admin?
-
+  
 = will_paginate(@search_result.hits, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
 
 - if @search_result.total > 0

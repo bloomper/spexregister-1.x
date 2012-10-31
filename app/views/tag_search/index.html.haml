@@ -21,9 +21,9 @@
       %th.action-column= t 'views.base.action'
       - @tag_search_result.each do |spexare|
         %tr{:id => dom_id(spexare), :class => cycle('even', 'odd')}
-          %td= h spexare.last_name
-          %td= h spexare.first_name
-          %td= h spexare.nick_name
+          %td{ :data => {:link => resource_url(spexare)} }= h spexare.last_name
+          %td{ :data => {:link => resource_url(spexare)} }= h spexare.first_name
+          %td{ :data => {:link => resource_url(spexare)} }= h spexare.nick_name
           %td.actions
             = link_to_view_action spexare
             = link_to_edit_action spexare if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare.id == spexare.id)

@@ -120,6 +120,12 @@ jQuery(function() {
 });
 
 jQuery(function() {
+  jQuery('td[data-link]').livequery('click', function(event) {
+    window.location = jQuery(this).data("link");
+  });
+});
+
+jQuery(function() {
   jQuery('select:not([id*="_new_function_activities_function_id"],[id*="_new_function_activities_actors_attributes_new_actors_vocal_id"]), input:checkbox, input:radio, input:file').livequery(function() {
     jQuery(this).uniform();
   });

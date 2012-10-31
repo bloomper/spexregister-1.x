@@ -25,9 +25,9 @@
       %th.action-column= t 'views.base.action'
       - @news_items.each do |news|
         %tr{:id => dom_id(news), :class => cycle('even', 'odd')}
-          %td= h news.publication_date
-          %td= h news.subject
-          %td= translate_boolean news.is_published
+          %td{ :data => {:link => resource_url(news)} }= h news.publication_date
+          %td{ :data => {:link => resource_url(news)} }= h news.subject
+          %td{ :data => {:link => resource_url(news)} }= translate_boolean news.is_published
           %td.actions
             = link_to_view_action news
             = link_to_edit_action news

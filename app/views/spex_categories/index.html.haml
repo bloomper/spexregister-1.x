@@ -24,8 +24,8 @@
       %th.action-column= t 'views.base.action'
       - @spex_categories.each do |spex_category|
         %tr{:id => dom_id(spex_category), :class => cycle('even', 'odd')}
-          %td= h spex_category.name
-          %td= h spex_category.first_year
+          %td{ :data => {:link => resource_url(spex_category)} }= h spex_category.name
+          %td{ :data => {:link => resource_url(spex_category)} }= h spex_category.first_year
           %td.actions
             = link_to_view_action spex_category
             = link_to_edit_action spex_category

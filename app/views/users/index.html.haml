@@ -24,7 +24,7 @@
       %th.action-column= t 'views.base.action'
       - @users.each do |user|
         %tr{:id => dom_id(user), :class => cycle('even', 'odd')}
-          %td= h user.username
+          %td{ :data => {:link => resource_url(user)} }= h user.username
           = render :partial => 'user_status_column', :locals => { :user => user }
           %td.actions
             = link_to_view_action user

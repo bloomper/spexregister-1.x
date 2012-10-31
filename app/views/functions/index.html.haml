@@ -24,8 +24,8 @@
       %th.action-column= t 'views.base.action'
       - @functions.each do |function|
         %tr{:id => dom_id(function), :class => cycle('even', 'odd')}
-          %td= h function.name
-          %td= h function.function_category.name
+          %td{ :data => {:link => resource_url(function)} }= h function.name
+          %td{ :data => {:link => resource_url(function)} }= h function.function_category.name
           %td.actions
             = link_to_view_action function
             = link_to_edit_action function

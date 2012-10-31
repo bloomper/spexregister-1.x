@@ -23,7 +23,7 @@
       %th.action-column= t 'views.base.action'
       - @tags.each do |tag|
         %tr{:id => dom_id(tag), :class => cycle('even', 'odd')}
-          %td= h tag.name
+          %td{ :data => {:link => resource_url(tag)} }= h tag.name
           %td.actions
             = link_to_view_action tag
             = link_to_edit_action tag
