@@ -1,0 +1,195 @@
+%table
+  %tr
+    %th Description
+    %th Field
+    %th Field type
+    %th Example value
+  %tr
+    %td First name
+    %td first_name_s
+    %td String
+    %td Donald
+  %tr
+    %td First name
+    %td first_name_texts
+    %td Text string
+    %td Donald
+  %tr
+    %td Last name
+    %td last_name_s
+    %td String
+    %td Duck
+  %tr
+    %td Last name
+    %td last_name_texts
+    %td Text string
+    %td Anka
+  %tr
+    %td Nick name
+    %td nick_name_s
+    %td String
+    %td Quack
+  %tr
+    %td Nick name
+    %td nick_name_texts
+    %td Text string
+    %td Quack
+  %tr
+    %td Street address
+    %td street_address_text
+    %td Text string
+    %td 1113 Quack Street
+  %tr
+    %td Postal code
+    %td postal_code_text
+    %td Text string
+    %td 123 45
+  %tr
+    %td Postal address
+    %td postal_address_text
+    %td Text string
+    %td Duckburg
+  %tr
+    %td Country
+    %td country_text
+    %td Text string
+    %td Ducedonia
+  %tr
+    %td Phone (home)
+    %td phone_home_text
+    %td Text string
+    %td 123456
+  %tr
+    %td Phone (mobile)
+    %td phone_mobile_text
+    %td Text string
+    %td 123456
+  %tr
+    %td Phone (work)
+    %td phone_work_text
+    %td Text string
+    %td 123456
+  %tr
+    %td Phone (other)
+    %td phone_other_text
+    %td Text string
+    %td 123456
+  %tr
+    %td Email address
+    %td email_address_text
+    %td Text string
+    %td donald@disney.com
+  %tr
+    %td Birth date
+    %td birth_date_text
+    %td Text string
+    %td 1934-06-09
+  %tr
+    %td Birth date
+    %td birth_date_dt
+    %td Date
+    %td 1934-06-09
+  %tr
+    %td Student at Chalmers
+    %td chalmers_student_sm
+    %td Boolean
+    %td No
+  %tr
+    %td Graduation
+    %td graduation_text
+    %td Text string
+    %td E98
+  %tr
+    %td Comment
+    %td comment_text
+    %td Text string
+    %td Anything
+  %tr
+    %td Deceased
+    %td deceased_sm
+    %td Boolean
+    %td No
+  - if current_user_is_admin?
+    %tr
+      %td Publish approval
+      %td publish_approval_sm
+      %td Boolean
+      %td Yes
+  %tr
+    %td Want circulars
+    %td want_circulars_sm
+    %td Boolean
+    %td Yes
+  %tr
+    %td Want email circulars
+    %td want_email_circulars_sm
+    %td Boolean
+    %td Yes
+  %tr
+    %td FGV member
+    %td fgv_memberships_text
+    %td Text string
+    %td 1999
+  %tr
+    %td CING member
+    %td cing_memberships_text
+    %td Text string
+    %td 1999
+  %tr
+    %td Taggings
+    %td taggings_text
+    %td Text string
+    %td Gyckeljouren
+  %tr
+    %td Related to
+    %td related_to_text
+    %td Text string
+    %td Daisy Duck
+  %tr
+    %td Spex years
+    %td spex_years_text
+    %td Text string
+    %td 1996
+  %tr
+    %td Spex titles
+    %td spex_titles_text
+    %td Text string
+    %td Nobel
+  %tr
+    %td Spex categories
+    %td spex_categories_text
+    %td Text string
+    %td Bobspexet
+  %tr
+    %td Function names
+    %td function_names_text
+    %td Text string
+    %td Directeur
+  %tr
+    %td Function categories
+    %td function_categories_text
+    %td Text string
+    %td Ensemble
+  %tr
+    %td Roles
+    %td actor_roles_text
+    %td Text string
+    %td Alfred Nobel
+  %tr
+    %td Vocals
+    %td actor_vocals_text
+    %td Text string
+    %td B1
+  %tr
+    %td Created
+    %td created_at_dt
+    %td Date
+    %td 2000-01-01
+  %tr
+    %td Updated
+    %td updated_at_dt
+    %td Date
+    %td 2000-01-01
+
+%p
+  Strings are indexed as they are while text strings are tokenized and then indexed. Strings can be used for sorting, scoping etc.

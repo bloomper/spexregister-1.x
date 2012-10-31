@@ -7,3 +7,11 @@
     = text_field_tag 'query', nil, :class => 'fullwidth'
   %p.form-buttons
     = button t('views.base.search')
+
+%p
+  %h2= t 'views.advanced_search.query_syntax_help_title'
+  = render :partial => 'query_syntax_help'
+
+%p
+  %h2= t 'views.advanced_search.field_names_help_title'
+  = render :partial => 'field_names_help'

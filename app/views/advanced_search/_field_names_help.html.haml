@@ -1,0 +1,195 @@
+%table
+  %tr
+    %th Beskrivning
+    %th Fält
+    %th Fälttyp
+    %th Exempelvärde
+  %tr
+    %td Förnamn
+    %td first_name_s
+    %td Sträng
+    %td Kalle
+  %tr
+    %td Förnamn
+    %td first_name_texts
+    %td Textsträng
+    %td Kalle
+  %tr
+    %td Efternamn
+    %td last_name_s
+    %td Sträng
+    %td Anka
+  %tr
+    %td Efternamn
+    %td last_name_texts
+    %td Textsträng
+    %td Anka
+  %tr
+    %td Smeknamn
+    %td nick_name_s
+    %td Sträng
+    %td Quack
+  %tr
+    %td Smeknamn
+    %td nick_name_texts
+    %td Textsträng
+    %td Quack
+  %tr
+    %td Gatuadress
+    %td street_address_text
+    %td Textsträng
+    %td Ankgatan 13
+  %tr
+    %td Postkod
+    %td postal_code_text
+    %td Textsträng
+    %td 123 45
+  %tr
+    %td Postadress
+    %td postal_address_text
+    %td Textsträng
+    %td Ankeborg
+  %tr
+    %td Land
+    %td country_text
+    %td Textsträng
+    %td Ankedonien
+  %tr
+    %td Telefon (hem)
+    %td phone_home_text
+    %td Textsträng
+    %td 123456
+  %tr
+    %td Telefon (mobil)
+    %td phone_mobile_text
+    %td Textsträng
+    %td 123456
+  %tr
+    %td Telefon (arbete)
+    %td phone_work_text
+    %td Textsträng
+    %td 123456
+  %tr
+    %td Telefon (annat)
+    %td phone_other_text
+    %td Textsträng
+    %td 123456
+  %tr
+    %td Emailadress
+    %td email_address_text
+    %td Textsträng
+    %td kalle@disney.com
+  %tr
+    %td Födelsedatum
+    %td birth_date_text
+    %td Textsträng
+    %td 1934-06-09
+  %tr
+    %td Födelsedatum
+    %td birth_date_dt
+    %td Datum
+    %td 1934-06-09
+  %tr
+    %td Chalmerist
+    %td chalmers_student_sm
+    %td Boolsk
+    %td Nej
+  %tr
+    %td Examen
+    %td graduation_text
+    %td Textsträng
+    %td E98
+  %tr
+    %td Kommentar
+    %td comment_text
+    %td Textsträng
+    %td Vad som helst
+  %tr
+    %td Avliden
+    %td deceased_sm
+    %td Boolsk
+    %td Nej
+  - if current_user_is_admin?
+    %tr
+      %td Tillåter publicering
+      %td publish_approval_sm
+      %td Boolsk
+      %td Ja
+  %tr
+    %td Vill ha utskick
+    %td want_circulars_sm
+    %td Boolsk
+    %td Ja
+  %tr
+    %td Vill ha emailutskick
+    %td want_email_circulars_sm
+    %td Boolsk
+    %td Ja
+  %tr
+    %td Medlemskap i FGV
+    %td fgv_memberships_text
+    %td Textsträng
+    %td 1999
+  %tr
+    %td Medlemskap i CING
+    %td cing_memberships_text
+    %td Textsträng
+    %td 1999
+  %tr
+    %td Taggningar
+    %td taggings_text
+    %td Textsträng
+    %td Gyckeljouren
+  %tr
+    %td Relaterad till
+    %td related_to_text
+    %td Textsträng
+    %td Kajsa Anka
+  %tr
+    %td Spexår
+    %td spex_years_text
+    %td Textsträng
+    %td 1996
+  %tr
+    %td Spextitlar
+    %td spex_titles_text
+    %td Textsträng
+    %td Nobel
+  %tr
+    %td Spexkategorier
+    %td spex_categories_text
+    %td Textsträng
+    %td Bobspexet
+  %tr
+    %td Funktionsnamn
+    %td function_names_text
+    %td Textsträng
+    %td Directeur
+  %tr
+    %td Funktionskategorier
+    %td function_categories_text
+    %td Textsträng
+    %td Ensemble
+  %tr
+    %td Roller
+    %td actor_roles_text
+    %td Textsträng
+    %td Alfred Nobel
+  %tr
+    %td Stämmor
+    %td actor_vocals_text
+    %td Textsträng
+    %td B1
+  %tr
+    %td Skapad
+    %td created_at_dt
+    %td Datum
+    %td 2000-01-01
+  %tr
+    %td Uppdaterad
+    %td updated_at_dt
+    %td Datum
+    %td 2000-01-01
+
+%p
+  Strängar är indexerade som de är medan textsträngar är tokeniserade och därefter indexerade. Strängar kan användas till sortering, urval etc.

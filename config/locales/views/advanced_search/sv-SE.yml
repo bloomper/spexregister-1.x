@@ -15,3 +15,5 @@
       facet_spex_titles_title: "Spextitlar"
       facet_function_categories_title: "Funktionskategorier"
       facet_function_names_title: "Funktionsnamn"
+      field_names_help_title: "Tillgängliga fältnamn"
+      query_syntax_help_title: "Frågesyntax"
