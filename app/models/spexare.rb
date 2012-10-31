@@ -36,7 +36,9 @@ class Spexare < ActiveRecord::Base
     text :street_address
     text :postal_code
     text :postal_address
-    text :country
+    text :country do
+      AVAILABLE_LOCALES.map { |locale| I18n.t("countries.#{country}", :locale => locale[0]) }
+    end
     text :phone_home
     text :phone_work
     text :phone_mobile
@@ -119,8 +121,8 @@ class Spexare < ActiveRecord::Base
         end
       end
     end
-    time :created_at
-    time :updated_at
+    time :created_at, :trie => true
+    time :updated_at, :trie => true
     string :created_by do
       User.find_by_id(:created_by)
     end
