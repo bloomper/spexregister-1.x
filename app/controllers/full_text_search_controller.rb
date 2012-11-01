@@ -38,8 +38,10 @@ class FullTextSearchController < ApplicationController
         with(:facet_function_names).all_of(params[:facet_function_names])
       end
     end
+    @search_result.query.solr_parameter_adjustment = Proc.new { |params| params[:fl] = 'id', params[:rows] = @search_result.hits.total_entries }
+    
     session[:latest_full_text_search_query] = params
-    session[:latest_full_text_search_query_ids] = @search_result.hits.map(&:primary_key).join(',')
+    session[:latest_full_text_search_query_ids] = @search_result.query.to_params
   end
 
   def destroy

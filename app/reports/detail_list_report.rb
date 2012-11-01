@@ -3,7 +3,11 @@ class DetailListReport < BaseReport
   def generate
     xml = Builder::XmlMarkup.new(:indent => 2)
     xml.instruct!
-    spexare_items = Spexare.find(session[params[:id].to_sym].split(',').collect{ |s| s.to_i }).sort_by { |s| s.first_name || '' }
+    if session[params[:id].to_sym].is_a? String
+      spexare_items = Spexare.find(session[params[:id].to_sym].split(',').collect{ |s| s.to_i }).sort_by { |s| s.first_name || '' }
+    else
+      spexare_items = Spexare.find(fetch_ids_from_solr(session[params[:id].to_sym])).sort_by { |s| s.first_name || '' }
+    end
     spexare_items.reverse! if params[:sort_order_descending]
     xml.SpexareItems do
       spexare_items.each do |spexare|
