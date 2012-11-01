@@ -57,7 +57,7 @@ class SpexController < ApplicationController
     @search.order ||= "ascend_by_year"
     
     if params[:format] != 'json'
-      @spex_items ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+      @spex_items ||= @search.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
     else
       @spex_items ||= @search.all
     end

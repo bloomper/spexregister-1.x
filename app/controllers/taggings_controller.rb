@@ -14,19 +14,19 @@ class TaggingsController < ApplicationController
   
   def create
     create! do |format|
-      @taggings = @spexare.taggings.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+      @taggings = @spexare.taggings.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
       flash.discard
       format.html { render :action => 'selected', :layout => false }
     end
   end
   
   def selected
-    @taggings = @spexare.taggings.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @taggings = @spexare.taggings.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
   end
   
   def destroy
     destroy! do |format|
-      @taggings = @spexare.taggings.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+      @taggings = @spexare.taggings.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
       flash.discard
       format.html { render :action => 'selected', :layout => false }
     end
@@ -34,7 +34,7 @@ class TaggingsController < ApplicationController
   
   def index
     index! do
-      @taggings = @spexare.taggings.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+      @taggings = @spexare.taggings.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
     end
   end
   
@@ -44,7 +44,7 @@ class TaggingsController < ApplicationController
   end  
   
   def collection
-    @taggings ||= end_of_association_chain.find(:all).paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @taggings ||= end_of_association_chain.find(:all).paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
   end
 
   def is_storeable_location?(uri)

@@ -30,6 +30,7 @@
             = link_to_delete_action tag, { :table => 'tags' }
 
 = will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+= render :partial => '/shared/per_page', :locals => { :size => @tags.total_entries }
 
 %br.clear
 

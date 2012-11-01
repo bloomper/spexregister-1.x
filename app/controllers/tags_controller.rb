@@ -37,7 +37,7 @@ class TagsController < ApplicationController
     @search = base_scope.search(params[:search])
     @search.order ||= "ascend_by_name"
     
-    @tags ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @tags ||= @search.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
   end
 
 end

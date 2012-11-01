@@ -48,7 +48,7 @@ class SpexareController < ApplicationController
     end
     @search.order ||= "ascend_by_last_name"
     
-    @spexare_items ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @spexare_items ||= @search.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
   end
 
   def show_search_result_back_links?

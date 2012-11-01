@@ -67,8 +67,8 @@ class UsersController < ApplicationController
     base_scope = end_of_association_chain
     @search = base_scope.search(params[:search])
     @search.order ||= "ascend_by_username"
-    
-    @users ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+
+    @users ||= @search.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
   end
   
 end

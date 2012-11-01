@@ -37,7 +37,7 @@ class ActivitiesController < ApplicationController
   end
 
   def selected
-    @activities = @spexare.activities.by_spex_year.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @activities = @spexare.activities.by_spex_year.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
   end
 
   def destroy
@@ -52,7 +52,8 @@ class ActivitiesController < ApplicationController
   end  
 
   def collection
-    @activities ||= end_of_association_chain.by_spex_year.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @per_page = params[:per_page] || ApplicationConfig.entities_per_page
+    @activities ||= end_of_association_chain.by_spex_year.paginate(:page => params[:page], :per_page => @per_page)
   end
 
   def is_storeable_location?(uri)

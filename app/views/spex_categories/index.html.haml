@@ -31,7 +31,8 @@
             = link_to_edit_action spex_category
             = link_to_delete_action spex_category, { :table => 'spex-categories' }
 
-= will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+= will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")
+= render :partial => '/shared/per_page', :locals => { :size => @spex_categories.total_entries }
 
 %br.clear
 

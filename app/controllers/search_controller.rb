@@ -22,7 +22,7 @@ class SearchController < ApplicationController
     @search = base_scope.search(params[:search])
     @search.order ||= "ascend_by_last_name"
     
-    @search_result ||= @search.find(:all, :select => 'DISTINCT spexare.id, spexare.last_name, spexare.first_name, spexare.nick_name').paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @search_result ||= @search.find(:all, :select => 'DISTINCT spexare.id, spexare.last_name, spexare.first_name, spexare.nick_name').paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
 
     session[:latest_search_query] = params
     session[:latest_search_query_ids] = @search.all.map(&:id).join(',')

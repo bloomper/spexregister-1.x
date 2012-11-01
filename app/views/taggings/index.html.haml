@@ -31,5 +31,6 @@
             %td= h tagging.tag.name
 
 = will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+= render :partial => '/shared/per_page', :locals => { :size => @taggings.total_entries }
 
 = render :partial => '/shared/back_links', :locals => { :url => previous_page }

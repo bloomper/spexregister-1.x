@@ -15,5 +15,6 @@
           %td= h translate_user_group(user_group.name)
 
 = will_paginate(:previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+= render :partial => '/shared/per_page', :locals => { :size => @user_groups.total_entries }
 
 = render :partial => '/shared/back_links', :locals => { :url => previous_page }

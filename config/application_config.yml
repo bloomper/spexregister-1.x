@@ -1,5 +1,6 @@
 development: &defaults
   entities_per_page: 10
+  allowed_entities_per_page: '10,20,50,100'
   latest_news_per_page: 8
   activities_per_row: 3
   # In Kb

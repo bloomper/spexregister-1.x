@@ -34,6 +34,7 @@
             = link_to_delete_action news, { :table => 'news' }
 
 = will_paginate(@news_items, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+= render :partial => '/shared/per_page', :locals => { :size => @news_items.total_entries }
 
 %br.clear
 

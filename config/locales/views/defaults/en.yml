@@ -57,3 +57,4 @@
       stale_object: "The entity could not be updated as it has already been updated by some other user. Please reload the entity and retry."
       internal_error: "Internal error, please try again"
       show_revivals: "Show revivals"
+      show_per_page: "Show per page"

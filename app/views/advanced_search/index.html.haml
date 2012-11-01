@@ -30,6 +30,7 @@
             = link_to_delete_action_with_url hit.primary_key, spexare_url(hit.primary_key), { :table => 'search_result' } if current_user_is_admin?
 
 = will_paginate(@search_result.hits, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+= render :partial => '/shared/per_page', :locals => { :size => @search_result.hits.total_entries }
 
 - if @search_result.total > 0
   %div.facets

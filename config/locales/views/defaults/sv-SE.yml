@@ -57,3 +57,4 @@
       stale_object: "Entiteten kunde inte uppdateras då den har redan uppdaterats av någon annan användare. Läs in entiteten och försök igen."
       internal_error: "Internt fel, försök igen"
       show_revivals: "Visa nyuppsättningar"
+      show_per_page: "Visa per sida"

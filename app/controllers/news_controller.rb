@@ -33,7 +33,7 @@ class NewsController < ApplicationController
     @search = base_scope.search(params[:search])
     @search.order ||= "descend_by_publication_date"
     
-    @news_items ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @news_items ||= @search.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
   end
   
 end

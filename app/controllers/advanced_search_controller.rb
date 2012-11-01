@@ -15,7 +15,7 @@ class AdvancedSearchController < ApplicationController
         end
         with(:publish_approval, YES) unless current_user_is_admin?
         order_by params[:order].split(' ').first.to_sym, params[:order].split(' ').last.to_sym
-        paginate :page => params[:page], :per_page => ApplicationConfig.entities_per_page
+        paginate :page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page
         facet(:facet_spex_categories, :sort => :index)
         facet(:facet_spex_years, :sort => :index)
         facet(:facet_spex_titles, :sort => :index)

@@ -11,13 +11,13 @@ class UserGroupsController < ApplicationController
   end
   
   def selected 
-    @user_groups = @user.user_groups.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @user_groups = @user.user_groups.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
   end
   
   def select
     @user.user_groups << UserGroup.find_by_id(params[:id])
     @user.save
-    @user_groups = @user.user_groups.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @user_groups = @user.user_groups.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
     set_available_user_groups
     render :action => 'selected', :layout => false
   end
@@ -25,7 +25,7 @@ class UserGroupsController < ApplicationController
   def remove
     @user.user_groups.delete(@user_group)
     @user.save
-    @user_groups = @user.user_groups.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @user_groups = @user.user_groups.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
     set_available_user_groups
     render :action => 'selected', :layout => false
   end
@@ -39,8 +39,8 @@ class UserGroupsController < ApplicationController
     base_scope = end_of_association_chain
     @search = base_scope.search(params[:search])
     @search.order ||= "ascend_by_name"
-    
-    @user_groups ||= @search.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+
+    @user_groups ||= @search.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
   end
 
   def is_storeable_location?(uri)

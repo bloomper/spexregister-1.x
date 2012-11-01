@@ -15,19 +15,19 @@ class MembershipsController < ApplicationController
   
   def create
     create! do |format|
-      @memberships = @spexare.memberships.by_kind(params[:by_kind]).by_year_desc.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+      @memberships = @spexare.memberships.by_kind(params[:by_kind]).by_year_desc.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
       flash.discard
       format.html { render :action => 'selected', :layout => false }
     end
   end
   
   def selected
-    @memberships = @spexare.memberships.by_kind(params[:by_kind]).by_year_desc.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @memberships = @spexare.memberships.by_kind(params[:by_kind]).by_year_desc.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
   end
   
   def destroy
     destroy! do |format|
-      @memberships = @spexare.memberships.by_kind(params[:by_kind]).by_year_desc.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+      @memberships = @spexare.memberships.by_kind(params[:by_kind]).by_year_desc.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
       flash.discard
       format.html { render :action => 'selected', :layout => false }
     end
@@ -35,7 +35,7 @@ class MembershipsController < ApplicationController
   
   def index
     index! do
-      @memberships = @spexare.memberships.by_kind(params[:by_kind]).paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+      @memberships = @spexare.memberships.by_kind(params[:by_kind]).paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
     end
   end
   
@@ -45,7 +45,7 @@ class MembershipsController < ApplicationController
   end  
   
   def collection
-    @memberships ||= end_of_association_chain.find(:all).paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @memberships ||= end_of_association_chain.find(:all).paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
   end
 
   def is_storeable_location?(uri)

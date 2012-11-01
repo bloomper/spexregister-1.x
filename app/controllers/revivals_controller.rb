@@ -11,7 +11,7 @@ class RevivalsController < ApplicationController
   end
   
   def selected 
-    @revivals = @spex.revivals.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @revivals = @spex.revivals.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
   end
   
   def select
@@ -32,7 +32,7 @@ class RevivalsController < ApplicationController
       end
     end
     @spex.reload
-    @revivals = @spex.revivals.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @revivals = @spex.revivals.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
     set_available_revivals
     render :action => 'selected', :layout => false
   end
@@ -40,7 +40,7 @@ class RevivalsController < ApplicationController
   def remove
     @revival.destroy
     @spex.reload
-    @revivals = @spex.revivals.paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @revivals = @spex.revivals.paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
     set_available_revivals
     render :action => 'selected', :layout => false
   end
@@ -51,7 +51,7 @@ class RevivalsController < ApplicationController
   end
   
   def collection
-    @revivals ||= end_of_association_chain.find(:all).paginate(:page => params[:page], :per_page => ApplicationConfig.entities_per_page)
+    @revivals ||= end_of_association_chain.find(:all).paginate(:page => params[:page], :per_page => params[:per_page] || ApplicationConfig.entities_per_page)
   end
 
   def is_storeable_location?(uri)

@@ -30,3 +30,4 @@
             = link_to_delete_action spexare, { :table => 'search_result' } if current_user_is_admin?
 
 = will_paginate(@search_result, :previous_label => "&#171; #{t('views.base.previous')}", :next_label => "#{t('views.base.next')} &#187;")           
+= render :partial => '/shared/per_page', :locals => { :size => @search_result.total_entries }
