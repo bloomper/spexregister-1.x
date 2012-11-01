@@ -1,6 +1,6 @@
 - size = 0 if local_assigns[:size].nil? 
 
-- if (params[:per_page].nil? && size > ApplicationConfig.entities_per_page) || !params[:per_page].nil?
+- if (params[:per_page].nil? && size > ApplicationConfig.entities_per_page) || (!params[:per_page].nil? && size > params[:per_page].to_i)
   .pagination-per-page
     = t 'views.base.show_per_page'
     - ApplicationConfig.allowed_entities_per_page.split(',').each_with_index do |per_page, index|
