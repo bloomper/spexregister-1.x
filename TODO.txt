@@ -1,34 +1,21 @@
 TODO
 ----
 
-- SWITCH TO LINUX and elasticsearch
+- Swapster99$$
 
-- Impl
-  - How to support wildcard searches
-  - N-gram (can only be done for text fields!)
-  - edismax instead of dismax?
-  - Swedish characters in fields? Does it work?
-    - Necessary to have Swedish fields?
-      - How to handle "boolean" fields in that case?
-  - Must be able to search for empty fields (think "uncertain" addresses)
-  - Fix search form
-    - Must support full text search AND query syntax
-  - Fix search results page
-  - Fix facets
-  - Add help popup
+- Style deselecting facet search as box with a X?
 
-- http://outofti.me/page/3
+- Upgrade to latest Sunspot prerelease (gem install sunspot_rails --pre and gem install sunspot_solr --pre)
 
-- Advanced search
-  - http://github.com/outoftime/sunspot
-  - http://techbot.me/2011/01/full-text-search-in-in-rails-with-sunspot-and-solr/
-
-- Mailman integration?
-
-- Upgrade Tomcat on bojan to 7.0.14
+- Upgrade Tomcat on bojan to 7.0.32
+- Set URIEncoding="UTF-8" in server.xml
 
 Whenever
 --------
+
+- App integration
+
+- Mailman integration
 
 - Tests
   - Replace fixtures with factories (Factory Girl)?
