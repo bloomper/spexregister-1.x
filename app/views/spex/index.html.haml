@@ -19,9 +19,9 @@
   %br.clear
   %table.index#spex
     %tr
-      %th= order @search, :by => :year, :as => t('activerecord.attributes.spex.year')
-      %th= order @search, :by => :title, :as => t('activerecord.attributes.spex_detail.title')
-      %th= order @search, :by => :spex_category_name, :as => t('activerecord.models.spex_category')
+      %th= order @search, :by => :year, :params => { :per_page => params[:per_page] }, :as => t('activerecord.attributes.spex.year')
+      %th= order @search, :by => :title, :params => { :per_page => params[:per_page] }, :as => t('activerecord.attributes.spex_detail.title')
+      %th= order @search, :by => :spex_category_name, :params => { :per_page => params[:per_page] }, :as => t('activerecord.models.spex_category')
       %th.action-column= t 'views.base.action'
       - @spex_items.each do |spex|
         %tr{:id => dom_id(spex), :class => cycle('even', 'odd')}

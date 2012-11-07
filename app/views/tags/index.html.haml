@@ -19,7 +19,7 @@
   %br.clear
   %table.index#tags
     %tr
-      %th= order @search, :by => :name, :as => t('activerecord.attributes.tag.name')
+      %th= order @search, :by => :name, :params => { :per_page => params[:per_page] }, :as => t('activerecord.attributes.tag.name')
       %th.action-column= t 'views.base.action'
       - @tags.each do |tag|
         %tr{:id => dom_id(tag), :class => cycle('even', 'odd')}

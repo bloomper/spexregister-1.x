@@ -19,8 +19,8 @@
   %br.clear
   %table.index#functions
     %tr
-      %th= order @search, :by => :name, :as => t('activerecord.attributes.function.name')
-      %th= order @search, :by => :function_category_name, :as => t('activerecord.models.function_category')
+      %th= order @search, :by => :name, :params => { :per_page => params[:per_page] }, :as => t('activerecord.attributes.function.name')
+      %th= order @search, :by => :function_category_name, :params => { :per_page => params[:per_page] }, :as => t('activerecord.models.function_category')
       %th.action-column= t 'views.base.action'
       - @functions.each do |function|
         %tr{:id => dom_id(function), :class => cycle('even', 'odd')}

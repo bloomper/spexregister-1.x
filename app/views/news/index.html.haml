@@ -19,9 +19,9 @@
   %br.clear
   %table.index#news
     %tr
-      %th= order @search, :by => :publication_date, :as => t('activerecord.attributes.news.publication_date')
-      %th= order @search, :by => :subject, :as => t('activerecord.attributes.news.subject')
-      %th= order @search, :by => :is_published, :as => t('activerecord.attributes.news.is_published')
+      %th= order @search, :by => :publication_date, :params => { :per_page => params[:per_page] }, :as => t('activerecord.attributes.news.publication_date')
+      %th= order @search, :by => :subject, :params => { :per_page => params[:per_page] }, :as => t('activerecord.attributes.news.subject')
+      %th= order @search, :by => :is_published, :params => { :per_page => params[:per_page] }, :as => t('activerecord.attributes.news.is_published')
       %th.action-column= t 'views.base.action'
       - @news_items.each do |news|
         %tr{:id => dom_id(news), :class => cycle('even', 'odd')}
