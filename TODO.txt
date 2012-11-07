@@ -3,13 +3,6 @@ TODO
 
 - Swapster99$$
 
-- Style deselecting facet search as box with a X?
-
-- Upgrade to latest Sunspot prerelease (gem install sunspot_rails --pre and gem install sunspot_solr --pre)
-
-- Upgrade Tomcat on bojan to 7.0.32
-- Set URIEncoding="UTF-8" in server.xml
-
 Whenever
 --------
 
