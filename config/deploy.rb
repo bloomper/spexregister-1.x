@@ -3,7 +3,7 @@ set :application, "spexregister"
 set :scm, :subversion
 set :scm_user, ENV['scm_user'] || "anders"
 set :scm_password, Proc.new { Capistrano::CLI.password_prompt("Subversion password for #{scm_user}: ") }
-set :repository, Proc.new { "--username #{scm_user} --password #{scm_password} --no-auth-cache svn://192.168.4.110:3690/spexregister/spexregister.ror/trunk"} 
+set :repository, Proc.new { "--username #{scm_user} --password #{scm_password} --no-auth-cache svn://192.168.4.110:3690/spexregister/spexregister.ror/branches/1.2-maintenance"} 
 
 role :web, "bojan.spexet.chalmers.se"
 role :app, "bojan.spexet.chalmers.se"
