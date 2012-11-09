@@ -61,11 +61,6 @@ body
     &:active,
     &:visited
       :color #3C7DFB
-    &.bold
-      :font-weight bold
-      &:active,
-      &:visited
-        :font-weight bold
   p
     :margin-right 1em
 
@@ -284,5 +279,24 @@ body
       :padding-left 0px
       :height 20px
       :width 20%
-      &.bold
-        :font-weight bold
+      :margin-bottom 4px
+      a
+        :padding 3px 7px
+        :color #154e8c
+        :background none
+        img
+          :vertical-align -3px
+          :margin-left 2px
+      &.selected
+        a
+          :background #154e8c
+          :color #9BC3FC
+          :-moz-border-radius 3px
+          :-webkit-border-radius 3px
+      &.unselected
+        a
+          :background #cdcdcd
+          :color #9BC3FC
+          :-moz-border-radius 3px
+          :-webkit-border-radius 3px
+

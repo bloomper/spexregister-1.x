@@ -1,9 +1,9 @@
 - size = 0 if local_assigns[:size].nil? 
 
-- if (params[:per_page].nil? && size > ApplicationConfig.entities_per_page) || (!params[:per_page].nil? && size > params[:per_page].to_i)
+- if (params[:per_page].nil? && size > ApplicationConfig.entities_per_page) || !params[:per_page].nil?
   .pagination-per-page
     = t 'views.base.show_per_page'
     - ApplicationConfig.allowed_entities_per_page.split(',').each_with_index do |per_page, index|
-      = radio_button_tag :per_page, per_page, params[:per_page].to_i == per_page.to_i ? true : (index == 0 ? true : false), :onchange => "if(this.value) { window.location = '?#{params.except(:action, :controller, :per_page).to_query + '&' unless params.except(:action, :controller, :per_page).empty?}per_page=' + this.value; }"
+      = radio_button_tag :per_page, per_page, params[:per_page].to_i == per_page.to_i ? true : (index == 0 ? true : false), :onchange => "if(this.value) { window.location = '?#{params.except(:action, :controller, :per_page, :page).to_query + '&' unless params.except(:action, :controller, :per_page, :page).empty?}per_page=' + this.value; }"
       = label_tag :per_page, per_page
     

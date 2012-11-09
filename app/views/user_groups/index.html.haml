@@ -9,7 +9,7 @@
   %br.clear
   %table.index
     %tr
-      %th= order @search, :by => :name, :as => t('activerecord.attributes.user_group.name')
+      %th= order @search, :by => :name, :params => { :per_page => params[:per_page] }, :as => t('activerecord.attributes.user_group.name')
       - @user_groups.each do |user_group|
         %tr{:id => dom_id(user_group), :class => cycle('even', 'odd')}
           %td= h translate_user_group(user_group.name)

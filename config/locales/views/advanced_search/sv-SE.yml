@@ -9,7 +9,7 @@
       empty_search_result: "Inga träffar"
       reset_search_result: "Nollställ sökresultat"
       facets_title: "Detaljera via..."
-      facet_notice: "Genom att klicka nedan är det möjligt att förfina sökningen. Observera att gjorda val (i fetstil) bygger på varandra men kan tas bort genom att klicka på dem igen. Siffran inom parentes indikerar antalet träffar."
+      facet_notice: "Genom att klicka nedan är det möjligt att förfina sökningen. Observera att gjorda val bygger på varandra men kan tas bort genom att klicka på dem igen. Siffran inom parentes indikerar antalet träffar."
       facet_spex_categories_title: "Spexkategorier"
       facet_spex_years_title: "Spexår"
       facet_spex_titles_title: "Spextitlar"

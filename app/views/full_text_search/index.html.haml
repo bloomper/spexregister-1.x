@@ -15,10 +15,10 @@
   .number-of-hits= page_entries_info @search_result.hits, { :entry_translation_group_key => 'spexare' }
   %table.index#search_result
     %tr
-      %th.score-column= order_full_text params[:order], :by => :score, :as => t('views.full_text_search.score'), :params => {:controller => :full_text_search, :action => :index, :query => params[:query] }
-      %th= order_full_text params[:order], :by => :last_name, :as => t('activerecord.attributes.spexare.last_name'), :params => {:controller => :full_text_search, :action => :index, :query => params[:query] }
-      %th= order_full_text params[:order], :by => :first_name, :as => t('activerecord.attributes.spexare.first_name'), :params => {:controller => :full_text_search, :action => :index, :query => params[:query] }
-      %th= order_full_text params[:order], :by => :nick_name, :as => t('activerecord.attributes.spexare.nick_name'), :params => {:controller => :full_text_search, :action => :index, :query => params[:query] }
+      %th.score-column= order_full_text params[:order], :by => :score, :params => { :per_page => params[:per_page] }, :as => t('views.full_text_search.score'), :params => {:controller => :full_text_search, :action => :index, :query => params[:query] }
+      %th= order_full_text params[:order], :by => :last_name, :params => { :per_page => params[:per_page] }, :as => t('activerecord.attributes.spexare.last_name'), :params => {:controller => :full_text_search, :action => :index, :query => params[:query] }
+      %th= order_full_text params[:order], :by => :first_name, :params => { :per_page => params[:per_page] }, :as => t('activerecord.attributes.spexare.first_name'), :params => {:controller => :full_text_search, :action => :index, :query => params[:query] }
+      %th= order_full_text params[:order], :by => :nick_name, :params => { :per_page => params[:per_page] }, :as => t('activerecord.attributes.spexare.nick_name'), :params => {:controller => :full_text_search, :action => :index, :query => params[:query] }
       %th.action-column= t 'views.base.action'
       - @search_result.hits.each do |hit|
         %tr{:id => hit.primary_key, :class => cycle('even', 'odd')}
@@ -38,71 +38,13 @@
   %div.facets
     %h2= t 'views.full_text_search.facets_title'
     %small= t 'views.full_text_search.facet_notice'
-  
-    - if !@search_result.facet(:facet_spex_categories).nil? && !@search_result.facet(:facet_spex_categories).rows.empty?
-      %div.facet
-        %h2= t 'views.full_text_search.facet_spex_categories_title'
-        %ul
-          - @search_result.facet(:facet_spex_categories).rows.each do |row|
-            - if (params[:facet_spex_categories] || []).include?(row.value)
-              - new_params = params.clone
-              - new_params[:facet_spex_categories] = new_params[:facet_spex_categories].reject { |x| x == row.value }
-              %li{ :class => 'bold' }== #{link_to(row.value, new_params.except(:page), :class => 'bold')} (#{row.count})
-            - else
-              %li== #{link_to(row.value, params.merge(:facet_spex_categories => ((params[:facet_spex_categories] || []) + [row.value])).except(:page))} (#{row.count})
-    
-    %br.clear
-    
-    - if !@search_result.facet(:facet_spex_years).nil? && !@search_result.facet(:facet_spex_years).rows.empty?
-      %div.facet
-        %h2= t 'views.full_text_search.facet_spex_years_title' 
-        %ul
-          - @search_result.facet(:facet_spex_years).rows.each do |row|
-            - if (params[:facet_spex_years] || []).include?(row.value)
-              - new_params = params.clone
-              - new_params[:facet_spex_years] = new_params[:facet_spex_years].reject { |x| x == row.value }
-              %li{ :class => 'bold' }== #{link_to(row.value, new_params.except(:page), :class => 'bold')} (#{row.count})
-            - else
-              %li== #{link_to(row.value, params.merge(:facet_spex_years => ((params[:facet_spex_years] || []) + [row.value])).except(:page))} (#{row.count})
-    
-    %br.clear
-    
-    - if !@search_result.facet(:facet_spex_titles).nil? && !@search_result.facet(:facet_spex_titles).rows.empty?
-      %div.facet
-        %h2= t 'views.full_text_search.facet_spex_titles_title' 
-        %ul
-          - @search_result.facet(:facet_spex_titles).rows.each do |row|
-            - if (params[:facet_spex_titles] || []).include?(row.value)
-              - new_params = params.clone
-              - new_params[:facet_spex_titles] = new_params[:facet_spex_titles].reject { |x| x == row.value }
-              %li{ :class => 'bold' }== #{link_to(row.value, new_params.except(:page), :class => 'bold')} (#{row.count})
-            - else
-              %li== #{link_to(row.value, params.merge(:facet_spex_titles => ((params[:facet_spex_titles] || []) + [row.value])).except(:page))} (#{row.count})
-    
-    %br.clear
-    
-    - if !@search_result.facet(:facet_function_categories).nil? && !@search_result.facet(:facet_function_categories).rows.empty?
-      %div.facet
-        %h2= t 'views.full_text_search.facet_function_categories_title' 
-        %ul
-          - @search_result.facet(:facet_function_categories).rows.each do |row|
-            - if (params[:facet_function_categories] || []).include?(row.value)
-              - new_params = params.clone
-              - new_params[:facet_function_categories] = new_params[:facet_function_categories].reject { |x| x == row.value }
-              %li{ :class => 'bold' }== #{link_to(row.value, new_params.except(:page), :class => 'bold')} (#{row.count})
-            - else
-              %li== #{link_to(row.value, params.merge(:facet_function_categories => ((params[:facet_function_categories] || []) + [row.value])).except(:page))} (#{row.count})
-    
-    %br.clear
-    
-    - if !@search_result.facet(:facet_function_names).nil? && !@search_result.facet(:facet_function_names).rows.empty?
-      %div.facet
-        %h2= t 'views.full_text_search.facet_function_names_title' 
-        %ul
-          - @search_result.facet(:facet_function_names).rows.each do |row|
-            - if (params[:facet_function_names] || []).include?(row.value)
-              - new_params = params.clone
-              - new_params[:facet_function_names] = new_params[:facet_function_names].reject { |x| x == row.value }
-              %li{ :class => 'bold' }== #{link_to(row.value, new_params.except(:page), :class => 'bold')} (#{row.count})
-            - else
-              %li== #{link_to(row.value, params.merge(:facet_function_names => ((params[:facet_function_names] || []) + [row.value])).except(:page))} (#{row.count})
+
+    = render :partial => '/shared/facet', :locals => { :facet => :facet_spex_categories, :title => 'views.full_text_search.facet_spex_categories_title' }
+
+    = render :partial => '/shared/facet', :locals => { :facet => :facet_spex_years, :title => 'views.full_text_search.facet_spex_years_title' }
+
+    = render :partial => '/shared/facet', :locals => { :facet => :facet_spex_titles, :title => 'views.full_text_search.facet_spex_titles_title' }
+
+    = render :partial => '/shared/facet', :locals => { :facet => :facet_function_categories, :title => 'views.full_text_search.facet_function_categories_title' }
+
+    = render :partial => '/shared/facet', :locals => { :facet => :facet_function_names, :title => 'views.full_text_search.facet_function_names_title' }

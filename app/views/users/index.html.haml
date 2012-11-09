@@ -19,8 +19,8 @@
   %br.clear
   %table.index#users
     %tr
-      %th= order @search, :by => :username, :as => t('activerecord.attributes.user.username')
-      %th= order @search, :by => :state, :as => t('activerecord.attributes.user.state')
+      %th= order @search, :by => :username, :params => { :per_page => params[:per_page] }, :as => t('activerecord.attributes.user.username')
+      %th= order @search, :by => :state, :params => { :per_page => params[:per_page] }, :as => t('activerecord.attributes.user.state')
       %th.action-column= t 'views.base.action'
       - @users.each do |user|
         %tr{:id => dom_id(user), :class => cycle('even', 'odd')}
