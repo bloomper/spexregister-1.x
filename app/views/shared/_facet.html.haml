@@ -1,0 +1,16 @@
+- facet = '' if local_assigns[:facet].nil?
+- title = '' if local_assigns[:title].nil?
+
+- if !@search_result.facet(facet).nil? && !@search_result.facet(facet).rows.empty?
+  %div.facet
+    %h2= t title
+    %ul
+      - @search_result.facet(facet).rows.each do |row|
+        - if (params[facet] || []).include?(row.value)
+          - new_params = params.clone
+          - new_params[facet] = new_params[facet].reject { |x| x == row.value }
+          %li{ :class => 'selected' }= link_to("#{row.value} (#{row.count}) #{icon_tag('minus')}".html_safe, new_params.except(:page))
+        - else
+          %li{ :class => 'unselected' }= link_to("#{row.value} (#{row.count}) #{icon_tag('plus')}".html_safe, params.merge(facet => ((params[facet] || []) + [row.value])).except(:page))
+
+  %br.clear
