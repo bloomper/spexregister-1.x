@@ -42,7 +42,11 @@ class AdvancedSearchController < ApplicationController
       redirect_to new_advanced_search_path
       return
     end
-    @search_result.query.solr_parameter_adjustment = Proc.new { |params| params[:fl] = 'id', params[:rows] = @search_result.hits.total_entries }
+    @search_result.query.solr_parameter_adjustment = Proc.new do |p|
+      p[:fl] = 'id'
+      p[:rows] = @search_result.hits.total_entries
+      p[:q] = params[:query]
+    end 
     
     session[:latest_advanced_search_query] = params
     session[:latest_advanced_search_query_ids] = @search_result.query.to_params
