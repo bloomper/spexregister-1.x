@@ -84,7 +84,7 @@ namespace :spexregister do
   # $ rake spexregister:reindex[,Spexare]      # reindex only the Spexare model
   # $ rake spexregister:reindex[1000,Spexare]  # reindex only the Spexare model in batches of 1000
   # $ rake spexregister:reindex[,Spexare+User]  # reindex Spexare and User model
-  task :reindex, :batch_size, :models, :needs => :environment do |t, args|
+  task :reindex, [:batch_size, :models, :needs] => :environment do |t, args|
     puts "Reindexing..."
     reindex_options = {:batch_commit => false}
     case args[:batch_size]

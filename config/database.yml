@@ -16,7 +16,7 @@ test:
   timeout: 5000
 
 production:
-  adapter: mysql
+  adapter: mysql2
   host: localhost
   port: 3306
   encoding: utf8

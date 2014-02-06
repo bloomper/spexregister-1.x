@@ -21,9 +21,9 @@
       %th.action-column= t 'views.base.action'
       - @search_result.hits.each do |hit|
         %tr{:id => hit.primary_key, :class => cycle('even', 'odd')}
-          %td{ :data => {:link => spexare_url(hit.primary_key)} }= h hit.stored(:last_name)
-          %td{ :data => {:link => spexare_url(hit.primary_key)} }= h hit.stored(:first_name)
-          %td{ :data => {:link => spexare_url(hit.primary_key)} }= h hit.stored(:nick_name)
+          %td{ :data => {:link => spexare_url(hit.primary_key)} }= h hit.stored(:last_name).first
+          %td{ :data => {:link => spexare_url(hit.primary_key)} }= h hit.stored(:first_name).first
+          %td{ :data => {:link => spexare_url(hit.primary_key)} }= h hit.stored(:nick_name).first
           %td.actions
             = link_to_view_action_with_url spexare_url(hit.primary_key)
             = link_to_edit_action_with_url edit_spexare_url(hit.primary_key) if current_user_is_admin? || (!current_user.spexare.nil? && current_user.spexare.id == hit.primary_key)
