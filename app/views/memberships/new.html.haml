@@ -8,10 +8,10 @@
       %th= t 'activerecord.attributes.membership.year'
       %th.action-column= t 'views.base.action'
       - @available_memberships.reverse.each do |available_membership|
-        %tr{:id => dom_id(available_membership), :class => cycle('even', 'odd')}
+        %tr{:id => available_membership, :class => cycle('even', 'odd')}
           %td
             = hidden_field_tag 'membership[year]', available_membership
             = hidden_field_tag 'membership[kind_id]', params[:by_kind]
             = available_membership
           %td.actions
-            = link_to_remote icon_tag('add') + ' ' + t('views.base.add_action'), { :url => spexare_memberships_url(@spexare, available_membership, :by_kind => params[:by_kind], :kind_name => params[:kind_name]), :method => :post, :submit => dom_id(available_membership), :before => '', :update => 'edit-memberships' }
+            = link_to_remote icon_tag('add') + ' ' + t('views.base.add_action'), { :url => spexare_memberships_url(@spexare, available_membership, :by_kind => params[:by_kind], :kind_name => params[:kind_name]), :method => :post, :submit => available_membership, :before => '', :update => 'edit-memberships' }
